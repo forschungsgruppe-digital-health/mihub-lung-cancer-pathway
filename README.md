@@ -1,6 +1,6 @@
-# Lungenkrebspatientenpfad (MiHUB – WP3)
+# Patient Journey Lungenkrebs (MiHUB)
 
-> **BPMN-Modell des übergreifenden Lungenkrebspatientenpfads** im Rahmen des Medical Informatics Hub (MiHUB), Arbeitspaket 3 (WP3): _Übergreifende Patientenpfade_
+> **BPMN-Modell der übergreifenden Lungenkrebs-Patient Journey** (_sog. Patientenpfad_) im Rahmen des Medical Informatics Hub (MiHUB), Arbeitspaket 3 (WP3): _Übergreifende Patientenpfade_
 
 [![Lizenz: CC BY 4.0](https://img.shields.io/badge/Lizenz-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Projekt: MiHUB](https://img.shields.io/badge/Projekt-MiHUB-blue)](https://mihubx.de/mihub/)
@@ -9,9 +9,10 @@
 
 ---
 
+
 ## Projektkontext
 
-Dieses Repository ist Teil des **Medical Informatics Hub (MiHUB)**, einem Digitalen FortschrittsHub (DigiHub) der [Medizininformatik-Initiative (MII)](https://www.medizininformatik-initiative.de/) des Bundesministeriums für Forschung, Technologie und Raumfahrt (BMFTR). MiHUB hat das Ziel, eine intersektorale, serviceorientierte Infrastruktur zur Verbesserung der sektorenübergreifenden Versorgung und Forschung in der Onkologie aufzubauen. Das übergreifende Anwendungsszenario ist die **Versorgung von Lungenkrebspatient:innen** entlang eines vollständigen Patient:innen-Journey, von der Früherkennung über Diagnostik und Behandlung bis hin zu Nachsorge und Langzeitbegleitung.
+Dieses Repository ist Teil des [**Medical Informatics Hub (MiHUB)**](https://mihubx.de/mihub/), einem Digitalen FortschrittsHub (DigiHub) der [Medizininformatik-Initiative (MII)](https://www.medizininformatik-initiative.de/) des Bundesministeriums für Forschung, Technologie und Raumfahrt (BMFTR). MiHUB hat das Ziel, eine intersektorale, serviceorientierte Infrastruktur zur Verbesserung der sektorenübergreifenden Versorgung und Forschung in der Onkologie aufzubauen. Das übergreifende Anwendungsszenario ist die **Versorgung von Lungenkrebspatient:innen** entlang einer vollständigen Patient Journey, von der Früherkennung über Diagnostik und Behandlung bis hin zu Nachsorge und Langzeitbegleitung.
 
 Konsortialführer ist die Technische Universität Dresden (Zentrum für Medizinische Informatik, ZMI). Weitere Konsortialpartner sind die Medizinische Universität Lausitz – Carl Thiem (Cottbus), das Klinikum Chemnitz und die Hochschule Mittweida. MiHUB kooperiert eng mit anderen DigiHubs im Rahmen des Cross-Hub Use Case _„Digitale Unterstützung in komplexen Patientenpfaden"_.
 
@@ -55,23 +56,23 @@ Die BPMN-Modelle werden in zwei Formaten bereitgestellt:
 
 ### Übergreifender Patientenpfad
 
-| Datei                                 | Beschreibung                                                 |
-| ------------------------------------- | ------------------------------------------------------------ |
-| `lung-cancer_overarching-pathway.xml` | BPMN-Quelldatei des übergreifenden Lungenkrebspatientenpfads |
-| `lung-cancer_overarching-pathway.svg` | Visualisierung des übergreifenden Lungenkrebspatientenpfads  |
+| Datei                                 | Beschreibung                                                                                          |
+| ------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| [`lung-cancer_overarching-pathway.xml`](./lung-cancer_overarching-pathway.xml) | BPMN-Quelldatei des übergreifenden Lungenkrebspatientenpfads |
+| [`lung-cancer_overarching-pathway.svg`](./lung-cancer_overarching-pathway.svg) | Visualisierung des übergreifenden Lungenkrebspatientenpfads  |
 
 Der übergreifende Pfad bildet den vollständigen Patient:innen-Journey von der Prävention/Früherkennung bis zur Nachsorge ab und verknüpft alle Teilpfade miteinander.
 
 ### Teilpfade (Sub-Pathways)
 
-| Datei (Prefix `lung-cancer_`)                   | Beschreibung                            |
-| ----------------------------------------------- | --------------------------------------- |
-| `diagnostic-subpathway.xml` / `.svg`            | Teilpfad Diagnostik                     |
-| `patient-consultation-subpathway.xml` / `.svg`  | Teilpfad Patientengespräch / Aufklärung |
-| `tumor-board-subpathway.xml` / `.svg`           | Teilpfad Tumorboard                     |
-| `molecular-tumor-board-subpathway.xml` / `.svg` | Teilpfad Molekulares Tumorboard         |
-| `treatment-subpathway.xml` / `.svg`             | Teilpfad Behandlung                     |
-| `aftercare-subpathway.xml` / `.svg`             | Teilpfad Nachsorge                      |
+| Datei                                                                                                                                                                   | Beschreibung                            |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| [`lung-cancer_diagnostic-subpathway.xml`](./lung-cancer_diagnostic-subpathway.xml) / [`.svg`](./lung-cancer_diagnostic-subpathway.svg)                                  | Teilpfad Diagnostik                     |
+| [`lung-cancer_patient-consultation-subpathway.xml`](./lung-cancer_patient-consultation-subpathway.xml) / [`.svg`](./lung-cancer_patient-consultation-subpathway.svg)    | Teilpfad Patientengespräch / Aufklärung |
+| [`lung-cancer_tumor-board-subpathway.xml`](./lung-cancer_tumor-board-subpathway.xml) / [`.svg`](./lung-cancer_tumor-board-subpathway.svg)                               | Teilpfad Tumorboard                     |
+| [`lung-cancer_molecular-tumor-board-subpathway.xml`](./lung-cancer_molecular-tumor-board-subpathway.xml) / [`.svg`](./lung-cancer_molecular-tumor-board-subpathway.svg) | Teilpfad Molekulares Tumorboard         |
+| [`lung-cancer_treatment-subpathway.xml`](./lung-cancer_treatment-subpathway.xml) / [`.svg`](./lung-cancer_treatment-subpathway.svg)                                     | Teilpfad Behandlung                     |
+| [`lung-cancer_aftercare-subpathway.xml`](./lung-cancer_aftercare-subpathway.xml) / [`.svg`](./lung-cancer_aftercare-subpathway.svg)                                     | Teilpfad Nachsorge                      |
 
 ---
 
@@ -135,6 +136,11 @@ Bei Weiterverwendung bitte folgende Angabe verwenden:
 ## Förderhinweis
 
 Dieses Artefakt ist im Rahmen des Verbundprojekts **Medical Informatics Hub/MiHUB** als Teil der **Medizininformatik-Initiative (MII)** entstanden und wird gefördert durch das **Bundesministerium für Forschung, Technologie und Raumfahrt (BMFTR)**, Förderkennzeichen: 01ZZ2506A.
+
+<p align="middle">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/BMFTR_Logo.svg/1280px-BMFTR_Logo.svg.png" width="500" />
+  <img src="https://mihubx.de/wp-content/uploads/2026/01/FortschrittsHubs_rgb_mihub.png" width="300" />
+</p>
 
 ---
 
