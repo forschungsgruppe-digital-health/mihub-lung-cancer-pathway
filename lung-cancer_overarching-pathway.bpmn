@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn2:definitions xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" xmlns:cp="http://www.helict.de/bpmn4cp" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" xml:lang="de">
+<bpmn2:definitions xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0"
+  xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL"
+  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+  xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0"
+  xmlns:cp="http://www.helict.de/bpmn4cp" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+  xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="sample-diagram"
+  targetNamespace="http://bpmn.io/schema/bpmn"
+  xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" xml:lang="de">
   <bpmn2:collaboration id="Collaboration_0mif9f6">
-    <bpmn2:participant id="Participant_0d4pi4v" name="Vorlage Patientenpfad für Lungenkrebs" processRef="Process_1">
+    <bpmn2:participant id="Participant_0d4pi4v" name="Vorlage Patientenpfad für Lungenkrebs"
+      processRef="Process_1">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">Lung Cancer Patient Pathway Template for Lung Cancer CCCNs</i18n:translation>
         <i18n:translation xml:lang="de">Vorlage Patientenpfad für Lungenkrebs</i18n:translation>
@@ -21,7 +31,8 @@
     <bpmn2:textAnnotation id="TextAnnotation_16s2jjh">
       <bpmn2:extensionElements>
         <i18n:translation target="@text" xml:lang="en">held at least once a week [LC SoS 1.2.2.A]</i18n:translation>
-        <i18n:translation target="@text" xml:lang="de">findet mindestens einmal pro Woche statt [LC SoS 1.2.2.A]</i18n:translation>
+        <i18n:translation target="@text" xml:lang="de">findet mindestens einmal pro Woche statt [LC
+          SoS 1.2.2.A]</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:text>findet mindestens einmal pro Woche statt [LC SoS 1.2.2.A]</bpmn2:text>
     </bpmn2:textAnnotation>
@@ -31,12 +42,12 @@
           1.2.3.A]; molecular tumour board if necessary (see inclusion criteria in subprocess for
           MTB); if necessary incl. staging diagnostics</i18n:translation>
         <i18n:translation target="@text" xml:lang="de">verpflichtend: nach chirurgischer Therapie
-[LC SoS 1.2.3.A]; bei Bedarf MTB (siehe Einschlusskriterien im
-Teilprozess für das MTB); bei Bedarf inkl. Staging-Diagnostik</i18n:translation>
+          [LC SoS 1.2.3.A]; bei Bedarf MTB (siehe Einschlusskriterien im
+          Teilprozess für das MTB); bei Bedarf inkl. Staging-Diagnostik</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:text>verpflichtend: nach chirurgischer Therapie
-[LC SoS 1.2.3.A]; bei Bedarf MTB (siehe Einschlusskriterien im
-Teilprozess für das MTB); bei Bedarf inkl. Staging-Diagnostik</bpmn2:text>
+        [LC SoS 1.2.3.A]; bei Bedarf MTB (siehe Einschlusskriterien im
+        Teilprozess für das MTB); bei Bedarf inkl. Staging-Diagnostik</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:textAnnotation id="TextAnnotation_0si34sk">
       <bpmn2:extensionElements>
@@ -46,51 +57,57 @@ Teilprozess für das MTB); bei Bedarf inkl. Staging-Diagnostik</bpmn2:text>
           self-help/ patient support groups [LC SoS 1.6.7], explain treatment plan to patient, hand
           out copy [LC SoS 1.2.2.F]</i18n:translation>
         <i18n:translation target="@text" xml:lang="de">Patienteninformation und
-Dialog [LC SoS 6.1.16];
-Mitteilung der Diagnose
-[LC SoS 2.1.5]; Therapieoptionen, Erfolgsaussichten und mögliche Auswirkungen, Unterstützung
-bei der Einholung einer
-Zweitmeinung anbieten
-[LC SoS 2.1.4]; über Selbsthilfe-/Patientenunterstützungsgruppen informieren [LC SoS 1.6.7],
-Behandlungsplan mit dem
-Patienten besprechen,
-Kopie aushändigen
-[LC SoS 1.2.2.F]</i18n:translation>
+          Dialog [LC SoS 6.1.16];
+          Mitteilung der Diagnose
+          [LC SoS 2.1.5]; Therapieoptionen, Erfolgsaussichten und mögliche Auswirkungen,
+          Unterstützung
+          bei der Einholung einer
+          Zweitmeinung anbieten
+          [LC SoS 2.1.4]; über Selbsthilfe-/Patientenunterstützungsgruppen informieren [LC SoS
+          1.6.7],
+          Behandlungsplan mit dem
+          Patienten besprechen,
+          Kopie aushändigen
+          [LC SoS 1.2.2.F]</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:text>Patienteninformation und
-Dialog [LC SoS 6.1.16];
-Mitteilung der Diagnose
-[LC SoS 2.1.5]; Therapieoptionen, Erfolgsaussichten und mögliche Auswirkungen, Unterstützung
-bei der Einholung einer
-Zweitmeinung anbieten
-[LC SoS 2.1.4]; über Selbsthilfe-/Patientenunterstützungsgruppen informieren [LC SoS 1.6.7],
-Behandlungsplan mit dem
-Patienten besprechen,
-Kopie aushändigen
-[LC SoS 1.2.2.F]</bpmn2:text>
+        Dialog [LC SoS 6.1.16];
+        Mitteilung der Diagnose
+        [LC SoS 2.1.5]; Therapieoptionen, Erfolgsaussichten und mögliche Auswirkungen, Unterstützung
+        bei der Einholung einer
+        Zweitmeinung anbieten
+        [LC SoS 2.1.4]; über Selbsthilfe-/Patientenunterstützungsgruppen informieren [LC SoS 1.6.7],
+        Behandlungsplan mit dem
+        Patienten besprechen,
+        Kopie aushändigen
+        [LC SoS 1.2.2.F]</bpmn2:text>
     </bpmn2:textAnnotation>
-    <bpmn2:association id="Association_08q0dpe" associationDirection="None" sourceRef="Activity_1oagskd" targetRef="TextAnnotation_16s2jjh" />
+    <bpmn2:association id="Association_08q0dpe" associationDirection="None"
+      sourceRef="Activity_1oagskd" targetRef="TextAnnotation_16s2jjh" />
     <bpmn2:textAnnotation id="TextAnnotation_1t1txqb">
       <bpmn2:extensionElements>
         <i18n:translation target="@text" xml:lang="en">Can be offered to well-informed heavy smokers
           aged 55 to 74 years
           within a special programme in experienced CT centres (ESMO)</i18n:translation>
         <i18n:translation target="@text" xml:lang="de">Kann gut informierten starken Rauchern im
-Alter von 55 bis 74 Jahren im Rahmen eines speziellen Programms in erfahrenen CT-Zentren angeboten werden (ESMO)</i18n:translation>
+          Alter von 55 bis 74 Jahren im Rahmen eines speziellen Programms in erfahrenen CT-Zentren
+          angeboten werden (ESMO)</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:text>Kann gut informierten starken Rauchern im
-Alter von 55 bis 74 Jahren im Rahmen eines speziellen Programms in erfahrenen CT-Zentren angeboten werden (ESMO)</bpmn2:text>
+        Alter von 55 bis 74 Jahren im Rahmen eines speziellen Programms in erfahrenen CT-Zentren
+        angeboten werden (ESMO)</bpmn2:text>
     </bpmn2:textAnnotation>
-    <bpmn2:association id="Association_0uvqsz7" sourceRef="Event_0lk7fnw" targetRef="TextAnnotation_1t1txqb" />
+    <bpmn2:association id="Association_0uvqsz7" sourceRef="Event_0lk7fnw"
+      targetRef="TextAnnotation_1t1txqb" />
     <bpmn2:textAnnotation id="TextAnnotation_1vyiqzt">
       <bpmn2:extensionElements>
         <i18n:translation target="@text" xml:lang="en">with reference to national/international lung
           cancer guidelines</i18n:translation>
         <i18n:translation target="@text" xml:lang="de">unter Bezug auf nationale/ internationale
-Leitlinien zu Lungenkrebs</i18n:translation>
+          Leitlinien zu Lungenkrebs</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:text>unter Bezug auf nationale/ internationale
-Leitlinien zu Lungenkrebs</bpmn2:text>
+        Leitlinien zu Lungenkrebs</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:textAnnotation id="TextAnnotation_1hvq9ik">
       <bpmn2:extensionElements>
@@ -100,30 +117,32 @@ Leitlinien zu Lungenkrebs</bpmn2:text>
           eines der folgenden Ereignisse eintritt, endet die Nachsorge)</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:text>= exklusives, ereignisbasiertes Gateway (wenn
-          eines der folgenden Ereignisse eintritt, endet die Nachsorge)</bpmn2:text>
+        eines der folgenden Ereignisse eintritt, endet die Nachsorge)</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:textAnnotation id="TextAnnotation_0bz1ngb">
       <bpmn2:extensionElements>
         <i18n:translation target="@text" xml:lang="en">optional, according to national standards/
           conditions</i18n:translation>
         <i18n:translation target="@text" xml:lang="de">optional, gemäß nationalen
-Standards/Rahmenbedingungen</i18n:translation>
+          Standards/Rahmenbedingungen</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:text>optional, gemäß nationalen
-Standards/Rahmenbedingungen</bpmn2:text>
+        Standards/Rahmenbedingungen</bpmn2:text>
     </bpmn2:textAnnotation>
-    <bpmn2:association id="Association_0lk8h3z" associationDirection="None" sourceRef="Activity_1kfbd29" targetRef="TextAnnotation_0si34sk" />
+    <bpmn2:association id="Association_0lk8h3z" associationDirection="None"
+      sourceRef="Activity_1kfbd29" targetRef="TextAnnotation_0si34sk" />
     <bpmn2:textAnnotation id="TextAnnotation_18ocbdb">
       <bpmn2:extensionElements>
         <i18n:translation target="@text" xml:lang="en">prerequisite is a formal tumour board
           decision from one of the CCCN partners</i18n:translation>
         <i18n:translation target="@text" xml:lang="de">Voraussetzung ist eine formale
-Tumorboard-Entscheidung eines Leistungserbringers der beteiligten Fachgebiete</i18n:translation>
+          Tumorboard-Entscheidung eines Leistungserbringers der beteiligten Fachgebiete</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:text>Voraussetzung ist eine formale
-Tumorboard-Entscheidung eines Leistungserbringers der beteiligten Fachgebiete</bpmn2:text>
+        Tumorboard-Entscheidung eines Leistungserbringers der beteiligten Fachgebiete</bpmn2:text>
     </bpmn2:textAnnotation>
-    <bpmn2:association id="Association_1hxfq3m" associationDirection="None" sourceRef="Event_0ob48r7" targetRef="TextAnnotation_18ocbdb" />
+    <bpmn2:association id="Association_1hxfq3m" associationDirection="None"
+      sourceRef="Event_0ob48r7" targetRef="TextAnnotation_18ocbdb" />
     <bpmn2:textAnnotation id="TextAnnotation_00rg0wp">
       <bpmn2:extensionElements>
         <i18n:translation target="@text" xml:lang="en">in parallel to therapy; aim: maintain and
@@ -138,16 +157,21 @@ Tumorboard-Entscheidung eines Leistungserbringers der beteiligten Fachgebiete</b
           [LC SoS 1.9.4], palliative Versorgung [LC SoS 9]</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:text>parallel zur Therapie; Ziel: Erhalt und
-          Verbesserung der Lebensqualität [siehe LC SoS 1.2.5], z. B. durch Ernährungsberatung [LC
-          SoS 1.9.2], Schmerztherapie und Linderung nach dem WHO-Stufenschema, psychoonkologische
-          Beurteilung und Versorgung [LC SoS 1.4], psychosoziale Versorgung, spirituelle Begleitung
-          [LC SoS 1.9.4], palliative Versorgung [LC SoS 9]</bpmn2:text>
+        Verbesserung der Lebensqualität [siehe LC SoS 1.2.5], z. B. durch Ernährungsberatung [LC
+        SoS 1.9.2], Schmerztherapie und Linderung nach dem WHO-Stufenschema, psychoonkologische
+        Beurteilung und Versorgung [LC SoS 1.4], psychosoziale Versorgung, spirituelle Begleitung
+        [LC SoS 1.9.4], palliative Versorgung [LC SoS 9]</bpmn2:text>
     </bpmn2:textAnnotation>
-    <bpmn2:association id="Association_1e4fk0h" sourceRef="Activity_0j2qg6r" targetRef="TextAnnotation_0ar7hqt" />
-    <bpmn2:association id="Association_0xgjfzc" sourceRef="Activity_00jcqor" targetRef="TextAnnotation_1vyiqzt" />
-    <bpmn2:association id="Association_1pgun5c" sourceRef="Activity_04dz2ib" targetRef="TextAnnotation_00rg0wp" />
-    <bpmn2:association id="Association_1l9iiws" sourceRef="Activity_0d6f9vx" targetRef="TextAnnotation_0bz1ngb" />
-    <bpmn2:association id="Association_199pfeh" sourceRef="Gateway_057o3a9" targetRef="TextAnnotation_1hvq9ik" />
+    <bpmn2:association id="Association_1e4fk0h" sourceRef="Activity_0j2qg6r"
+      targetRef="TextAnnotation_0ar7hqt" />
+    <bpmn2:association id="Association_0xgjfzc" sourceRef="Activity_00jcqor"
+      targetRef="TextAnnotation_1vyiqzt" />
+    <bpmn2:association id="Association_1pgun5c" sourceRef="Activity_04dz2ib"
+      targetRef="TextAnnotation_00rg0wp" />
+    <bpmn2:association id="Association_1l9iiws" sourceRef="Activity_0d6f9vx"
+      targetRef="TextAnnotation_0bz1ngb" />
+    <bpmn2:association id="Association_199pfeh" sourceRef="Gateway_057o3a9"
+      targetRef="TextAnnotation_1hvq9ik" />
     <bpmn2:textAnnotation id="TextAnnotation_01moynn">
       <bpmn2:extensionElements>
         <i18n:translation target="@text" xml:lang="en">is there a "discharge consultation" before?</i18n:translation>
@@ -155,7 +179,8 @@ Tumorboard-Entscheidung eines Leistungserbringers der beteiligten Fachgebiete</b
       </bpmn2:extensionElements>
       <bpmn2:text>Gibt es davor ein "Entlassungsgespräch"?</bpmn2:text>
     </bpmn2:textAnnotation>
-    <bpmn2:association id="Association_1pcgi87" associationDirection="None" sourceRef="Activity_1ssltri" targetRef="TextAnnotation_01moynn" />
+    <bpmn2:association id="Association_1pcgi87" associationDirection="None"
+      sourceRef="Activity_1ssltri" targetRef="TextAnnotation_01moynn" />
     <bpmn2:textAnnotation id="TextAnnotation_0ix2m2m">
       <bpmn2:extensionElements>
         <i18n:translation target="@text" xml:lang="en">delete?</i18n:translation>
@@ -163,7 +188,8 @@ Tumorboard-Entscheidung eines Leistungserbringers der beteiligten Fachgebiete</b
       </bpmn2:extensionElements>
       <bpmn2:text>löschen?</bpmn2:text>
     </bpmn2:textAnnotation>
-    <bpmn2:association id="Association_1mbxtrz" associationDirection="None" sourceRef="DataObjectReference_07lhp7y" targetRef="TextAnnotation_0ix2m2m" />
+    <bpmn2:association id="Association_1mbxtrz" associationDirection="None"
+      sourceRef="DataObjectReference_07lhp7y" targetRef="TextAnnotation_0ix2m2m" />
     <bpmn2:textAnnotation id="TextAnnotation_1kktshw">
       <bpmn2:extensionElements>
         <i18n:translation target="@text" xml:lang="en">is there really a last ending CCCN care
@@ -172,9 +198,10 @@ Tumorboard-Entscheidung eines Leistungserbringers der beteiligten Fachgebiete</b
           CCCN-Abschlussgespräch nach Nachsorge/Follow-up?</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:text>Gibt es wirklich noch ein abschließendes
-          CCCN-Abschlussgespräch nach Nachsorge/Follow-up?</bpmn2:text>
+        CCCN-Abschlussgespräch nach Nachsorge/Follow-up?</bpmn2:text>
     </bpmn2:textAnnotation>
-    <bpmn2:association id="Association_1ctesum" associationDirection="None" sourceRef="Activity_1o0prcl" targetRef="TextAnnotation_1kktshw" />
+    <bpmn2:association id="Association_1ctesum" associationDirection="None"
+      sourceRef="Activity_1o0prcl" targetRef="TextAnnotation_1kktshw" />
     <bpmn2:textAnnotation id="TextAnnotation_1e63kee">
       <bpmn2:extensionElements>
         <i18n:translation target="@text" xml:lang="en">The patient's decision is documented
@@ -184,10 +211,11 @@ Tumorboard-Entscheidung eines Leistungserbringers der beteiligten Fachgebiete</b
           [LC SoS 1.2.2.F]</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:text>Die Entscheidung des Patienten wird
-          dokumentiert
-          [LC SoS 1.2.2.F]</bpmn2:text>
+        dokumentiert
+        [LC SoS 1.2.2.F]</bpmn2:text>
     </bpmn2:textAnnotation>
-    <bpmn2:association id="Association_1lptieh" associationDirection="None" sourceRef="Event_0i29fxn" targetRef="TextAnnotation_1e63kee" />
+    <bpmn2:association id="Association_1lptieh" associationDirection="None"
+      sourceRef="Event_0i29fxn" targetRef="TextAnnotation_1e63kee" />
   </bpmn2:collaboration>
   <bpmn2:process id="Process_1" isExecutable="false">
     <bpmn2:laneSet id="LaneSet_0s8yyt4">
@@ -246,14 +274,16 @@ Tumorboard-Entscheidung eines Leistungserbringers der beteiligten Fachgebiete</b
         <bpmn2:flowNodeRef>Activity_1bp1ni9</bpmn2:flowNodeRef>
       </bpmn2:lane>
     </bpmn2:laneSet>
-    <bpmn2:sequenceFlow id="Flow_0snmrit" name="nein" sourceRef="Gateway_15a3cdo" targetRef="Gateway_0kn6v4a">
+    <bpmn2:sequenceFlow id="Flow_0snmrit" name="nein" sourceRef="Gateway_15a3cdo"
+      targetRef="Gateway_0kn6v4a">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">no</i18n:translation>
         <i18n:translation xml:lang="de">nein</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:sequenceFlow>
     <bpmn2:sequenceFlow id="Flow_082bfua" sourceRef="Activity_1oagskd" targetRef="Gateway_15a3cdo" />
-    <bpmn2:sequenceFlow id="Flow_1p26pel" name="ja" sourceRef="Gateway_15a3cdo" targetRef="Gateway_0bu2rhk">
+    <bpmn2:sequenceFlow id="Flow_1p26pel" name="ja" sourceRef="Gateway_15a3cdo"
+      targetRef="Gateway_0bu2rhk">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">yes</i18n:translation>
         <i18n:translation xml:lang="de">ja</i18n:translation>
@@ -265,7 +295,8 @@ Tumorboard-Entscheidung eines Leistungserbringers der beteiligten Fachgebiete</b
     <bpmn2:sequenceFlow id="Flow_0ogopph" sourceRef="Gateway_057o3a9" targetRef="Event_0bfbqw9" />
     <bpmn2:sequenceFlow id="Flow_1g7oxkd" sourceRef="Activity_1o0prcl" targetRef="Gateway_0ql4uic" />
     <bpmn2:sequenceFlow id="Flow_1x62zjy" sourceRef="Activity_0sqh02u" targetRef="Activity_1lzf9md" />
-    <bpmn2:sequenceFlow id="Flow_110pitn" name="ja" sourceRef="Gateway_121hc5t" targetRef="Activity_0sqh02u">
+    <bpmn2:sequenceFlow id="Flow_110pitn" name="ja" sourceRef="Gateway_121hc5t"
+      targetRef="Activity_0sqh02u">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">yes</i18n:translation>
         <i18n:translation xml:lang="de">ja</i18n:translation>
@@ -273,19 +304,22 @@ Tumorboard-Entscheidung eines Leistungserbringers der beteiligten Fachgebiete</b
     </bpmn2:sequenceFlow>
     <bpmn2:sequenceFlow id="Flow_1f01g5l" sourceRef="Activity_0j2qg6r" targetRef="Gateway_0dy45pb" />
     <bpmn2:sequenceFlow id="Flow_0ch5uho" sourceRef="Gateway_1p3qvpd" targetRef="Activity_04dz2ib" />
-    <bpmn2:sequenceFlow id="Flow_0p8hlgd" name="Behandlung fortführen / anpassen / ändern" sourceRef="Gateway_0dy45pb" targetRef="Gateway_1ortmgh">
+    <bpmn2:sequenceFlow id="Flow_0p8hlgd" name="Behandlung fortführen / anpassen / ändern"
+      sourceRef="Gateway_0dy45pb" targetRef="Gateway_1ortmgh">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">continue / adapt / change treatment</i18n:translation>
         <i18n:translation xml:lang="de">Behandlung fortführen / anpassen / ändern</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:sequenceFlow>
-    <bpmn2:sequenceFlow id="Flow_1y3u9cv" name="nein" sourceRef="Gateway_0gpo9ms" targetRef="Gateway_0bu2rhk">
+    <bpmn2:sequenceFlow id="Flow_1y3u9cv" name="nein" sourceRef="Gateway_0gpo9ms"
+      targetRef="Gateway_0bu2rhk">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">no</i18n:translation>
         <i18n:translation xml:lang="de">nein</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:sequenceFlow>
-    <bpmn2:sequenceFlow id="Flow_01y64i7" name="Verdacht auf Sekundärmetastasen ODER Rezidiv" sourceRef="Event_0wy6prt" targetRef="Gateway_16sz6ia">
+    <bpmn2:sequenceFlow id="Flow_01y64i7" name="Verdacht auf Sekundärmetastasen ODER Rezidiv"
+      sourceRef="Event_0wy6prt" targetRef="Gateway_16sz6ia">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">suspicion of secondary metastases OR
           recurrence</i18n:translation>
@@ -295,7 +329,8 @@ Tumorboard-Entscheidung eines Leistungserbringers der beteiligten Fachgebiete</b
     <bpmn2:sequenceFlow id="Flow_0fyh4tp" sourceRef="Gateway_0fvha0n" targetRef="Gateway_09l9dd0" />
     <bpmn2:sequenceFlow id="Flow_1rekhqr" sourceRef="Activity_16oze6f" targetRef="Gateway_0fvha0n" />
     <bpmn2:sequenceFlow id="Flow_14ehe2c" sourceRef="Activity_1rdfhgh" targetRef="Gateway_0r2rbhc" />
-    <bpmn2:sequenceFlow id="Flow_0vo0zum" name="kein Lungenkrebs bestätigt" sourceRef="Gateway_0fvha0n" targetRef="Activity_08dp53e">
+    <bpmn2:sequenceFlow id="Flow_0vo0zum" name="kein Lungenkrebs bestätigt"
+      sourceRef="Gateway_0fvha0n" targetRef="Activity_08dp53e">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">no lung cancer confirmed</i18n:translation>
         <i18n:translation xml:lang="de">kein Lungenkrebs bestätigt</i18n:translation>
@@ -303,75 +338,88 @@ Tumorboard-Entscheidung eines Leistungserbringers der beteiligten Fachgebiete</b
     </bpmn2:sequenceFlow>
     <bpmn2:sequenceFlow id="Flow_194y7kd" sourceRef="Gateway_16sz6ia" targetRef="Event_06iq4pa" />
     <bpmn2:sequenceFlow id="Flow_17cqgt2" sourceRef="Gateway_057o3a9" targetRef="Event_0wy6prt" />
-    <bpmn2:sequenceFlow id="Flow_0ggiww7" name="ja" sourceRef="Gateway_0gpo9ms" targetRef="Gateway_0r2rbhc">
+    <bpmn2:sequenceFlow id="Flow_0ggiww7" name="ja" sourceRef="Gateway_0gpo9ms"
+      targetRef="Gateway_0r2rbhc">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">yes</i18n:translation>
         <i18n:translation xml:lang="de">ja</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:sequenceFlow>
     <bpmn2:sequenceFlow id="Flow_06vrjpq" sourceRef="Gateway_0bu2rhk" targetRef="Event_0prcubq" />
-    <bpmn2:sequenceFlow id="Flow_0r03b4p" name="ja" sourceRef="Gateway_010d40p" targetRef="Activity_16oze6f">
+    <bpmn2:sequenceFlow id="Flow_0r03b4p" name="ja" sourceRef="Gateway_010d40p"
+      targetRef="Activity_16oze6f">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">yes</i18n:translation>
         <i18n:translation xml:lang="de">ja</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:sequenceFlow>
-    <bpmn2:sequenceFlow id="Flow_0jkro9e" name="" sourceRef="Gateway_0kn6v4a" targetRef="Event_0ob48r7" />
-    <bpmn2:sequenceFlow id="Flow_1q8e4kn" name="Best Supportive-Care-Intention (kein MTB&#10;erforderlich)" sourceRef="Gateway_0kn6v4a" targetRef="Gateway_0bu2rhk">
+    <bpmn2:sequenceFlow id="Flow_0jkro9e" name="" sourceRef="Gateway_0kn6v4a"
+      targetRef="Event_0ob48r7" />
+    <bpmn2:sequenceFlow id="Flow_1q8e4kn"
+      name="Best Supportive-Care-Intention (kein MTB&#10;erforderlich)" sourceRef="Gateway_0kn6v4a"
+      targetRef="Gateway_0bu2rhk">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">best supportive care intend, no molecular tumour board
           needed</i18n:translation>
         <i18n:translation xml:lang="de">Best Supportive-Care-Intention (kein MTB
-erforderlich)</i18n:translation>
+          erforderlich)</i18n:translation>
         <i18n:translation xml:lang="en">best supportive care intend, no molecular
           tumour board needed</i18n:translation>
         <i18n:translation xml:lang="de">Best-Supportive-Care-Absicht, kein
           molekulares Tumorboard erforderlich</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:sequenceFlow>
-    <bpmn2:sequenceFlow id="Flow_07cyjbg" name="ja" sourceRef="Gateway_0dy45pb" targetRef="Gateway_0s9gq5f">
+    <bpmn2:sequenceFlow id="Flow_07cyjbg" name="ja" sourceRef="Gateway_0dy45pb"
+      targetRef="Gateway_0s9gq5f">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">yes</i18n:translation>
         <i18n:translation xml:lang="de">ja</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:sequenceFlow>
-    <bpmn2:sequenceFlow id="Flow_1a9j8bh" name="nein&#10;(Behandlung gemäß Behandlungs-plan fortführen)" sourceRef="Gateway_18rchc7" targetRef="Gateway_1ortmgh">
+    <bpmn2:sequenceFlow id="Flow_1a9j8bh"
+      name="nein&#10;(Behandlung gemäß Behandlungs-plan fortführen)" sourceRef="Gateway_18rchc7"
+      targetRef="Gateway_1ortmgh">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">no, continue treatment according to the
           treatment plan</i18n:translation>
         <i18n:translation xml:lang="de">nein
-(Behandlung gemäß Behandlungs-plan fortführen)</i18n:translation>
+          (Behandlung gemäß Behandlungs-plan fortführen)</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:sequenceFlow>
-    <bpmn2:sequenceFlow id="Flow_17b4j7t" name="nein&#10;(Ende der Versorgung am Lebensende / Best Supportive&#10;Care)" sourceRef="Gateway_121hc5t" targetRef="Activity_1ssltri">
+    <bpmn2:sequenceFlow id="Flow_17b4j7t"
+      name="nein&#10;(Ende der Versorgung am Lebensende / Best Supportive&#10;Care)"
+      sourceRef="Gateway_121hc5t" targetRef="Activity_1ssltri">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">no, end of end-of-life care/ best supportive care</i18n:translation>
         <i18n:translation xml:lang="de">nein
-(Ende der Versorgung am Lebensende / Best Supportive
-Care)</i18n:translation>
+          (Ende der Versorgung am Lebensende / Best Supportive
+          Care)</i18n:translation>
         <i18n:translation xml:lang="en">no, end of end-of-life care/ best supportive
           care</i18n:translation>
         <i18n:translation xml:lang="de">nein, Ende der Versorgung am Lebensende /
           Best Supportive Care</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:sequenceFlow>
-    <bpmn2:sequenceFlow id="Flow_1pzc55p" name="nein" sourceRef="Gateway_010d40p" targetRef="Gateway_09l9dd0">
+    <bpmn2:sequenceFlow id="Flow_1pzc55p" name="nein" sourceRef="Gateway_010d40p"
+      targetRef="Gateway_09l9dd0">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">no</i18n:translation>
         <i18n:translation xml:lang="de">nein</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:sequenceFlow>
-    <bpmn2:sequenceFlow id="Flow_10cfk73" name="nein&#10;(Therapie-&#10;ende)" sourceRef="Gateway_18rchc7" targetRef="Gateway_0s9gq5f">
+    <bpmn2:sequenceFlow id="Flow_10cfk73" name="nein&#10;(Therapie-&#10;ende)"
+      sourceRef="Gateway_18rchc7" targetRef="Gateway_0s9gq5f">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">no, end of treatment</i18n:translation>
         <i18n:translation xml:lang="de">nein
-(Therapie-
-ende)</i18n:translation>
+          (Therapie-
+          ende)</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:sequenceFlow>
     <bpmn2:sequenceFlow id="Flow_09h4356" sourceRef="Gateway_0r2rbhc" targetRef="Gateway_010d40p" />
     <bpmn2:sequenceFlow id="Flow_00hd7md" sourceRef="Gateway_09l9dd0" targetRef="Activity_1oagskd" />
-    <bpmn2:sequenceFlow id="Flow_1q15w7k" name="optional" sourceRef="Gateway_1p3qvpd" targetRef="Activity_0d6f9vx">
+    <bpmn2:sequenceFlow id="Flow_1q15w7k" name="optional" sourceRef="Gateway_1p3qvpd"
+      targetRef="Activity_0d6f9vx">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">optional</i18n:translation>
         <i18n:translation xml:lang="de">optional</i18n:translation>
@@ -379,7 +427,8 @@ ende)</i18n:translation>
     </bpmn2:sequenceFlow>
     <bpmn2:sequenceFlow id="Flow_1m742gg" sourceRef="Activity_0d6f9vx" targetRef="Event_1e1jmpd" />
     <bpmn2:sequenceFlow id="Flow_1ow3f9j" sourceRef="Gateway_18pda8k" targetRef="Gateway_121hc5t" />
-    <bpmn2:sequenceFlow id="Flow_1hlxm15" name="ja" sourceRef="Gateway_18rchc7" targetRef="Activity_0j2qg6r">
+    <bpmn2:sequenceFlow id="Flow_1hlxm15" name="ja" sourceRef="Gateway_18rchc7"
+      targetRef="Activity_0j2qg6r">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">yes</i18n:translation>
         <i18n:translation xml:lang="de">ja</i18n:translation>
@@ -388,7 +437,8 @@ ende)</i18n:translation>
     <bpmn2:sequenceFlow id="Flow_14zzqu2" sourceRef="Event_0i29fxn" targetRef="Gateway_1p3qvpd" />
     <bpmn2:sequenceFlow id="Flow_0qwuxg3" sourceRef="Gateway_1p3qvpd" targetRef="Gateway_1ortmgh" />
     <bpmn2:sequenceFlow id="Flow_1dhpq0u" sourceRef="Gateway_1ortmgh" targetRef="Activity_00jcqor" />
-    <bpmn2:sequenceFlow id="Flow_0m3kybe" name="TB/MTB-Sitzung notwendig?" sourceRef="Activity_00jcqor" targetRef="Gateway_18rchc7">
+    <bpmn2:sequenceFlow id="Flow_0m3kybe" name="TB/MTB-Sitzung notwendig?"
+      sourceRef="Activity_00jcqor" targetRef="Gateway_18rchc7">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">need for TB/MTB meeting?</i18n:translation>
         <i18n:translation xml:lang="de">TB/MTB-Sitzung notwendig?</i18n:translation>
@@ -402,67 +452,99 @@ ende)</i18n:translation>
     <bpmn2:sequenceFlow id="Flow_18lfnxy" sourceRef="Gateway_0ql4uic" targetRef="Event_1obsuyc" />
     <bpmn2:sequenceFlow id="Flow_1s6lhu5" sourceRef="Activity_1ssltri" targetRef="Gateway_0ql4uic" />
     <bpmn2:sequenceFlow id="Flow_1b6rxta" sourceRef="Activity_08dp53e" targetRef="Gateway_0ql4uic" />
-    <cp:qualityIndicator id="QualityIndicator_0fak6l3" name="#4&#10;          pathologische Diagnose" dataObjectRef="DataObject_0uwb70c">
+    <cp:qualityIndicator id="QualityIndicator_0fak6l3"
+      name="#4&#10;          pathologische Diagnose" dataObjectRef="DataObject_0uwb70c">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">#4
           pathological diagnosis</i18n:translation>
         <i18n:translation xml:lang="de">#4
           pathologische Diagnose</i18n:translation>
       </bpmn2:extensionElements>
-      <cp:qIDefinition type="ratio" numerator="Anzahl der Patienten mit Lungenkrebs, die eine pathologische Diagnose haben (einschließlich nach chirurgischer Resektion)." denumerator="Alle Patienten mit Lungenkrebs.">
+      <cp:qIDefinition type="ratio"
+        numerator="Anzahl der Patienten mit Lungenkrebs, die eine pathologische Diagnose haben (einschließlich nach chirurgischer Resektion)."
+        denumerator="Alle Patienten mit Lungenkrebs.">
         <bpmn2:extensionElements>
-          <i18n:translation target="@numerator" xml:lang="en">Number of patients with Lung Cancer who have a pathological diagnosis (including following surgical resection).</i18n:translation>
-          <i18n:translation target="@numerator" xml:lang="de">Anzahl der Patienten mit Lungenkrebs, die eine pathologische Diagnose haben (einschließlich nach chirurgischer Resektion).</i18n:translation>
+          <i18n:translation target="@numerator" xml:lang="en">Number of patients with Lung Cancer
+            who have a pathological diagnosis (including following surgical resection).</i18n:translation>
+          <i18n:translation target="@numerator" xml:lang="de">Anzahl der Patienten mit Lungenkrebs,
+            die eine pathologische Diagnose haben (einschließlich nach chirurgischer Resektion).</i18n:translation>
           <i18n:translation target="@denumerator" xml:lang="en">All patients with Lung Cancer.</i18n:translation>
           <i18n:translation target="@denumerator" xml:lang="de">Alle Patienten mit Lungenkrebs.</i18n:translation>
         </bpmn2:extensionElements>
       </cp:qIDefinition>
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_0uwb70c" />
-    <cp:qualityIndicator id="QualityIndicator_18co3hv" name="#5&#10;          pathologische Diagnose – Tumorsubtyp" dataObjectRef="DataObject_1wjyoco">
+    <cp:qualityIndicator id="QualityIndicator_18co3hv"
+      name="#5&#10;          pathologische Diagnose – Tumorsubtyp"
+      dataObjectRef="DataObject_1wjyoco">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">#5
           pathological diagnosis – tumour subtype</i18n:translation>
         <i18n:translation xml:lang="de">#5
           pathologische Diagnose – Tumorsubtyp</i18n:translation>
       </bpmn2:extensionElements>
-      <cp:qIDefinition type="ratio" numerator="Anzahl der Patienten mit pathologischer Diagnose von NSCLC, bei denen ein Tumorsubtyp identifiziert wurde." denumerator="Alle Patienten mit pathologischer Diagnose von NSCLC.">
+      <cp:qIDefinition type="ratio"
+        numerator="Anzahl der Patienten mit pathologischer Diagnose von NSCLC, bei denen ein Tumorsubtyp identifiziert wurde."
+        denumerator="Alle Patienten mit pathologischer Diagnose von NSCLC.">
         <bpmn2:extensionElements>
-          <i18n:translation target="@numerator" xml:lang="en">Number of patients with a pathological diagnosis of NSCLC who have a tumour subtype identified.</i18n:translation>
-          <i18n:translation target="@numerator" xml:lang="de">Anzahl der Patienten mit pathologischer Diagnose von NSCLC, bei denen ein Tumorsubtyp identifiziert wurde.</i18n:translation>
-          <i18n:translation target="@denumerator" xml:lang="en">All patients with a pathological diagnosis of NSCLC.</i18n:translation>
-          <i18n:translation target="@denumerator" xml:lang="de">Alle Patienten mit pathologischer Diagnose von NSCLC.</i18n:translation>
+          <i18n:translation target="@numerator" xml:lang="en">Number of patients with a pathological
+            diagnosis of NSCLC who have a tumour subtype identified.</i18n:translation>
+          <i18n:translation target="@numerator" xml:lang="de">Anzahl der Patienten mit
+            pathologischer Diagnose von NSCLC, bei denen ein Tumorsubtyp identifiziert wurde.</i18n:translation>
+          <i18n:translation target="@denumerator" xml:lang="en">All patients with a pathological
+            diagnosis of NSCLC.</i18n:translation>
+          <i18n:translation target="@denumerator" xml:lang="de">Alle Patienten mit pathologischer
+            Diagnose von NSCLC.</i18n:translation>
         </bpmn2:extensionElements>
       </cp:qIDefinition>
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_1wjyoco" />
-    <cp:qualityIndicator id="QualityIndicator_0hag6dt" name="#6&#10;          Diagnose vor Behandlungsbeginn" dataObjectRef="DataObject_1eo2ccv">
+    <cp:qualityIndicator id="QualityIndicator_0hag6dt"
+      name="#6&#10;          Diagnose vor Behandlungsbeginn" dataObjectRef="DataObject_1eo2ccv">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">#6
           pre-treatment diagnosis</i18n:translation>
         <i18n:translation xml:lang="de">#6
           Diagnose vor Behandlungsbeginn</i18n:translation>
       </bpmn2:extensionElements>
-      <cp:qIDefinition type="ratio" numerator="Anzahl der Patienten, die eine kurative Behandlung (radikale Strahlentherapie, radikale Radiochemotherapie oder chirurgische Resektion) erhalten und vor der Behandlung eine zytologische / histologische Diagnose haben." denumerator="Alle Patienten mit Lungenkrebs, die eine kurative Behandlung (radikale Strahlentherapie, radikale Radiochemotherapie oder chirurgische Resektion) erhalten. Ausgenommen Patienten, die Untersuchungen ablehnen.">
+      <cp:qIDefinition type="ratio"
+        numerator="Anzahl der Patienten, die eine kurative Behandlung (radikale Strahlentherapie, radikale Radiochemotherapie oder chirurgische Resektion) erhalten und vor der Behandlung eine zytologische / histologische Diagnose haben."
+        denumerator="Alle Patienten mit Lungenkrebs, die eine kurative Behandlung (radikale Strahlentherapie, radikale Radiochemotherapie oder chirurgische Resektion) erhalten. Ausgenommen Patienten, die Untersuchungen ablehnen.">
         <bpmn2:extensionElements>
-          <i18n:translation target="@numerator" xml:lang="en">Number of patients who receive curative treatment (radical radiotherapy, radical chemoradiotherapy or surgical resection) that have a cytological / histological diagnosis prior to treatment.</i18n:translation>
-          <i18n:translation target="@numerator" xml:lang="de">Anzahl der Patienten, die eine kurative Behandlung (radikale Strahlentherapie, radikale Radiochemotherapie oder chirurgische Resektion) erhalten und vor der Behandlung eine zytologische / histologische Diagnose haben.</i18n:translation>
-          <i18n:translation target="@denumerator" xml:lang="en">All patients with Lung Cancer who receive curative treatment (radical radiotherapy, radical chemoradiotherapy or surgical resection). Excluding patients who refuse investigations.</i18n:translation>
-          <i18n:translation target="@denumerator" xml:lang="de">Alle Patienten mit Lungenkrebs, die eine kurative Behandlung (radikale Strahlentherapie, radikale Radiochemotherapie oder chirurgische Resektion) erhalten. Ausgenommen Patienten, die Untersuchungen ablehnen.</i18n:translation>
+          <i18n:translation target="@numerator" xml:lang="en">Number of patients who receive
+            curative treatment (radical radiotherapy, radical chemoradiotherapy or surgical
+            resection) that have a cytological / histological diagnosis prior to treatment.</i18n:translation>
+          <i18n:translation target="@numerator" xml:lang="de">Anzahl der Patienten, die eine
+            kurative Behandlung (radikale Strahlentherapie, radikale Radiochemotherapie oder
+            chirurgische Resektion) erhalten und vor der Behandlung eine zytologische /
+            histologische Diagnose haben.</i18n:translation>
+          <i18n:translation target="@denumerator" xml:lang="en">All patients with Lung Cancer who
+            receive curative treatment (radical radiotherapy, radical chemoradiotherapy or surgical
+            resection). Excluding patients who refuse investigations.</i18n:translation>
+          <i18n:translation target="@denumerator" xml:lang="de">Alle Patienten mit Lungenkrebs, die
+            eine kurative Behandlung (radikale Strahlentherapie, radikale Radiochemotherapie oder
+            chirurgische Resektion) erhalten. Ausgenommen Patienten, die Untersuchungen ablehnen.</i18n:translation>
         </bpmn2:extensionElements>
       </cp:qIDefinition>
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_1eo2ccv" />
-    <cp:qualityIndicator id="QualityIndicator_1cd4745" name="#18 Zugang zu klinischen Studien und&#10;          Forschungsstudien" dataObjectRef="DataObject_0wxe57i">
+    <cp:qualityIndicator id="QualityIndicator_1cd4745"
+      name="#18 Zugang zu klinischen Studien und&#10;          Forschungsstudien"
+      dataObjectRef="DataObject_0wxe57i">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">#18 clinical trials and research study access</i18n:translation>
         <i18n:translation xml:lang="de">#18 Zugang zu klinischen Studien und
           Forschungsstudien</i18n:translation>
       </bpmn2:extensionElements>
-      <cp:qIDefinition type="ratio" numerator="Anzahl der Patienten mit Lungenkrebs, die in eine interventionelle klinische Studie oder translationale Forschung eingeschlossen sind." denumerator="Alle Patienten mit Lungenkrebs">
+      <cp:qIDefinition type="ratio"
+        numerator="Anzahl der Patienten mit Lungenkrebs, die in eine interventionelle klinische Studie oder translationale Forschung eingeschlossen sind."
+        denumerator="Alle Patienten mit Lungenkrebs">
         <bpmn2:extensionElements>
-          <i18n:translation target="@numerator" xml:lang="en">Number of patients with lung cancer enrolled in an interventional clinical trial or translational research.</i18n:translation>
-          <i18n:translation target="@numerator" xml:lang="de">Anzahl der Patienten mit Lungenkrebs, die in eine interventionelle klinische Studie oder translationale Forschung eingeschlossen sind.</i18n:translation>
+          <i18n:translation target="@numerator" xml:lang="en">Number of patients with lung cancer
+            enrolled in an interventional clinical trial or translational research.</i18n:translation>
+          <i18n:translation target="@numerator" xml:lang="de">Anzahl der Patienten mit Lungenkrebs,
+            die in eine interventionelle klinische Studie oder translationale Forschung
+            eingeschlossen sind.</i18n:translation>
           <i18n:translation target="@denumerator" xml:lang="en">All patients with lung cancer</i18n:translation>
           <i18n:translation target="@denumerator" xml:lang="de">Alle Patienten mit Lungenkrebs</i18n:translation>
         </bpmn2:extensionElements>
@@ -479,12 +561,14 @@ ende)</i18n:translation>
       <bpmn2:incoming>Flow_1pzc55p</bpmn2:incoming>
       <bpmn2:outgoing>Flow_00hd7md</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
-    <bpmn2:subProcess id="Activity_1oagskd" name="Tumorboard &#10;[LC SoS 1.2.3]" cp:selectionBehavior="any" cp:definitionCanonical="https://modeler.helict.eu/modeler/699c63c26ddccbdc10eccc17">
+    <bpmn2:subProcess id="Activity_1oagskd" name="Tumorboard &#10;[LC SoS 1.2.3]"
+      cp:selectionBehavior="any"
+      cp:definitionCanonical="https://modeler.helict.eu/modeler/699c63c26ddccbdc10eccc17">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">standard tumour board 
           [LC SoS 1.2.3]</i18n:translation>
         <i18n:translation xml:lang="de">Tumorboard 
-[LC SoS 1.2.3]</i18n:translation>
+          [LC SoS 1.2.3]</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:incoming>Flow_00hd7md</bpmn2:incoming>
       <bpmn2:outgoing>Flow_082bfua</bpmn2:outgoing>
@@ -492,23 +576,26 @@ ende)</i18n:translation>
         <bpmn2:targetRef>DataObjectReference_0eekaxc</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
     </bpmn2:subProcess>
-    <bpmn2:exclusiveGateway id="Gateway_15a3cdo" name="Leitlinienbasierte Behandlungsoptionen&#10;ausgeschöpft?">
+    <bpmn2:exclusiveGateway id="Gateway_15a3cdo"
+      name="Leitlinienbasierte Behandlungsoptionen&#10;ausgeschöpft?">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">are guideline-based treatment options
           available?</i18n:translation>
         <i18n:translation xml:lang="de">Leitlinienbasierte Behandlungsoptionen
-ausgeschöpft?</i18n:translation>
+          ausgeschöpft?</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:incoming>Flow_082bfua</bpmn2:incoming>
       <bpmn2:outgoing>Flow_0snmrit</bpmn2:outgoing>
       <bpmn2:outgoing>Flow_1p26pel</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
-    <bpmn2:subProcess id="Activity_16oze6f" name="Staging&#10;[LC SoS 2.2]" cp:selectionBehavior="any" cp:definitionCanonical="https://modeler.helict.eu/modeler/699c638e6ddccbdc10eccc0f">
+    <bpmn2:subProcess id="Activity_16oze6f" name="Staging&#10;[LC SoS 2.2]"
+      cp:selectionBehavior="any"
+      cp:definitionCanonical="https://modeler.helict.eu/modeler/699c638e6ddccbdc10eccc0f">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">staging diagnostics
           [LC SoS 2.2]</i18n:translation>
         <i18n:translation xml:lang="de">Staging
-[LC SoS 2.2]</i18n:translation>
+          [LC SoS 2.2]</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:incoming>Flow_0r03b4p</bpmn2:incoming>
       <bpmn2:outgoing>Flow_1rekhqr</bpmn2:outgoing>
@@ -541,7 +628,8 @@ ausgeschöpft?</i18n:translation>
       <bpmn2:incoming>Flow_0ggiww7</bpmn2:incoming>
       <bpmn2:outgoing>Flow_09h4356</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
-    <bpmn2:subProcess id="Activity_1rdfhgh" name="Patientengespräch" cp:selectionBehavior="any" cp:definitionCanonical="https://modeler.helict.eu/modeler/699c633d6ddccbdc10eccc04">
+    <bpmn2:subProcess id="Activity_1rdfhgh" name="Patientengespräch" cp:selectionBehavior="any"
+      cp:definitionCanonical="https://modeler.helict.eu/modeler/699c633d6ddccbdc10eccc04">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">patient consultation</i18n:translation>
         <i18n:translation xml:lang="de">Patientengespräch</i18n:translation>
@@ -554,7 +642,8 @@ ausgeschöpft?</i18n:translation>
         <bpmn2:targetRef>Property_0kptd7i</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
     </bpmn2:subProcess>
-    <bpmn2:startEvent id="Event_0ae2j6h" name="Patient mit histologisch gesichertem&#10;          Lungenkrebs">
+    <bpmn2:startEvent id="Event_0ae2j6h"
+      name="Patient mit histologisch gesichertem&#10;          Lungenkrebs">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">patient with histologically confirmed lung
           cancer</i18n:translation>
@@ -570,12 +659,13 @@ ausgeschöpft?</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:outgoing>Flow_1r0w7x8</bpmn2:outgoing>
     </bpmn2:startEvent>
-    <bpmn2:intermediateThrowEvent id="Event_1m37doe" name="Person mit positivem&#10;Lungenkrebs-Screeningbefund">
+    <bpmn2:intermediateThrowEvent id="Event_1m37doe"
+      name="Person mit positivem&#10;Lungenkrebs-Screeningbefund">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">person with positive lung cancer screening
           result</i18n:translation>
         <i18n:translation xml:lang="de">Person mit positivem
-Lungenkrebs-Screeningbefund</i18n:translation>
+          Lungenkrebs-Screeningbefund</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:incoming>Flow_10mthhe</bpmn2:incoming>
       <bpmn2:outgoing>Flow_06njbkm</bpmn2:outgoing>
@@ -605,11 +695,14 @@ Lungenkrebs-Screeningbefund</i18n:translation>
     </bpmn2:startEvent>
     <bpmn2:sequenceFlow id="Flow_05qzdqh" sourceRef="Event_0ae2j6h" targetRef="Gateway_16sz6ia" />
     <bpmn2:sequenceFlow id="Flow_1r0w7x8" sourceRef="Event_0tdpt7a" targetRef="Gateway_16sz6ia" />
-    <bpmn2:sequenceFlow id="Flow_10mthhe" name="" sourceRef="Activity_09q6006" targetRef="Event_1m37doe" />
+    <bpmn2:sequenceFlow id="Flow_10mthhe" name="" sourceRef="Activity_09q6006"
+      targetRef="Event_1m37doe" />
     <bpmn2:sequenceFlow id="Flow_06njbkm" sourceRef="Event_1m37doe" targetRef="Gateway_16sz6ia" />
-    <bpmn2:sequenceFlow id="Flow_0njdnw0" name="" sourceRef="Event_0lk7fnw" targetRef="Activity_09q6006" />
+    <bpmn2:sequenceFlow id="Flow_0njdnw0" name="" sourceRef="Event_0lk7fnw"
+      targetRef="Activity_09q6006" />
     <bpmn2:sequenceFlow id="Flow_0bv07oe" sourceRef="Event_06iq4pa" targetRef="Activity_1rdfhgh" />
-    <bpmn2:intermediateCatchEvent id="Event_06iq4pa" name="Wartezeit auf einen Termin&#10;          &#60; 2 Wochen, Notfallsprechstunde täglich möglich&#10;          [LC SoS 2.1.3]">
+    <bpmn2:intermediateCatchEvent id="Event_06iq4pa"
+      name="Wartezeit auf einen Termin&#10;          &#60; 2 Wochen, Notfallsprechstunde täglich möglich&#10;          [LC SoS 2.1.3]">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">waiting time for an appointment
           &lt; 2 weeks, emergency consultation possible daily
@@ -623,7 +716,9 @@ Lungenkrebs-Screeningbefund</i18n:translation>
       <bpmn2:timerEventDefinition id="TimerEventDefinition_0f7jejt" />
     </bpmn2:intermediateCatchEvent>
     <bpmn2:sequenceFlow id="Flow_0nqc3x6" sourceRef="Event_0prcubq" targetRef="Activity_1kfbd29" />
-    <bpmn2:dataObjectReference id="DataObjectReference_0eekaxc" name="Tumorboard-Protokoll [LC SoS 1.2.2.H], Teilnehmerliste&#10;          [LC SoS 1.2.2.B], strukturierter Versorgungsplan für Patienten mit begrenzter&#10;          Lebenserwartung [LC SoS 1.2.3.C]" dataObjectRef="DataObject_1n1uqmh">
+    <bpmn2:dataObjectReference id="DataObjectReference_0eekaxc"
+      name="Tumorboard-Protokoll [LC SoS 1.2.2.H], Teilnehmerliste&#10;          [LC SoS 1.2.2.B], strukturierter Versorgungsplan für Patienten mit begrenzter&#10;          Lebenserwartung [LC SoS 1.2.3.C]"
+      dataObjectRef="DataObject_1n1uqmh">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">minutes tumor board [LC SoS 1.2.2.H], list of participants
           [LC SoS 1.2.2.B], structured care plan for patients with limited life expectancy [LC SoS
@@ -642,22 +737,30 @@ Lungenkrebs-Screeningbefund</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:dataObjectReference>
     <bpmn2:dataObject id="DataObject_1n1uqmh" isCollection="true" />
-    <cp:qualityIndicator id="QualityIndicator_0dir0ll" name="#2 prätherapeutisches TB/MTB-Meeting" dataObjectRef="DataObject_11hg8h2">
+    <cp:qualityIndicator id="QualityIndicator_0dir0ll" name="#2 prätherapeutisches TB/MTB-Meeting"
+      dataObjectRef="DataObject_11hg8h2">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">#2 pretherapeutic TB/MTB meeting</i18n:translation>
         <i18n:translation xml:lang="de">#2 prätherapeutisches TB/MTB-Meeting</i18n:translation>
       </bpmn2:extensionElements>
-      <cp:qIDefinition type="ratio" numerator="Patienten des Denominators, die im prätherapeutischen TB/MTB-Meeting vorgestellt wurden" denumerator="alle LC-Patienten mit Erstdiagnose Lungenkrebs">
+      <cp:qIDefinition type="ratio"
+        numerator="Patienten des Denominators, die im prätherapeutischen TB/MTB-Meeting vorgestellt wurden"
+        denumerator="alle LC-Patienten mit Erstdiagnose Lungenkrebs">
         <bpmn2:extensionElements>
-          <i18n:translation target="@numerator" xml:lang="en">patients of the denominator presented in the pretherapeutic TB/MTB meeting</i18n:translation>
-          <i18n:translation target="@numerator" xml:lang="de">Patienten des Denominators, die im prätherapeutischen TB/MTB-Meeting vorgestellt wurden</i18n:translation>
-          <i18n:translation target="@denumerator" xml:lang="en">all LC patients with first diagnosis of Lung Cancer</i18n:translation>
-          <i18n:translation target="@denumerator" xml:lang="de">alle LC-Patienten mit Erstdiagnose Lungenkrebs</i18n:translation>
+          <i18n:translation target="@numerator" xml:lang="en">patients of the denominator presented
+            in the pretherapeutic TB/MTB meeting</i18n:translation>
+          <i18n:translation target="@numerator" xml:lang="de">Patienten des Denominators, die im
+            prätherapeutischen TB/MTB-Meeting vorgestellt wurden</i18n:translation>
+          <i18n:translation target="@denumerator" xml:lang="en">all LC patients with first diagnosis
+            of Lung Cancer</i18n:translation>
+          <i18n:translation target="@denumerator" xml:lang="de">alle LC-Patienten mit Erstdiagnose
+            Lungenkrebs</i18n:translation>
         </bpmn2:extensionElements>
       </cp:qIDefinition>
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_11hg8h2" />
-    <bpmn2:dataObjectReference id="DataObjectReference_1r8vt4f" name="Empfehlungen des MTB" dataObjectRef="DataObject_0omq4in">
+    <bpmn2:dataObjectReference id="DataObjectReference_1r8vt4f" name="Empfehlungen des MTB"
+      dataObjectRef="DataObject_0omq4in">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">recommendation of the molecular tumour board</i18n:translation>
         <i18n:translation xml:lang="de">Empfehlungen des MTB</i18n:translation>
@@ -679,14 +782,17 @@ Lungenkrebs-Screeningbefund</i18n:translation>
       <bpmn2:outgoing>Flow_1y3u9cv</bpmn2:outgoing>
       <bpmn2:outgoing>Flow_0ggiww7</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
-    <bpmn2:dataObjectReference id="DataObjectReference_1g4talc" name="Behandlungsplan" dataObjectRef="DataObject_1xjkfpw">
+    <bpmn2:dataObjectReference id="DataObjectReference_1g4talc" name="Behandlungsplan"
+      dataObjectRef="DataObject_1xjkfpw">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">treatment plan</i18n:translation>
         <i18n:translation xml:lang="de">Behandlungsplan</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:dataObjectReference>
     <bpmn2:dataObject id="DataObject_1xjkfpw" />
-    <bpmn2:dataObjectReference id="DataObjectReference_0o96tjc" name="Patienteninformationsmaterialien (z. B. zur&#10;          Raucherentwöhnung)" dataObjectRef="DataObject_03wg6nc">
+    <bpmn2:dataObjectReference id="DataObjectReference_0o96tjc"
+      name="Patienteninformationsmaterialien (z. B. zur&#10;          Raucherentwöhnung)"
+      dataObjectRef="DataObject_03wg6nc">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">patient information materials (e.g., smoking cecassion)</i18n:translation>
         <i18n:translation xml:lang="en">patient information materials (e.g., smoking
@@ -696,7 +802,8 @@ Lungenkrebs-Screeningbefund</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:dataObjectReference>
     <bpmn2:dataObject id="DataObject_03wg6nc" isCollection="true" />
-    <bpmn2:task id="Activity_1kfbd29" name="Patientengespräch (Diagnose-stellung) [LC SoS 2.1.4, 6.1.16]">
+    <bpmn2:task id="Activity_1kfbd29"
+      name="Patientengespräch (Diagnose-stellung) [LC SoS 2.1.4, 6.1.16]">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">consultation/
           dialogue after diagnosis
@@ -722,19 +829,22 @@ Lungenkrebs-Screeningbefund</i18n:translation>
         <bpmn2:targetRef>DataObjectReference_1g4talc</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
     </bpmn2:task>
-    <bpmn2:intermediateThrowEvent id="Event_0prcubq" name="Zeit bis zur Mitteilung der Diagnose:&#10;&#60; 1 Woche&#10;[LC SoS 2.1.5]">
+    <bpmn2:intermediateThrowEvent id="Event_0prcubq"
+      name="Zeit bis zur Mitteilung der Diagnose:&#10;&#60; 1 Woche&#10;[LC SoS 2.1.5]">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">time to diagnosis communication:
           &lt; 1 week
           [LC SoS 2.1.5]</i18n:translation>
         <i18n:translation xml:lang="de">Zeit bis zur Mitteilung der Diagnose:
-&lt; 1 Woche
-[LC SoS 2.1.5]</i18n:translation>
+          &lt; 1 Woche
+          [LC SoS 2.1.5]</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:incoming>Flow_06vrjpq</bpmn2:incoming>
       <bpmn2:outgoing>Flow_0nqc3x6</bpmn2:outgoing>
     </bpmn2:intermediateThrowEvent>
-    <bpmn2:subProcess id="Activity_1f73x26" name="Molekulares Tumorboard [LC SoS 1.2.4]" cp:selectionBehavior="any" cp:definitionCanonical="https://modeler.helict.eu/modeler/699c62cf6ddccbdc10eccbf6">
+    <bpmn2:subProcess id="Activity_1f73x26" name="Molekulares Tumorboard [LC SoS 1.2.4]"
+      cp:selectionBehavior="any"
+      cp:definitionCanonical="https://modeler.helict.eu/modeler/699c62cf6ddccbdc10eccbf6">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">molecular tumour board [LC SoS 1.2.4]</i18n:translation>
         <i18n:translation xml:lang="de">Molekulares Tumorboard [LC SoS 1.2.4]</i18n:translation>
@@ -754,7 +864,9 @@ Lungenkrebs-Screeningbefund</i18n:translation>
       <bpmn2:outgoing>Flow_0y93gna</bpmn2:outgoing>
     </bpmn2:intermediateThrowEvent>
     <bpmn2:sequenceFlow id="Flow_0y93gna" sourceRef="Event_0ob48r7" targetRef="Activity_1f73x26" />
-    <bpmn2:dataObjectReference id="DataObjectReference_0drbyvu" name="Patienteninformationsmaterialien (z. B. zur&#10;          Raucherentwöhnung)" dataObjectRef="DataObject_019cmyk">
+    <bpmn2:dataObjectReference id="DataObjectReference_0drbyvu"
+      name="Patienteninformationsmaterialien (z. B. zur&#10;          Raucherentwöhnung)"
+      dataObjectRef="DataObject_019cmyk">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">patient information materials (e.g., smoking cecassion)</i18n:translation>
         <i18n:translation xml:lang="en">patient information materials (e.g., smoking
@@ -765,7 +877,8 @@ Lungenkrebs-Screeningbefund</i18n:translation>
     </bpmn2:dataObjectReference>
     <bpmn2:dataObject id="DataObject_019cmyk" isCollection="true" />
     <bpmn2:sequenceFlow id="Flow_16u9ouo" sourceRef="Activity_1kfbd29" targetRef="Event_0i29fxn" />
-    <bpmn2:intermediateThrowEvent id="Event_0i29fxn" name="Therapieentscheidung (Shared Decision Making)">
+    <bpmn2:intermediateThrowEvent id="Event_0i29fxn"
+      name="Therapieentscheidung (Shared Decision Making)">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">therapy decision (shared decision making)</i18n:translation>
         <i18n:translation xml:lang="de">Therapieentscheidung (Shared Decision Making)</i18n:translation>
@@ -811,27 +924,36 @@ Lungenkrebs-Screeningbefund</i18n:translation>
       <bpmn2:incoming>Flow_1466mh4</bpmn2:incoming>
       <bpmn2:outgoing>Flow_11unpgh</bpmn2:outgoing>
     </bpmn2:intermediateThrowEvent>
-    <cp:qualityIndicator id="QualityIndicator_1moaor7" name="#18 Zugang zu klinischen Studien und&#10;          Forschungsstudien" dataObjectRef="DataObject_14s8zgz">
+    <cp:qualityIndicator id="QualityIndicator_1moaor7"
+      name="#18 Zugang zu klinischen Studien und&#10;          Forschungsstudien"
+      dataObjectRef="DataObject_14s8zgz">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">#18 clinical trials and research study access</i18n:translation>
         <i18n:translation xml:lang="de">#18 Zugang zu klinischen Studien und
           Forschungsstudien</i18n:translation>
       </bpmn2:extensionElements>
-      <cp:qIDefinition type="ratio" numerator="Anzahl der Patienten mit Lungenkrebs, die in eine interventionelle klinische Studie oder translationale Forschung eingeschlossen sind." denumerator="Alle Patienten mit Lungenkrebs">
+      <cp:qIDefinition type="ratio"
+        numerator="Anzahl der Patienten mit Lungenkrebs, die in eine interventionelle klinische Studie oder translationale Forschung eingeschlossen sind."
+        denumerator="Alle Patienten mit Lungenkrebs">
         <bpmn2:extensionElements>
-          <i18n:translation target="@numerator" xml:lang="en">Number of patients with lung cancer enrolled in an interventional clinical trial or translational research.</i18n:translation>
-          <i18n:translation target="@numerator" xml:lang="de">Anzahl der Patienten mit Lungenkrebs, die in eine interventionelle klinische Studie oder translationale Forschung eingeschlossen sind.</i18n:translation>
+          <i18n:translation target="@numerator" xml:lang="en">Number of patients with lung cancer
+            enrolled in an interventional clinical trial or translational research.</i18n:translation>
+          <i18n:translation target="@numerator" xml:lang="de">Anzahl der Patienten mit Lungenkrebs,
+            die in eine interventionelle klinische Studie oder translationale Forschung
+            eingeschlossen sind.</i18n:translation>
           <i18n:translation target="@denumerator" xml:lang="en">All patients with lung cancer</i18n:translation>
           <i18n:translation target="@denumerator" xml:lang="de">Alle Patienten mit Lungenkrebs</i18n:translation>
         </bpmn2:extensionElements>
       </cp:qIDefinition>
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_14s8zgz" />
-    <bpmn2:task id="Activity_04dz2ib" name="Supportive, psychosoziale oder frühe Integration in palliativmedizinische Versorgung">
+    <bpmn2:task id="Activity_04dz2ib"
+      name="Supportive, psychosoziale oder frühe Integration in palliativmedizinische Versorgung">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">supportive care / psychosocial care / early
           integration of palliative care</i18n:translation>
-        <i18n:translation xml:lang="de">Supportive, psychosoziale oder frühe Integration in palliativmedizinische Versorgung</i18n:translation>
+        <i18n:translation xml:lang="de">Supportive, psychosoziale oder frühe Integration in
+          palliativmedizinische Versorgung</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:incoming>Flow_0ch5uho</bpmn2:incoming>
       <bpmn2:outgoing>Flow_18jfelb</bpmn2:outgoing>
@@ -851,24 +973,32 @@ Lungenkrebs-Screeningbefund</i18n:translation>
       <bpmn2:incoming>Flow_1q15w7k</bpmn2:incoming>
       <bpmn2:outgoing>Flow_1m742gg</bpmn2:outgoing>
     </bpmn2:task>
-    <cp:qualityIndicator id="QualityIndicator_00gxcrq" name="#1: Anteil der operierten NSCLC-Patienten,&#10;          die in einem postoperativen TB/MTB-Meeting besprochen werden" dataObjectRef="DataObject_1s0d0en">
+    <cp:qualityIndicator id="QualityIndicator_00gxcrq"
+      name="#1: Anteil der operierten NSCLC-Patienten,&#10;          die in einem postoperativen TB/MTB-Meeting besprochen werden"
+      dataObjectRef="DataObject_1s0d0en">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">#1: percentage of patients having surgery for
           a NSCLC discussed in a postoperative TB/MTB meeting</i18n:translation>
         <i18n:translation xml:lang="de">#1: Anteil der operierten NSCLC-Patienten,
           die in einem postoperativen TB/MTB-Meeting besprochen werden</i18n:translation>
       </bpmn2:extensionElements>
-      <cp:qIDefinition type="ratio" numerator="Patienten des Denominators mit Besprechung in einem postoperativen TB/MTB-Meeting" denumerator="alle Patienten mit NSCLC und Operation">
+      <cp:qIDefinition type="ratio"
+        numerator="Patienten des Denominators mit Besprechung in einem postoperativen TB/MTB-Meeting"
+        denumerator="alle Patienten mit NSCLC und Operation">
         <bpmn2:extensionElements>
-          <i18n:translation target="@numerator" xml:lang="en">patients of the denominator with discussion in a postoperative TB/MTB meeting</i18n:translation>
-          <i18n:translation target="@numerator" xml:lang="de">Patienten des Denominators mit Besprechung in einem postoperativen TB/MTB-Meeting</i18n:translation>
+          <i18n:translation target="@numerator" xml:lang="en">patients of the denominator with
+            discussion in a postoperative TB/MTB meeting</i18n:translation>
+          <i18n:translation target="@numerator" xml:lang="de">Patienten des Denominators mit
+            Besprechung in einem postoperativen TB/MTB-Meeting</i18n:translation>
           <i18n:translation target="@denumerator" xml:lang="en">all patients with NSCLC and surgery</i18n:translation>
-          <i18n:translation target="@denumerator" xml:lang="de">alle Patienten mit NSCLC und Operation</i18n:translation>
+          <i18n:translation target="@denumerator" xml:lang="de">alle Patienten mit NSCLC und
+            Operation</i18n:translation>
         </bpmn2:extensionElements>
       </cp:qIDefinition>
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_1s0d0en" />
-    <bpmn2:task id="Activity_0j2qg6r" name="Postoperatives/ therapeutisches/mitttherapeutisches TB/MTB">
+    <bpmn2:task id="Activity_0j2qg6r"
+      name="Postoperatives/ therapeutisches/mitttherapeutisches TB/MTB">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">postoperative/-
           therapeutic/
@@ -903,7 +1033,8 @@ Lungenkrebs-Screeningbefund</i18n:translation>
       <bpmn2:incoming>Flow_11unpgh</bpmn2:incoming>
       <bpmn2:outgoing>Flow_1ow3f9j</bpmn2:outgoing>
     </bpmn2:parallelGateway>
-    <bpmn2:subProcess id="Activity_00jcqor" name="Behandlung" cp:selectionBehavior="any" cp:definitionCanonical="https://modeler.helict.eu/modeler/699c611a6ddccbdc10eccbec">
+    <bpmn2:subProcess id="Activity_00jcqor" name="Behandlung" cp:selectionBehavior="any"
+      cp:definitionCanonical="https://modeler.helict.eu/modeler/699c611a6ddccbdc10eccbec">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">treatment</i18n:translation>
         <i18n:translation xml:lang="de">Behandlung</i18n:translation>
@@ -974,7 +1105,8 @@ Lungenkrebs-Screeningbefund</i18n:translation>
       <bpmn2:outgoing>Flow_0ogopph</bpmn2:outgoing>
       <bpmn2:outgoing>Flow_17cqgt2</bpmn2:outgoing>
     </bpmn2:eventBasedGateway>
-    <bpmn2:intermediateCatchEvent id="Event_0wy6prt" name="Verdacht auf Sekundärmetastasen ODER Rezidiv">
+    <bpmn2:intermediateCatchEvent id="Event_0wy6prt"
+      name="Verdacht auf Sekundärmetastasen ODER Rezidiv">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">suspicion of secondary metastases OR
           recurrence</i18n:translation>
@@ -994,7 +1126,8 @@ Lungenkrebs-Screeningbefund</i18n:translation>
       <bpmn2:incoming>Flow_04e8iab</bpmn2:incoming>
       <bpmn2:outgoing>Flow_1g7oxkd</bpmn2:outgoing>
     </bpmn2:task>
-    <bpmn2:task id="Activity_1ssltri" name="Versorgung am Lebensende / Best Supportive&#10;          Care">
+    <bpmn2:task id="Activity_1ssltri"
+      name="Versorgung am Lebensende / Best Supportive&#10;          Care">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">end-of-life care / best supportive care</i18n:translation>
         <i18n:translation xml:lang="de">Versorgung am Lebensende / Best Supportive
@@ -1015,23 +1148,31 @@ Lungenkrebs-Screeningbefund</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:incoming>Flow_18lfnxy</bpmn2:incoming>
     </bpmn2:endEvent>
-    <cp:qualityIndicator id="QualityIndicator_1rwdw1t" name="#18 Zugang zu klinischen Studien und&#10;          Forschungsstudien" dataObjectRef="DataObject_1cz1g5j">
+    <cp:qualityIndicator id="QualityIndicator_1rwdw1t"
+      name="#18 Zugang zu klinischen Studien und&#10;          Forschungsstudien"
+      dataObjectRef="DataObject_1cz1g5j">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">#18 clinical trials and research study access</i18n:translation>
         <i18n:translation xml:lang="de">#18 Zugang zu klinischen Studien und
           Forschungsstudien</i18n:translation>
       </bpmn2:extensionElements>
-      <cp:qIDefinition type="ratio" numerator="Anzahl der Patienten mit Lungenkrebs, die in eine interventionelle klinische Studie oder translationale Forschung eingeschlossen sind." denumerator="Alle Patienten mit Lungenkrebs">
+      <cp:qIDefinition type="ratio"
+        numerator="Anzahl der Patienten mit Lungenkrebs, die in eine interventionelle klinische Studie oder translationale Forschung eingeschlossen sind."
+        denumerator="Alle Patienten mit Lungenkrebs">
         <bpmn2:extensionElements>
-          <i18n:translation target="@numerator" xml:lang="en">Number of patients with lung cancer enrolled in an interventional clinical trial or translational research.</i18n:translation>
-          <i18n:translation target="@numerator" xml:lang="de">Anzahl der Patienten mit Lungenkrebs, die in eine interventionelle klinische Studie oder translationale Forschung eingeschlossen sind.</i18n:translation>
+          <i18n:translation target="@numerator" xml:lang="en">Number of patients with lung cancer
+            enrolled in an interventional clinical trial or translational research.</i18n:translation>
+          <i18n:translation target="@numerator" xml:lang="de">Anzahl der Patienten mit Lungenkrebs,
+            die in eine interventionelle klinische Studie oder translationale Forschung
+            eingeschlossen sind.</i18n:translation>
           <i18n:translation target="@denumerator" xml:lang="en">All patients with lung cancer</i18n:translation>
           <i18n:translation target="@denumerator" xml:lang="de">Alle Patienten mit Lungenkrebs</i18n:translation>
         </bpmn2:extensionElements>
       </cp:qIDefinition>
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_1cz1g5j" />
-    <bpmn2:dataObjectReference id="DataObjectReference_07lhp7y" name="Nationale Leitlinien zur Nachsorge bei Lungenkrebs" dataObjectRef="DataObject_1tiexzy">
+    <bpmn2:dataObjectReference id="DataObjectReference_07lhp7y"
+      name="Nationale Leitlinien zur Nachsorge bei Lungenkrebs" dataObjectRef="DataObject_1tiexzy">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="de">Nationale Leitlinien zur Nachsorge bei Lungenkrebs</i18n:translation>
         <i18n:translation xml:lang="en">national lung cancer after-care guidelines</i18n:translation>
@@ -1046,77 +1187,96 @@ Lungenkrebs-Screeningbefund</i18n:translation>
       <bpmn2:incoming>Flow_1b6rxta</bpmn2:incoming>
       <bpmn2:outgoing>Flow_18lfnxy</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
-    <cp:qualityIndicator id="QualityIndicator_14kij7y" name="#2 prätherapeutisches TB/MTB-Meeting" dataObjectRef="DataObject_0zqpze6">
+    <cp:qualityIndicator id="QualityIndicator_14kij7y" name="#2 prätherapeutisches TB/MTB-Meeting"
+      dataObjectRef="DataObject_0zqpze6">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">#2 pretherapeutic TB/MTB meeting</i18n:translation>
         <i18n:translation xml:lang="de">#2 prätherapeutisches TB/MTB-Meeting</i18n:translation>
       </bpmn2:extensionElements>
-      <cp:qIDefinition type="ratio" numerator="Patienten des Denominators, die im prätherapeutischen TB/MTB-Meeting vorgestellt wurden" denumerator="alle LC-Patienten mit Erstdiagnose Lungenkrebs">
+      <cp:qIDefinition type="ratio"
+        numerator="Patienten des Denominators, die im prätherapeutischen TB/MTB-Meeting vorgestellt wurden"
+        denumerator="alle LC-Patienten mit Erstdiagnose Lungenkrebs">
         <bpmn2:extensionElements>
-          <i18n:translation target="@numerator" xml:lang="en">patients of the denominator presented in the pretherapeutic TB/MTB meeting</i18n:translation>
-          <i18n:translation target="@numerator" xml:lang="de">Patienten des Denominators, die im prätherapeutischen TB/MTB-Meeting vorgestellt wurden</i18n:translation>
-          <i18n:translation target="@denumerator" xml:lang="en">all LC patients with first diagnosis of Lung Cancer</i18n:translation>
-          <i18n:translation target="@denumerator" xml:lang="de">alle LC-Patienten mit Erstdiagnose Lungenkrebs</i18n:translation>
+          <i18n:translation target="@numerator" xml:lang="en">patients of the denominator presented
+            in the pretherapeutic TB/MTB meeting</i18n:translation>
+          <i18n:translation target="@numerator" xml:lang="de">Patienten des Denominators, die im
+            prätherapeutischen TB/MTB-Meeting vorgestellt wurden</i18n:translation>
+          <i18n:translation target="@denumerator" xml:lang="en">all LC patients with first diagnosis
+            of Lung Cancer</i18n:translation>
+          <i18n:translation target="@denumerator" xml:lang="de">alle LC-Patienten mit Erstdiagnose
+            Lungenkrebs</i18n:translation>
         </bpmn2:extensionElements>
       </cp:qIDefinition>
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_0zqpze6" />
-    <cp:qualityIndicator id="QualityIndicator_1lrfw0z" name="#18 Zugang zu klinischen Studien und&#10;          Forschungsstudien" dataObjectRef="DataObject_0jy1szs">
+    <cp:qualityIndicator id="QualityIndicator_1lrfw0z"
+      name="#18 Zugang zu klinischen Studien und&#10;          Forschungsstudien"
+      dataObjectRef="DataObject_0jy1szs">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">#18 clinical trials and research study access</i18n:translation>
         <i18n:translation xml:lang="de">#18 Zugang zu klinischen Studien und
           Forschungsstudien</i18n:translation>
       </bpmn2:extensionElements>
-      <cp:qIDefinition type="ratio" numerator="Anzahl der Patienten mit Lungenkrebs, die in eine interventionelle klinische Studie oder translationale Forschung eingeschlossen sind." denumerator="Alle Patienten mit Lungenkrebs">
+      <cp:qIDefinition type="ratio"
+        numerator="Anzahl der Patienten mit Lungenkrebs, die in eine interventionelle klinische Studie oder translationale Forschung eingeschlossen sind."
+        denumerator="Alle Patienten mit Lungenkrebs">
         <bpmn2:extensionElements>
-          <i18n:translation target="@numerator" xml:lang="en">Number of patients with Lung Cancer enrolled in an interventional clinical trial or translational research.</i18n:translation>
-          <i18n:translation target="@numerator" xml:lang="de">Anzahl der Patienten mit Lungenkrebs, die in eine interventionelle klinische Studie oder translationale Forschung eingeschlossen sind.</i18n:translation>
+          <i18n:translation target="@numerator" xml:lang="en">Number of patients with Lung Cancer
+            enrolled in an interventional clinical trial or translational research.</i18n:translation>
+          <i18n:translation target="@numerator" xml:lang="de">Anzahl der Patienten mit Lungenkrebs,
+            die in eine interventionelle klinische Studie oder translationale Forschung
+            eingeschlossen sind.</i18n:translation>
           <i18n:translation target="@denumerator" xml:lang="en">All patients with lung cancer</i18n:translation>
           <i18n:translation target="@denumerator" xml:lang="de">Alle Patienten mit Lungenkrebs</i18n:translation>
         </bpmn2:extensionElements>
       </cp:qIDefinition>
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_0jy1szs" />
-    <bpmn2:intermediateCatchEvent id="Event_1884p82" name="Zeit bis zur Mitteilung der Diagnose:&#10;          &#60; 1 Woche&#10;          [LC SoS 2.1.5]">
+    <bpmn2:intermediateCatchEvent id="Event_1884p82"
+      name="Zeit bis zur Mitteilung der Diagnose:&#10;          &#60; 1 Woche&#10;          [LC SoS 2.1.5]">
       <bpmn2:extensionElements>
-        <i18n:translation>time to diagnosis communication:
+        <i18n:translation xml:lang="en">time to diagnosis communication:
           &lt; 1 week
           [LC SoS 2.1.5]</i18n:translation>
-        <i18n:translation>Zeit bis zur Mitteilung der Diagnose:
+        <i18n:translation xml:lang="en">Zeit bis zur Mitteilung der Diagnose:
           &lt; 1 Woche
           [LC SoS 2.1.5]</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:timerEventDefinition id="TimerEventDefinition_013cjpr" />
     </bpmn2:intermediateCatchEvent>
-    <bpmn2:startEvent id="Event_05n66xb" name="Zeit bis zur Mitteilung der Diagnose:&#10;          &#60; 1 Woche&#10;          [LC SoS 2.1.5]">
+    <bpmn2:startEvent id="Event_05n66xb"
+      name="Zeit bis zur Mitteilung der Diagnose:&#10;          &#60; 1 Woche&#10;          [LC SoS 2.1.5]">
       <bpmn2:extensionElements>
-        <i18n:translation>time to diagnosis communication:
+        <i18n:translation xml:lang="en">time to diagnosis communication:
           &lt; 1 week
           [LC SoS 2.1.5]</i18n:translation>
-        <i18n:translation>Zeit bis zur Mitteilung der Diagnose:
+        <i18n:translation xml:lang="en">Zeit bis zur Mitteilung der Diagnose:
           &lt; 1 Woche
           [LC SoS 2.1.5]</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:startEvent>
-    <bpmn2:intermediateCatchEvent id="Event_0t8i28j" name="Zeit bis zur Mitteilung der Diagnose:&#10;          &#60; 1 Woche&#10;          [LC SoS 2.1.5]">
+    <bpmn2:intermediateCatchEvent id="Event_0t8i28j"
+      name="Zeit bis zur Mitteilung der Diagnose:&#10;          &#60; 1 Woche&#10;          [LC SoS 2.1.5]">
       <bpmn2:extensionElements>
-        <i18n:translation>time to diagnosis communication:
+        <i18n:translation xml:lang="en">time to diagnosis communication:
           &lt; 1 week
           [LC SoS 2.1.5]</i18n:translation>
-        <i18n:translation>Zeit bis zur Mitteilung der Diagnose:
+        <i18n:translation xml:lang="en">Zeit bis zur Mitteilung der Diagnose:
           &lt; 1 Woche
           [LC SoS 2.1.5]</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:timerEventDefinition id="TimerEventDefinition_0kdak5h" />
     </bpmn2:intermediateCatchEvent>
-    <cp:qualityIndicator id="QualityIndicator_1ul05ww" name="#4-5,7-12,19" dataObjectRef="DataObject_0cyj0z4">
+    <cp:qualityIndicator id="QualityIndicator_1ul05ww" name="#4-5,7-12,19"
+      dataObjectRef="DataObject_0cyj0z4">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">#4-5,7-12,19</i18n:translation>
         <i18n:translation xml:lang="de">#4-5,7-12,19</i18n:translation>
       </bpmn2:extensionElements>
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_0cyj0z4" />
-    <bpmn2:dataObjectReference id="DataObjectReference_0b01e9a" name="Strukturierter Versorgungsplan [LC SoS 1.2.3.C]" dataObjectRef="DataObject_01jd0gd">
+    <bpmn2:dataObjectReference id="DataObjectReference_0b01e9a"
+      name="Strukturierter Versorgungsplan [LC SoS 1.2.3.C]" dataObjectRef="DataObject_01jd0gd">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="de">Strukturierter Versorgungsplan [LC SoS 1.2.3.C]</i18n:translation>
         <i18n:translation xml:lang="en">structured care plan [LC SoS 1.2.3.C]</i18n:translation>
@@ -1125,7 +1285,8 @@ Lungenkrebs-Screeningbefund</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:dataObjectReference>
     <bpmn2:dataObject id="DataObject_01jd0gd" />
-    <bpmn2:dataObjectReference id="DataObjectReference_1hmfh1b" name="Strukturierter Versorgungsplan [LC SoS 1.2.3.C]" dataObjectRef="DataObject_1uek4ov">
+    <bpmn2:dataObjectReference id="DataObjectReference_1hmfh1b"
+      name="Strukturierter Versorgungsplan [LC SoS 1.2.3.C]" dataObjectRef="DataObject_1uek4ov">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="de">Strukturierter Versorgungsplan [LC SoS 1.2.3.C]</i18n:translation>
         <i18n:translation xml:lang="en">structured care plan [LC SoS 1.2.3.C]</i18n:translation>
@@ -1134,14 +1295,16 @@ Lungenkrebs-Screeningbefund</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:dataObjectReference>
     <bpmn2:dataObject id="DataObject_1uek4ov" />
-    <bpmn2:dataObjectReference id="DataObjectReference_11k7e2c" name="Nachsorgeplan" dataObjectRef="DataObject_1w44yjb">
+    <bpmn2:dataObjectReference id="DataObjectReference_11k7e2c" name="Nachsorgeplan"
+      dataObjectRef="DataObject_1w44yjb">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">after-care plan</i18n:translation>
         <i18n:translation xml:lang="de">Nachsorgeplan</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:dataObjectReference>
     <bpmn2:dataObject id="DataObject_1w44yjb" isCollection="true" />
-    <bpmn2:dataObjectReference id="DataObjectReference_1ya4mlf" name="Entlassungsdokumentation [LC SoS 1.6.4]" dataObjectRef="DataObject_0fsji5c">
+    <bpmn2:dataObjectReference id="DataObjectReference_1ya4mlf"
+      name="Entlassungsdokumentation [LC SoS 1.6.4]" dataObjectRef="DataObject_0fsji5c">
       <bpmn2:extensionElements>
         <i18n:translation xml:lang="en">discharge documentation [LC SoS 1.6.4]</i18n:translation>
         <i18n:translation xml:lang="de">Entlassungsdokumentation [LC SoS 1.6.4]</i18n:translation>
@@ -1153,17 +1316,28 @@ Lungenkrebs-Screeningbefund</i18n:translation>
         <i18n:translation xml:lang="de">Einschluss in Klinische Studie</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:task>
-    <bpmn2:association id="Association_01jjtgb" sourceRef="Activity_1oagskd" targetRef="QualityIndicator_1cd4745" />
-    <bpmn2:association id="Association_1o5bjc7" sourceRef="Activity_16oze6f" targetRef="QualityIndicator_0fak6l3" />
-    <bpmn2:association id="Association_0qufkex" sourceRef="Activity_16oze6f" targetRef="QualityIndicator_18co3hv" />
-    <bpmn2:association id="Association_0z1bo3r" sourceRef="Activity_16oze6f" targetRef="QualityIndicator_0hag6dt" />
-    <bpmn2:association id="Association_1fyet5i" sourceRef="Activity_1oagskd" targetRef="QualityIndicator_0dir0ll" />
-    <bpmn2:association id="Association_0w4au2s" sourceRef="Activity_04dz2ib" targetRef="QualityIndicator_1moaor7" />
-    <bpmn2:association id="Association_0p1a0ae" sourceRef="Activity_0j2qg6r" targetRef="QualityIndicator_00gxcrq" />
-    <bpmn2:association id="Association_1exw5ku" sourceRef="Activity_1ssltri" targetRef="QualityIndicator_1rwdw1t" />
-    <bpmn2:association id="Association_0twiyfj" sourceRef="Activity_1f73x26" targetRef="QualityIndicator_14kij7y" />
-    <bpmn2:association id="Association_0oc564i" sourceRef="Activity_1f73x26" targetRef="QualityIndicator_1lrfw0z" />
-    <bpmn2:association id="Association_1hbl1tk" sourceRef="Activity_00jcqor" targetRef="QualityIndicator_1ul05ww" />
+    <bpmn2:association id="Association_01jjtgb" sourceRef="Activity_1oagskd"
+      targetRef="QualityIndicator_1cd4745" />
+    <bpmn2:association id="Association_1o5bjc7" sourceRef="Activity_16oze6f"
+      targetRef="QualityIndicator_0fak6l3" />
+    <bpmn2:association id="Association_0qufkex" sourceRef="Activity_16oze6f"
+      targetRef="QualityIndicator_18co3hv" />
+    <bpmn2:association id="Association_0z1bo3r" sourceRef="Activity_16oze6f"
+      targetRef="QualityIndicator_0hag6dt" />
+    <bpmn2:association id="Association_1fyet5i" sourceRef="Activity_1oagskd"
+      targetRef="QualityIndicator_0dir0ll" />
+    <bpmn2:association id="Association_0w4au2s" sourceRef="Activity_04dz2ib"
+      targetRef="QualityIndicator_1moaor7" />
+    <bpmn2:association id="Association_0p1a0ae" sourceRef="Activity_0j2qg6r"
+      targetRef="QualityIndicator_00gxcrq" />
+    <bpmn2:association id="Association_1exw5ku" sourceRef="Activity_1ssltri"
+      targetRef="QualityIndicator_1rwdw1t" />
+    <bpmn2:association id="Association_0twiyfj" sourceRef="Activity_1f73x26"
+      targetRef="QualityIndicator_14kij7y" />
+    <bpmn2:association id="Association_0oc564i" sourceRef="Activity_1f73x26"
+      targetRef="QualityIndicator_1lrfw0z" />
+    <bpmn2:association id="Association_1hbl1tk" sourceRef="Activity_00jcqor"
+      targetRef="QualityIndicator_1ul05ww" />
   </bpmn2:process>
   <bpmn2:category id="Category_1tporgd">
     <bpmn2:categoryValue id="CategoryValue_09361cn" value="Aufnahme">
@@ -1206,10 +1380,12 @@ Lungenkrebs-Screeningbefund</i18n:translation>
     </bpmn2:categoryValue>
   </bpmn2:category>
   <bpmn2:category id="Category_0t5u4rt">
-    <bpmn2:categoryValue id="CategoryValue_05ea948" value="Nachsorge/ Follow-up/ Versorgung am Lebensende">
+    <bpmn2:categoryValue id="CategoryValue_05ea948"
+      value="Nachsorge/ Follow-up/ Versorgung am Lebensende">
       <bpmn2:extensionElements>
         <i18n:translation target="@value" xml:lang="en">after-care/follow-up/end-of-life care</i18n:translation>
-        <i18n:translation target="@value" xml:lang="de">Nachsorge/ Follow-up/ Versorgung am Lebensende</i18n:translation>
+        <i18n:translation target="@value" xml:lang="de">Nachsorge/ Follow-up/ Versorgung am
+          Lebensende</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:categoryValue>
   </bpmn2:category>
@@ -1222,34 +1398,41 @@ Lungenkrebs-Screeningbefund</i18n:translation>
     </bpmn2:categoryValue>
   </bpmn2:category>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
-    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0mif9f6" border-color="#e40707" stroke="#e40707" background-color="#f21c1c" fill="#f21c1c">
-      <bpmndi:BPMNShape id="Participant_0d4pi4v_di" bpmnElement="Participant_0d4pi4v" isHorizontal="true">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0mif9f6" border-color="#e40707"
+      stroke="#e40707" background-color="#f21c1c" fill="#f21c1c">
+      <bpmndi:BPMNShape id="Participant_0d4pi4v_di" bpmnElement="Participant_0d4pi4v"
+        isHorizontal="true">
         <dc:Bounds x="-228" y="90" width="4778" height="910" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Lane_1coxctp_di" bpmnElement="Lane_1coxctp" isHorizontal="true" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNShape id="Lane_1coxctp_di" bpmnElement="Lane_1coxctp" isHorizontal="true"
+        bioc:stroke="#000000" color:border-color="#000000">
         <dc:Bounds x="-198" y="90" width="4748" height="910" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="QualityIndicator_0fak6l3_di" bpmnElement="QualityIndicator_0fak6l3" bioc:fill="#decee2" color:background-color="#decee2">
+      <bpmndi:BPMNShape id="QualityIndicator_0fak6l3_di" bpmnElement="QualityIndicator_0fak6l3"
+        bioc:fill="#decee2" color:background-color="#decee2">
         <dc:Bounds x="782" y="532" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="765" y="568" width="71" height="40" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="QualityIndicator_18co3hv_di" bpmnElement="QualityIndicator_18co3hv" bioc:fill="#dcd0e2" color:background-color="#dcd0e2">
+      <bpmndi:BPMNShape id="QualityIndicator_18co3hv_di" bpmnElement="QualityIndicator_18co3hv"
+        bioc:fill="#dcd0e2" color:background-color="#dcd0e2">
         <dc:Bounds x="867" y="532" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="845" y="568" width="80" height="53" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="QualityIndicator_0hag6dt_di" bpmnElement="QualityIndicator_0hag6dt" bioc:fill="#dcd0e2" color:background-color="#dcd0e2">
+      <bpmndi:BPMNShape id="QualityIndicator_0hag6dt_di" bpmnElement="QualityIndicator_0hag6dt"
+        bioc:fill="#dcd0e2" color:background-color="#dcd0e2">
         <dc:Bounds x="952" y="532" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="927" y="568" width="86" height="66" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="QualityIndicator_1cd4745_di" bpmnElement="QualityIndicator_1cd4745" bioc:fill="#decee2" color:background-color="#decee2">
+      <bpmndi:BPMNShape id="QualityIndicator_1cd4745_di" bpmnElement="QualityIndicator_1cd4745"
+        bioc:fill="#decee2" color:background-color="#decee2">
         <dc:Bounds x="1332" y="532" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1311" y="568" width="81" height="66" />
@@ -1261,11 +1444,13 @@ Lungenkrebs-Screeningbefund</i18n:translation>
       <bpmndi:BPMNShape id="Gateway_09l9dd0_di" bpmnElement="Gateway_09l9dd0" isMarkerVisible="true">
         <dc:Bounds x="1135" y="435" width="50" height="50" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1bp1ni9_di" bpmnElement="Activity_1bp1ni9" bioc:stroke="#ff9200" color:border-color="#ff9200">
+      <bpmndi:BPMNShape id="Activity_1bp1ni9_di" bpmnElement="Activity_1bp1ni9"
+        bioc:stroke="#ff9200" color:border-color="#ff9200">
         <dc:Bounds x="3730" y="820" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1c0a1ei_di" bpmnElement="Activity_1oagskd" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNShape id="Activity_1c0a1ei_di" bpmnElement="Activity_1oagskd"
+        bioc:stroke="#000000" color:border-color="#000000">
         <dc:Bounds x="1240" y="420" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
@@ -1275,11 +1460,14 @@ Lungenkrebs-Screeningbefund</i18n:translation>
           <dc:Bounds x="1371" y="485" width="82" height="66" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_16oze6f_di" bpmnElement="Activity_16oze6f" isExpanded="false" bioc:stroke="#000000" bioc:fill="#ffffff" color:background-color="#ffffff" color:border-color="#000000">
+      <bpmndi:BPMNShape id="Activity_16oze6f_di" bpmnElement="Activity_16oze6f" isExpanded="false"
+        bioc:stroke="#000000" bioc:fill="#ffffff" color:background-color="#ffffff"
+        color:border-color="#000000">
         <dc:Bounds x="835" y="420" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_08dp53e_di" bpmnElement="Activity_08dp53e" bioc:stroke="#ff9200" color:border-color="#ff9200">
+      <bpmndi:BPMNShape id="Activity_08dp53e_di" bpmnElement="Activity_08dp53e"
+        bioc:stroke="#ff9200" color:border-color="#ff9200">
         <dc:Bounds x="960" y="180" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
@@ -1295,7 +1483,8 @@ Lungenkrebs-Screeningbefund</i18n:translation>
       <bpmndi:BPMNShape id="Gateway_0r2rbhc_di" bpmnElement="Gateway_0r2rbhc" isMarkerVisible="true">
         <dc:Bounds x="625" y="435" width="50" height="50" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0st5zu9_di" bpmnElement="Activity_1rdfhgh" bioc:stroke="#ff9200" color:border-color="#ff9200">
+      <bpmndi:BPMNShape id="Activity_0st5zu9_di" bpmnElement="Activity_1rdfhgh"
+        bioc:stroke="#ff9200" color:border-color="#ff9200">
         <dc:Bounds x="440" y="420" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
@@ -1311,7 +1500,8 @@ Lungenkrebs-Screeningbefund</i18n:translation>
           <dc:Bounds x="131" y="338" width="59" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_1m37doe_di" bpmnElement="Event_1m37doe" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNShape id="Event_1m37doe_di" bpmnElement="Event_1m37doe" bioc:stroke="#000000"
+        color:border-color="#000000">
         <dc:Bounds x="142" y="586" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="120" y="622" width="84" height="53" />
@@ -1320,35 +1510,41 @@ Lungenkrebs-Screeningbefund</i18n:translation>
       <bpmndi:BPMNShape id="Gateway_16sz6ia_di" bpmnElement="Gateway_16sz6ia" isMarkerVisible="true">
         <dc:Bounds x="255" y="435" width="50" height="50" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_09q6006_di" bpmnElement="Activity_09q6006" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNShape id="Activity_09q6006_di" bpmnElement="Activity_09q6006"
+        bioc:stroke="#000000" color:border-color="#000000">
         <dc:Bounds x="-40" y="564" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0lk7fnw_di" bpmnElement="Event_0lk7fnw" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNShape id="Event_0lk7fnw_di" bpmnElement="Event_0lk7fnw" bioc:stroke="#000000"
+        color:border-color="#000000">
         <dc:Bounds x="-128" y="586" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="-151" y="622" width="83" height="40" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_12akys5_di" bpmnElement="Event_06iq4pa" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNShape id="Event_12akys5_di" bpmnElement="Event_06iq4pa" bioc:stroke="#000000"
+        color:border-color="#000000">
         <dc:Bounds x="352" y="442" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="327" y="478" width="89" height="80" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="DataObjectReference_0eekaxc_di" bpmnElement="DataObjectReference_0eekaxc" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNShape id="DataObjectReference_0eekaxc_di"
+        bpmnElement="DataObjectReference_0eekaxc" bioc:stroke="#000000" color:border-color="#000000">
         <dc:Bounds x="1272" y="675" width="36" height="50" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1246" y="725" width="90" height="172" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="QualityIndicator_0dir0ll_di" bpmnElement="QualityIndicator_0dir0ll" bioc:fill="#decee2" color:background-color="#decee2">
+      <bpmndi:BPMNShape id="QualityIndicator_0dir0ll_di" bpmnElement="QualityIndicator_0dir0ll"
+        bioc:fill="#decee2" color:background-color="#decee2">
         <dc:Bounds x="1222" y="532" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1200" y="568" width="82" height="53" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="DataObjectReference_1r8vt4f_di" bpmnElement="DataObjectReference_1r8vt4f" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNShape id="DataObjectReference_1r8vt4f_di"
+        bpmnElement="DataObjectReference_1r8vt4f" bioc:stroke="#000000" color:border-color="#000000">
         <dc:Bounds x="1902" y="555" width="36" height="50" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1883" y="605" width="74" height="27" />
@@ -1363,39 +1559,46 @@ Lungenkrebs-Screeningbefund</i18n:translation>
           <dc:Bounds x="1841" y="390" width="62" height="40" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="DataObjectReference_1g4talc_di" bpmnElement="DataObjectReference_1g4talc">
+      <bpmndi:BPMNShape id="DataObjectReference_1g4talc_di"
+        bpmnElement="DataObjectReference_1g4talc">
         <dc:Bounds x="2212" y="255" width="36" height="50" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="2189" y="223" width="86" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="DataObjectReference_0o96tjc_di" bpmnElement="DataObjectReference_0o96tjc">
+      <bpmndi:BPMNShape id="DataObjectReference_0o96tjc_di"
+        bpmnElement="DataObjectReference_0o96tjc">
         <dc:Bounds x="2252" y="675" width="36" height="50" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="2227" y="725" width="89" height="66" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1kfbd29_di" bpmnElement="Activity_1kfbd29" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNShape id="Activity_1kfbd29_di" bpmnElement="Activity_1kfbd29"
+        bioc:stroke="#000000" color:border-color="#000000">
         <dc:Bounds x="2180" y="420" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0prcubq_di" bpmnElement="Event_0prcubq" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNShape id="Event_0prcubq_di" bpmnElement="Event_0prcubq" bioc:stroke="#000000"
+        color:border-color="#000000">
         <dc:Bounds x="2082" y="442" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="2064" y="478" width="72" height="66" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1vusdbh_di" bpmnElement="Activity_1f73x26" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNShape id="Activity_1vusdbh_di" bpmnElement="Activity_1f73x26"
+        bioc:stroke="#000000" color:border-color="#000000">
         <dc:Bounds x="1680" y="420" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0ob48r7_di" bpmnElement="Event_0ob48r7" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNShape id="Event_0ob48r7_di" bpmnElement="Event_0ob48r7" bioc:stroke="#000000"
+        color:border-color="#000000">
         <dc:Bounds x="1582" y="442" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1559" y="478" width="83" height="40" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="DataObjectReference_0drbyvu_di" bpmnElement="DataObjectReference_0drbyvu" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNShape id="DataObjectReference_0drbyvu_di"
+        bpmnElement="DataObjectReference_0drbyvu" bioc:stroke="#000000" color:border-color="#000000">
         <dc:Bounds x="472" y="675" width="36" height="50" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="447" y="732" width="89" height="66" />
@@ -1434,27 +1637,33 @@ Lungenkrebs-Screeningbefund</i18n:translation>
           <dc:Bounds x="3418" y="486" width="48" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="QualityIndicator_1moaor7_di" bpmnElement="QualityIndicator_1moaor7" bioc:stroke="#000000" bioc:fill="#dfcfe2" color:background-color="#dfcfe2" color:border-color="#000000">
+      <bpmndi:BPMNShape id="QualityIndicator_1moaor7_di" bpmnElement="QualityIndicator_1moaor7"
+        bioc:stroke="#000000" bioc:fill="#dfcfe2" color:background-color="#dfcfe2"
+        color:border-color="#000000">
         <dc:Bounds x="2862" y="782" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="2841" y="818" width="81" height="66" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_04dz2ib_di" bpmnElement="Activity_04dz2ib" bioc:stroke="#ff9200" color:border-color="#ff9200">
+      <bpmndi:BPMNShape id="Activity_04dz2ib_di" bpmnElement="Activity_04dz2ib"
+        bioc:stroke="#ff9200" color:border-color="#ff9200">
         <dc:Bounds x="2740" y="708" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0d6f9vx_di" bpmnElement="Activity_0d6f9vx" bioc:stroke="#ff9200" color:border-color="#ff9200">
+      <bpmndi:BPMNShape id="Activity_0d6f9vx_di" bpmnElement="Activity_0d6f9vx"
+        bioc:stroke="#ff9200" color:border-color="#ff9200">
         <dc:Bounds x="2740" y="880" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="QualityIndicator_00gxcrq_di" bpmnElement="QualityIndicator_00gxcrq" bioc:fill="#decee2" color:background-color="#decee2">
+      <bpmndi:BPMNShape id="QualityIndicator_00gxcrq_di" bpmnElement="QualityIndicator_00gxcrq"
+        bioc:fill="#decee2" color:background-color="#decee2">
         <dc:Bounds x="3152" y="492" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="3128" y="528" width="87" height="132" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0j2qg6r_di" bpmnElement="Activity_0j2qg6r" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNShape id="Activity_0j2qg6r_di" bpmnElement="Activity_0j2qg6r"
+        bioc:stroke="#000000" color:border-color="#000000">
         <dc:Bounds x="3030" y="420" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
@@ -1486,28 +1695,33 @@ Lungenkrebs-Screeningbefund</i18n:translation>
           <dc:Bounds x="4116" y="486" width="54" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0sqh02u_di" bpmnElement="Activity_0sqh02u" bioc:stroke="#ff9200" color:border-color="#ff9200">
+      <bpmndi:BPMNShape id="Activity_0sqh02u_di" bpmnElement="Activity_0sqh02u"
+        bioc:stroke="#ff9200" color:border-color="#ff9200">
         <dc:Bounds x="3730" y="420" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1lzf9md_di" bpmnElement="Activity_1lzf9md" bioc:stroke="#ff9200" color:border-color="#ff9200">
+      <bpmndi:BPMNShape id="Activity_1lzf9md_di" bpmnElement="Activity_1lzf9md"
+        bioc:stroke="#ff9200" color:border-color="#ff9200">
         <dc:Bounds x="3880" y="420" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_1e0zkxf_di" bpmnElement="Gateway_057o3a9">
         <dc:Bounds x="4015" y="435" width="50" height="50" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0wy6prt_di" bpmnElement="Event_0wy6prt" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNShape id="Event_0wy6prt_di" bpmnElement="Event_0wy6prt" bioc:stroke="#000000"
+        color:border-color="#000000">
         <dc:Bounds x="4022" y="602" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="4071" y="598" width="87" height="53" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1o0prcl_di" bpmnElement="Activity_1o0prcl" bioc:stroke="#ff0000" color:border-color="#ff0000">
+      <bpmndi:BPMNShape id="Activity_1o0prcl_di" bpmnElement="Activity_1o0prcl"
+        bioc:stroke="#ff0000" color:border-color="#ff0000">
         <dc:Bounds x="4230" y="420" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1ssltri_di" bpmnElement="Activity_1ssltri" bioc:stroke="#ff9200" color:border-color="#ff9200">
+      <bpmndi:BPMNShape id="Activity_1ssltri_di" bpmnElement="Activity_1ssltri"
+        bioc:stroke="#ff9200" color:border-color="#ff9200">
         <dc:Bounds x="3880" y="180" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
@@ -1517,13 +1731,15 @@ Lungenkrebs-Screeningbefund</i18n:translation>
           <dc:Bounds x="4462" y="486" width="57" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="QualityIndicator_1rwdw1t_di" bpmnElement="QualityIndicator_1rwdw1t" bioc:fill="#dfcfe2" color:background-color="#dfcfe2">
+      <bpmndi:BPMNShape id="QualityIndicator_1rwdw1t_di" bpmnElement="QualityIndicator_1rwdw1t"
+        bioc:fill="#dfcfe2" color:background-color="#dfcfe2">
         <dc:Bounds x="3970" y="282" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="3949" y="318" width="81" height="66" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="DataObjectReference_07lhp7y_di" bpmnElement="DataObjectReference_07lhp7y" bioc:stroke="#ff0000" color:border-color="#ff0000">
+      <bpmndi:BPMNShape id="DataObjectReference_07lhp7y_di"
+        bpmnElement="DataObjectReference_07lhp7y" bioc:stroke="#ff0000" color:border-color="#ff0000">
         <dc:Bounds x="3882" y="325" width="36" height="50" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="3865" y="275" width="74" height="53" />
@@ -1532,52 +1748,63 @@ Lungenkrebs-Screeningbefund</i18n:translation>
       <bpmndi:BPMNShape id="Gateway_0ql4uic_di" bpmnElement="Gateway_0ql4uic" isMarkerVisible="true">
         <dc:Bounds x="4375" y="435" width="50" height="50" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="QualityIndicator_14kij7y_di" bpmnElement="QualityIndicator_14kij7y" bioc:fill="#decee2" color:background-color="#decee2">
+      <bpmndi:BPMNShape id="QualityIndicator_14kij7y_di" bpmnElement="QualityIndicator_14kij7y"
+        bioc:fill="#decee2" color:background-color="#decee2">
         <dc:Bounds x="1656" y="532" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1634" y="568" width="82" height="53" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="QualityIndicator_1lrfw0z_di" bpmnElement="QualityIndicator_1lrfw0z" bioc:stroke="#000000" bioc:fill="#decee2" color:background-color="#decee2" color:border-color="#000000">
+      <bpmndi:BPMNShape id="QualityIndicator_1lrfw0z_di" bpmnElement="QualityIndicator_1lrfw0z"
+        bioc:stroke="#000000" bioc:fill="#decee2" color:background-color="#decee2"
+        color:border-color="#000000">
         <dc:Bounds x="1762" y="532" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1741" y="568" width="81" height="66" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_1884p82_di" bpmnElement="Event_1884p82" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNShape id="Event_1884p82_di" bpmnElement="Event_1884p82" bioc:stroke="#000000"
+        color:border-color="#000000">
         <dc:Bounds x="2082" y="442" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_05n66xb_di" bpmnElement="Event_05n66xb" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNShape id="Event_05n66xb_di" bpmnElement="Event_05n66xb" bioc:stroke="#000000"
+        color:border-color="#000000">
         <dc:Bounds x="2082" y="442" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0t8i28j_di" bpmnElement="Event_0t8i28j" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNShape id="Event_0t8i28j_di" bpmnElement="Event_0t8i28j" bioc:stroke="#000000"
+        color:border-color="#000000">
         <dc:Bounds x="2082" y="442" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="QualityIndicator_1ul05ww_di" bpmnElement="QualityIndicator_1ul05ww" bioc:fill="#dfcfe2" color:background-color="#dfcfe2">
+      <bpmndi:BPMNShape id="QualityIndicator_1ul05ww_di" bpmnElement="QualityIndicator_1ul05ww"
+        bioc:fill="#dfcfe2" color:background-color="#dfcfe2">
         <dc:Bounds x="2782" y="542" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="2769" y="578" width="63" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="DataObjectReference_0b01e9a_di" bpmnElement="DataObjectReference_0b01e9a" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNShape id="DataObjectReference_0b01e9a_di"
+        bpmnElement="DataObjectReference_0b01e9a" bioc:stroke="#000000" color:border-color="#000000">
         <dc:Bounds x="2632" y="795" width="36" height="50" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="2609" y="852" width="86" height="40" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="DataObjectReference_1hmfh1b_di" bpmnElement="DataObjectReference_1hmfh1b" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNShape id="DataObjectReference_1hmfh1b_di"
+        bpmnElement="DataObjectReference_1hmfh1b" bioc:stroke="#000000" color:border-color="#000000">
         <dc:Bounds x="3542" y="175" width="36" height="50" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="3519" y="232" width="86" height="40" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="DataObjectReference_11k7e2c_di" bpmnElement="DataObjectReference_11k7e2c" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNShape id="DataObjectReference_11k7e2c_di"
+        bpmnElement="DataObjectReference_11k7e2c" bioc:stroke="#000000" color:border-color="#000000">
         <dc:Bounds x="3862" y="535" width="36" height="50" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="3845" y="592" width="74" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="DataObjectReference_1ya4mlf_di" bpmnElement="DataObjectReference_1ya4mlf" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNShape id="DataObjectReference_1ya4mlf_di"
+        bpmnElement="DataObjectReference_1ya4mlf" bioc:stroke="#000000" color:border-color="#000000">
         <dc:Bounds x="3742" y="535" width="36" height="50" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="3722" y="592" width="78" height="40" />
@@ -1659,7 +1886,8 @@ Lungenkrebs-Screeningbefund</i18n:translation>
           <dc:Bounds x="1899" y="435" width="21" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_01y64i7_di" bpmnElement="Flow_01y64i7" bioc:stroke="#000002" color:border-color="#000002">
+      <bpmndi:BPMNEdge id="Flow_01y64i7_di" bpmnElement="Flow_01y64i7" bioc:stroke="#000002"
+        color:border-color="#000002">
         <di:waypoint x="4040" y="638" />
         <di:waypoint x="4040" y="980" />
         <di:waypoint x="280" y="980" />
@@ -1718,7 +1946,8 @@ Lungenkrebs-Screeningbefund</i18n:translation>
           <dc:Bounds x="786" y="443" width="8" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0jkro9e_di" bpmnElement="Flow_0jkro9e" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNEdge id="Flow_0jkro9e_di" bpmnElement="Flow_0jkro9e" bioc:stroke="#000000"
+        color:border-color="#000000">
         <di:waypoint x="1535" y="460" />
         <di:waypoint x="1582" y="460" />
       </bpmndi:BPMNEdge>
@@ -1872,7 +2101,8 @@ Lungenkrebs-Screeningbefund</i18n:translation>
         <di:waypoint x="280" y="320" />
         <di:waypoint x="280" y="435" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_10mthhe_di" bpmnElement="Flow_10mthhe" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNEdge id="Flow_10mthhe_di" bpmnElement="Flow_10mthhe" bioc:stroke="#000000"
+        color:border-color="#000000">
         <di:waypoint x="60" y="604" />
         <di:waypoint x="142" y="604" />
       </bpmndi:BPMNEdge>
@@ -1881,7 +2111,8 @@ Lungenkrebs-Screeningbefund</i18n:translation>
         <di:waypoint x="280" y="604" />
         <di:waypoint x="280" y="485" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0njdnw0_di" bpmnElement="Flow_0njdnw0" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNEdge id="Flow_0njdnw0_di" bpmnElement="Flow_0njdnw0" bioc:stroke="#000000"
+        color:border-color="#000000">
         <di:waypoint x="-92" y="604" />
         <di:waypoint x="-40" y="604" />
       </bpmndi:BPMNEdge>
@@ -1945,7 +2176,8 @@ Lungenkrebs-Screeningbefund</i18n:translation>
         <di:waypoint x="2794" y="500" />
         <di:waypoint x="2798" y="542" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="Group_01hutym_di" bpmnElement="Group_01hutym" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNShape id="Group_01hutym_di" bpmnElement="Group_01hutym" bioc:stroke="#000000"
+        color:border-color="#000000">
         <dc:Bounds x="100" y="100" width="480" height="890" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="316" y="100" width="51" height="14" />
@@ -1975,31 +2207,38 @@ Lungenkrebs-Screeningbefund</i18n:translation>
           <dc:Bounds x="4348" y="100" width="55" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Group_19zxv3g_di" bpmnElement="Group_19zxv3g" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNShape id="Group_19zxv3g_di" bpmnElement="Group_19zxv3g" bioc:stroke="#000000"
+        color:border-color="#000000">
         <dc:Bounds x="3490" y="100" width="710" height="890" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="3808" y="100" width="78" height="53" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Group_1nphlqz_di" bpmnElement="Group_1nphlqz" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNShape id="Group_1nphlqz_di" bpmnElement="Group_1nphlqz" bioc:stroke="#000000"
+        color:border-color="#000000">
         <dc:Bounds x="-160" y="100" width="250" height="890" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="-60" y="100" width="50" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_16s2jjh_di" bpmnElement="TextAnnotation_16s2jjh" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNShape id="TextAnnotation_16s2jjh_di" bpmnElement="TextAnnotation_16s2jjh"
+        bioc:stroke="#000000" color:border-color="#000000">
         <dc:Bounds x="1246" y="272" width="87" height="96" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_0ar7hqt_di" bpmnElement="TextAnnotation_0ar7hqt" bioc:stroke="#000000" bioc:fill="#ffffff" color:background-color="#ffffff" color:border-color="#000000">
+      <bpmndi:BPMNShape id="TextAnnotation_0ar7hqt_di" bpmnElement="TextAnnotation_0ar7hqt"
+        bioc:stroke="#000000" bioc:fill="#ffffff" color:background-color="#ffffff"
+        color:border-color="#000000">
         <dc:Bounds x="3070" y="229" width="160" height="125" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_0si34sk_di" bpmnElement="TextAnnotation_0si34sk" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNShape id="TextAnnotation_0si34sk_di" bpmnElement="TextAnnotation_0si34sk"
+        bioc:stroke="#000000" color:border-color="#000000">
         <dc:Bounds x="2300" y="186" width="220" height="226" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_1t1txqb_di" bpmnElement="TextAnnotation_1t1txqb" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNShape id="TextAnnotation_1t1txqb_di" bpmnElement="TextAnnotation_1t1txqb"
+        bioc:stroke="#000000" color:border-color="#000000">
         <dc:Bounds x="-130" y="420" width="140" height="140" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
@@ -2007,7 +2246,8 @@ Lungenkrebs-Screeningbefund</i18n:translation>
         <dc:Bounds x="2780" y="301" width="100" height="82" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_1hvq9ik_di" bpmnElement="TextAnnotation_1hvq9ik" bioc:stroke="#0000ff" color:border-color="#0000ff">
+      <bpmndi:BPMNShape id="TextAnnotation_1hvq9ik_di" bpmnElement="TextAnnotation_1hvq9ik"
+        bioc:stroke="#0000ff" color:border-color="#0000ff">
         <dc:Bounds x="4060" y="320" width="110" height="111" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
@@ -2015,91 +2255,111 @@ Lungenkrebs-Screeningbefund</i18n:translation>
         <dc:Bounds x="2860" y="930" width="220" height="39" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_18ocbdb_di" bpmnElement="TextAnnotation_18ocbdb" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNShape id="TextAnnotation_18ocbdb_di" bpmnElement="TextAnnotation_18ocbdb"
+        bioc:stroke="#000000" color:border-color="#000000">
         <dc:Bounds x="1540" y="301" width="130" height="111" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_00rg0wp_di" bpmnElement="TextAnnotation_00rg0wp" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNShape id="TextAnnotation_00rg0wp_di" bpmnElement="TextAnnotation_00rg0wp"
+        bioc:stroke="#000000" color:border-color="#000000">
         <dc:Bounds x="2590" y="488" width="180" height="240" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_01moynn_di" bpmnElement="TextAnnotation_01moynn" bioc:stroke="#ff0000" color:border-color="#ff0000">
+      <bpmndi:BPMNShape id="TextAnnotation_01moynn_di" bpmnElement="TextAnnotation_01moynn"
+        bioc:stroke="#ff0000" color:border-color="#ff0000">
         <dc:Bounds x="3960" y="110" width="145" height="39" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_0ix2m2m_di" bpmnElement="TextAnnotation_0ix2m2m" bioc:stroke="#ff0000" color:border-color="#ff0000">
+      <bpmndi:BPMNShape id="TextAnnotation_0ix2m2m_di" bpmnElement="TextAnnotation_0ix2m2m"
+        bioc:stroke="#ff0000" color:border-color="#ff0000">
         <dc:Bounds x="3760" y="320" width="70" height="30" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_1kktshw_di" bpmnElement="TextAnnotation_1kktshw" bioc:stroke="#ff0000" color:border-color="#ff0000">
+      <bpmndi:BPMNShape id="TextAnnotation_1kktshw_di" bpmnElement="TextAnnotation_1kktshw"
+        bioc:stroke="#ff0000" color:border-color="#ff0000">
         <dc:Bounds x="4320" y="530" width="100" height="125" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_1e63kee_di" bpmnElement="TextAnnotation_1e63kee" bioc:stroke="#000000" color:border-color="#000000">
+      <bpmndi:BPMNShape id="TextAnnotation_1e63kee_di" bpmnElement="TextAnnotation_1e63kee"
+        bioc:stroke="#000000" color:border-color="#000000">
         <dc:Bounds x="2330" y="537" width="140" height="68" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="DataOutputAssociation_0okj96l_di" bpmnElement="DataOutputAssociation_0okj96l">
+      <bpmndi:BPMNEdge id="DataOutputAssociation_0okj96l_di"
+        bpmnElement="DataOutputAssociation_0okj96l">
         <di:waypoint x="1290" y="500" />
         <di:waypoint x="1290" y="675" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataInputAssociation_0v2dl5e_di" bpmnElement="DataInputAssociation_0v2dl5e">
+      <bpmndi:BPMNEdge id="DataInputAssociation_0v2dl5e_di"
+        bpmnElement="DataInputAssociation_0v2dl5e">
         <di:waypoint x="490" y="675" />
         <di:waypoint x="490" y="500" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataInputAssociation_1iy7jzn_di" bpmnElement="DataInputAssociation_1iy7jzn">
+      <bpmndi:BPMNEdge id="DataInputAssociation_1iy7jzn_di"
+        bpmnElement="DataInputAssociation_1iy7jzn">
         <di:waypoint x="1938" y="580" />
         <di:waypoint x="2210" y="580" />
         <di:waypoint x="2210" y="500" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataInputAssociation_16qelyz_di" bpmnElement="DataInputAssociation_16qelyz">
+      <bpmndi:BPMNEdge id="DataInputAssociation_16qelyz_di"
+        bpmnElement="DataInputAssociation_16qelyz">
         <di:waypoint x="1308" y="700" />
         <di:waypoint x="2240" y="700" />
         <di:waypoint x="2240" y="500" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataInputAssociation_184t0pb_di" bpmnElement="DataInputAssociation_184t0pb">
+      <bpmndi:BPMNEdge id="DataInputAssociation_184t0pb_di"
+        bpmnElement="DataInputAssociation_184t0pb">
         <di:waypoint x="2270" y="675" />
         <di:waypoint x="2270" y="500" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataOutputAssociation_1ln8ly7_di" bpmnElement="DataOutputAssociation_1ln8ly7">
+      <bpmndi:BPMNEdge id="DataOutputAssociation_1ln8ly7_di"
+        bpmnElement="DataOutputAssociation_1ln8ly7">
         <di:waypoint x="2228" y="420" />
         <di:waypoint x="2228" y="305" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataOutputAssociation_168o23q_di" bpmnElement="DataOutputAssociation_168o23q">
+      <bpmndi:BPMNEdge id="DataOutputAssociation_168o23q_di"
+        bpmnElement="DataOutputAssociation_168o23q">
         <di:waypoint x="1780" y="480" />
         <di:waypoint x="1840" y="480" />
         <di:waypoint x="1840" y="580" />
         <di:waypoint x="1902" y="580" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataInputAssociation_0cdamwe_di" bpmnElement="DataInputAssociation_0cdamwe">
+      <bpmndi:BPMNEdge id="DataInputAssociation_0cdamwe_di"
+        bpmnElement="DataInputAssociation_0cdamwe">
         <di:waypoint x="2668" y="830" />
         <di:waypoint x="2770" y="830" />
         <di:waypoint x="2770" y="788" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataInputAssociation_16o9bgj_di" bpmnElement="DataInputAssociation_16o9bgj">
+      <bpmndi:BPMNEdge id="DataInputAssociation_16o9bgj_di"
+        bpmnElement="DataInputAssociation_16o9bgj">
         <di:waypoint x="2248" y="280" />
         <di:waypoint x="2760" y="280" />
         <di:waypoint x="2760" y="420" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataOutputAssociation_0gvdrfk_di" bpmnElement="DataOutputAssociation_0gvdrfk">
+      <bpmndi:BPMNEdge id="DataOutputAssociation_0gvdrfk_di"
+        bpmnElement="DataOutputAssociation_0gvdrfk">
         <di:waypoint x="3762" y="500" />
         <di:waypoint x="3762" y="535" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataOutputAssociation_038goq7_di" bpmnElement="DataOutputAssociation_038goq7">
+      <bpmndi:BPMNEdge id="DataOutputAssociation_038goq7_di"
+        bpmnElement="DataOutputAssociation_038goq7">
         <di:waypoint x="3820" y="500" />
         <di:waypoint x="3820" y="565" />
         <di:waypoint x="3862" y="565" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataInputAssociation_0d3642w_di" bpmnElement="DataInputAssociation_0d3642w">
+      <bpmndi:BPMNEdge id="DataInputAssociation_0d3642w_di"
+        bpmnElement="DataInputAssociation_0d3642w">
         <di:waypoint x="3900" y="375" />
         <di:waypoint x="3900" y="420" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataInputAssociation_0yo6squ_di" bpmnElement="DataInputAssociation_0yo6squ">
+      <bpmndi:BPMNEdge id="DataInputAssociation_0yo6squ_di"
+        bpmnElement="DataInputAssociation_0yo6squ">
         <di:waypoint x="3898" y="560" />
         <di:waypoint x="3930" y="560" />
         <di:waypoint x="3930" y="500" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataInputAssociation_1al88lx_di" bpmnElement="DataInputAssociation_1al88lx">
+      <bpmndi:BPMNEdge id="DataInputAssociation_1al88lx_di"
+        bpmnElement="DataInputAssociation_1al88lx">
         <di:waypoint x="3578" y="200" />
         <di:waypoint x="3880" y="200" />
       </bpmndi:BPMNEdge>
