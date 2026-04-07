@@ -87,14 +87,14 @@ Erhebung notwendiger Datenelemente, digitaler Unterstützungsoptionen und gewün
 
 Die BPMN-Modelle werden in zwei Formaten bereitgestellt:
 
-- **XML** (`.xml`): Maschinenlesbare BPMN-2.0-Quelldatei, direkt bearbeitbar mit gängigen BPMN-Editoren (s. u.)
+- **BPMN** (`.bpmn`): Maschinenlesbare BPMN-2.0-Quelldatei, direkt bearbeitbar mit gängigen BPMN-Editoren (s. u.)
 - **SVG** (`.svg`): Skalierbare Vektorgrafik zur menschenlesbaren Visualisierung, darstellbar im Browser oder in Vektorgrafik-Software
 
 ### Übergreifender Patientenpfad
 
 | Datei                                                                          | Beschreibung                                                 |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------ |
-| [`lung-cancer_overarching-pathway.xml`](./lung-cancer_overarching-pathway.xml) | BPMN-Quelldatei des übergreifenden Lungenkrebspatientenpfads |
+| [`lung-cancer_overarching-pathway.bpmn`](./lung-cancer_overarching-pathway.bpmn) | BPMN-Quelldatei des übergreifenden Lungenkrebspatientenpfads |
 | [`lung-cancer_overarching-pathway.svg`](./lung-cancer_overarching-pathway.svg) | Visualisierung des übergreifenden Lungenkrebspatientenpfads  |
 
 Der übergreifende Pfad bildet den vollständigen Patient:innen-Journey von der Prävention/Früherkennung bis zur Nachsorge ab und verknüpft alle Teilpfade miteinander.
@@ -103,18 +103,18 @@ Der übergreifende Pfad bildet den vollständigen Patient:innen-Journey von der 
 
 | Datei                                                                                                                                                                   | Beschreibung                            |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
-| [`lung-cancer_diagnostic-subpathway.xml`](./lung-cancer_diagnostic-subpathway.xml) / [`.svg`](./lung-cancer_diagnostic-subpathway.svg)                                  | Teilpfad Diagnostik                     |
-| [`lung-cancer_patient-consultation-subpathway.xml`](./lung-cancer_patient-consultation-subpathway.xml) / [`.svg`](./lung-cancer_patient-consultation-subpathway.svg)    | Teilpfad Patientengespräch / Aufklärung |
-| [`lung-cancer_tumor-board-subpathway.xml`](./lung-cancer_tumor-board-subpathway.xml) / [`.svg`](./lung-cancer_tumor-board-subpathway.svg)                               | Teilpfad Tumorboard                     |
-| [`lung-cancer_molecular-tumor-board-subpathway.xml`](./lung-cancer_molecular-tumor-board-subpathway.xml) / [`.svg`](./lung-cancer_molecular-tumor-board-subpathway.svg) | Teilpfad Molekulares Tumorboard         |
-| [`lung-cancer_treatment-subpathway.xml`](./lung-cancer_treatment-subpathway.xml) / [`.svg`](./lung-cancer_treatment-subpathway.svg)                                     | Teilpfad Behandlung                     |
-| [`lung-cancer_aftercare-subpathway.xml`](./lung-cancer_aftercare-subpathway.xml) / [`.svg`](./lung-cancer_aftercare-subpathway.svg)                                     | Teilpfad Nachsorge                      |
+| [`lung-cancer_diagnostic-subpathway.bpmn`](./lung-cancer_diagnostic-subpathway.bpmn) / [`.svg`](./lung-cancer_diagnostic-subpathway.svg)                                  | Teilpfad Diagnostik                     |
+| [`lung-cancer_patient-consultation-subpathway.bpmn`](./lung-cancer_patient-consultation-subpathway.bpmn) / [`.svg`](./lung-cancer_patient-consultation-subpathway.svg)    | Teilpfad Patientengespräch / Aufklärung |
+| [`lung-cancer_tumor-board-subpathway.bpmn`](./lung-cancer_tumor-board-subpathway.bpmn) / [`.svg`](./lung-cancer_tumor-board-subpathway.svg)                               | Teilpfad Tumorboard                     |
+| [`lung-cancer_molecular-tumor-board-subpathway.bpmn`](./lung-cancer_molecular-tumor-board-subpathway.bpmn) / [`.svg`](./lung-cancer_molecular-tumor-board-subpathway.svg) | Teilpfad Molekulares Tumorboard         |
+| [`lung-cancer_treatment-subpathway.bpmn`](./lung-cancer_treatment-subpathway.bpmn) / [`.svg`](./lung-cancer_treatment-subpathway.svg)                                     | Teilpfad Behandlung                     |
+| [`lung-cancer_aftercare-subpathway.bpmn`](./lung-cancer_aftercare-subpathway.bpmn) / [`.svg`](./lung-cancer_aftercare-subpathway.svg)                                     | Teilpfad Nachsorge                      |
 
 ---
 
 ## Verwendung
 
-Die BPMN-Modelle (`.xml`) können mit folgenden Tools geöffnet, visualisiert und weiterbearbeitet werden:
+Die BPMN-Modelle (`.bpmn`) können mit folgenden Tools geöffnet, visualisiert und weiterbearbeitet werden:
 
 - **[bpmn.io](https://demo.bpmn.io/)** – Frei verfügbarer, webbasierter BPMN-Editor (keine Installation erforderlich)
 - **[Camunda Modeler](https://camunda.com/download/modeler/)** – Desktop-Anwendung für BPMN 2.0 (kostenlos)
