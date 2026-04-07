@@ -1,6 +1,6 @@
-# Lungenkrebspatientenpfad (MiHUB – WP3)
+# Patient Journey Lungenkrebs (MiHUB)
 
-> **BPMN-Modell des übergreifenden Lungenkrebspatientenpfads** im Rahmen des Medical Informatics Hub (MiHUB), Arbeitspaket 3 (WP3): _Übergreifende Patientenpfade_
+> **BPMN-Modell der übergreifenden Lungenkrebs-Patient Journey** (_sog. Patientenpfad_) im Rahmen des Medical Informatics Hub (MiHUB). Der Patientenpfad wird federführend in Arbeitspaket 3 (AP3) entwickelt und bildet die fachliche Grundlage für die Use-Case-Arbeitspakete AP6 (Krebsfrüherkennung), AP7 (Kooperative Krebsversorgung) und AP8 (Nachsorge und Langzeitbegleitung).
 
 [![Lizenz: CC BY 4.0](https://img.shields.io/badge/Lizenz-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Projekt: MiHUB](https://img.shields.io/badge/Projekt-MiHUB-blue)](https://mihubx.de/mihub/)
@@ -11,32 +11,30 @@
 
 ## Projektkontext
 
-Dieses Repository ist Teil des **Medical Informatics Hub (MiHUB)**, einem Digitalen FortschrittsHub (DigiHub) der [Medizininformatik-Initiative (MII)](https://www.medizininformatik-initiative.de/) des Bundesministeriums für Forschung, Technologie und Raumfahrt (BMFTR). MiHUB hat das Ziel, eine intersektorale, serviceorientierte Infrastruktur zur Verbesserung der sektorenübergreifenden Versorgung und Forschung in der Onkologie aufzubauen. Das übergreifende Anwendungsszenario ist die **Versorgung von Lungenkrebspatient:innen** entlang eines vollständigen Patient:innen-Journey, von der Früherkennung über Diagnostik und Behandlung bis hin zu Nachsorge und Langzeitbegleitung.
+Dieses Repository ist Teil des [**Medical Informatics Hub (MiHUB)**](https://mihubx.de/mihub/), einem Digitalen FortschrittsHub (DigiHub) der [Medizininformatik-Initiative (MII)](https://www.medizininformatik-initiative.de/) des Bundesministeriums für Forschung, Technologie und Raumfahrt (BMFTR). MiHUB hat das Ziel, eine intersektorale, serviceorientierte Infrastruktur zur Verbesserung der sektorenübergreifenden Versorgung und Forschung in der Onkologie aufzubauen. Das übergreifende Anwendungsszenario ist die **Versorgung von Lungenkrebspatient:innen** entlang einer vollständigen Patient Journey – von der Früherkennung über Diagnostik und Behandlung bis hin zu Nachsorge und Langzeitbegleitung.
 
 Konsortialführer ist die Technische Universität Dresden (Zentrum für Medizinische Informatik, ZMI). Weitere Konsortialpartner sind die Medizinische Universität Lausitz – Carl Thiem (Cottbus), das Klinikum Chemnitz und die Hochschule Mittweida. MiHUB kooperiert eng mit anderen DigiHubs im Rahmen des Cross-Hub Use Case _„Digitale Unterstützung in komplexen Patientenpfaden"_.
 
 ---
 
-## Arbeitspaket 3 – Übergreifende Patientenpfade (WP3)
+## Arbeitspakete mit Bezug zur Patientenpfadentwicklung
 
-Die **Forschungsgruppe Digital Health (FGDH)** der TU Dresden ist federführend für WP3 verantwortlich.
+Der Patientenpfad wird in AP3 entwickelt und in den Use-Case-Arbeitspaketen AP6, AP7 und AP8 domänenspezifisch verfeinert und implementiert. Die folgende Übersicht beschreibt die pfadrelevanten Aufgaben der einzelnen Arbeitspakete.
 
-### Ziel
+### AP3 – Übergreifende Patientenpfade
 
-WP3 entwickelt einen integrierten Lungenkrebspatientenpfad, der die Phasen Krebsfrüherkennung, Diagnostik, Behandlung, kooperative Krebsversorgung, Palliativversorgung, Nachsorge und Primärversorgung abdeckt. Der Patientenpfad wird auf Basis klinischer Leitlinien und SOPs mithilfe von erweitertem **BPMN 2.0** modelliert und bildet die fachliche Grundlage für alle weiteren Arbeitspakete des Projekts. Darüber hinaus wird der Pfad in **HL7 FHIR**-Spezifikationen überführt, um eine maschinell interpretierbare und semantisch interoperable Repräsentation bereitzustellen.
+Die **Forschungsgruppe Digital Health (FGDH)** der TU Dresden ist federführend für AP3 verantwortlich. Unterstützt wird sie durch die **Abteilung Allgemeinmedizin / Forschungspraxennetz SaxoN (AMED)** der TU Dresden, die **Abteilung Hämatologie, Onkologie, Nephrologie, Diabetologie und Pneumologie (CB-Onc)** der Medizinischen Universität Lausitz – Carl Thiem in Cottbus sowie das dortige **Datenintegrationszentrum (CB-DIC)**.
 
-### Aufgaben
+AP3 entwickelt einen integrierten Lungenkrebspatientenpfad, der die Phasen Krebsfrüherkennung, Diagnostik, Behandlung, kooperative Krebsversorgung, Palliativversorgung, Nachsorge und Primärversorgung abdeckt. Der Patientenpfad wird auf Basis klinischer Leitlinien und SOPs mithilfe von erweitertem **BPMN 2.0** modelliert und bildet die fachliche Grundlage für alle weiteren Arbeitspakete des Projekts. Darüber hinaus wird der Pfad in **HL7 FHIR**-Spezifikationen überführt, um eine maschinell interpretierbare und semantisch interoperable Repräsentation bereitzustellen.
 
 **Aufgabe 3.1 – Entwicklung des übergreifenden Patientenpfads (M1–M6)**
-Entwicklung des Kern-Lungenkrebspatientenpfads in BPMN mit Fokus auf intersektorale Übergänge und aktiver Beteiligung der Stakeholder (Hausärzt:innen, Spezialist:innen, Tumorzentren, Patient:innen). Die Modellierung basiert auf etablierten klinischen Leitlinien und SOPs. Die Möglichkeiten zur Modularisierung für eine individuelle Anpassung werden anhand versorgungsspezifischer Parameter untersucht. Der BPMN-Pfad wird allen Stakeholdern zugänglich gemacht.
+Entwicklung des Kern-Lungenkrebspatientenpfads in BPMN mit Fokus auf intersektorale Übergänge und aktiver Beteiligung der Stakeholder (Hausärzt:innen, Spezialist:innen, Tumorzentren, Patient:innen). Die Modellierung basiert auf klinischen Leitlinien und SOPs. Der BPMN-Pfad wird allen Stakeholdern zugänglich gemacht.
 
 **Aufgabe 3.2 – Computerinterpretierbare Spezifikation des Patientenpfads (M10–M16)**
-Überführung des BPMN-Modells in ein technisches Artefakt mittels HL7 FHIR-Standards und nationaler sowie internationaler Terminologiestandards (SNOMED CT, LOINC, ICD). Ziel ist ein computerinterpretierbarer Patientenpfad, der mit nationalen und europäischen Gesundheitsdateninitiativen (u. a. EHDS) kompatibel ist. Bestehende Modellierungswerkzeuge können um semantische Annotationsfähigkeiten erweitert werden.
+Überführung des BPMN-Modells in ein technisches Artefakt mittels HL7 FHIR-Standards und nationaler sowie internationaler Terminologiestandards (SNOMED CT, LOINC, ICD). Ziel ist ein computerinterpretierbarer Patientenpfad, der mit nationalen und europäischen Gesundheitsdateninitiativen (u. a. EHDS) kompatibel ist.
 
 **Aufgabe 3.3 – Analyse der aktuellen Informationssystemlandschaft (M3–M9)**
-Systematische Analyse der bestehenden IT-Systemlandschaft entlang des entwickelten Patientenpfads. Untersuchung von Informationsflüssen, beteiligten Organisationen und Nutzenden zur Identifikation von Lücken, Schwachstellen und erfolgreichen Komponenten. Die Ergebnisse dienen der strategischen Ausrichtung und Priorisierung der technischen Umsetzung.
-
-### Liefergegenstände (Deliverables)
+Systematische Analyse der bestehenden IT-Systemlandschaft entlang des entwickelten Patientenpfads zur Identifikation von Lücken, Schwachstellen und erfolgreichen Komponenten als Grundlage für die technische Umsetzung.
 
 | ID   | Beschreibung                                       | Fälligkeit |
 | ---- | -------------------------------------------------- | ---------- |
@@ -44,40 +42,79 @@ Systematische Analyse der bestehenden IT-Systemlandschaft entlang des entwickelt
 | D3.2 | Lungenkrebspatientenpfad FHIR Implementation Guide | M16        |
 | D3.3 | Bericht zur aktuellen Informationssystemlandschaft | M9         |
 
+### AP6 – Use Case: Krebsfrüherkennung
+
+AP6 wird maßgeblich durch das **Klinikum Chemnitz** getragen: die **Klinik für Innere Medizin IV (SKC-CIM)** und das **Institut für Radiologie und Neuroradiologie (SKC-RAD)** verantworten die klinische Evaluation, das **Netzwerk Südwestsachsen (SKC-SWS)** die regionale Vernetzung und die **IT-Abteilung (SKC-IT)** die technische Umsetzung. Weitere Beiträge leisten **AMED** (Rekrutierung hausärztlicher Praxen über das Forschungspraxennetz SaxoN), **CB-Onc** (Cottbus) sowie **ZMI** und **FGDH** der TU Dresden.
+
+AP6 nutzt den in AP3 entwickelten Patientenpfad als Grundlage für die Identifikation von Hochrisikopatient:innen für die Lungenkrebsfrüherkennung und leitet daraus domänenspezifische Datenanforderungen ab.
+
+**Aufgabe 6.2 – Datenanalyse und Spezifikation (M7–M12)**
+Definition von Datenelementen zur Patient:innenidentifikation auf Basis der in AP3 entwickelten Pfadanalyse. Spezifikation strukturierter und unstrukturierter Datenanforderungen gemäß der Lungenkrebsfrüherkennungsverordnung. Partizipative Analyse mit rekrutierten Hausärzt:innen zur iterativen Verfeinerung.
+
+| ID   | Beschreibung       | Fälligkeit |
+| ---- | ------------------ | ---------- |
+| D6.2 | Datenspezifikation | M12        |
+
+### AP7 – Use Case: Kooperative Krebsversorgung
+
+Federführend in AP7 ist das **Center for Personalized Oncology and Translational Medical Oncology am NCT/UCC Dresden (NCT)**. Wesentliche Beiträge leisten die **FGDH** (Patient:innenportal, Vernetzungsplattform), **AMED** (hausärztliche Perspektive) und **CB-Onc** (Cottbus, onkologische Expertise).
+
+AP7 verfeinert den in AP3 entwickelten übergreifenden Patientenpfad für die Versorgung von Patient:innen mit fortgeschrittenem und palliativem Lungenkarzinom. Durch die Detaillierung der Behandlungsepisode entsteht ein differenziertes Verständnis des Patient:innen- und Datenpfads in der kooperativen Krebsversorgung.
+
+**Aufgabe 7.1 – Erhebung der Patient Journey und Definition von Teilpfaden (M1–M9)**
+In Zusammenarbeit mit AP3 wird die Patient Journey für die Behandlungsepisode detailliert, die Patient:innenportal-Nutzung spezifiziert und detaillierte Prozessmodelle erstellt. Ziel ist ein umfassendes Verständnis des Patient:innenpfads und des zugehörigen Datenpfads durch das Gesundheitssystem.
+
+| ID   | Beschreibung                                  | Fälligkeit |
+| ---- | --------------------------------------------- | ---------- |
+| D7.1 | Verfeinerte Patient Journey und Patientenpfad | M9         |
+
+### AP8 – Use Case: Nachsorge und Langzeitbegleitung
+
+AP8 wird gemeinsam getragen von **AMED** (Forschungspraxennetz SaxoN, hausärztliche Perspektive), **FGDH** (digitale Werkzeuge, Systemarchitektur), dem **CB-DIC** und **CB-Onc** (Cottbus) sowie der **Hochschule Mittweida (HSMW)** (CRPM-Studien, Daten-Gateway).
+
+AP8 leitet aus dem übergreifenden Patientenpfad die spezifischen Anforderungen für die Nachsorge und Langzeitbegleitung ab. Durch Stakeholder-Workshops werden notwendige Datenelemente und gewünschte Prozesse für die hausärztliche und ambulante onkologische Nachsorge erhoben und in den Pfad rückgekoppelt.
+
+**Aufgabe 8.1 – Anforderungsanalyse (M1–M6)**
+Erhebung notwendiger Datenelemente, digitaler Unterstützungsoptionen und gewünschter Prozesse für die Nachsorge in Stakeholder-Workshops (gemeinsam mit AP9). Definition von Kohorten und Forschungsfragen für vertiefende Studien.
+
+| ID   | Beschreibung              | Fälligkeit |
+| ---- | ------------------------- | ---------- |
+| D8.1 | Anforderungsspezifikation | M6         |
+
 ---
 
 ## Artefakte in diesem Repository
 
 Die BPMN-Modelle werden in zwei Formaten bereitgestellt:
 
-- **XML** (`.xml`): Maschinenlesbare BPMN-2.0-Quelldatei, direkt bearbeitbar mit gängigen BPMN-Editoren (s. u.)
+- **BPMN** (`.bpmn`): Maschinenlesbare BPMN-2.0-Quelldatei, direkt bearbeitbar mit gängigen BPMN-Editoren (s. u.)
 - **SVG** (`.svg`): Skalierbare Vektorgrafik zur menschenlesbaren Visualisierung, darstellbar im Browser oder in Vektorgrafik-Software
 
 ### Übergreifender Patientenpfad
 
-| Datei                                 | Beschreibung                                                 |
-| ------------------------------------- | ------------------------------------------------------------ |
-| `lung-cancer_overarching-pathway.xml` | BPMN-Quelldatei des übergreifenden Lungenkrebspatientenpfads |
-| `lung-cancer_overarching-pathway.svg` | Visualisierung des übergreifenden Lungenkrebspatientenpfads  |
+| Datei                                                                          | Beschreibung                                                 |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------ |
+| [`lung-cancer_overarching-pathway.bpmn`](./lung-cancer_overarching-pathway.bpmn) | BPMN-Quelldatei des übergreifenden Lungenkrebspatientenpfads |
+| [`lung-cancer_overarching-pathway.svg`](./lung-cancer_overarching-pathway.svg) | Visualisierung des übergreifenden Lungenkrebspatientenpfads  |
 
 Der übergreifende Pfad bildet den vollständigen Patient:innen-Journey von der Prävention/Früherkennung bis zur Nachsorge ab und verknüpft alle Teilpfade miteinander.
 
 ### Teilpfade (Sub-Pathways)
 
-| Datei (Prefix `lung-cancer_`)                   | Beschreibung                            |
-| ----------------------------------------------- | --------------------------------------- |
-| `diagnostic-subpathway.xml` / `.svg`            | Teilpfad Diagnostik                     |
-| `patient-consultation-subpathway.xml` / `.svg`  | Teilpfad Patientengespräch / Aufklärung |
-| `tumor-board-subpathway.xml` / `.svg`           | Teilpfad Tumorboard                     |
-| `molecular-tumor-board-subpathway.xml` / `.svg` | Teilpfad Molekulares Tumorboard         |
-| `treatment-subpathway.xml` / `.svg`             | Teilpfad Behandlung                     |
-| `aftercare-subpathway.xml` / `.svg`             | Teilpfad Nachsorge                      |
+| Datei                                                                                                                                                                   | Beschreibung                            |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| [`lung-cancer_diagnostic-subpathway.bpmn`](./lung-cancer_diagnostic-subpathway.bpmn) / [`.svg`](./lung-cancer_diagnostic-subpathway.svg)                                  | Teilpfad Diagnostik                     |
+| [`lung-cancer_patient-consultation-subpathway.bpmn`](./lung-cancer_patient-consultation-subpathway.bpmn) / [`.svg`](./lung-cancer_patient-consultation-subpathway.svg)    | Teilpfad Patientengespräch / Aufklärung |
+| [`lung-cancer_tumor-board-subpathway.bpmn`](./lung-cancer_tumor-board-subpathway.bpmn) / [`.svg`](./lung-cancer_tumor-board-subpathway.svg)                               | Teilpfad Tumorboard                     |
+| [`lung-cancer_molecular-tumor-board-subpathway.bpmn`](./lung-cancer_molecular-tumor-board-subpathway.bpmn) / [`.svg`](./lung-cancer_molecular-tumor-board-subpathway.svg) | Teilpfad Molekulares Tumorboard         |
+| [`lung-cancer_treatment-subpathway.bpmn`](./lung-cancer_treatment-subpathway.bpmn) / [`.svg`](./lung-cancer_treatment-subpathway.svg)                                     | Teilpfad Behandlung                     |
+| [`lung-cancer_aftercare-subpathway.bpmn`](./lung-cancer_aftercare-subpathway.bpmn) / [`.svg`](./lung-cancer_aftercare-subpathway.svg)                                     | Teilpfad Nachsorge                      |
 
 ---
 
 ## Verwendung
 
-Die BPMN-Modelle (`.xml`) können mit folgenden Tools geöffnet, visualisiert und weiterbearbeitet werden:
+Die BPMN-Modelle (`.bpmn`) können mit folgenden Tools geöffnet, visualisiert und weiterbearbeitet werden:
 
 - **[bpmn.io](https://demo.bpmn.io/)** – Frei verfügbarer, webbasierter BPMN-Editor (keine Installation erforderlich)
 - **[Camunda Modeler](https://camunda.com/download/modeler/)** – Desktop-Anwendung für BPMN 2.0 (kostenlos)
@@ -113,28 +150,22 @@ Dieses Repository steht unter der **[Creative Commons Attribution 4.0 Internatio
 
 [![CC BY 4.0](https://licensebuttons.net/l/by/4.0/88x31.png)](https://creativecommons.org/licenses/by/4.0/)
 
-### Begründung der Lizenzwahl
-
-Für Ergebnisse öffentlich geförderter Forschung empfiehlt sich **CC BY 4.0**, weil diese Lizenz:
-
-- **maximale Nachnutzbarkeit** gewährleistet – freie Weiterverwendung, Anpassung und Verbreitung (auch kommerziell) unter der Bedingung der Namensnennung,
-- den **FAIR-Prinzipien** (Findable, Accessible, Interoperable, Reusable) entspricht, wie sie von der MII und der BMFTR-Förderstrategie vorausgesetzt werden,
-- den **Open-Science-Empfehlungen** der Europäischen Kommission und des BMFTR für öffentlich finanzierte Forschungsprojekte folgt,
-- **breit kompatibel** mit anderen offenen Lizenzen und im Gesundheits- und Forschungsbereich weit verbreitet ist,
-- die **Anerkennung der Forschungsleistung** durch die Attributionspflicht sicherstellt,
-- **kompatibel mit den Vorarbeiten** ist: Die Ergebnisse des INA-Arbeitskreises stehen ebenfalls unter Creative Commons (Weitergabe mit Namensnennung), und CraNE-Ergebnisse als EU-geförderte Outputs unterliegen CC BY 4.0-Anforderungen – eine Weiterlizenzierung unter CC BY 4.0 ist daher lizenzrechtlich konsistent.
-
 ### Attribution
 
 Bei Weiterverwendung bitte folgende Angabe verwenden:
 
-> _Forschungsgruppe Digital Health (FGDH), Technische Universität Dresden (2025). Lungenkrebspatientenpfad – MiHUB WP3. GitHub: https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway. Lizenz: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)._
+> _Forschungsgruppe Digital Health (FGDH), Technische Universität Dresden (2026). Lungenkrebspatientenpfad – MiHUB. GitHub: https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway. Lizenz: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)._
 
 ---
 
 ## Förderhinweis
 
 Dieses Artefakt ist im Rahmen des Verbundprojekts **Medical Informatics Hub/MiHUB** als Teil der **Medizininformatik-Initiative (MII)** entstanden und wird gefördert durch das **Bundesministerium für Forschung, Technologie und Raumfahrt (BMFTR)**, Förderkennzeichen: 01ZZ2506A.
+
+<p align="middle">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/BMFTR_Logo.svg/1280px-BMFTR_Logo.svg.png" width="500" />
+  <img src="https://mihubx.de/wp-content/uploads/2026/01/FortschrittsHubs_rgb_mihub.png" width="300" />
+</p>
 
 ---
 
