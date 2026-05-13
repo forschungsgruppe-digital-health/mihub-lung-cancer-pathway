@@ -1,156 +1,137 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL"
-  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
-  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
-  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
-  xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" id="sample-diagram"
-  targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)"
-  exporterVersion="18.13.2"
-  xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="18.13.2" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
   <bpmn2:collaboration id="Collaboration_0jne9lg">
-    <bpmn2:participant id="Participant_08m8ex4" name="Hausärztliche Praxis" processRef="Process_1">
+    <bpmn2:participant id="Participant_08m8ex4" name="Nachsorge (Ambulante Versorgung)" processRef="Process_1">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Hausärztliche Praxis</i18n:translation>
+        <i18n:translation lang="de">Nachsorge (Ambulante Versorgung)</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:participant>
-    <bpmn2:textAnnotation id="TextAnnotation_0ad39t3">
-      <bpmn2:extensionElements>
-        <i18n:translation target="@text" xml:lang="de">Fleischner-Kriterien, d.h. zufällig entdeckte
-          (solide, subsolide oder perifissurale) Rundherde bei Patienten &gt; 35 Jahre oder
-          Patienten ohne bekannte Krebserkrankung</i18n:translation>
-      </bpmn2:extensionElements>
-      <bpmn2:text>Fleischner-Kriterien, d.h. zufällig entdeckte (solide, subsolide oder
-        perifissurale) Rundherde bei Patienten &gt; 35 Jahre oder Patienten ohne bekannte
-        Krebserkrankung</bpmn2:text>
-    </bpmn2:textAnnotation>
     <bpmn2:textAnnotation id="TextAnnotation_1kl9ikk">
       <bpmn2:extensionElements>
-        <i18n:translation target="@text" xml:lang="de">Überwiegende Teil der Patienten kommt ohne
-          Nachsorgeplan; muss angefragt werden; unstrukturiertes Dokument (kein Standard vorhanden);
-          wird strukturiert in PVS übertragen</i18n:translation>
+        <i18n:translation target="@text" lang="de">- Teilweise nicht vorhanden/übermittelt; muss ggf. angefragt werden
+- Unstrukturiertes Dokument (kein Standard vorhanden); wird strukturiert in PVS übertragen
+- Inhalt: Anamnese (inkl. Nebenwirkungen der Therapie), CT-Befunde, ggf. Laborergebnisse, Lungenfunktion, wünschenswert: Impfungen, Lebensqualität</i18n:translation>
       </bpmn2:extensionElements>
-      <bpmn2:text>Überwiegende Teil der Patienten kommt ohne Nachsorgeplan; muss angefragt werden;
-        unstrukturiertes Dokument (kein Standard vorhanden); wird strukturiert in PVS übertragen</bpmn2:text>
+      <bpmn2:text>- Teilweise nicht vorhanden/übermittelt; muss ggf. angefragt werden
+- Unstrukturiertes Dokument (kein Standard vorhanden); wird strukturiert in PVS übertragen
+- Inhalt: Anamnese (inkl. Nebenwirkungen der Therapie), CT-Befunde, ggf. Laborergebnisse, Lungenfunktion, wünschenswert: Impfungen, Lebensqualität</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:textAnnotation id="TextAnnotation_0qmicxk">
       <bpmn2:extensionElements>
-        <i18n:translation target="@text" xml:lang="de">Medikationsplan ggf. aus ePA abrufen, falls
-          Zugriffsberechtigung durch Patient nicht entzogen</i18n:translation>
+        <i18n:translation target="@text" lang="de">Medikationsplan ggf. aus ePA abrufen, falls
+Zugriffs-berechtigung durch Patient nicht entzogen</i18n:translation>
       </bpmn2:extensionElements>
-      <bpmn2:text>Medikationsplan ggf. aus ePA abrufen, falls Zugriffsberechtigung durch Patient
-        nicht entzogen</bpmn2:text>
+      <bpmn2:text>Medikationsplan ggf. aus ePA abrufen, falls
+Zugriffs-berechtigung durch Patient nicht entzogen</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:textAnnotation id="TextAnnotation_1gi9dkd">
       <bpmn2:extensionElements>
-        <i18n:translation target="@text" xml:lang="de">Seit letztem Besuch;
-          Aktuelle Symptome und Komplikationen, sozialmedizinische Aspekte, Medikamentenanamnese,
-          Familienanamnese, Komorbiditäten</i18n:translation>
+        <i18n:translation target="@text" lang="de">- Seit letztem Besuch:
+Aktuelle Symptome /Beschwerden, Komplikationen, sozialmedizinische Aspekte, Medikamentenanamnese, Komorbiditäten
+- Optional, falls nicht vorhanden: Familienanamnese</i18n:translation>
       </bpmn2:extensionElements>
-      <bpmn2:text>Seit letztem Besuch;
-        Aktuelle Symptome und Komplikationen, sozialmedizinische Aspekte, Medikamentenanamnese,
-        Familienanamnese, Komorbiditäten</bpmn2:text>
+      <bpmn2:text>- Seit letztem Besuch:
+Aktuelle Symptome /Beschwerden, Komplikationen, sozialmedizinische Aspekte, Medikamentenanamnese, Komorbiditäten
+- Optional, falls nicht vorhanden: Familienanamnese</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:textAnnotation id="TextAnnotation_1poit57">
       <bpmn2:extensionElements>
-        <i18n:translation target="@text" xml:lang="de">Krankheitsbezogene Diagnostik</i18n:translation>
+        <i18n:translation target="@text" lang="de">Krankheitsbezogene Diagnostik</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:text>Krankheitsbezogene Diagnostik</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:textAnnotation id="TextAnnotation_1c44r1w">
       <bpmn2:extensionElements>
-        <i18n:translation target="@text" xml:lang="de">Je nach Leitlinie oder Diagnose
+        <i18n:translation target="@text" lang="de">Je nach Leitlinie oder Diagnose
           unterschiedliche Intervalldauer</i18n:translation>
       </bpmn2:extensionElements>
-      <bpmn2:text>Je nach Leitlinie oder Diagnose unterschiedliche Intervalldauer</bpmn2:text>
+      <bpmn2:text>Je nach Leitlinie oder Diagnose
+          unterschiedliche Intervalldauer</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:textAnnotation id="TextAnnotation_1gkl1qq">
       <bpmn2:extensionElements>
-        <i18n:translation target="@text" xml:lang="de">Tertiärprävention; Rauchentwöhnung; DiGA</i18n:translation>
+        <i18n:translation target="@text" lang="de">Tertiärprävention; Rauchentwöhnung; DiGA</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:text>Tertiärprävention; Rauchentwöhnung; DiGA</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:textAnnotation id="TextAnnotation_0nk2czw">
       <bpmn2:extensionElements>
-        <i18n:translation target="@text" xml:lang="de">Nachsorgeplan per E-Mail (PDF); KIM selten
-          genutzt</i18n:translation>
+        <i18n:translation target="@text" lang="de">Ggf. Nachsorgeplan per KIM (PDF)</i18n:translation>
       </bpmn2:extensionElements>
-      <bpmn2:text>Nachsorgeplan per E-Mail (PDF); KIM selten genutzt</bpmn2:text>
+      <bpmn2:text>Ggf. Nachsorgeplan per KIM (PDF)</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:textAnnotation id="TextAnnotation_0clb061">
       <bpmn2:extensionElements>
-        <i18n:translation target="@text" xml:lang="de">Blut-, Leber- und Nierenwerte; spezifisch zu
-          Symptomen und Nachsorgeplan</i18n:translation>
+        <i18n:translation target="@text" lang="de">Blut-, Leber- und Nierenwerte; spezifisch zu
+Symptomen und Nachsorgeplan</i18n:translation>
       </bpmn2:extensionElements>
-      <bpmn2:text>Blut-, Leber- und Nierenwerte; spezifisch zu Symptomen und Nachsorgeplan</bpmn2:text>
+      <bpmn2:text>Blut-, Leber- und Nierenwerte; spezifisch zu
+Symptomen und Nachsorgeplan</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:textAnnotation id="TextAnnotation_073gqs1">
       <bpmn2:extensionElements>
-        <i18n:translation target="@text" xml:lang="de">Z.B. Dokument mit QR-Code für Patient</i18n:translation>
+        <i18n:translation target="@text" lang="de">Z.B. Dokument mit QR-Code für Patient</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:text>Z.B. Dokument mit QR-Code für Patient</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:textAnnotation id="TextAnnotation_1ek9j74">
       <bpmn2:extensionElements>
-        <i18n:translation target="@text" xml:lang="de">Einzeltermin; wünschenswert wäre eine
-          Terminserie, die anhand der Intervalle des Nachsorgeplans vorgeschlagen wird</i18n:translation>
+        <i18n:translation target="@text" lang="de">Einzeltermin; wünschenswert wäre eine
+Terminserie, die anhand der Intervalle des Nachsorgeplans vorgeschlagen wird</i18n:translation>
       </bpmn2:extensionElements>
-      <bpmn2:text>Einzeltermin; wünschenswert wäre eine Terminserie, die anhand der Intervalle des
-        Nachsorgeplans vorgeschlagen wird</bpmn2:text>
+      <bpmn2:text>Einzeltermin; wünschenswert wäre eine
+Terminserie, die anhand der Intervalle des Nachsorgeplans vorgeschlagen wird</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:textAnnotation id="TextAnnotation_1i5b5m4">
       <bpmn2:extensionElements>
-        <i18n:translation target="@text" xml:lang="de">Raucherstatus:Rauchdauer,
-          Rauchstopp-Zeitpunkt, Pack-Years</i18n:translation>
+        <i18n:translation target="@text" lang="de">Raucherstatus:
+Rauchdauer,
+Rauchstopp-Zeitpunkt, Pack-Years (optional, keine klinische Relevanz)</i18n:translation>
       </bpmn2:extensionElements>
-      <bpmn2:text>Raucherstatus:Rauchdauer, Rauchstopp-Zeitpunkt, Pack-Years</bpmn2:text>
+      <bpmn2:text>Raucherstatus:
+Rauchdauer,
+Rauchstopp-Zeitpunkt, Pack-Years (optional, keine klinische Relevanz)</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:group id="Group_1mc5mxx" categoryValueRef="CategoryValue_0uj3wsc" />
     <bpmn2:group id="Group_1jdt1md" categoryValueRef="CategoryValue_17jm26s" />
     <bpmn2:group id="Group_1rsfkdi" categoryValueRef="CategoryValue_1kpujg3" />
     <bpmn2:group id="Group_19anwui" categoryValueRef="CategoryValue_1ygngmr" />
-    <bpmn2:association id="Association_07eb88c" associationDirection="None"
-      sourceRef="DataObjectReference_0lz1gul" targetRef="TextAnnotation_1kl9ikk" />
-    <bpmn2:association id="Association_00oedox" associationDirection="None"
-      sourceRef="DataObjectReference_0ii8njk" targetRef="TextAnnotation_0qmicxk" />
-    <bpmn2:association id="Association_07k63n6" associationDirection="None"
-      sourceRef="Activity_0nwl5wt" targetRef="TextAnnotation_1gi9dkd" />
-    <bpmn2:association id="Association_1sk5yxz" associationDirection="None"
-      sourceRef="Activity_0m3qr65" targetRef="TextAnnotation_1poit57" />
-    <bpmn2:association id="Association_1gij6wp" associationDirection="None"
-      sourceRef="Event_0q69do5" targetRef="TextAnnotation_1c44r1w" />
-    <bpmn2:association id="Association_1pqzowy" associationDirection="None"
-      sourceRef="Activity_1u0e88d" targetRef="TextAnnotation_1gkl1qq" />
-    <bpmn2:association id="Association_0ug6peu" associationDirection="None"
-      sourceRef="DataStoreReference_0chf8ks" targetRef="TextAnnotation_0nk2czw" />
-    <bpmn2:association id="Association_16xvpil" associationDirection="None"
-      sourceRef="Activity_12dmwaz" targetRef="TextAnnotation_0clb061" />
-    <bpmn2:association id="Association_05c4pn6" associationDirection="None"
-      sourceRef="DataObjectReference_0af9xhl" targetRef="TextAnnotation_073gqs1" />
-    <bpmn2:association id="Association_1ogkf9m" associationDirection="None"
-      sourceRef="DataObjectReference_0tn2oma" targetRef="TextAnnotation_1ek9j74" />
-    <bpmn2:association id="Association_0s8sudi" associationDirection="None"
-      sourceRef="Activity_1qz4zl1" targetRef="TextAnnotation_1i5b5m4" />
+    <bpmn2:association id="Association_07k63n6" associationDirection="None" sourceRef="Activity_0nwl5wt" targetRef="TextAnnotation_1gi9dkd" />
+    <bpmn2:association id="Association_1sk5yxz" associationDirection="None" sourceRef="Activity_0m3qr65" targetRef="TextAnnotation_1poit57" />
+    <bpmn2:association id="Association_1gij6wp" associationDirection="None" sourceRef="Event_0q69do5" targetRef="TextAnnotation_1c44r1w" />
+    <bpmn2:association id="Association_1pqzowy" associationDirection="None" sourceRef="Activity_1u0e88d" targetRef="TextAnnotation_1gkl1qq" />
+    <bpmn2:association id="Association_16xvpil" associationDirection="None" sourceRef="Activity_12dmwaz" targetRef="TextAnnotation_0clb061" />
+    <bpmn2:association id="Association_05c4pn6" associationDirection="None" sourceRef="DataObjectReference_0af9xhl" targetRef="TextAnnotation_073gqs1" />
+    <bpmn2:association id="Association_1ogkf9m" associationDirection="None" sourceRef="DataObjectReference_0tn2oma" targetRef="TextAnnotation_1ek9j74" />
+    <bpmn2:association id="Association_0s8sudi" associationDirection="None" sourceRef="Activity_1qz4zl1" targetRef="TextAnnotation_1i5b5m4" />
+    <bpmn2:textAnnotation id="TextAnnotation_1b5t539">
+      <bpmn2:extensionElements>
+        <i18n:translation target="@text" lang="de">- Teilweise nicht vorhanden/übermittelt; muss ggf. angefragt werden
+- Besonders wichtig: Datum der abschließenden Behandlung (ausschlaggebend für Beginn der Nachsorge)
+- Medikationsplan ggf. Bestandteil/enthalten</i18n:translation>
+      </bpmn2:extensionElements>
+      <bpmn2:text>- Teilweise nicht vorhanden/übermittelt; muss ggf. angefragt werden
+- Besonders wichtig: Datum der abschließenden Behandlung (ausschlaggebend für Beginn der Nachsorge)
+- Medikationsplan ggf. Bestandteil/enthalten</bpmn2:text>
+    </bpmn2:textAnnotation>
+    <bpmn2:association id="Association_07eb88c" associationDirection="None" sourceRef="DataObjectReference_0lz1gul" targetRef="TextAnnotation_1kl9ikk" />
+    <bpmn2:association id="Association_00oedox" associationDirection="None" sourceRef="DataObjectReference_0ii8njk" targetRef="TextAnnotation_0qmicxk" />
+    <bpmn2:association id="Association_0ug6peu" associationDirection="None" sourceRef="DataStoreReference_0chf8ks" targetRef="TextAnnotation_0nk2czw" />
+    <bpmn2:association id="Association_028rim9" associationDirection="None" sourceRef="DataObjectReference_0520907" targetRef="TextAnnotation_1b5t539" />
   </bpmn2:collaboration>
   <bpmn2:process id="Process_1" isExecutable="false">
     <bpmn2:laneSet id="LaneSet_0cbd6qk">
-      <bpmn2:lane id="Lane_0jp9v0c" name="Hausarzt">
+      <bpmn2:lane id="Lane_0jp9v0c" name="Nachsorger (Hausarzt / Niedergelassene Pulmologen / Onkologen)">
         <bpmn2:extensionElements>
-          <i18n:translation xml:lang="de">Hausarzt</i18n:translation>
+          <i18n:translation lang="de">Nachsorger (Hausarzt / Niedergelassene Pulmologen / Onkologen)</i18n:translation>
         </bpmn2:extensionElements>
-        <bpmn2:flowNodeRef>Event_1xp2y7j</bpmn2:flowNodeRef>
-        <bpmn2:flowNodeRef>Gateway_0jb99j6</bpmn2:flowNodeRef>
         <bpmn2:flowNodeRef>Activity_0nwl5wt</bpmn2:flowNodeRef>
         <bpmn2:flowNodeRef>Activity_0m3qr65</bpmn2:flowNodeRef>
-        <bpmn2:flowNodeRef>Gateway_1ea5n5l</bpmn2:flowNodeRef>
         <bpmn2:flowNodeRef>Activity_1qz4zl1</bpmn2:flowNodeRef>
         <bpmn2:flowNodeRef>Gateway_15vcx2u</bpmn2:flowNodeRef>
         <bpmn2:flowNodeRef>Activity_1u0e88d</bpmn2:flowNodeRef>
         <bpmn2:flowNodeRef>Gateway_0x7rt0v</bpmn2:flowNodeRef>
         <bpmn2:flowNodeRef>Event_0q69do5</bpmn2:flowNodeRef>
-        <bpmn2:flowNodeRef>Gateway_1bsg1u7</bpmn2:flowNodeRef>
-        <bpmn2:flowNodeRef>Activity_10xvgu6</bpmn2:flowNodeRef>
-        <bpmn2:flowNodeRef>Activity_1cqoaw6</bpmn2:flowNodeRef>
         <bpmn2:flowNodeRef>Gateway_00xe8zn</bpmn2:flowNodeRef>
         <bpmn2:flowNodeRef>Activity_1xmk697</bpmn2:flowNodeRef>
         <bpmn2:flowNodeRef>Gateway_0fsubcf</bpmn2:flowNodeRef>
@@ -164,28 +145,27 @@
         <bpmn2:flowNodeRef>Event_1evyaa3</bpmn2:flowNodeRef>
         <bpmn2:flowNodeRef>Event_0efrc83</bpmn2:flowNodeRef>
         <bpmn2:flowNodeRef>Gateway_0cyhyvt</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Activity_10xvgu6</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Activity_1cqoaw6</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Event_1lwreze</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Gateway_0g6v69y</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Gateway_1wtdudc</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Gateway_1vrhd1q</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Gateway_1ea5n5l</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Gateway_0jb99j6</bpmn2:flowNodeRef>
+      </bpmn2:lane>
+      <bpmn2:lane id="Lane_0agggag" name="Patient">
+        <bpmn2:extensionElements>
+          <i18n:translation lang="de">Patient</i18n:translation>
+        </bpmn2:extensionElements>
         <bpmn2:flowNodeRef>Event_0tfriws</bpmn2:flowNodeRef>
-        <bpmn2:flowNodeRef>Event_042yczc</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>Activity_1n9pq6v</bpmn2:flowNodeRef>
       </bpmn2:lane>
     </bpmn2:laneSet>
-    <bpmn2:intermediateCatchEvent id="Event_1xp2y7j" name="Warten bis Nachsorgetermin">
-      <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Warten bis Nachsorgetermin</i18n:translation>
-      </bpmn2:extensionElements>
-      <bpmn2:incoming>Flow_0ih21fk</bpmn2:incoming>
-      <bpmn2:outgoing>Flow_0e46at9</bpmn2:outgoing>
-      <bpmn2:timerEventDefinition id="TimerEventDefinition_0hss0m2" />
-    </bpmn2:intermediateCatchEvent>
-    <bpmn2:parallelGateway id="Gateway_0jb99j6" name="">
-      <bpmn2:incoming>Flow_0e46at9</bpmn2:incoming>
-      <bpmn2:outgoing>Flow_0ekmvk8</bpmn2:outgoing>
-      <bpmn2:outgoing>Flow_0l0espd</bpmn2:outgoing>
-      <bpmn2:outgoing>Flow_0a74770</bpmn2:outgoing>
-    </bpmn2:parallelGateway>
     <bpmn2:task id="Activity_0nwl5wt" name="Anamnese&#10;durchführen">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Anamnese
-          durchführen</i18n:translation>
+        <i18n:translation lang="de">Anamnese
+durchführen</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:incoming>Flow_0ekmvk8</bpmn2:incoming>
       <bpmn2:outgoing>Flow_1rq7ax9</bpmn2:outgoing>
@@ -201,40 +181,30 @@
     </bpmn2:task>
     <bpmn2:task id="Activity_0m3qr65" name="Körperliche Untersuchung durchführen">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Körperliche Untersuchung durchführen</i18n:translation>
+        <i18n:translation lang="de">Körperliche Untersuchung durchführen</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:incoming>Flow_0l0espd</bpmn2:incoming>
       <bpmn2:outgoing>Flow_0x5cqxa</bpmn2:outgoing>
     </bpmn2:task>
-    <bpmn2:parallelGateway id="Gateway_1ea5n5l" name="">
-      <bpmn2:incoming>Flow_1rq7ax9</bpmn2:incoming>
-      <bpmn2:incoming>Flow_0x5cqxa</bpmn2:incoming>
-      <bpmn2:incoming>Flow_0j56o36</bpmn2:incoming>
-      <bpmn2:outgoing>Flow_0m6sq4i</bpmn2:outgoing>
-    </bpmn2:parallelGateway>
     <bpmn2:task id="Activity_1qz4zl1" name="Risikofaktoren erheben">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Risikofaktoren erheben</i18n:translation>
+        <i18n:translation lang="de">Risikofaktoren erheben</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:incoming>Flow_0a74770</bpmn2:incoming>
       <bpmn2:outgoing>Flow_1bjg2a3</bpmn2:outgoing>
     </bpmn2:task>
-    <bpmn2:exclusiveGateway id="Gateway_15vcx2u"
-      name="Hohes Risiko vorhanden&#10;(z.B. aktiver Raucher)?">
+    <bpmn2:exclusiveGateway id="Gateway_15vcx2u" name="Hohes Risiko vorhanden&#10;(z.B. aktiver Raucher)?">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Hohes Risiko vorhanden
-          (z.B. aktiver Raucher)?</i18n:translation>
+        <i18n:translation lang="de">Hohes Risiko vorhanden
+(z.B. aktiver Raucher)?</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:incoming>Flow_1bjg2a3</bpmn2:incoming>
       <bpmn2:outgoing>Flow_0p43ub3</bpmn2:outgoing>
       <bpmn2:outgoing>Flow_0qy3oev</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
-    <bpmn2:task id="Activity_1u0e88d" name="Lebensge-&#10;wohnheits-&#10;anpassungen&#10;empfehlen">
+    <bpmn2:task id="Activity_1u0e88d" name="Lebensstil-beratung durchführen">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Lebensge-
-          wohnheits-
-          anpassungen
-          empfehlen</i18n:translation>
+        <i18n:translation lang="de">Lebensstil-beratung durchführen</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:incoming>Flow_0p43ub3</bpmn2:incoming>
       <bpmn2:outgoing>Flow_1wzfp7t</bpmn2:outgoing>
@@ -246,122 +216,15 @@
     </bpmn2:exclusiveGateway>
     <bpmn2:intermediateCatchEvent id="Event_0q69do5" name="Wartezeit Nachsorge-intervall">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Wartezeit Nachsorge-intervall</i18n:translation>
+        <i18n:translation lang="de">Wartezeit Nachsorge-intervall</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:incoming>Flow_0e0x578</bpmn2:incoming>
       <bpmn2:outgoing>Flow_0v2sepm</bpmn2:outgoing>
       <bpmn2:timerEventDefinition id="TimerEventDefinition_148bdww" />
     </bpmn2:intermediateCatchEvent>
-    <bpmn2:inclusiveGateway id="Gateway_1bsg1u7" name="">
-      <bpmn2:incoming>Flow_0jn7vvw</bpmn2:incoming>
-      <bpmn2:incoming>Flow_0v2sepm</bpmn2:incoming>
-      <bpmn2:outgoing>Flow_0ih21fk</bpmn2:outgoing>
-    </bpmn2:inclusiveGateway>
-    <bpmn2:task id="Activity_10xvgu6" name="Patient&#10;aufnehmen">
-      <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Patient
-          aufnehmen</i18n:translation>
-      </bpmn2:extensionElements>
-      <bpmn2:incoming>Flow_0c8lenn</bpmn2:incoming>
-      <bpmn2:incoming>Flow_0tv3cdi</bpmn2:incoming>
-      <bpmn2:outgoing>Flow_1l1mjwm</bpmn2:outgoing>
-      <bpmn2:property id="Property_1o4b78t" name="__targetRef_placeholder" />
-      <bpmn2:dataInputAssociation id="DataInputAssociation_1gjqyar">
-        <bpmn2:sourceRef>DataObjectReference_1r16uao</bpmn2:sourceRef>
-        <bpmn2:targetRef>Property_1o4b78t</bpmn2:targetRef>
-      </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="DataInputAssociation_0i9y8iy">
-        <bpmn2:sourceRef>DataObjectReference_0520907</bpmn2:sourceRef>
-        <bpmn2:targetRef>Property_1o4b78t</bpmn2:targetRef>
-      </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="DataInputAssociation_0h79259">
-        <bpmn2:sourceRef>DataObjectReference_0lz1gul</bpmn2:sourceRef>
-        <bpmn2:targetRef>Property_1o4b78t</bpmn2:targetRef>
-      </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="DataInputAssociation_1bjspal">
-        <bpmn2:sourceRef>DataObjectReference_0zgcm08</bpmn2:sourceRef>
-        <bpmn2:targetRef>Property_1o4b78t</bpmn2:targetRef>
-      </bpmn2:dataInputAssociation>
-      <bpmn2:dataOutputAssociation id="DataOutputAssociation_06kj0w0">
-        <bpmn2:targetRef>DataObjectReference_0ii8njk</bpmn2:targetRef>
-      </bpmn2:dataOutputAssociation>
-      <bpmn2:dataOutputAssociation id="DataOutputAssociation_0ueonyl">
-        <bpmn2:targetRef>DataStoreReference_0chf8ks</bpmn2:targetRef>
-      </bpmn2:dataOutputAssociation>
-    </bpmn2:task>
-    <bpmn2:dataObjectReference id="DataObjectReference_0zgcm08" name="Medikationsplan (Papier)"
-      dataObjectRef="DataObject_0pwmyrz">
-      <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Medikationsplan (Papier)</i18n:translation>
-      </bpmn2:extensionElements>
-    </bpmn2:dataObjectReference>
-    <bpmn2:dataObject id="DataObject_0pwmyrz" />
-    <bpmn2:dataObjectReference id="DataObjectReference_1r16uao" name="Überweisung&#10;(Papier)"
-      dataObjectRef="DataObject_09d3aqn">
-      <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Überweisung
-          (Papier)</i18n:translation>
-      </bpmn2:extensionElements>
-    </bpmn2:dataObjectReference>
-    <bpmn2:dataObject id="DataObject_09d3aqn" />
-    <bpmn2:task id="Activity_1cqoaw6" name="Nachsorge-termin&#10;vereinbaren">
-      <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Nachsorge-termin
-          vereinbaren</i18n:translation>
-      </bpmn2:extensionElements>
-      <bpmn2:incoming>Flow_1l1mjwm</bpmn2:incoming>
-      <bpmn2:outgoing>Flow_0jn7vvw</bpmn2:outgoing>
-      <bpmn2:dataOutputAssociation id="DataOutputAssociation_0cmkofn">
-        <bpmn2:targetRef>DataObjectReference_0vwmu18</bpmn2:targetRef>
-      </bpmn2:dataOutputAssociation>
-      <bpmn2:dataOutputAssociation id="DataOutputAssociation_13lly1l">
-        <bpmn2:targetRef>DataStoreReference_0yy3h2p</bpmn2:targetRef>
-      </bpmn2:dataOutputAssociation>
-    </bpmn2:task>
-    <bpmn2:dataObjectReference id="DataObjectReference_0lz1gul"
-      name="Nachsorgeplan inkl. nächste Vorstellungs-zeitraum&#10;(PDF)"
-      dataObjectRef="DataObject_0izf5s0">
-      <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Nachsorgeplan inkl. nächste Vorstellungs-zeitraum
-          (PDF)</i18n:translation>
-      </bpmn2:extensionElements>
-    </bpmn2:dataObjectReference>
-    <bpmn2:dataObject id="DataObject_0izf5s0" />
-    <bpmn2:dataObjectReference id="DataObjectReference_0520907"
-      name="Arztbrief mit Vorbefunden (Papier)" dataObjectRef="DataObject_0gb6du6">
-      <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Arztbrief mit Vorbefunden (Papier)</i18n:translation>
-      </bpmn2:extensionElements>
-    </bpmn2:dataObjectReference>
-    <bpmn2:dataObject id="DataObject_0gb6du6" isCollection="true" />
-    <bpmn2:dataStoreReference id="DataStoreReference_0chf8ks" name="E-Mail /&#10;KIM (TI)">
-      <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">E-Mail /
-          KIM (TI)</i18n:translation>
-      </bpmn2:extensionElements>
-    </bpmn2:dataStoreReference>
-    <bpmn2:dataStoreReference id="DataObjectReference_0ii8njk" name="ePA">
-      <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">ePA</i18n:translation>
-      </bpmn2:extensionElements>
-    </bpmn2:dataStoreReference>
-    <bpmn2:dataStoreReference id="DataStoreReference_0yy3h2p" name="Terminbuch-&#10;ungssystem">
-      <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Terminbuch-
-          ungssystem</i18n:translation>
-      </bpmn2:extensionElements>
-    </bpmn2:dataStoreReference>
-    <bpmn2:dataObjectReference id="DataObjectReference_0vwmu18" name="(Erster)&#10;Termin"
-      dataObjectRef="DataObject_1xgp4e6">
-      <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">(Erster)
-          Termin</i18n:translation>
-      </bpmn2:extensionElements>
-    </bpmn2:dataObjectReference>
-    <bpmn2:dataObject id="DataObject_1xgp4e6" />
     <bpmn2:exclusiveGateway id="Gateway_00xe8zn" name="Rezidiv oder Neubildung vorhanden?">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Rezidiv oder Neubildung vorhanden?</i18n:translation>
+        <i18n:translation lang="de">Rezidiv oder Neubildung vorhanden?</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:incoming>Flow_0z3cln0</bpmn2:incoming>
       <bpmn2:outgoing>Flow_0txo0tq</bpmn2:outgoing>
@@ -369,7 +232,7 @@
     </bpmn2:exclusiveGateway>
     <bpmn2:task id="Activity_1xmk697" name="Weiterbe-handlung anordnen">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Weiterbe-handlung anordnen</i18n:translation>
+        <i18n:translation lang="de">Weiterbe-handlung anordnen</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:incoming>Flow_0txo0tq</bpmn2:incoming>
       <bpmn2:outgoing>Flow_18l0eqq</bpmn2:outgoing>
@@ -380,20 +243,18 @@
         <bpmn2:targetRef>DataObjectReference_0af9xhl</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
     </bpmn2:task>
-    <bpmn2:dataObjectReference id="DataObjectReference_0af9xhl"
-      name="Arztbrief inkl. Befunde Bildgebung (Papier)" dataObjectRef="DataObject_0skl147">
+    <bpmn2:dataObjectReference id="DataObjectReference_0af9xhl" name="Arztbrief inkl. Befunde Bildgebung (Papier)" dataObjectRef="DataObject_0skl147">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Arztbrief inkl. Befunde Bildgebung (Papier)</i18n:translation>
+        <i18n:translation lang="de">Arztbrief inkl. Befunde Bildgebung (Papier)</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:dataObjectReference>
     <bpmn2:dataObject id="DataObject_0skl147" isCollection="true" />
-    <bpmn2:dataObjectReference id="DataObjectReference_00jrnyu"
-      name="Überweisung&#10;oder&#10;Einweisung&#10;(Papier)" dataObjectRef="DataObject_13w0ty0">
+    <bpmn2:dataObjectReference id="DataObjectReference_00jrnyu" name="Überweisung&#10;oder&#10;Einweisung&#10;(Papier)" dataObjectRef="DataObject_13w0ty0">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Überweisung
-          oder
-          Einweisung
-          (Papier)</i18n:translation>
+        <i18n:translation lang="de">Überweisung
+oder
+Einweisung
+(Papier)</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:dataObjectReference>
     <bpmn2:dataObject id="DataObject_13w0ty0" />
@@ -404,7 +265,7 @@
     </bpmn2:exclusiveGateway>
     <bpmn2:inclusiveGateway id="Gateway_06y9iu2" name="Aktuelle Dauer der Nachsorge?">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Aktuelle Dauer der Nachsorge?</i18n:translation>
+        <i18n:translation lang="de">Aktuelle Dauer der Nachsorge?</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:incoming>Flow_12ay0cz</bpmn2:incoming>
       <bpmn2:outgoing>Flow_0e0x578</bpmn2:outgoing>
@@ -422,8 +283,8 @@
     </bpmn2:inclusiveGateway>
     <bpmn2:task id="Activity_12dmwaz" name="Labor-&#10;diagnostik anfordern">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Labor-
-          diagnostik anfordern</i18n:translation>
+        <i18n:translation lang="de">Labor-
+diagnostik anfordern</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:incoming>Flow_1yw0b52</bpmn2:incoming>
       <bpmn2:outgoing>Flow_0jf6no8</bpmn2:outgoing>
@@ -443,7 +304,7 @@
     </bpmn2:inclusiveGateway>
     <bpmn2:task id="Activity_1oo5nju" name="Nachsorge-termin vereinbaren">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Nachsorge-termin vereinbaren</i18n:translation>
+        <i18n:translation lang="de">Nachsorge-termin vereinbaren</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:incoming>Flow_1aq1zvg</bpmn2:incoming>
       <bpmn2:outgoing>Flow_0eccoao</bpmn2:outgoing>
@@ -456,32 +317,30 @@
     </bpmn2:task>
     <bpmn2:dataStoreReference id="DataStoreReference_0tfbatd" name="Terminbuch-ungssystem">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Terminbuch-ungssystem</i18n:translation>
+        <i18n:translation lang="de">Terminbuch-ungssystem</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:dataStoreReference>
-    <bpmn2:dataObjectReference id="DataObjectReference_0tn2oma" name="(Folge-)&#10;Termin"
-      dataObjectRef="DataObject_1wecf2z">
+    <bpmn2:dataObjectReference id="DataObjectReference_0tn2oma" name="(Folge-)&#10;Termin" dataObjectRef="DataObject_1wecf2z">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">(Folge-)
-          Termin</i18n:translation>
+        <i18n:translation lang="de">(Folge-)
+Termin</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:dataObjectReference>
     <bpmn2:dataObject id="DataObject_1wecf2z" />
-    <bpmn2:dataObjectReference id="DataObjectReference_1oiae21" name="Labor-anforderung"
-      dataObjectRef="DataObject_0b42wjy">
+    <bpmn2:dataObjectReference id="DataObjectReference_1oiae21" name="Labor-anforderung" dataObjectRef="DataObject_0b42wjy">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Labor-anforderung</i18n:translation>
+        <i18n:translation lang="de">Labor-anforderung</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:dataObjectReference>
     <bpmn2:dataObject id="DataObject_0b42wjy" />
     <bpmn2:dataStoreReference id="DataStoreReference_19ajse7" name="LIS">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">LIS</i18n:translation>
+        <i18n:translation lang="de">LIS</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:dataStoreReference>
     <bpmn2:task id="Activity_07zq8po" name="Bildgebung anfordern">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Bildgebung anfordern</i18n:translation>
+        <i18n:translation lang="de">Bildgebung anfordern</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:incoming>Flow_0sqxmix</bpmn2:incoming>
       <bpmn2:outgoing>Flow_0kt8kkf</bpmn2:outgoing>
@@ -489,11 +348,9 @@
         <bpmn2:targetRef>DataObjectReference_0n5pk32</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
     </bpmn2:task>
-    <bpmn2:dataObjectReference id="DataObjectReference_0n5pk32"
-      name="Überweisung&#10;Radiologe/&#10;Internist&#10;(Papier)"
-      dataObjectRef="DataObject_0fx5nzd">
+    <bpmn2:dataObjectReference id="DataObjectReference_0n5pk32" name="Überweisung&#10;          Radiologe/&#10;          Internist&#10;          (Papier)" dataObjectRef="DataObject_0fx5nzd">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Überweisung
+        <i18n:translation lang="de">Überweisung
           Radiologe/
           Internist
           (Papier)</i18n:translation>
@@ -502,20 +359,19 @@
     <bpmn2:dataObject id="DataObject_0fx5nzd" />
     <bpmn2:dataStoreReference id="DataStoreReference_0snffl6" name="eRezept (TI)">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">eRezept (TI)</i18n:translation>
+        <i18n:translation lang="de">eRezept (TI)</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:dataStoreReference>
-    <bpmn2:dataObjectReference id="DataObjectReference_0erevob" name="Rezept&#10;(Papier)"
-      dataObjectRef="DataObject_1fcal1p">
+    <bpmn2:dataObjectReference id="DataObjectReference_0erevob" name="Rezept&#10;          (Papier)" dataObjectRef="DataObject_1fcal1p">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Rezept
+        <i18n:translation lang="de">Rezept
           (Papier)</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:dataObjectReference>
     <bpmn2:dataObject id="DataObject_1fcal1p" />
     <bpmn2:task id="Activity_03jenrg" name="Rezept ausstellen">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Rezept ausstellen</i18n:translation>
+        <i18n:translation lang="de">Rezept ausstellen</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:incoming>Flow_1pa03jc</bpmn2:incoming>
       <bpmn2:outgoing>Flow_0ow56f4</bpmn2:outgoing>
@@ -526,185 +382,324 @@
         <bpmn2:targetRef>DataStoreReference_0snffl6</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
     </bpmn2:task>
-    <bpmn2:endEvent id="Event_1evyaa3"
-      name="Übergang&#10;ambulante oder stationäre Weiterbe-handlung">
+    <bpmn2:endEvent id="Event_1evyaa3" name="Screening und Versorgung&#10;Langzeitüberlebender">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Übergang
-          ambulante oder stationäre Weiterbe-handlung</i18n:translation>
+        <i18n:translation lang="de">Screening und Versorgung
+Langzeitüberlebender</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:incoming>Flow_1fiqfwb</bpmn2:incoming>
     </bpmn2:endEvent>
-    <bpmn2:endEvent id="Event_0efrc83"
-      name="Abschluss spezialfachärztliche Nachsorge und Übergang in ausschließlich primärärztliche Versorgung">
+    <bpmn2:endEvent id="Event_0efrc83" name="Abschluss spezialfachärztliche Nachsorge und Übergang in&#10;ausschließlich primärärztliche Versorgung">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Abschluss spezialfachärztliche Nachsorge und Übergang in
-          ausschließlich primärärztliche Versorgung</i18n:translation>
+        <i18n:translation lang="de">Abschluss spezialfachärztliche Nachsorge und Übergang in
+ausschließlich primärärztliche Versorgung</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:incoming>Flow_17vdp2x</bpmn2:incoming>
     </bpmn2:endEvent>
-    <bpmn2:exclusiveGateway id="Gateway_0cyhyvt"
-      name="Weiter-&#10;behandlung (Rezidiv, Neubildung) notwendig?">
+    <bpmn2:exclusiveGateway id="Gateway_0cyhyvt" name="Weiter-&#10;behandlung (Rezidiv, Neubildung) notwendig?">
       <bpmn2:incoming>Flow_0r6z0yj</bpmn2:incoming>
       <bpmn2:outgoing>Flow_17vdp2x</bpmn2:outgoing>
       <bpmn2:outgoing>Flow_1fiqfwb</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
-    <bpmn2:sequenceFlow id="Flow_0ih21fk" sourceRef="Gateway_1bsg1u7" targetRef="Event_1xp2y7j" />
-    <bpmn2:sequenceFlow id="Flow_0e46at9" sourceRef="Event_1xp2y7j" targetRef="Gateway_0jb99j6" />
-    <bpmn2:sequenceFlow id="Flow_0ekmvk8" sourceRef="Gateway_0jb99j6" targetRef="Activity_0nwl5wt" />
-    <bpmn2:sequenceFlow id="Flow_0l0espd" sourceRef="Gateway_0jb99j6" targetRef="Activity_0m3qr65" />
-    <bpmn2:sequenceFlow id="Flow_0a74770" sourceRef="Gateway_0jb99j6" targetRef="Activity_1qz4zl1" />
+    <bpmn2:sequenceFlow id="Flow_0ekmvk8" name="Schlechter&#10;Allgemein-&#10;zustand oder Beschwerden" sourceRef="Gateway_0jb99j6" targetRef="Activity_0nwl5wt">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="de">Schlechter
+Allgemein-
+zustand oder Beschwerden</i18n:translation>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="Flow_0l0espd" name="Schlechter&#10;Allgemein-zustand" sourceRef="Gateway_0jb99j6" targetRef="Activity_0m3qr65">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="de">Schlechter
+Allgemein-zustand</i18n:translation>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="Flow_0a74770" name="Fehlende/ unsichere&#10;Risikofaktoren" sourceRef="Gateway_0jb99j6" targetRef="Activity_1qz4zl1">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="de">Fehlende/ unsichere
+Risikofaktoren</i18n:translation>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
     <bpmn2:sequenceFlow id="Flow_1rq7ax9" sourceRef="Activity_0nwl5wt" targetRef="Gateway_1ea5n5l" />
     <bpmn2:sequenceFlow id="Flow_0x5cqxa" sourceRef="Activity_0m3qr65" targetRef="Gateway_1ea5n5l" />
     <bpmn2:sequenceFlow id="Flow_0j56o36" sourceRef="Gateway_0x7rt0v" targetRef="Gateway_1ea5n5l" />
     <bpmn2:sequenceFlow id="Flow_0m6sq4i" sourceRef="Gateway_1ea5n5l" targetRef="Gateway_0fz5j0x" />
     <bpmn2:sequenceFlow id="Flow_1bjg2a3" sourceRef="Activity_1qz4zl1" targetRef="Gateway_15vcx2u" />
-    <bpmn2:sequenceFlow id="Flow_0qy3oev" name="Nein" sourceRef="Gateway_15vcx2u"
-      targetRef="Gateway_0x7rt0v">
+    <bpmn2:sequenceFlow id="Flow_0qy3oev" name="Nein" sourceRef="Gateway_15vcx2u" targetRef="Gateway_0x7rt0v">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Nein</i18n:translation>
+        <i18n:translation lang="de">Nein</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:sequenceFlow>
-    <bpmn2:sequenceFlow id="Flow_0p43ub3" name="Ja" sourceRef="Gateway_15vcx2u"
-      targetRef="Activity_1u0e88d">
+    <bpmn2:sequenceFlow id="Flow_0p43ub3" name="Ja" sourceRef="Gateway_15vcx2u" targetRef="Activity_1u0e88d">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Ja</i18n:translation>
+        <i18n:translation lang="de">Ja</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:sequenceFlow>
     <bpmn2:sequenceFlow id="Flow_1wzfp7t" sourceRef="Activity_1u0e88d" targetRef="Gateway_0x7rt0v" />
-    <bpmn2:sequenceFlow id="Flow_0e0x578" name="&#60; 60 Monate&#10;(innerhalb von Nachsorge)"
-      sourceRef="Gateway_06y9iu2" targetRef="Event_0q69do5">
+    <bpmn2:sequenceFlow id="Flow_0e0x578" name="&#60; 60 Monate&#10;(innerhalb von Nachsorge)" sourceRef="Gateway_06y9iu2" targetRef="Event_0q69do5">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">&lt; 60 Monate
-          (innerhalb von Nachsorge)</i18n:translation>
+        <i18n:translation lang="de">&lt; 60 Monate
+(innerhalb von Nachsorge)</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:sequenceFlow>
-    <bpmn2:sequenceFlow id="Flow_0v2sepm" sourceRef="Event_0q69do5" targetRef="Gateway_1bsg1u7" />
-    <bpmn2:sequenceFlow id="Flow_0jn7vvw" sourceRef="Activity_1cqoaw6" targetRef="Gateway_1bsg1u7" />
-    <bpmn2:sequenceFlow id="Flow_0c8lenn" sourceRef="Event_0tfriws" targetRef="Activity_10xvgu6" />
-    <bpmn2:sequenceFlow id="Flow_0tv3cdi" sourceRef="Event_042yczc" targetRef="Activity_10xvgu6" />
-    <bpmn2:sequenceFlow id="Flow_1l1mjwm" sourceRef="Activity_10xvgu6" targetRef="Activity_1cqoaw6" />
+    <bpmn2:sequenceFlow id="Flow_0v2sepm" name="" sourceRef="Event_0q69do5" targetRef="Gateway_0g6v69y" />
     <bpmn2:sequenceFlow id="Flow_0z3cln0" sourceRef="Gateway_0zwqhx7" targetRef="Gateway_00xe8zn" />
-    <bpmn2:sequenceFlow id="Flow_0txo0tq" name="Ja" sourceRef="Gateway_00xe8zn"
-      targetRef="Activity_1xmk697">
+    <bpmn2:sequenceFlow id="Flow_0txo0tq" name="Ja" sourceRef="Gateway_00xe8zn" targetRef="Activity_1xmk697">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Ja</i18n:translation>
+        <i18n:translation lang="de">Ja</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:sequenceFlow>
-    <bpmn2:sequenceFlow id="Flow_10ckumc" name="Nein" sourceRef="Gateway_00xe8zn"
-      targetRef="Gateway_0fsubcf">
+    <bpmn2:sequenceFlow id="Flow_10ckumc" name="Nein" sourceRef="Gateway_00xe8zn" targetRef="Gateway_0fsubcf">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Nein</i18n:translation>
+        <i18n:translation lang="de">Nein</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:sequenceFlow>
     <bpmn2:sequenceFlow id="Flow_18l0eqq" sourceRef="Activity_1xmk697" targetRef="Gateway_0fsubcf" />
     <bpmn2:sequenceFlow id="Flow_12ay0cz" sourceRef="Gateway_0fsubcf" targetRef="Gateway_06y9iu2" />
-    <bpmn2:sequenceFlow id="Flow_0r6z0yj" name="&#62; 60 Monate&#10;(außerhalb von Nachsorge)"
-      sourceRef="Gateway_06y9iu2" targetRef="Gateway_0cyhyvt" />
-    <bpmn2:sequenceFlow id="Flow_1yw0b52" name="Labor-&#10;analyse&#10;erforderlich"
-      sourceRef="Gateway_0fz5j0x" targetRef="Activity_12dmwaz">
+    <bpmn2:sequenceFlow id="Flow_0r6z0yj" name="&#62; 60 Monate&#10;(außerhalb von Nachsorge)" sourceRef="Gateway_06y9iu2" targetRef="Gateway_0cyhyvt" />
+    <bpmn2:sequenceFlow id="Flow_1yw0b52" name="Labor-&#10;analyse&#10;erforderlich" sourceRef="Gateway_0fz5j0x" targetRef="Activity_12dmwaz">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Labor-
-          analyse
-          erforderlich</i18n:translation>
+        <i18n:translation lang="de">Labor-
+analyse
+erforderlich</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:sequenceFlow>
     <bpmn2:sequenceFlow id="Flow_1aq1zvg" sourceRef="Gateway_0fz5j0x" targetRef="Activity_1oo5nju" />
-    <bpmn2:sequenceFlow id="Flow_0sqxmix" name="Bildgebung&#10;erforderlich"
-      sourceRef="Gateway_0fz5j0x" targetRef="Activity_07zq8po">
+    <bpmn2:sequenceFlow id="Flow_0sqxmix" name="Bildgebung&#10;erforderlich" sourceRef="Gateway_0fz5j0x" targetRef="Activity_07zq8po">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Bildgebung
-          erforderlich</i18n:translation>
+        <i18n:translation lang="de">Bildgebung
+erforderlich</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:sequenceFlow>
-    <bpmn2:sequenceFlow id="Flow_1pa03jc" name="Symptom-&#10;behandliung&#10;erforderlich"
-      sourceRef="Gateway_0fz5j0x" targetRef="Activity_03jenrg">
+    <bpmn2:sequenceFlow id="Flow_1pa03jc" name="Symptom-&#10;behandlung&#10;erforderlich" sourceRef="Gateway_0fz5j0x" targetRef="Activity_03jenrg">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Symptom-
-          behandliung
-          erforderlich</i18n:translation>
+        <i18n:translation lang="de">Symptom-
+behandlung
+erforderlich</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:sequenceFlow>
     <bpmn2:sequenceFlow id="Flow_0jf6no8" sourceRef="Activity_12dmwaz" targetRef="Gateway_0zwqhx7" />
     <bpmn2:sequenceFlow id="Flow_0eccoao" sourceRef="Activity_1oo5nju" targetRef="Gateway_0zwqhx7" />
     <bpmn2:sequenceFlow id="Flow_0kt8kkf" sourceRef="Activity_07zq8po" targetRef="Gateway_0zwqhx7" />
     <bpmn2:sequenceFlow id="Flow_0ow56f4" sourceRef="Activity_03jenrg" targetRef="Gateway_0zwqhx7" />
-    <bpmn2:sequenceFlow id="Flow_1fiqfwb" name="Nein" sourceRef="Gateway_0cyhyvt"
-      targetRef="Event_1evyaa3">
+    <bpmn2:sequenceFlow id="Flow_1fiqfwb" name="Nein" sourceRef="Gateway_0cyhyvt" targetRef="Event_1evyaa3">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Nein</i18n:translation>
+        <i18n:translation lang="de">Nein</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:sequenceFlow>
-    <bpmn2:sequenceFlow id="Flow_17vdp2x" name="Ja" sourceRef="Gateway_0cyhyvt"
-      targetRef="Event_0efrc83">
+    <bpmn2:sequenceFlow id="Flow_17vdp2x" name="Ja" sourceRef="Gateway_0cyhyvt" targetRef="Event_0efrc83">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Ja</i18n:translation>
+        <i18n:translation lang="de">Ja</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:sequenceFlow>
-    <bpmn2:startEvent id="Event_0tfriws" name="Patient nach kurativer&#10;Therapie">
+    <bpmn2:task id="Activity_10xvgu6" name="Patient&#10;aufnehmen">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Patient nach kurativer
-          Therapie</i18n:translation>
+        <i18n:translation lang="de">Patient
+aufnehmen</i18n:translation>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_0zgp4r2</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_0evmvoo</bpmn2:outgoing>
+      <bpmn2:property id="Property_1o4b78t" name="__targetRef_placeholder" />
+      <bpmn2:dataInputAssociation id="DataInputAssociation_1gjqyar">
+        <bpmn2:sourceRef>DataObjectReference_1r16uao</bpmn2:sourceRef>
+        <bpmn2:targetRef>Property_1o4b78t</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_0i9y8iy">
+        <bpmn2:sourceRef>DataObjectReference_0520907</bpmn2:sourceRef>
+        <bpmn2:targetRef>Property_1o4b78t</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_0h79259">
+        <bpmn2:sourceRef>DataObjectReference_0lz1gul</bpmn2:sourceRef>
+        <bpmn2:targetRef>Property_1o4b78t</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_1bjspal">
+        <bpmn2:sourceRef>DataObjectReference_0zgcm08</bpmn2:sourceRef>
+        <bpmn2:targetRef>Property_1o4b78t</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_1989bhe">
+        <bpmn2:sourceRef>DataObjectReference_0ii8njk</bpmn2:sourceRef>
+        <bpmn2:targetRef>Property_1o4b78t</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_17y1kib">
+        <bpmn2:sourceRef>DataStoreReference_0chf8ks</bpmn2:sourceRef>
+        <bpmn2:targetRef>Property_1o4b78t</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:dataObjectReference id="DataObjectReference_0zgcm08" name="Medikationsplan (Papier/QR-Code, ePA/PDF)" dataObjectRef="DataObject_0pwmyrz">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="de">Medikationsplan (Papier/QR-Code, ePA/PDF)</i18n:translation>
+      </bpmn2:extensionElements>
+    </bpmn2:dataObjectReference>
+    <bpmn2:dataObject id="DataObject_0pwmyrz" />
+    <bpmn2:dataObjectReference id="DataObjectReference_1r16uao" name="Überweisung&#10;(Papier)" dataObjectRef="DataObject_09d3aqn">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="de">Überweisung
+(Papier)</i18n:translation>
+      </bpmn2:extensionElements>
+    </bpmn2:dataObjectReference>
+    <bpmn2:dataObject id="DataObject_09d3aqn" />
+    <bpmn2:task id="Activity_1cqoaw6" name="Nachsorge-termin&#10;vereinbaren">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="de">Nachsorge-termin
+vereinbaren</i18n:translation>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_0c39xrp</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_1nkfdl8</bpmn2:outgoing>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_0cmkofn">
+        <bpmn2:targetRef>DataObjectReference_0vwmu18</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_13lly1l">
+        <bpmn2:targetRef>DataStoreReference_0yy3h2p</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:task>
+    <bpmn2:dataObjectReference id="DataObjectReference_0lz1gul" name="Nachsorgeplan inkl. nächste Vorstellungs-zeitraum&#10;(PDF)" dataObjectRef="DataObject_0izf5s0">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="de">Nachsorgeplan inkl. nächste Vorstellungs-zeitraum
+(PDF)</i18n:translation>
+      </bpmn2:extensionElements>
+    </bpmn2:dataObjectReference>
+    <bpmn2:dataObject id="DataObject_0izf5s0" />
+    <bpmn2:dataObjectReference id="DataObjectReference_0520907" name="Arztbrief mit Vorbefunden (Papier)" dataObjectRef="DataObject_0gb6du6">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="de">Arztbrief mit Vorbefunden (Papier)</i18n:translation>
+      </bpmn2:extensionElements>
+    </bpmn2:dataObjectReference>
+    <bpmn2:dataObject id="DataObject_0gb6du6" isCollection="true" />
+    <bpmn2:dataStoreReference id="DataStoreReference_0chf8ks" name="KIM (TI)">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="de">KIM (TI)</i18n:translation>
+      </bpmn2:extensionElements>
+    </bpmn2:dataStoreReference>
+    <bpmn2:dataStoreReference id="DataObjectReference_0ii8njk" name="ePA">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="de">ePA</i18n:translation>
+      </bpmn2:extensionElements>
+    </bpmn2:dataStoreReference>
+    <bpmn2:dataStoreReference id="DataStoreReference_0yy3h2p" name="Terminbuch-&#10;ungssystem">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="de">Terminbuch-
+ungssystem</i18n:translation>
+      </bpmn2:extensionElements>
+    </bpmn2:dataStoreReference>
+    <bpmn2:dataObjectReference id="DataObjectReference_0vwmu18" name="(Erster)&#10;Termin" dataObjectRef="DataObject_1xgp4e6">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="de">(Erster)
+Termin</i18n:translation>
+      </bpmn2:extensionElements>
+    </bpmn2:dataObjectReference>
+    <bpmn2:dataObject id="DataObject_1xgp4e6" />
+    <bpmn2:startEvent id="Event_0tfriws" name="Patient nach kurativer Therapie">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="de">Patient nach kurativer Therapie</i18n:translation>
       </bpmn2:extensionElements>
       <bpmn2:outgoing>Flow_0c8lenn</bpmn2:outgoing>
     </bpmn2:startEvent>
-    <bpmn2:startEvent id="Event_042yczc" name="Patient mit Zufallsbefund">
+    <bpmn2:task id="Activity_1n9pq6v" name="Ersten Nachsorge-termin&#10;vereinbaren">
       <bpmn2:extensionElements>
-        <i18n:translation xml:lang="de">Patient mit Zufallsbefund</i18n:translation>
+        <i18n:translation lang="de">Ersten Nachsorge-termin
+vereinbaren</i18n:translation>
       </bpmn2:extensionElements>
-      <bpmn2:outgoing>Flow_0tv3cdi</bpmn2:outgoing>
-    </bpmn2:startEvent>
-    <bpmn2:association id="Association_1elmqoq" associationDirection="None"
-      sourceRef="Event_042yczc" targetRef="TextAnnotation_0ad39t3" />
+      <bpmn2:incoming>Flow_0c8lenn</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_0c39xrp</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:intermediateCatchEvent id="Event_1lwreze" name="Warten bis Nachsorgetermin">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="de">Warten bis Nachsorgetermin</i18n:translation>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_17g9vuh</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_19qpjlh</bpmn2:outgoing>
+      <bpmn2:timerEventDefinition id="TimerEventDefinition_0wrnd09" />
+    </bpmn2:intermediateCatchEvent>
+    <bpmn2:inclusiveGateway id="Gateway_0g6v69y" name="">
+      <bpmn2:incoming>Flow_1nkfdl8</bpmn2:incoming>
+      <bpmn2:incoming>Flow_0v2sepm</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_17g9vuh</bpmn2:outgoing>
+    </bpmn2:inclusiveGateway>
+    <bpmn2:exclusiveGateway id="Gateway_1wtdudc" name="Patient bereits in Nachsorge aufgenommen?">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="de">Patient bereits in Nachsorge aufgenommen?</i18n:translation>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_19qpjlh</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_0zgp4r2</bpmn2:outgoing>
+      <bpmn2:outgoing>Flow_04eg41l</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:exclusiveGateway id="Gateway_1vrhd1q" name="">
+      <bpmn2:incoming>Flow_04eg41l</bpmn2:incoming>
+      <bpmn2:incoming>Flow_0evmvoo</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_0dba7eu</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="Flow_0zgp4r2" name="Nein" sourceRef="Gateway_1wtdudc" targetRef="Activity_10xvgu6">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="de">Nein</i18n:translation>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="Flow_0evmvoo" sourceRef="Activity_10xvgu6" targetRef="Gateway_1vrhd1q" />
+    <bpmn2:sequenceFlow id="Flow_0c39xrp" sourceRef="Activity_1n9pq6v" targetRef="Activity_1cqoaw6" />
+    <bpmn2:sequenceFlow id="Flow_1nkfdl8" sourceRef="Activity_1cqoaw6" targetRef="Gateway_0g6v69y" />
+    <bpmn2:sequenceFlow id="Flow_0c8lenn" name="" sourceRef="Event_0tfriws" targetRef="Activity_1n9pq6v" />
+    <bpmn2:sequenceFlow id="Flow_17g9vuh" name="" sourceRef="Gateway_0g6v69y" targetRef="Event_1lwreze" />
+    <bpmn2:sequenceFlow id="Flow_19qpjlh" sourceRef="Event_1lwreze" targetRef="Gateway_1wtdudc" />
+    <bpmn2:sequenceFlow id="Flow_04eg41l" name="Ja" sourceRef="Gateway_1wtdudc" targetRef="Gateway_1vrhd1q">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="de">Ja</i18n:translation>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="Flow_0dba7eu" name="" sourceRef="Gateway_1vrhd1q" targetRef="Gateway_0jb99j6" />
+    <bpmn2:inclusiveGateway id="Gateway_1ea5n5l" name="">
+      <bpmn2:incoming>Flow_1rq7ax9</bpmn2:incoming>
+      <bpmn2:incoming>Flow_0x5cqxa</bpmn2:incoming>
+      <bpmn2:incoming>Flow_0j56o36</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_0m6sq4i</bpmn2:outgoing>
+    </bpmn2:inclusiveGateway>
+    <bpmn2:inclusiveGateway id="Gateway_0jb99j6" name="">
+      <bpmn2:incoming>Flow_0dba7eu</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_0ekmvk8</bpmn2:outgoing>
+      <bpmn2:outgoing>Flow_0l0espd</bpmn2:outgoing>
+      <bpmn2:outgoing>Flow_0a74770</bpmn2:outgoing>
+    </bpmn2:inclusiveGateway>
   </bpmn2:process>
   <bpmn2:category id="Category_1jhwe8v">
     <bpmn2:categoryValue id="CategoryValue_0uj3wsc" value="Terminierung Nachsorge">
       <bpmn2:extensionElements>
-        <i18n:translation target="@value" xml:lang="de">Terminierung Nachsorge</i18n:translation>
+        <i18n:translation target="@value" lang="de">Terminierung Nachsorge</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:categoryValue>
   </bpmn2:category>
   <bpmn2:category id="Category_0cz5zbz">
     <bpmn2:categoryValue id="CategoryValue_17jm26s" value="Durchführung Nachsorge">
       <bpmn2:extensionElements>
-        <i18n:translation target="@value" xml:lang="de">Durchführung Nachsorge</i18n:translation>
+        <i18n:translation target="@value" lang="de">Durchführung Nachsorge</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:categoryValue>
   </bpmn2:category>
   <bpmn2:category id="Category_0zm13z3">
     <bpmn2:categoryValue id="CategoryValue_1kpujg3" value="Verlaufs-beobachtung">
       <bpmn2:extensionElements>
-        <i18n:translation target="@value" xml:lang="de">Verlaufs-beobachtung</i18n:translation>
+        <i18n:translation target="@value" lang="de">Verlaufs-beobachtung</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:categoryValue>
   </bpmn2:category>
   <bpmn2:category id="Category_02y700r">
-    <bpmn2:categoryValue id="CategoryValue_1ygngmr"
-      value="Weiterführende&#10;Diagnostik oder Versorgung">
+    <bpmn2:categoryValue id="CategoryValue_1ygngmr" value="Weiterführende&#10;          Diagnostik oder Versorgung">
       <bpmn2:extensionElements>
-        <i18n:translation target="@value" xml:lang="de">Weiterführende
+        <i18n:translation target="@value" lang="de">Weiterführende
           Diagnostik oder Versorgung</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:categoryValue>
   </bpmn2:category>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0jne9lg">
-      <bpmndi:BPMNShape id="Participant_08m8ex4_di" bpmnElement="Participant_08m8ex4"
-        isHorizontal="true">
-        <dc:Bounds x="160" y="80" width="2710" height="1170" />
+      <bpmndi:BPMNShape id="Participant_08m8ex4_di" bpmnElement="Participant_08m8ex4" isHorizontal="true" bioc:stroke="#ff2600" color:border-color="#ff2600">
+        <dc:Bounds x="160" y="-80" width="2710" height="1620" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Lane_0jp9v0c_di" bpmnElement="Lane_0jp9v0c" isHorizontal="true">
-        <dc:Bounds x="190" y="80" width="2680" height="1170" />
+      <bpmndi:BPMNShape id="Lane_0agggag_di" bpmnElement="Lane_0agggag" isHorizontal="true" bioc:stroke="#00f900" color:border-color="#00f900">
+        <dc:Bounds x="190" y="1250" width="2680" height="290" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0hf6geg_di" bpmnElement="Event_1xp2y7j">
-        <dc:Bounds x="1060" y="562" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="1036" y="605" width="84" height="27" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Gateway_1yf3hgp_di" bpmnElement="Gateway_0jb99j6">
-        <dc:Bounds x="1166" y="555" width="50" height="50" />
+      <bpmndi:BPMNShape id="Lane_0jp9v0c_di" bpmnElement="Lane_0jp9v0c" isHorizontal="true" bioc:stroke="#ff2600" color:border-color="#ff2600">
+        <dc:Bounds x="190" y="-80" width="2680" height="1330" />
+        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0nwl5wt_di" bpmnElement="Activity_0nwl5wt">
         <dc:Bounds x="1260" y="440" width="100" height="80" />
@@ -714,9 +709,6 @@
         <dc:Bounds x="1260" y="540" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Gateway_09jl13y_di" bpmnElement="Gateway_1ea5n5l">
-        <dc:Bounds x="1525" y="555" width="50" height="50" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1qz4zl1_di" bpmnElement="Activity_1qz4zl1">
         <dc:Bounds x="1260" y="730" width="100" height="80" />
         <bpmndi:BPMNLabel />
@@ -724,10 +716,10 @@
       <bpmndi:BPMNShape id="Gateway_15vcx2u_di" bpmnElement="Gateway_15vcx2u" isMarkerVisible="true">
         <dc:Bounds x="1404" y="745" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1396" y="806" width="68" height="53" />
+          <dc:Bounds x="1398" y="806" width="65" height="53" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1u0e88d_di" bpmnElement="Activity_1u0e88d">
+      <bpmndi:BPMNShape id="Activity_1u0e88d_di" bpmnElement="Activity_1u0e88d" bioc:stroke="#ff2600" color:border-color="#ff2600">
         <dc:Bounds x="1500" y="730" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
@@ -740,89 +732,23 @@
           <dc:Bounds x="1552" y="1010" width="57" height="40" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Gateway_0pbk50g_di" bpmnElement="Gateway_1bsg1u7">
-        <dc:Bounds x="940" y="555" width="50" height="50" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_10xvgu6_di" bpmnElement="Activity_10xvgu6">
-        <dc:Bounds x="560" y="540" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="DataObjectReference_0zgcm08_di"
-        bpmnElement="DataObjectReference_0zgcm08">
-        <dc:Bounds x="702" y="445" width="36" height="50" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="679" y="502" width="83" height="27" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="DataObjectReference_1r16uao_di"
-        bpmnElement="DataObjectReference_1r16uao">
-        <dc:Bounds x="482" y="445" width="36" height="50" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="468" y="502" width="65" height="27" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1cqoaw6_di" bpmnElement="Activity_1cqoaw6">
-        <dc:Bounds x="730" y="540" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="DataObjectReference_0lz1gul_di"
-        bpmnElement="DataObjectReference_0lz1gul">
-        <dc:Bounds x="662" y="335" width="36" height="50" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="641" y="392" width="78" height="66" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="DataObjectReference_0520907_di"
-        bpmnElement="DataObjectReference_0520907">
-        <dc:Bounds x="532" y="335" width="36" height="50" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="518" y="392" width="66" height="40" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="DataStoreReference_0chf8ks_di" bpmnElement="DataStoreReference_0chf8ks">
-        <dc:Bounds x="615" y="675" width="50" height="50" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="670" y="686" width="40" height="27" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="DataStoreReference_011zlnl_di" bpmnElement="DataObjectReference_0ii8njk">
-        <dc:Bounds x="555" y="675" width="50" height="50" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="525" y="693" width="21" height="14" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="DataStoreReference_0yy3h2p_di" bpmnElement="DataStoreReference_0yy3h2p">
-        <dc:Bounds x="725" y="675" width="50" height="50" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="720" y="732" width="61" height="27" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="DataObjectReference_0vwmu18_di"
-        bpmnElement="DataObjectReference_0vwmu18">
-        <dc:Bounds x="802" y="675" width="36" height="50" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="802" y="732" width="37" height="27" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_00xe8zn_di" bpmnElement="Gateway_00xe8zn" isMarkerVisible="true">
         <dc:Bounds x="2135" y="555" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2127" y="615" width="65" height="40" />
+          <dc:Bounds x="2129" y="615" width="62" height="40" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1xmk697_di" bpmnElement="Activity_1xmk697">
         <dc:Bounds x="2230" y="420" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="DataObjectReference_0af9xhl_di"
-        bpmnElement="DataObjectReference_0af9xhl">
+      <bpmndi:BPMNShape id="DataObjectReference_0af9xhl_di" bpmnElement="DataObjectReference_0af9xhl">
         <dc:Bounds x="2292" y="315" width="36" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2276" y="252" width="67" height="53" />
+          <dc:Bounds x="2278" y="252" width="64" height="53" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="DataObjectReference_00jrnyu_di"
-        bpmnElement="DataObjectReference_00jrnyu">
+      <bpmndi:BPMNShape id="DataObjectReference_00jrnyu_di" bpmnElement="DataObjectReference_00jrnyu">
         <dc:Bounds x="2232" y="315" width="36" height="50" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="2157" y="313" width="65" height="53" />
@@ -857,15 +783,13 @@
           <dc:Bounds x="1650" y="422" width="61" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="DataObjectReference_0tn2oma_di"
-        bpmnElement="DataObjectReference_0tn2oma">
+      <bpmndi:BPMNShape id="DataObjectReference_0tn2oma_di" bpmnElement="DataObjectReference_0tn2oma">
         <dc:Bounds x="1742" y="285" width="36" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1741" y="342" width="39" height="27" />
+          <dc:Bounds x="1742" y="342" width="39" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="DataObjectReference_1oiae21_di"
-        bpmnElement="DataObjectReference_1oiae21">
+      <bpmndi:BPMNShape id="DataObjectReference_1oiae21_di" bpmnElement="DataObjectReference_1oiae21">
         <dc:Bounds x="2002" y="665" width="36" height="50" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1990" y="722" width="60" height="27" />
@@ -881,11 +805,10 @@
         <dc:Bounds x="1775" y="660" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="DataObjectReference_0n5pk32_di"
-        bpmnElement="DataObjectReference_0n5pk32">
+      <bpmndi:BPMNShape id="DataObjectReference_0n5pk32_di" bpmnElement="DataObjectReference_0n5pk32">
         <dc:Bounds x="2002" y="865" width="36" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1988" y="922" width="65" height="53" />
+          <dc:Bounds x="1979" y="922" width="84" height="53" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="DataStoreReference_0snffl6_di" bpmnElement="DataStoreReference_0snffl6">
@@ -894,72 +817,146 @@
           <dc:Bounds x="1710" y="972" width="62" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="DataObjectReference_0erevob_di"
-        bpmnElement="DataObjectReference_0erevob">
+      <bpmndi:BPMNShape id="DataObjectReference_0erevob_di" bpmnElement="DataObjectReference_0erevob">
         <dc:Bounds x="1892" y="915" width="36" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1891" y="972" width="40" height="27" />
+          <dc:Bounds x="1876" y="972" width="70" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_03jenrg_di" bpmnElement="Activity_03jenrg">
         <dc:Bounds x="1775" y="780" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_1evyaa3_di" bpmnElement="Event_1evyaa3">
+      <bpmndi:BPMNShape id="Event_1evyaa3_di" bpmnElement="Event_1evyaa3" bioc:stroke="#ff2600" color:border-color="#ff2600">
         <dc:Bounds x="2752" y="472" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2731" y="515" width="80" height="66" />
+          <dc:Bounds x="2729" y="515" width="85" height="53" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0efrc83_di" bpmnElement="Event_0efrc83">
         <dc:Bounds x="2752" y="652" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2728" y="695" width="85" height="93" />
+          <dc:Bounds x="2730" y="695" width="82" height="93" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_0cyhyvt_di" bpmnElement="Gateway_0cyhyvt" isMarkerVisible="true">
         <dc:Bounds x="2655" y="555" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2598" y="607" width="63" height="66" />
+          <dc:Bounds x="2600" y="607" width="60" height="66" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0tfriws_di" bpmnElement="Event_0tfriws">
-        <dc:Bounds x="302" y="472" width="36" height="36" />
+      <bpmndi:BPMNShape id="Activity_10xvgu6_di" bpmnElement="Activity_10xvgu6" bioc:stroke="#ff2600" color:border-color="#ff2600">
+        <dc:Bounds x="850" y="330" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_0zgcm08_di" bpmnElement="DataObjectReference_0zgcm08" bioc:stroke="#ff2600" color:border-color="#ff2600">
+        <dc:Bounds x="992" y="145" width="36" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="288" y="515" width="65" height="40" />
+          <dc:Bounds x="967" y="202" width="89" height="40" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_189yf41" bpmnElement="Event_042yczc">
-        <dc:Bounds x="302" y="652" width="36" height="36" />
+      <bpmndi:BPMNShape id="DataObjectReference_1r16uao_di" bpmnElement="DataObjectReference_1r16uao">
+        <dc:Bounds x="752" y="145" width="36" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="286" y="615" width="67" height="27" />
+          <dc:Bounds x="739" y="202" width="65" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Association_1elmqoq_di" bpmnElement="Association_1elmqoq">
-        <di:waypoint x="320" y="688" />
-        <di:waypoint x="320" y="812" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0ih21fk_di" bpmnElement="Flow_0ih21fk">
-        <di:waypoint x="990" y="580" />
-        <di:waypoint x="1060" y="580" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0e46at9_di" bpmnElement="Flow_0e46at9">
-        <di:waypoint x="1096" y="580" />
-        <di:waypoint x="1166" y="580" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0ekmvk8_di" bpmnElement="Flow_0ekmvk8">
-        <di:waypoint x="1191" y="555" />
-        <di:waypoint x="1191" y="480" />
+      <bpmndi:BPMNShape id="Activity_1cqoaw6_di" bpmnElement="Activity_1cqoaw6" bioc:stroke="#ff2600" color:border-color="#ff2600">
+        <dc:Bounds x="390" y="540" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_0lz1gul_di" bpmnElement="DataObjectReference_0lz1gul">
+        <dc:Bounds x="912" y="145" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="893" y="207" width="74" height="66" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_0520907_di" bpmnElement="DataObjectReference_0520907">
+        <dc:Bounds x="832" y="145" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="820" y="202" width="63" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataStoreReference_0chf8ks_di" bpmnElement="DataStoreReference_0chf8ks" bioc:stroke="#ff2600" color:border-color="#ff2600">
+        <dc:Bounds x="905" y="455" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="910" y="513" width="40" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataStoreReference_011zlnl_di" bpmnElement="DataObjectReference_0ii8njk">
+        <dc:Bounds x="825" y="455" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="840" y="513" width="20" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataStoreReference_0yy3h2p_di" bpmnElement="DataStoreReference_0yy3h2p">
+        <dc:Bounds x="375" y="445" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="371" y="416" width="61" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_0vwmu18_di" bpmnElement="DataObjectReference_0vwmu18">
+        <dc:Bounds x="462" y="445" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="463" y="416" width="37" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0tfriws_di" bpmnElement="Event_0tfriws" bioc:stroke="#ff2600" color:border-color="#ff2600">
+        <dc:Bounds x="282" y="1372" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="257" y="1415" width="89" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0p57hdx" bpmnElement="Activity_1n9pq6v" bioc:stroke="#00f900" color:border-color="#00f900">
+        <dc:Bounds x="390" y="1350" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0oabhah_di" bpmnElement="Event_1lwreze" bioc:stroke="#ff2600" color:border-color="#ff2600">
+        <dc:Bounds x="662" y="562" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="639" y="605" width="84" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_08hvz2v_di" bpmnElement="Gateway_0g6v69y" bioc:stroke="#ff2600" color:border-color="#ff2600">
+        <dc:Bounds x="555" y="555" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1wtdudc_di" bpmnElement="Gateway_1wtdudc" isMarkerVisible="true" bioc:stroke="#00f900" color:border-color="#00f900">
+        <dc:Bounds x="755" y="555" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="742" y="612" width="77" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1vrhd1q_di" bpmnElement="Gateway_1vrhd1q" isMarkerVisible="true" bioc:stroke="#00f900" color:border-color="#00f900">
+        <dc:Bounds x="985" y="555" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1y0a7pd_di" bpmnElement="Gateway_1ea5n5l" bioc:stroke="#ff2600" color:border-color="#ff2600">
+        <dc:Bounds x="1525" y="555" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1j1uhqt_di" bpmnElement="Gateway_0jb99j6" bioc:stroke="#ff2600" color:border-color="#ff2600">
+        <dc:Bounds x="1135" y="555" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0ekmvk8_di" bpmnElement="Flow_0ekmvk8" bioc:stroke="#ff2600" color:border-color="#ff2600">
+        <di:waypoint x="1160" y="555" />
+        <di:waypoint x="1160" y="480" />
         <di:waypoint x="1260" y="480" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1176" y="423" width="67" height="53" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0l0espd_di" bpmnElement="Flow_0l0espd">
-        <di:waypoint x="1216" y="580" />
+      <bpmndi:BPMNEdge id="Flow_0l0espd_di" bpmnElement="Flow_0l0espd" bioc:stroke="#ff2600" color:border-color="#ff2600">
+        <di:waypoint x="1185" y="580" />
         <di:waypoint x="1260" y="580" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1184" y="530" width="52" height="40" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0a74770_di" bpmnElement="Flow_0a74770">
-        <di:waypoint x="1191" y="605" />
-        <di:waypoint x="1191" y="770" />
+      <bpmndi:BPMNEdge id="Flow_0a74770_di" bpmnElement="Flow_0a74770" bioc:stroke="#ff2600" color:border-color="#ff2600">
+        <di:waypoint x="1160" y="605" />
+        <di:waypoint x="1160" y="770" />
         <di:waypoint x="1260" y="770" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1175" y="720" width="70" height="40" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1rq7ax9_di" bpmnElement="Flow_1rq7ax9">
         <di:waypoint x="1360" y="480" />
@@ -1006,33 +1003,13 @@
         <di:waypoint x="2500" y="1080" />
         <di:waypoint x="1598" y="1080" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2413" y="630" width="73" height="40" />
+          <dc:Bounds x="2415" y="630" width="70" height="40" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0v2sepm_di" bpmnElement="Flow_0v2sepm">
+      <bpmndi:BPMNEdge id="Flow_0v2sepm_di" bpmnElement="Flow_0v2sepm" bioc:stroke="#ff2600" color:border-color="#ff2600">
         <di:waypoint x="1562" y="1080" />
-        <di:waypoint x="965" y="1080" />
-        <di:waypoint x="965" y="605" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0jn7vvw_di" bpmnElement="Flow_0jn7vvw">
-        <di:waypoint x="830" y="580" />
-        <di:waypoint x="940" y="580" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0c8lenn_di" bpmnElement="Flow_0c8lenn">
-        <di:waypoint x="338" y="490" />
-        <di:waypoint x="400" y="490" />
-        <di:waypoint x="400" y="580" />
-        <di:waypoint x="560" y="580" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0tv3cdi_di" bpmnElement="Flow_0tv3cdi">
-        <di:waypoint x="338" y="670" />
-        <di:waypoint x="400" y="670" />
-        <di:waypoint x="400" y="580" />
-        <di:waypoint x="560" y="580" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1l1mjwm_di" bpmnElement="Flow_1l1mjwm">
-        <di:waypoint x="660" y="580" />
-        <di:waypoint x="730" y="580" />
+        <di:waypoint x="580" y="1080" />
+        <di:waypoint x="580" y="605" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0z3cln0_di" bpmnElement="Flow_0z3cln0">
         <di:waypoint x="1985" y="580" />
@@ -1066,7 +1043,7 @@
         <di:waypoint x="2525" y="580" />
         <di:waypoint x="2655" y="580" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2571" y="530" width="78" height="40" />
+          <dc:Bounds x="2573" y="530" width="74" height="40" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1yw0b52_di" bpmnElement="Flow_1yw0b52">
@@ -1094,7 +1071,7 @@
         <di:waypoint x="1680" y="820" />
         <di:waypoint x="1775" y="820" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1704" y="770" width="60" height="40" />
+          <dc:Bounds x="1705" y="770" width="58" height="40" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0jf6no8_di" bpmnElement="Flow_0jf6no8">
@@ -1132,24 +1109,64 @@
           <dc:Bounds x="2704" y="653" width="12" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="TextAnnotation_0ad39t3_di" bpmnElement="TextAnnotation_0ad39t3">
-        <dc:Bounds x="270" y="812" width="140" height="140" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_1kl9ikk_di" bpmnElement="TextAnnotation_1kl9ikk">
-        <dc:Bounds x="580" y="180" width="250" height="82" />
+      <bpmndi:BPMNEdge id="Flow_0zgp4r2_di" bpmnElement="Flow_0zgp4r2">
+        <di:waypoint x="780" y="555" />
+        <di:waypoint x="780" y="370" />
+        <di:waypoint x="850" y="370" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="748" y="523" width="23" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0evmvoo_di" bpmnElement="Flow_0evmvoo">
+        <di:waypoint x="950" y="370" />
+        <di:waypoint x="1010" y="370" />
+        <di:waypoint x="1010" y="555" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0c39xrp_di" bpmnElement="Flow_0c39xrp">
+        <di:waypoint x="440" y="1350" />
+        <di:waypoint x="440" y="620" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1nkfdl8_di" bpmnElement="Flow_1nkfdl8">
+        <di:waypoint x="490" y="580" />
+        <di:waypoint x="555" y="580" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0c8lenn_di" bpmnElement="Flow_0c8lenn" bioc:stroke="#ff2600" color:border-color="#ff2600">
+        <di:waypoint x="318" y="1390" />
+        <di:waypoint x="390" y="1390" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_17g9vuh_di" bpmnElement="Flow_17g9vuh" bioc:stroke="#ff2600" color:border-color="#ff2600">
+        <di:waypoint x="605" y="580" />
+        <di:waypoint x="662" y="580" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_19qpjlh_di" bpmnElement="Flow_19qpjlh">
+        <di:waypoint x="698" y="580" />
+        <di:waypoint x="755" y="580" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_04eg41l_di" bpmnElement="Flow_04eg41l">
+        <di:waypoint x="805" y="580" />
+        <di:waypoint x="985" y="580" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="824" y="562" width="12" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0dba7eu_di" bpmnElement="Flow_0dba7eu" bioc:stroke="#ff2600" color:border-color="#ff2600">
+        <di:waypoint x="1035" y="580" />
+        <di:waypoint x="1135" y="580" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_1sk5yxz_di" bpmnElement="Association_1sk5yxz">
+        <di:waypoint x="1322" y="620" />
+        <di:waypoint x="1334" y="660" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_07k63n6_di" bpmnElement="Association_07k63n6">
+        <di:waypoint x="1328" y="440" />
+        <di:waypoint x="1370" y="343" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_1kl9ikk_di" bpmnElement="TextAnnotation_1kl9ikk" bioc:stroke="#ff2600" color:border-color="#ff2600">
+        <dc:Bounds x="810" y="-45" width="260" height="125" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_0qmicxk_di" bpmnElement="TextAnnotation_0qmicxk">
-        <dc:Bounds x="500" y="774" width="100" height="111" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_1gi9dkd_di" bpmnElement="TextAnnotation_1gi9dkd">
-        <dc:Bounds x="1400" y="290" width="170" height="111" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_1poit57_di" bpmnElement="TextAnnotation_1poit57">
-        <dc:Bounds x="1260" y="660" width="120" height="39" />
+        <dc:Bounds x="630" y="424" width="100" height="111" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_1c44r1w_di" bpmnElement="TextAnnotation_1c44r1w">
@@ -1157,11 +1174,11 @@
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_1gkl1qq_di" bpmnElement="TextAnnotation_1gkl1qq">
-        <dc:Bounds x="1490" y="870" width="120" height="53" />
+        <dc:Bounds x="1490" y="870" width="120" height="70" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_0nk2czw_di" bpmnElement="TextAnnotation_0nk2czw">
-        <dc:Bounds x="610" y="773" width="100" height="68" />
+      <bpmndi:BPMNShape id="TextAnnotation_0nk2czw_di" bpmnElement="TextAnnotation_0nk2czw" bioc:stroke="#ff2600" color:border-color="#ff2600">
+        <dc:Bounds x="1030" y="460" width="130" height="39" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_0clb061_di" bpmnElement="TextAnnotation_0clb061">
@@ -1173,159 +1190,124 @@
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_1ek9j74_di" bpmnElement="TextAnnotation_1ek9j74">
-        <dc:Bounds x="1654" y="170" width="211" height="68" />
+        <dc:Bounds x="1654" y="170" width="226" height="82" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_1i5b5m4_di" bpmnElement="TextAnnotation_1i5b5m4">
-        <dc:Bounds x="1260" y="870" width="100" height="82" />
+      <bpmndi:BPMNShape id="TextAnnotation_1i5b5m4_di" bpmnElement="TextAnnotation_1i5b5m4" bioc:stroke="#ff2600" color:border-color="#ff2600">
+        <dc:Bounds x="1260" y="870" width="140" height="96" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Group_1mc5mxx_di" bpmnElement="Group_1mc5mxx">
-        <dc:Bounds x="230" y="90" width="660" height="1150" />
+        <dc:Bounds x="230" y="-60" width="850" height="1580" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="527" y="97" width="67" height="27" />
+          <dc:Bounds x="624" y="-53" width="64" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Group_1jdt1md_di" bpmnElement="Group_1jdt1md">
-        <dc:Bounds x="900" y="90" width="1200" height="1150" />
+        <dc:Bounds x="1090" y="-60" width="1010" height="1580" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1465" y="97" width="70" height="27" />
+          <dc:Bounds x="1562" y="-53" width="67" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Group_1rsfkdi_di" bpmnElement="Group_1rsfkdi">
-        <dc:Bounds x="2110" y="90" width="440" height="1150" />
+        <dc:Bounds x="2110" y="-60" width="440" height="1580" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2298" y="97" width="64" height="27" />
+          <dc:Bounds x="2298" y="-53" width="64" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Group_19anwui_di" bpmnElement="Group_19anwui">
-        <dc:Bounds x="2560" y="90" width="300" height="1150" />
+        <dc:Bounds x="2560" y="-60" width="300" height="1580" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2670" y="97" width="80" height="40" />
+          <dc:Bounds x="2673" y="-53" width="75" height="53" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="DataInputAssociation_0u3frfu_di"
-        bpmnElement="DataInputAssociation_0u3frfu">
-        <di:waypoint x="720" y="445" />
-        <di:waypoint x="720" y="410" />
-        <di:waypoint x="1310" y="410" />
+      <bpmndi:BPMNShape id="TextAnnotation_1b5t539_di" bpmnElement="TextAnnotation_1b5t539" bioc:stroke="#00f900" color:border-color="#00f900">
+        <dc:Bounds x="530" y="-5" width="260" height="96" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="DataInputAssociation_0u3frfu_di" bpmnElement="DataInputAssociation_0u3frfu">
+        <di:waypoint x="1010" y="145" />
+        <di:waypoint x="1010" y="110" />
+        <di:waypoint x="1310" y="110" />
         <di:waypoint x="1310" y="440" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataInputAssociation_0mb2a55_di"
-        bpmnElement="DataInputAssociation_0mb2a55">
-        <di:waypoint x="550" y="335" />
-        <di:waypoint x="550" y="300" />
-        <di:waypoint x="1310" y="300" />
+      <bpmndi:BPMNEdge id="DataInputAssociation_0mb2a55_di" bpmnElement="DataInputAssociation_0mb2a55">
+        <di:waypoint x="850" y="145" />
+        <di:waypoint x="850" y="110" />
+        <di:waypoint x="1310" y="110" />
         <di:waypoint x="1310" y="440" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataInputAssociation_1gjqyar_di"
-        bpmnElement="DataInputAssociation_1gjqyar">
-        <di:waypoint x="518" y="470" />
-        <di:waypoint x="610" y="470" />
-        <di:waypoint x="610" y="540" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataInputAssociation_0i9y8iy_di"
-        bpmnElement="DataInputAssociation_0i9y8iy">
-        <di:waypoint x="568" y="360" />
-        <di:waypoint x="610" y="360" />
-        <di:waypoint x="610" y="540" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataInputAssociation_0h79259_di"
-        bpmnElement="DataInputAssociation_0h79259">
-        <di:waypoint x="662" y="360" />
-        <di:waypoint x="610" y="360" />
-        <di:waypoint x="610" y="540" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataInputAssociation_1bjspal_di"
-        bpmnElement="DataInputAssociation_1bjspal">
-        <di:waypoint x="702" y="470" />
-        <di:waypoint x="610" y="470" />
-        <di:waypoint x="610" y="540" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataOutputAssociation_06kj0w0_di"
-        bpmnElement="DataOutputAssociation_06kj0w0">
-        <di:waypoint x="600" y="620" />
-        <di:waypoint x="586" y="675" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataOutputAssociation_0ueonyl_di"
-        bpmnElement="DataOutputAssociation_0ueonyl">
-        <di:waypoint x="620" y="620" />
-        <di:waypoint x="634" y="675" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataOutputAssociation_0cmkofn_di"
-        bpmnElement="DataOutputAssociation_0cmkofn">
-        <di:waypoint x="793" y="620" />
-        <di:waypoint x="810" y="675" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataOutputAssociation_13lly1l_di"
-        bpmnElement="DataOutputAssociation_13lly1l">
-        <di:waypoint x="770" y="620" />
-        <di:waypoint x="756" y="675" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataOutputAssociation_0wtb4rn_di"
-        bpmnElement="DataOutputAssociation_0wtb4rn">
+      <bpmndi:BPMNEdge id="DataOutputAssociation_0wtb4rn_di" bpmnElement="DataOutputAssociation_0wtb4rn">
         <di:waypoint x="2250" y="420" />
         <di:waypoint x="2250" y="365" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataOutputAssociation_0g2vt8j_di"
-        bpmnElement="DataOutputAssociation_0g2vt8j">
+      <bpmndi:BPMNEdge id="DataOutputAssociation_0g2vt8j_di" bpmnElement="DataOutputAssociation_0g2vt8j">
         <di:waypoint x="2310" y="420" />
         <di:waypoint x="2310" y="365" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataOutputAssociation_1lh4pa7_di"
-        bpmnElement="DataOutputAssociation_1lh4pa7">
+      <bpmndi:BPMNEdge id="DataOutputAssociation_1lh4pa7_di" bpmnElement="DataOutputAssociation_1lh4pa7">
         <di:waypoint x="1872" y="617" />
         <di:waypoint x="2000" y="690" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataOutputAssociation_0joukj4_di"
-        bpmnElement="DataOutputAssociation_0joukj4">
+      <bpmndi:BPMNEdge id="DataOutputAssociation_0joukj4_di" bpmnElement="DataOutputAssociation_0joukj4">
         <di:waypoint x="1860" y="620" />
         <di:waypoint x="1998" y="775" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataOutputAssociation_0k6n01i_di"
-        bpmnElement="DataOutputAssociation_0k6n01i">
+      <bpmndi:BPMNEdge id="DataOutputAssociation_0k6n01i_di" bpmnElement="DataOutputAssociation_0k6n01i">
         <di:waypoint x="1825" y="420" />
         <di:waypoint x="1825" y="310" />
         <di:waypoint x="1778" y="310" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataOutputAssociation_1avqhv9_di"
-        bpmnElement="DataOutputAssociation_1avqhv9">
+      <bpmndi:BPMNEdge id="DataOutputAssociation_1avqhv9_di" bpmnElement="DataOutputAssociation_1avqhv9">
         <di:waypoint x="1825" y="420" />
         <di:waypoint x="1825" y="390" />
         <di:waypoint x="1705" y="390" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataOutputAssociation_0592cjz_di"
-        bpmnElement="DataOutputAssociation_0592cjz">
+      <bpmndi:BPMNEdge id="DataOutputAssociation_0592cjz_di" bpmnElement="DataOutputAssociation_0592cjz">
         <di:waypoint x="1860" y="740" />
         <di:waypoint x="2000" y="890" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataOutputAssociation_187z30s_di"
-        bpmnElement="DataOutputAssociation_187z30s">
+      <bpmndi:BPMNEdge id="DataOutputAssociation_187z30s_di" bpmnElement="DataOutputAssociation_187z30s">
         <di:waypoint x="1825" y="860" />
         <di:waypoint x="1825" y="940" />
         <di:waypoint x="1892" y="940" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataOutputAssociation_1fgxwld_di"
-        bpmnElement="DataOutputAssociation_1fgxwld">
+      <bpmndi:BPMNEdge id="DataOutputAssociation_1fgxwld_di" bpmnElement="DataOutputAssociation_1fgxwld">
         <di:waypoint x="1825" y="860" />
         <di:waypoint x="1825" y="940" />
         <di:waypoint x="1765" y="940" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Association_07eb88c_di" bpmnElement="Association_07eb88c">
-        <di:waypoint x="680" y="335" />
-        <di:waypoint x="680" y="262" />
+      <bpmndi:BPMNEdge id="DataInputAssociation_1gjqyar_di" bpmnElement="DataInputAssociation_1gjqyar">
+        <di:waypoint x="786" y="195" />
+        <di:waypoint x="874" y="330" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Association_00oedox_di" bpmnElement="Association_00oedox">
-        <di:waypoint x="574" y="725" />
-        <di:waypoint x="563" y="774" />
+      <bpmndi:BPMNEdge id="DataInputAssociation_0i9y8iy_di" bpmnElement="DataInputAssociation_0i9y8iy">
+        <di:waypoint x="856" y="195" />
+        <di:waypoint x="890" y="330" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Association_07k63n6_di" bpmnElement="Association_07k63n6">
-        <di:waypoint x="1335" y="440" />
-        <di:waypoint x="1392" y="346" />
+      <bpmndi:BPMNEdge id="DataInputAssociation_0h79259_di" bpmnElement="DataInputAssociation_0h79259">
+        <di:waypoint x="926" y="195" />
+        <di:waypoint x="906" y="330" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Association_1sk5yxz_di" bpmnElement="Association_1sk5yxz">
-        <di:waypoint x="1310" y="620" />
-        <di:waypoint x="1310" y="660" />
+      <bpmndi:BPMNEdge id="DataInputAssociation_1bjspal_di" bpmnElement="DataInputAssociation_1bjspal">
+        <di:waypoint x="996" y="195" />
+        <di:waypoint x="922" y="330" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_1989bhe_di" bpmnElement="DataInputAssociation_1989bhe">
+        <di:waypoint x="863" y="455" />
+        <di:waypoint x="888" y="410" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_17y1kib_di" bpmnElement="DataInputAssociation_17y1kib">
+        <di:waypoint x="923" y="455" />
+        <di:waypoint x="911" y="410" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_0cmkofn_di" bpmnElement="DataOutputAssociation_0cmkofn">
+        <di:waypoint x="454" y="540" />
+        <di:waypoint x="470" y="495" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_13lly1l_di" bpmnElement="DataOutputAssociation_13lly1l">
+        <di:waypoint x="425" y="540" />
+        <di:waypoint x="409" y="495" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Association_1gij6wp_di" bpmnElement="Association_1gij6wp">
         <di:waypoint x="1580" y="1098" />
@@ -1334,10 +1316,6 @@
       <bpmndi:BPMNEdge id="Association_1pqzowy_di" bpmnElement="Association_1pqzowy">
         <di:waypoint x="1550" y="810" />
         <di:waypoint x="1550" y="870" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Association_0ug6peu_di" bpmnElement="Association_0ug6peu">
-        <di:waypoint x="645" y="725" />
-        <di:waypoint x="654" y="773" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Association_16xvpil_di" bpmnElement="Association_16xvpil">
         <di:waypoint x="1870" y="541" />
@@ -1349,12 +1327,36 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Association_1ogkf9m_di" bpmnElement="Association_1ogkf9m">
         <di:waypoint x="1760" y="285" />
-        <di:waypoint x="1760" y="238" />
+        <di:waypoint x="1760" y="252" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Association_0s8sudi_di" bpmnElement="Association_0s8sudi">
         <di:waypoint x="1310" y="810" />
         <di:waypoint x="1310" y="870" />
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_07eb88c_di" bpmnElement="Association_07eb88c">
+        <di:waypoint x="930" y="145" />
+        <di:waypoint x="930" y="80" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_00oedox_di" bpmnElement="Association_00oedox">
+        <di:waypoint x="825" y="480" />
+        <di:waypoint x="730" y="480" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0ug6peu_di" bpmnElement="Association_0ug6peu">
+        <di:waypoint x="955" y="480" />
+        <di:waypoint x="1030" y="480" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_028rim9_di" bpmnElement="Association_028rim9">
+        <di:waypoint x="832" y="158" />
+        <di:waypoint x="734" y="91" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_1poit57_di" bpmnElement="TextAnnotation_1poit57">
+        <dc:Bounds x="1290" y="660" width="120" height="39" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1gi9dkd_di" bpmnElement="TextAnnotation_1gi9dkd" bioc:stroke="#ff2600" color:border-color="#ff2600">
+        <dc:Bounds x="1380" y="270" width="210" height="145" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn2:definitions>
