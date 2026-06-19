@@ -1,0 +1,1663 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Claude AI" exporterVersion="1.0">
+  <collaboration id="Collaboration_LuKrFrueh">
+    <participant id="Participant_05x1big" name="Versicherte / Zu untersuchende Person" processRef="Process_0zf2amb">
+      <extensionElements>
+        <i18n:translation lang="de">Versicherte / Zu untersuchende Person</i18n:translation>
+      </extensionElements>
+    </participant>
+    <participant id="Participant_00hsnkf" name="Arbeitsmedizin / Allgemeinmedizin / Innere Medizin" processRef="Process_0eh0c9q">
+      <extensionElements>
+        <i18n:translation lang="de">Arbeitsmedizin / Allgemeinmedizin / Innere Medizin</i18n:translation>
+      </extensionElements>
+    </participant>
+    <participant id="Participant_137upzq" name="Radiologische Praxis / Klinik" processRef="Process_04zhnpp" />
+    <messageFlow id="Flow_1qis001" name="Beurteilung und Empfehlung" sourceRef="Activity_12ef5s1" targetRef="Event_13jgib0">
+      <extensionElements>
+        <i18n:translation lang="en">Beurteilung und Empfehlung</i18n:translation>
+      </extensionElements>
+    </messageFlow>
+    <messageFlow id="Flow_0fyy4uk" sourceRef="Activity_17m122u" targetRef="Event_1hwpffc" />
+    <messageFlow id="Flow_1cfdou4" sourceRef="Activity_16eirv7" targetRef="Event_11h9bwq" />
+    <messageFlow id="Flow_08xr7cz" name="Anfrage zur Teilnahme" sourceRef="Activity_00yhsqy" targetRef="Activity_0ya2ob0">
+      <extensionElements>
+        <i18n:translation lang="en">Anfrage zur Teilnahme</i18n:translation>
+      </extensionElements>
+    </messageFlow>
+    <messageFlow id="Flow_0n4xis8" name="Information über LKS" sourceRef="Activity_0o694d5" targetRef="Event_0qh7lu0">
+      <extensionElements>
+        <i18n:translation lang="en">Information über LKS</i18n:translation>
+      </extensionElements>
+    </messageFlow>
+    <messageFlow id="Flow_08vhqnw" name="Beurteilung und Empfehlung" sourceRef="Activity_12ef5s1" targetRef="Event_1w13vdp">
+      <extensionElements>
+        <i18n:translation lang="en">Beurteilung und Empfehlung</i18n:translation>
+      </extensionElements>
+    </messageFlow>
+    <messageFlow id="Flow_1e4xvbq" sourceRef="Event_1wdocxd" targetRef="Event_13jgib0" />
+    <messageFlow id="Flow_07a7hn6" sourceRef="Event_0kdzao8" targetRef="Event_13jgib0" />
+    <messageFlow id="Flow_1xez4w2" sourceRef="Activity_1ta6sej" targetRef="Activity_0io1wvp" />
+    <messageFlow id="Flow_0f9ubv7" sourceRef="Activity_0io1wvp" targetRef="Activity_1ta6sej" />
+    <textAnnotation id="TextAnnotation_0wytj9r">
+      <extensionElements>
+        <i18n:translation target="@text" lang="en">Qualifikation Berichterstellender Arzt (§6 Abs.3 / §2 Abs.1 Nr.3):
+- Approbierter Arzt oder vorübergehende Berufserlaubnis
+- Facharzt Innere Medizin, Allgemeinmedizin oder Arbeitsmedizin (mind. 3. Weiterbildungsjahr)
+- Fortbildungswissen im Bereich Lungenkrebsfrüherkennung</i18n:translation>
+      </extensionElements>
+      <text>Qualifikation Berichterstellender Arzt (§6 Abs.3 / §2 Abs.1 Nr.3):
+- Approbierter Arzt oder vorübergehende Berufserlaubnis
+- Facharzt Innere Medizin, Allgemeinmedizin oder Arbeitsmedizin (mind. 3. Weiterbildungsjahr)
+- Fortbildungswissen im Bereich Lungenkrebsfrüherkennung</text>
+    </textAnnotation>
+    <textAnnotation id="TextAnnotation_1lj7gkz">
+      <extensionElements>
+        <i18n:translation target="@text" lang="de">§2 Abs.2: Nach kontrollbedürftigem Befund ist eine erneute Untersuchung vor Ablauf von 12 Monaten zulässig</i18n:translation>
+      </extensionElements>
+      <text>§2 Abs.2: Nach kontrollbedürftigem Befund ist eine erneute Untersuchung vor Ablauf von 12 Monaten zulässig</text>
+    </textAnnotation>
+    <textAnnotation id="TextAnnotation_1vtvbbn">
+      <extensionElements>
+        <i18n:translation target="@text" lang="de">Qualifikation Erstbefunder (§6 Abs.1):
+- Facharzt Radiologie + §145 Abs.1 StrlSchVO
+- Mind. 200 Thorax-CT/Jahr befundet vor Aufnahme
+- Fortbildungswissen Lungenkrebsfrüherkennung
+- Laufend: 100 (1. Jahr) dann 200/Jahr
+- Bei Nichterfüllung: Fortbildung mit Fallbeispielen</i18n:translation>
+      </extensionElements>
+      <text>Qualifikation Erstbefunder (§6 Abs.1):
+- Facharzt Radiologie + §145 Abs.1 StrlSchVO
+- Mind. 200 Thorax-CT/Jahr befundet vor Aufnahme
+- Fortbildungswissen Lungenkrebsfrüherkennung
+- Laufend: 100 (1. Jahr) dann 200/Jahr
+- Bei Nichterfüllung: Fortbildung mit Fallbeispielen</text>
+    </textAnnotation>
+    <textAnnotation id="TextAnnotation_0ld0v19">
+      <extensionElements>
+        <i18n:translation target="@text" lang="en">§2 Abs. 1 Nr. 1-3: 
+- Alter: 50–75 Jahre
+- Letztes Lungen-CT: mindestens 12 Monate her 
+- min. 25 Jahre Zigarettenkonsum (Rauchpausen unter 10 Jahren werden mitgezählt)
+- min. 15 Packungsjahre
+- medizinisches Eignungsprofi und Verfügbarkeit anamnestischen Daten</i18n:translation>
+      </extensionElements>
+      <text>§2 Abs. 1 Nr. 1-3: 
+- Alter: 50–75 Jahre
+- Letztes Lungen-CT: mindestens 12 Monate her 
+- min. 25 Jahre Zigarettenkonsum (Rauchpausen unter 10 Jahren werden mitgezählt)
+- min. 15 Packungsjahre
+- medizinisches Eignungsprofi und Verfügbarkeit anamnestischen Daten</text>
+    </textAnnotation>
+    <association id="Association_14qcdi5" associationDirection="None" sourceRef="Participant_137upzq" targetRef="TextAnnotation_1vtvbbn" />
+    <textAnnotation id="TextAnnotation_1y5xxon">
+      <extensionElements>
+        <i18n:translation target="@text" lang="de">Befundkategorien (§1 Abs.4–5):
+- Unauffällig: kein Krankheitsverdacht
+- Kontrollbedürftig: erneute Untersuchung medizinisch indiziert vor Ablauf von 12 Monaten, ohne konkreten Krankheitsverdacht
+- Abklärungsbedürftig: hohe Wahrscheinlichkeit auf Lungenkarzinom, zeitnahe klinische Abklärung erforderlich</i18n:translation>
+      </extensionElements>
+      <text>Befundkategorien (§1 Abs.4–5):
+- Unauffällig: kein Krankheitsverdacht
+- Kontrollbedürftig: erneute Untersuchung medizinisch indiziert vor Ablauf von 12 Monaten, ohne konkreten Krankheitsverdacht
+- Abklärungsbedürftig: hohe Wahrscheinlichkeit auf Lungenkarzinom, zeitnahe klinische Abklärung erforderlich</text>
+    </textAnnotation>
+    <textAnnotation id="TextAnnotation_0khguqa">
+      <text>Qualifikation Zweitbefunder (§6 Abs.2):
+- Alle Anforderungen des Erstbefunders (§6 Abs.1) PLUS
+- Tätig an spezialisierter Einrichtung für Lungenkrebs
+- Laufend: 200 (1. Jahr) dann 400/Jahr</text>
+    </textAnnotation>
+    <textAnnotation id="TextAnnotation_0w0g0vy">
+      <extensionElements>
+        <i18n:translation target="@text" lang="de">CAD-Software (§1 Abs.3): Computerprogramm zur Unterstützung des Arztes bei der Befundung durch Auswertung digitaler Bilddaten (CAD - computerassistierten Detektion).
+Funktionen: Detektion und Volumetrie von Lungenrundherden, Berechnung der Volumenverdopplungszeit, Speicherung als erweiterte Bilddokumentation.</i18n:translation>
+      </extensionElements>
+      <text>CAD-Software (§1 Abs.3): Computerprogramm zur Unterstützung des Arztes bei der Befundung durch Auswertung digitaler Bilddaten (CAD - computerassistierten Detektion).
+Funktionen: Detektion und Volumetrie von Lungenrundherden, Berechnung der Volumenverdopplungszeit, Speicherung als erweiterte Bilddokumentation.</text>
+    </textAnnotation>
+    <textAnnotation id="TextAnnotation_0wr24g7">
+      <extensionElements>
+        <i18n:translation target="@text" lang="de">Technische Anforderungen gemäß Anlage zu §4:
+- Volumen-CT-Dosisindex ≤ 1,3 mGy
+- Scanzeit ≤ 15 s
+- Rotationszeit ≤ 0,5 s
+- Einzelschichtkollimation ≤ 0,7 mm
+- Pitch 0,9–1,2
+- Kein Kontrastmittel
+- Spirale, Caudal-cranial</i18n:translation>
+      </extensionElements>
+      <text>Technische Anforderungen gemäß Anlage zu §4:
+- Volumen-CT-Dosisindex ≤ 1,3 mGy
+- Scanzeit ≤ 15 s
+- Rotationszeit ≤ 0,5 s
+- Einzelschichtkollimation ≤ 0,7 mm
+- Pitch 0,9–1,2
+- Kein Kontrastmittel
+- Spirale, Caudal-cranial</text>
+    </textAnnotation>
+    <textAnnotation id="TextAnnotation_0784s41">
+      <text>Qualitätssicherung (§7):
+- Umfassendes QS-System (organisatorisch, medizinisch, technisch)
+- Anonymisierte Datenerhebung: Anzahl Personen, Befundarten
+- Aufbewahrung: 10 Jahre
+- Bereitstellung an ärztliche Stelle / Behörde auf Verlangen
+- Daten an zuständige Kassenärztliche Vereinigung</text>
+    </textAnnotation>
+    <association id="Association_07whmbv" associationDirection="None" sourceRef="TextAnnotation_0ld0v19" targetRef="Activity_0ya2ob0" />
+    <association id="Association_05nu60k" sourceRef="Activity_1npn3bx" targetRef="TextAnnotation_0wytj9r" />
+    <textAnnotation id="TextAnnotation_0pdxxof">
+      <extensionElements>
+        <i18n:translation target="@text" lang="en">Einmal jährlich</i18n:translation>
+      </extensionElements>
+      <text>Einmal jährlich</text>
+    </textAnnotation>
+    <association id="Association_1snogkr" associationDirection="None" sourceRef="Activity_0o694d5" targetRef="TextAnnotation_0pdxxof" />
+    <textAnnotation id="TextAnnotation_0m5wzfu">
+      <extensionElements>
+        <i18n:translation target="@text" lang="en">Einmal jährlich</i18n:translation>
+      </extensionElements>
+      <text>Einmal jährlich</text>
+    </textAnnotation>
+    <association id="Association_0r9rdfo" associationDirection="None" sourceRef="Activity_00yhsqy" targetRef="TextAnnotation_0m5wzfu" />
+    <textAnnotation id="TextAnnotation_1a22ivr">
+      <extensionElements>
+        <i18n:translation target="@text" lang="en">§4 Abs.2: Es fand eine frühere Lungenkrebserkennung statt:
+- Vorbefunde sicherstellen oder
+- keine Vorlage Vorbefunde möglich, dann Einzelfallprüfung: Verzicht auf Vorbefunde oder Ablehnung Teilnahme</i18n:translation>
+      </extensionElements>
+      <text>§4 Abs.2: Es fand eine frühere Lungenkrebserkennung statt:
+- Vorbefunde sicherstellen oder
+- keine Vorlage Vorbefunde möglich, dann Einzelfallprüfung: Verzicht auf Vorbefunde oder Ablehnung Teilnahme</text>
+    </textAnnotation>
+    <association id="Association_153uwy5" sourceRef="Activity_0d4a27r" targetRef="TextAnnotation_0784s41" />
+    <association id="Association_1smnmj8" associationDirection="None" sourceRef="Activity_0l9ecr6" targetRef="TextAnnotation_1a22ivr" />
+    <association id="Association_1my54ky" sourceRef="Activity_12qrin2" targetRef="TextAnnotation_0wr24g7" />
+    <association id="Association_1xho4f1" sourceRef="Activity_1mvivag" targetRef="TextAnnotation_0w0g0vy" />
+    <association id="Association_17ohy5l" sourceRef="Activity_1ww2vbt" targetRef="TextAnnotation_0khguqa" />
+    <association id="Association_19p7pld" associationDirection="None" sourceRef="Activity_0gyncma" targetRef="TextAnnotation_1y5xxon" />
+  </collaboration>
+  <process id="Process_0zf2amb" name="Versicherte Person" isExecutable="false">
+    <laneSet id="LaneSet_0mk8eqk" />
+    <sequenceFlow id="Flow_1442b6d" sourceRef="Event_1hwpffc" targetRef="Activity_16eirv7" />
+    <sequenceFlow id="Flow_1qvntgg" sourceRef="Activity_00yhsqy" targetRef="Event_1hwpffc" />
+    <sequenceFlow id="Flow_0l0dz6h" sourceRef="Event_0qh7lu0" targetRef="Activity_00yhsqy" />
+    <task id="Activity_16eirv7" name="Radiologie aufsuchen">
+      <extensionElements>
+        <i18n:translation lang="en">Radiologie aufsuchen</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_1442b6d</incoming>
+    </task>
+    <intermediateCatchEvent id="Event_1hwpffc" name="Überweisung und Bericht&#10;eingegangen">
+      <extensionElements>
+        <i18n:translation lang="en">Überweisung und Bericht
+eingegangen</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_1qvntgg</incoming>
+      <outgoing>Flow_1442b6d</outgoing>
+      <messageEventDefinition id="MessageEventDefinition_0rkbpc8" />
+    </intermediateCatchEvent>
+    <task id="Activity_00yhsqy" name="Arztpraxis&#10;kontaktieren">
+      <documentation>Die Person wendet sich an eine allgemeinmedizinische oder internistische Praxis, die an der Lungenkrebsfrüherkennung beteiligt ist (G-BA VI, S. 6).</documentation>
+      <extensionElements>
+        <i18n:translation lang="de">Hausarztpraxis
+kontaktieren</i18n:translation>
+        <i18n:translation lang="en">Arztpraxis
+kontaktieren</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_0l0dz6h</incoming>
+      <outgoing>Flow_1qvntgg</outgoing>
+      <standardLoopCharacteristics />
+    </task>
+    <startEvent id="Event_0qh7lu0" name="Interesse an Lungenkrebs-früherkennung besteht">
+      <documentation>Die versicherte Person informiert sich über das Früherkennungsangebot der gesetzlichen Krankenversicherung (GKV). Gem. G-BA Versicherteninformation.</documentation>
+      <extensionElements>
+        <i18n:translation lang="de">Interesse an Lungenkrebs-früherkennung</i18n:translation>
+        <i18n:translation lang="en">Interesse an Lungenkrebs-früherkennung besteht</i18n:translation>
+      </extensionElements>
+      <outgoing>Flow_0l0dz6h</outgoing>
+    </startEvent>
+    <intermediateCatchEvent id="Event_1w13vdp" name="Beurteilung der Radiologie eingegangen">
+      <extensionElements>
+        <i18n:translation lang="en">Beurteilung der Radiologie eingegangen</i18n:translation>
+      </extensionElements>
+      <outgoing>Flow_19studm</outgoing>
+      <messageEventDefinition id="MessageEventDefinition_1w9mv0z" />
+    </intermediateCatchEvent>
+    <sequenceFlow id="Flow_19studm" sourceRef="Event_1w13vdp" targetRef="Activity_0io1wvp" />
+    <sequenceFlow id="Flow_1uucqpn" sourceRef="Activity_0io1wvp" targetRef="Gateway_1dj77wn" />
+    <task id="Activity_0io1wvp" name="Ergebnis besprechen&#10;und Entscheidung treffen">
+      <extensionElements>
+        <i18n:translation lang="en">Ergebnis besprechen
+und Entscheidung treffen</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_19studm</incoming>
+      <outgoing>Flow_1uucqpn</outgoing>
+    </task>
+    <sequenceFlow id="Flow_03pgwlu" name="Nein" sourceRef="Gateway_1dj77wn" targetRef="Event_1fjvvjs">
+      <extensionElements>
+        <i18n:translation lang="de">Nein</i18n:translation>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_19p2tm4" sourceRef="Gateway_1dj77wn" targetRef="Event_0nesy5q" />
+    <endEvent id="Event_0nesy5q" name="Überweisung zur weiteren Behandlung wird nachgegangen">
+      <extensionElements>
+        <i18n:translation lang="en">Überweisung zur weiteren Behandlung wird nachgegangen</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_19p2tm4</incoming>
+    </endEvent>
+    <exclusiveGateway id="Gateway_1dj77wn" name="Behandlung fortsetzen">
+      <extensionElements>
+        <i18n:translation lang="de">Screening fortsetzen?</i18n:translation>
+        <i18n:translation lang="en">Behandlung fortsetzen</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_1uucqpn</incoming>
+      <outgoing>Flow_03pgwlu</outgoing>
+      <outgoing>Flow_19p2tm4</outgoing>
+    </exclusiveGateway>
+    <endEvent id="Event_1fjvvjs" name="Screening beendet">
+      <extensionElements>
+        <i18n:translation lang="de">Screening beenden</i18n:translation>
+        <i18n:translation lang="en">Screening beendet</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_03pgwlu</incoming>
+    </endEvent>
+  </process>
+  <process id="Process_0eh0c9q" name="Allgemeinmedizinische / Internistische Praxis" isExecutable="false">
+    <intermediateCatchEvent id="Event_13jgib0" name="Beurteilung der Radiologie eingegangen">
+      <extensionElements>
+        <i18n:translation lang="en">Beurteilung der Radiologie eingegangen</i18n:translation>
+      </extensionElements>
+      <outgoing>Flow_1ha46mu</outgoing>
+      <messageEventDefinition id="MessageEventDefinition_1bl3snf" />
+    </intermediateCatchEvent>
+    <task id="Activity_17m122u" name="Überweisung und Bericht&#10; übermitteln">
+      <extensionElements>
+        <i18n:translation lang="en">Überweisung und Bericht
+ übermitteln</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_1ywog1r</incoming>
+    </task>
+    <parallelGateway id="Gateway_1aronx8" name="">
+      <incoming>Flow_0348anc</incoming>
+      <outgoing>Flow_0lhp1ml</outgoing>
+      <outgoing>Flow_0bl92tl</outgoing>
+    </parallelGateway>
+    <parallelGateway id="Gateway_1k0ekdt" name="">
+      <incoming>Flow_0ugdraj</incoming>
+      <incoming>Flow_1qfp2vw</incoming>
+      <outgoing>Flow_1x8fb6i</outgoing>
+    </parallelGateway>
+    <task id="Activity_0f2lkuk" name="Auf Rauchentwöhnungsprogramm hinweisen">
+      <extensionElements>
+        <i18n:translation lang="en">Auf Rauchentwöhnungsprogramm hinweisen</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_0lhp1ml</incoming>
+      <outgoing>Flow_1qfp2vw</outgoing>
+    </task>
+    <task id="Activity_0e82ewp" name="Aufklärungsgespräch &#10;(§2 Abs.1 Nr.4)">
+      <extensionElements>
+        <i18n:translation lang="en">Aufklärungsgespräch 
+(§2 Abs.1 Nr.4)</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_0bl92tl</incoming>
+      <outgoing>Flow_0ugdraj</outgoing>
+    </task>
+    <task id="Activity_1npn3bx" name="Bericht erstellen&#10;(§2 Abs.1 Nr.3)">
+      <extensionElements>
+        <i18n:translation lang="en">Bericht erstellen
+(§2 Abs.1 Nr.3)</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_1x8fb6i</incoming>
+      <outgoing>Flow_0244izw</outgoing>
+      <dataOutputAssociation id="DataOutputAssociation_0l25e5n">
+        <targetRef>DataObjectReference_07wjx8v</targetRef>
+      </dataOutputAssociation>
+    </task>
+    <dataObjectReference id="DataObjectReference_07wjx8v" name="Bericht gem. §2 Abs.1 Nr.3" dataObjectRef="DataObject_06lkv0h">
+      <extensionElements>
+        <i18n:translation lang="de">Bericht gem. §2 Abs.1 Nr.3</i18n:translation>
+      </extensionElements>
+    </dataObjectReference>
+    <dataObject id="DataObject_06lkv0h" />
+    <task id="Activity_0ya2ob0" name="Zulässigkeitsvoraussetzungen prüfen (§2)">
+      <extensionElements>
+        <i18n:translation lang="en">Zulässigkeitsvoraussetzungen prüfen (§2)</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_0jqw3k3</incoming>
+      <outgoing>Flow_14vujop</outgoing>
+    </task>
+    <exclusiveGateway id="Gateway_1whuu15" name="Voraussetzungen erfüllt?">
+      <incoming>Flow_14vujop</incoming>
+      <outgoing>Flow_0ykdesb</outgoing>
+      <outgoing>Flow_0348anc</outgoing>
+    </exclusiveGateway>
+    <sequenceFlow id="Flow_1ywog1r" sourceRef="Activity_1fi5rrl" targetRef="Activity_17m122u" />
+    <sequenceFlow id="Flow_0244izw" sourceRef="Activity_1npn3bx" targetRef="Activity_1fi5rrl" />
+    <sequenceFlow id="Flow_0348anc" name="Ja" sourceRef="Gateway_1whuu15" targetRef="Gateway_1aronx8">
+      <extensionElements>
+        <i18n:translation lang="en">Ja</i18n:translation>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_0lhp1ml" sourceRef="Gateway_1aronx8" targetRef="Activity_0f2lkuk" />
+    <sequenceFlow id="Flow_0bl92tl" sourceRef="Gateway_1aronx8" targetRef="Activity_0e82ewp" />
+    <sequenceFlow id="Flow_0ugdraj" sourceRef="Activity_0e82ewp" targetRef="Gateway_1k0ekdt" />
+    <sequenceFlow id="Flow_1qfp2vw" sourceRef="Activity_0f2lkuk" targetRef="Gateway_1k0ekdt" />
+    <sequenceFlow id="Flow_1x8fb6i" sourceRef="Gateway_1k0ekdt" targetRef="Activity_1npn3bx" />
+    <sequenceFlow id="Flow_14vujop" sourceRef="Activity_0ya2ob0" targetRef="Gateway_1whuu15" />
+    <sequenceFlow id="Flow_0ykdesb" name="Nein" sourceRef="Gateway_1whuu15" targetRef="Event_0rhy6wb" />
+    <sequenceFlow id="Flow_03m5rvg" sourceRef="Event_1uilxb6" targetRef="Activity_0o694d5" />
+    <startEvent id="Event_1uilxb6" name="Person mit Risikofaktoren identifiziert">
+      <documentation>Die versicherte Person informiert sich über das Früherkennungsangebot der gesetzlichen Krankenversicherung (GKV). Gem. G-BA Versicherteninformation.</documentation>
+      <extensionElements>
+        <i18n:translation lang="de">Person mit Risikofaktoren ist einbestellt</i18n:translation>
+        <i18n:translation lang="en">Person mit Risikofaktoren identifiziert</i18n:translation>
+      </extensionElements>
+      <outgoing>Flow_03m5rvg</outgoing>
+    </startEvent>
+    <task id="Activity_0o694d5" name="Versichterte Person zu LKS auffordern">
+      <extensionElements>
+        <i18n:translation lang="en">Versichterte Person zu LKS auffordern</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_03m5rvg</incoming>
+      <outgoing>Flow_0jqw3k3</outgoing>
+      <standardLoopCharacteristics />
+    </task>
+    <endEvent id="Event_0rhy6wb" name="Teilnahme&#10;nicht möglich">
+      <documentation>Die Person erfüllt nicht alle Zulässigkeitsvoraussetzungen gemäß §2 LuKrFrühErkV. Die Ablehnung wird der Person mitgeteilt.</documentation>
+      <extensionElements>
+        <i18n:translation lang="de">Teilnahme
+nicht möglich</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_0ykdesb</incoming>
+    </endEvent>
+    <task id="Activity_1fi5rrl" name="Überweisung&#10;ausstellen">
+      <documentation>Die Praxis stellt eine Überweisung an eine radiologische Praxis oder Klinik aus, die eine Genehmigung zur Durchführung der Niedrigdosis-CT zur Früherkennung von Lungenkrebs hat. Der Bericht gemäß §2 Abs.1 Nr.3 wird mit der Überweisung vorgelegt (G-BA VI, S. 7).</documentation>
+      <extensionElements>
+        <i18n:translation lang="de">Überweisung
+ausstellen</i18n:translation>
+        <i18n:translation lang="en">Überweisung
+ausstellen</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_0244izw</incoming>
+      <outgoing>Flow_1ywog1r</outgoing>
+      <dataOutputAssociation id="DataOutputAssociation_1fan4w6">
+        <targetRef>DataObjectReference_1lxykdr</targetRef>
+      </dataOutputAssociation>
+    </task>
+    <dataObjectReference id="DataObjectReference_1lxykdr" name="Überweisung" dataObjectRef="DataObject_0rnr4ne">
+      <extensionElements>
+        <i18n:translation lang="de">Überweisung</i18n:translation>
+      </extensionElements>
+    </dataObjectReference>
+    <dataObject id="DataObject_0rnr4ne" />
+    <endEvent id="Event_0z2esy1" name="Beratung abgeschlossen">
+      <extensionElements>
+        <i18n:translation lang="de">Beratung abgeschlossen</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_0e3zvsn</incoming>
+    </endEvent>
+    <sequenceFlow id="Flow_1ha46mu" sourceRef="Event_13jgib0" targetRef="Activity_1ta6sej" />
+    <task id="Activity_1ta6sej" name="Ergebnis der Befundung mit Versichertem&#10;besprechen">
+      <extensionElements>
+        <i18n:translation lang="en">Ergebnis der Befundung mit Versichertem
+besprechen</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_1ha46mu</incoming>
+      <outgoing>Flow_0e3zvsn</outgoing>
+    </task>
+    <sequenceFlow id="Flow_0e3zvsn" sourceRef="Activity_1ta6sej" targetRef="Event_0z2esy1" />
+    <sequenceFlow id="Flow_0jqw3k3" sourceRef="Activity_0o694d5" targetRef="Activity_0ya2ob0" />
+    <association id="Association_0qdcu2z" sourceRef="Activity_1fi5rrl" targetRef="TextAnnotation_1lj7gkz" />
+  </process>
+  <process id="Process_04zhnpp" name="Radiologische Praxis / Klinik" isExecutable="false">
+    <laneSet id="LaneSet_14m81n7">
+      <lane id="Lane_140qs11" name="Zweitbefunder (Radiologe)">
+        <extensionElements>
+          <i18n:translation lang="de">Zweitbefunder (Radiologe)</i18n:translation>
+        </extensionElements>
+        <flowNodeRef>Activity_12ef5s1</flowNodeRef>
+        <flowNodeRef>Activity_0d4a27r</flowNodeRef>
+        <flowNodeRef>Event_10ae0lt</flowNodeRef>
+        <flowNodeRef>Activity_1ww2vbt</flowNodeRef>
+        <flowNodeRef>Activity_0mx6d87</flowNodeRef>
+        <flowNodeRef>Gateway_1g1kn3s</flowNodeRef>
+        <flowNodeRef>Gateway_10udrva</flowNodeRef>
+        <flowNodeRef>Activity_07i9gmj</flowNodeRef>
+        <flowNodeRef>Activity_0gyncma</flowNodeRef>
+        <flowNodeRef>Gateway_1drmrlk</flowNodeRef>
+        <flowNodeRef>Gateway_1hb6sbm</flowNodeRef>
+        <flowNodeRef>Activity_0es6xoa</flowNodeRef>
+      </lane>
+      <lane id="Lane_1nxn6lf" name="Erstbefunder (Radiologe)">
+        <flowNodeRef>Event_11h9bwq</flowNodeRef>
+        <flowNodeRef>Gateway_0ofbhg1</flowNodeRef>
+        <flowNodeRef>Event_0kdzao8</flowNodeRef>
+        <flowNodeRef>Activity_0l9ecr6</flowNodeRef>
+        <flowNodeRef>Activity_1uptzny</flowNodeRef>
+        <flowNodeRef>Gateway_0jgpvd3</flowNodeRef>
+        <flowNodeRef>Event_12rqd7e</flowNodeRef>
+        <flowNodeRef>Activity_12qrin2</flowNodeRef>
+        <flowNodeRef>Activity_1tdikdp</flowNodeRef>
+        <flowNodeRef>Activity_1mvivag</flowNodeRef>
+        <flowNodeRef>Gateway_0mk0bmb</flowNodeRef>
+        <flowNodeRef>Event_1wdocxd</flowNodeRef>
+        <flowNodeRef>Activity_1rsqdi6</flowNodeRef>
+        <flowNodeRef>Activity_1rd4qnc</flowNodeRef>
+        <flowNodeRef>Activity_10riunt</flowNodeRef>
+      </lane>
+    </laneSet>
+    <task id="Activity_12ef5s1" name="Beurteilung übermitteln">
+      <extensionElements>
+        <i18n:translation lang="de">Arzt melden</i18n:translation>
+        <i18n:translation lang="en">Beurteilung übermitteln</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_1yd1mno</incoming>
+      <outgoing>Flow_0tabuk8</outgoing>
+      <property id="Property_0d6r67j" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DataInputAssociation_1k3e5it">
+        <sourceRef>DataObjectReference_0l2c9b0</sourceRef>
+        <targetRef>Property_0d6r67j</targetRef>
+      </dataInputAssociation>
+    </task>
+    <task id="Activity_0d4a27r" name="Qualitätsdaten erheben und dokumentieren (§7)">
+      <documentation>Gemäß §7 LuKrFrühErkV:
+Der Strahlenschutzverantwortliche hat ein umfassendes Qualitätssicherungssystem einzurichten, das organisatorische, medizinische und technische Aspekte berücksichtigt:
+1. Art und Durchführung der Untersuchungen
+2. Diagnostische Bildqualität der CT-Aufnahme
+3. Physikalisch-technische Parameter bei CT-Erstellung
+4. Befundung der CT-Aufnahme
+
+Anonymisierte Daten für Prozess- und Ergebnisevaluation (§7 Abs.2):
+1. Anzahl der untersuchten Personen
+2. Anzahl der kontrollbedürftigen und abklärungsbedürftigen Befunde
+
+Aufbewahrungsfrist: 10 Jahre (§7 Abs.2 Satz 2).
+Auf Verlangen der ärztlichen Stelle oder zuständigen Behörde sind die Informationen zur Verfügung zu stellen (§7 Abs.3).</documentation>
+      <incoming>Flow_0tabuk8</incoming>
+      <outgoing>Flow_0koyyre</outgoing>
+    </task>
+    <endEvent id="Event_10ae0lt" name="Untersuchung abgeschlossen">
+      <documentation>Bei unauffälligem Befund kann die Untersuchung frühestens nach 12 Monaten wiederholt werden (§2 Abs.1 Nr.2).</documentation>
+      <extensionElements>
+        <i18n:translation lang="de">Untersuchung abgeschlossen</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_0koyyre</incoming>
+    </endEvent>
+    <sequenceFlow id="Flow_1yd1mno" sourceRef="Gateway_1g1kn3s" targetRef="Activity_12ef5s1" />
+    <sequenceFlow id="Flow_0tabuk8" sourceRef="Activity_12ef5s1" targetRef="Activity_0d4a27r" />
+    <sequenceFlow id="Flow_0qh657v" sourceRef="Activity_1ww2vbt" targetRef="Activity_0mx6d87" />
+    <sequenceFlow id="Flow_0igif76" sourceRef="Activity_12qrin2" targetRef="Activity_1tdikdp" />
+    <sequenceFlow id="Flow_0v6q92j" sourceRef="Activity_1tdikdp" targetRef="Activity_1mvivag" />
+    <sequenceFlow id="Flow_1wm0mnp" sourceRef="Activity_1mvivag" targetRef="Gateway_0mk0bmb" />
+    <sequenceFlow id="Flow_1nqzrw4" name="Nein" sourceRef="Gateway_0mk0bmb" targetRef="Event_1wdocxd">
+      <extensionElements>
+        <i18n:translation lang="de">Nein</i18n:translation>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_1l8y7d5" name="ja" sourceRef="Gateway_0jgpvd3" targetRef="Activity_12qrin2">
+      <extensionElements>
+        <i18n:translation lang="en">ja</i18n:translation>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_0koyyre" sourceRef="Activity_0d4a27r" targetRef="Event_10ae0lt" />
+    <startEvent id="Event_11h9bwq" name="Versicherte Person nimmt Termin wahr">
+      <extensionElements>
+        <i18n:translation lang="en">Versicherte Person nimmt Termin wahr</i18n:translation>
+      </extensionElements>
+      <outgoing>Flow_04b1wln</outgoing>
+    </startEvent>
+    <exclusiveGateway id="Gateway_0ofbhg1" name="Anforderungen erfüllt?">
+      <extensionElements>
+        <i18n:translation lang="en">Anforderungen erfüllt?</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_0s1r5f0</incoming>
+      <outgoing>Flow_0kvixb6</outgoing>
+      <outgoing>Flow_0wph264</outgoing>
+    </exclusiveGateway>
+    <endEvent id="Event_0kdzao8" name="Untersuchung abgelehnt">
+      <extensionElements>
+        <i18n:translation lang="en">Untersuchung abgelehnt</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_0wph264</incoming>
+    </endEvent>
+    <task id="Activity_0l9ecr6" name="Rechtfertigende Indikation stellen und Voruntersuchung prüfen (§3 und §4 Abs.2)">
+      <documentation>Die Praxis stellt eine Überweisung an eine radiologische Praxis oder Klinik aus, die eine Genehmigung zur Durchführung der Niedrigdosis-CT zur Früherkennung von Lungenkrebs hat. Der Bericht gemäß §2 Abs.1 Nr.3 wird mit der Überweisung vorgelegt (G-BA VI, S. 7).</documentation>
+      <extensionElements>
+        <i18n:translation lang="de">Überweisung
+ausstellen</i18n:translation>
+        <i18n:translation lang="en">Rechtfertigende Indikation stellen und Voruntersuchung prüfen (§3 und §4 Abs.2)</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_1mzo8j3</incoming>
+      <outgoing>Flow_0s1r5f0</outgoing>
+    </task>
+    <sequenceFlow id="Flow_08ht96b" name="Nein" sourceRef="Gateway_0jgpvd3" targetRef="Event_12rqd7e">
+      <extensionElements>
+        <i18n:translation lang="en">Nein</i18n:translation>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_04b1wln" sourceRef="Event_11h9bwq" targetRef="Activity_1rd4qnc" />
+    <sequenceFlow id="Flow_1mzo8j3" sourceRef="Activity_1rd4qnc" targetRef="Activity_0l9ecr6" />
+    <sequenceFlow id="Flow_1ywdcp4" sourceRef="Activity_1uptzny" targetRef="Gateway_0jgpvd3" />
+    <sequenceFlow id="Flow_0kvixb6" name="ja" sourceRef="Gateway_0ofbhg1" targetRef="Activity_1uptzny">
+      <extensionElements>
+        <i18n:translation lang="en">ja</i18n:translation>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_0s1r5f0" sourceRef="Activity_0l9ecr6" targetRef="Gateway_0ofbhg1" />
+    <sequenceFlow id="Flow_0wph264" name="nein" sourceRef="Gateway_0ofbhg1" targetRef="Event_0kdzao8">
+      <extensionElements>
+        <i18n:translation lang="en">nein</i18n:translation>
+      </extensionElements>
+    </sequenceFlow>
+    <task id="Activity_1uptzny" name="Aufklärung Niedrigdosis-CT durchführen">
+      <extensionElements>
+        <i18n:translation lang="en">Aufklärung Niedrigdosis-CT durchführen</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_0kvixb6</incoming>
+      <outgoing>Flow_1ywdcp4</outgoing>
+    </task>
+    <exclusiveGateway id="Gateway_0jgpvd3" name="Teilnahme durch Versicherte bestätigt?">
+      <extensionElements>
+        <i18n:translation lang="en">Teilnahme durch Versicherte bestätigt?</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_1ywdcp4</incoming>
+      <outgoing>Flow_08ht96b</outgoing>
+      <outgoing>Flow_1l8y7d5</outgoing>
+    </exclusiveGateway>
+    <endEvent id="Event_12rqd7e" name="Untersuchung durch Versicherte abgelehnt">
+      <extensionElements>
+        <i18n:translation lang="en">Untersuchung durch Versicherte abgelehnt</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_08ht96b</incoming>
+    </endEvent>
+    <task id="Activity_12qrin2" name="Niedrigdosis-CT&#10;durchführen (§4, §5)">
+      <documentation>Durchführung der Niedrigdosis-Computertomographie gemäß §4 und Anlage LuKrFrühErkV.
+
+Technische Anforderungen (Anlage zu §4 Abs.1 Satz 1):
+- Volumen-CT-Dosisindex der Übersichtsaufnahme: ≤ 0,2 × angestrebter Spiral-CT-Volumen-CT-Dosisindex
+- Scanmodus: Spirale zur lückenlosen Erfassung in einer Atempause
+- Scanzeit: ≤ 15 Sekunden
+- Rotationszeit: ≤ 0,5 Sekunden
+- Einzelschichtkollimation: ≤ 0,7 mm
+- Pitch: Zwischen 0,9 und 1,2
+- Kein Kontrastmittel
+- Scanbereich: Lungenspitze bis dorsaler Recessus
+- Scanrichtung: Caudal-cranial
+- Lagerung: Rückenlage mit Armen über dem Kopf, zentriert im Isozentrum
+- Volumen-CT-Dosisindex: ≤ 1,3 mGy (oder höher bei Körperstatur)
+
+Software zur computerassistierten Detektion: Detektion und Volumetrie von Lungenrundherden, Berechnung der Volumenverdopplungszeit, Speicherung als erweiterte Bilddokumentation.</documentation>
+      <extensionElements>
+        <i18n:translation lang="de">Niedrigdosis-CT
+durchführen (§4, §5)</i18n:translation>
+        <i18n:translation lang="en">Niedrigdosis-CT
+durchführen (§4, §5)</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_1l8y7d5</incoming>
+      <outgoing>Flow_0igif76</outgoing>
+      <dataOutputAssociation id="DataOutputAssociation_119by6f">
+        <targetRef>DataStoreReference_10mkbcy</targetRef>
+      </dataOutputAssociation>
+      <dataOutputAssociation id="DataOutputAssociation_bildbefund">
+        <targetRef>DataObjectReference_bildbefund</targetRef>
+      </dataOutputAssociation>
+    </task>
+    <task id="Activity_1tdikdp" name="Erstbefundung ohne&#10;CAD-Software (§5 Abs.1) durchführen">
+      <documentation>Gemäß §5 Abs.1 LuKrFrühErkV: Die CT-Aufnahme wird zunächst OHNE Nutzung einer Software zur computerassistierten Detektion befundet.
+
+Qualifikation Erstbefunder (§6 Abs.1):
+- Facharzt für Radiologie
+- Zusätzlich: Anforderungen nach §145 Abs.1 StrlSchVO
+- Mind. 200 Thorax-CT im Jahr vor Aufnahme der Lungenkrebsfrüherkennung befundet und dokumentiert
+- Fortbildungswissen im Bereich Lungenkrebsfrüherkennung
+- Laufend: 100 Untersuchungen im 1. Jahr, dann 200/Jahr ab 2. Jahr</documentation>
+      <extensionElements>
+        <i18n:translation lang="de">Erstbefundung ohne
+CAD-Software (§5 Abs.1)</i18n:translation>
+        <i18n:translation lang="en">Erstbefundung ohne
+CAD-Software (§5 Abs.1) durchführen</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_0igif76</incoming>
+      <outgoing>Flow_0v6q92j</outgoing>
+      <dataOutputAssociation id="DataOutputAssociation_0hgh36o">
+        <targetRef>DataStoreReference_10mkbcy</targetRef>
+      </dataOutputAssociation>
+    </task>
+    <dataObjectReference id="DataObjectReference_bildbefund" name="Bilddaten" dataObjectRef="DataObject_bildbefund">
+      <extensionElements>
+        <i18n:translation lang="de">Bild- und
+Befund-
+daten</i18n:translation>
+        <i18n:translation lang="en">Bilddaten</i18n:translation>
+      </extensionElements>
+    </dataObjectReference>
+    <dataObject id="DataObject_bildbefund" isCollection="true" />
+    <task id="Activity_1mvivag" name="Erstbefundung mit&#10;CAD-Software (§5 Abs.1) durchführen">
+      <documentation>Gemäß §5 Abs.1 LuKrFrühErkV: Anschließend wird die CT-Aufnahme UNTER Nutzung einer Software zur computerassistierten Detektion befundet.
+
+Die CAD-Software (§1 Abs.3) ist ein Computerprogramm, das den Arzt bei der Befundung von CT-Aufnahmen durch Auswertung der digitalen Bilddaten unterstützt.</documentation>
+      <extensionElements>
+        <i18n:translation lang="de">Erstbefundung mit
+CAD-Software (§5 Abs.1)</i18n:translation>
+        <i18n:translation lang="en">Erstbefundung mit
+CAD-Software (§5 Abs.1) durchführen</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_0v6q92j</incoming>
+      <outgoing>Flow_1wm0mnp</outgoing>
+      <property id="Property_00p1n4o" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DataInputAssociation_1wqkchm">
+        <sourceRef>DataStoreReference_10mkbcy</sourceRef>
+        <targetRef>Property_00p1n4o</targetRef>
+      </dataInputAssociation>
+    </task>
+    <exclusiveGateway id="Gateway_0mk0bmb" name="Kontroll- oder abklärungsbedürftiger Befund?">
+      <extensionElements>
+        <i18n:translation lang="de">Kontroll- oder abklärungsbedürftiger Befund?</i18n:translation>
+        <i18n:translation lang="en">Kontroll- oder abklärungsbedürftiger Befund?</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_1wm0mnp</incoming>
+      <outgoing>Flow_1nqzrw4</outgoing>
+      <outgoing>Flow_1a2mew9</outgoing>
+    </exclusiveGateway>
+    <dataStoreReference id="DataStoreReference_10mkbcy" name="PACS">
+      <extensionElements>
+        <i18n:translation lang="en">PACS</i18n:translation>
+      </extensionElements>
+    </dataStoreReference>
+    <intermediateThrowEvent id="Event_1wdocxd" name="Kein kontroll- oder abklärungsbedürftiger Befund vorliegend">
+      <extensionElements>
+        <i18n:translation lang="de">Kein kontroll- oder abklärungsbedürftiger Befund</i18n:translation>
+        <i18n:translation lang="en">Kein kontroll- oder abklärungsbedürftiger Befund vorliegend</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_1nqzrw4</incoming>
+      <messageEventDefinition id="MessageEventDefinition_0rqhmb0" />
+    </intermediateThrowEvent>
+    <sequenceFlow id="Flow_1a2mew9" sourceRef="Gateway_0mk0bmb" targetRef="Activity_1rsqdi6" />
+    <task id="Activity_1rsqdi6" name="Zweitbefundung anordnen (§5 Abs.2) und Überweisung ausstellen">
+      <documentation>Gemäß §5 Abs.1 LuKrFrühErkV: Anschließend wird die CT-Aufnahme UNTER Nutzung einer Software zur computerassistierten Detektion befundet.
+
+Die CAD-Software (§1 Abs.3) ist ein Computerprogramm, das den Arzt bei der Befundung von CT-Aufnahmen durch Auswertung der digitalen Bilddaten unterstützt.</documentation>
+      <extensionElements>
+        <i18n:translation lang="de">Anordnung
+Zweitbefundung (§5 Abs.2)</i18n:translation>
+        <i18n:translation lang="en">Zweitbefundung anordnen (§5 Abs.2) und Überweisung ausstellen</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_1a2mew9</incoming>
+      <outgoing>Flow_0jd3bdf</outgoing>
+    </task>
+    <sequenceFlow id="Flow_0jd3bdf" sourceRef="Activity_1rsqdi6" targetRef="Activity_1ww2vbt" />
+    <task id="Activity_1ww2vbt" name="Zweitbefundung ohne&#10;CAD-Software (§5 Abs.2) durchführen">
+      <documentation>Gemäß §5 Abs.2 LuKrFrühErkV: Bei kontrollbedürftigem oder abklärungsbedürftigem Erstbefund muss eine weitere Person (Zweitbefunder), die die Anforderungen nach §6 Abs.2 erfüllt, die CT-Aufnahme UNABHÄNGIG vom Erstbefunder zunächst OHNE CAD befunden.
+
+Qualifikation Zweitbefunder (§6 Abs.2):
+- Anforderungen nach §6 Abs.1 Satz 1 erfüllt UND
+- An einer Einrichtung tätig, die auf Untersuchung und Behandlung von Lungenkrebs spezialisiert ist
+- Laufend: 200 Untersuchungen im 1. Jahr, dann 400/Jahr ab 2. Jahr</documentation>
+      <extensionElements>
+        <i18n:translation lang="de">Zweitbefundung ohne
+CAD-Software (§5 Abs.2)</i18n:translation>
+        <i18n:translation lang="en">Zweitbefundung ohne
+CAD-Software (§5 Abs.2) durchführen</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_0jd3bdf</incoming>
+      <outgoing>Flow_0qh657v</outgoing>
+      <property id="Property_1feol9b" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DataInputAssociation_1ldital">
+        <sourceRef>DataObjectReference_125yy1l</sourceRef>
+        <targetRef>Property_1feol9b</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="DataOutputAssociation_0j6to8v">
+        <targetRef>DataStoreReference_0o74xeq</targetRef>
+      </dataOutputAssociation>
+    </task>
+    <dataObjectReference id="DataObjectReference_125yy1l" name="Bilddaten" dataObjectRef="DataObject_1m0pccx">
+      <extensionElements>
+        <i18n:translation lang="en">Bilddaten</i18n:translation>
+      </extensionElements>
+    </dataObjectReference>
+    <dataObject id="DataObject_1m0pccx" isCollection="true" />
+    <task id="Activity_0mx6d87" name="Zweitbefundung mit&#10;CAD-Software (§5 Abs.2) durchführen">
+      <documentation>Gemäß §5 Abs.2: Anschließend wird die CT-Aufnahme unter Nutzung einer Software zur computerassistierten Detektion durch den Zweitbefunder befundet.</documentation>
+      <extensionElements>
+        <i18n:translation lang="de">Zweitbefundung mit
+CAD-Software (§5 Abs.2)</i18n:translation>
+        <i18n:translation lang="en">Zweitbefundung mit
+CAD-Software (§5 Abs.2) durchführen</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_0qh657v</incoming>
+      <outgoing>Flow_19mknw8</outgoing>
+      <dataOutputAssociation id="DataOutputAssociation_0mt6167">
+        <targetRef>DataStoreReference_0o74xeq</targetRef>
+      </dataOutputAssociation>
+    </task>
+    <dataStoreReference id="DataStoreReference_0o74xeq" name="PACS">
+      <extensionElements>
+        <i18n:translation lang="en">PACS</i18n:translation>
+      </extensionElements>
+    </dataStoreReference>
+    <task id="Activity_1rd4qnc" name="Bericht lesen">
+      <extensionElements>
+        <i18n:translation lang="en">Bericht lesen</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_04b1wln</incoming>
+      <outgoing>Flow_1mzo8j3</outgoing>
+      <property id="Property_16lm5tv" name="__targetRef_placeholder" />
+      <dataInputAssociation id="DataInputAssociation_013n113">
+        <sourceRef>DataObjectReference_0hhqu1h</sourceRef>
+        <targetRef>Property_16lm5tv</targetRef>
+      </dataInputAssociation>
+    </task>
+    <sequenceFlow id="Flow_19mknw8" sourceRef="Activity_0mx6d87" targetRef="Gateway_1drmrlk" />
+    <sequenceFlow id="Flow_0edgsms" sourceRef="Gateway_1drmrlk" targetRef="Activity_0gyncma" />
+    <sequenceFlow id="Flow_00rwb1l" sourceRef="Gateway_1drmrlk" targetRef="Activity_10riunt" />
+    <sequenceFlow id="Flow_18jqku0" sourceRef="Activity_10riunt" targetRef="Gateway_1hb6sbm" />
+    <sequenceFlow id="Flow_0rj07cg" sourceRef="Activity_0gyncma" targetRef="Gateway_1hb6sbm" />
+    <exclusiveGateway id="Gateway_1g1kn3s">
+      <extensionElements>
+        <i18n:translation lang="de">Zusammenführung Ergebnispfade</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_11dfdyo</incoming>
+      <incoming>Flow_1hdduka</incoming>
+      <incoming>Flow_0ggpjpe</incoming>
+      <outgoing>Flow_1yd1mno</outgoing>
+    </exclusiveGateway>
+    <exclusiveGateway id="Gateway_10udrva" name="Befund&#10;kategorie?">
+      <documentation>Befundkategorien gemäß §1 LuKrFrühErkV:
+- Unauffällig: Kein Krankheitsverdacht
+- Kontrollbedürftig (§1 Abs.4): Befund bei asymptomatischer Person, der vor Ablauf von 12 Monaten eine erneute Untersuchung medizinisch indiziert, ohne dass ein konkreter Krankheitsverdacht besteht
+- Abklärungsbedürftig (§1 Abs.5): Befund mit hoher Wahrscheinlichkeit auf Lungenkarzinom, der eine zeitnahe klinische Abklärung anzeigt</documentation>
+      <extensionElements>
+        <i18n:translation lang="de">Befund
+kategorie?</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_0awyaof</incoming>
+      <outgoing>Flow_198vlmg</outgoing>
+      <outgoing>Flow_0d1n6j8</outgoing>
+      <outgoing>Flow_11dfdyo</outgoing>
+    </exclusiveGateway>
+    <task id="Activity_07i9gmj" name="Empfehlung für (Zeitpunkt der)&#10;nächsten Untersuchung&#10;abgeben (§5 Abs.3)">
+      <documentation>Bei kontrollbedürftigem Befund (§1 Abs.4): Gemeinsame Empfehlung von Erst- und Zweitbefunder für den Zeitpunkt der nächsten Untersuchung (§5 Abs.3 Satz 2).
+
+Gemäß §2 Abs.2: Nach kontrollbedürftigem Befund ist eine erneute Untersuchung mittels Niedrigdosis-CT vor Ablauf von 12 Monaten zulässig.
+
+Bei unauffälligem Befund: Nächste Untersuchung frühestens nach 12 Monaten (§2 Abs.1 Nr.2).</documentation>
+      <extensionElements>
+        <i18n:translation lang="de">Empfehlung für (Zeitpunkt der)
+nächste Untersuchung
+abgeben (§5 Abs.3)</i18n:translation>
+        <i18n:translation lang="en">Empfehlung für (Zeitpunkt der)
+nächsten Untersuchung
+abgeben (§5 Abs.3)</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_198vlmg</incoming>
+      <outgoing>Flow_1hdduka</outgoing>
+    </task>
+    <sequenceFlow id="Flow_11dfdyo" name="Unauffällig" sourceRef="Gateway_10udrva" targetRef="Gateway_1g1kn3s">
+      <extensionElements>
+        <i18n:translation lang="de">Unauffällig</i18n:translation>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_1hdduka" sourceRef="Activity_07i9gmj" targetRef="Gateway_1g1kn3s" />
+    <sequenceFlow id="Flow_0ggpjpe" sourceRef="Activity_0es6xoa" targetRef="Gateway_1g1kn3s" />
+    <sequenceFlow id="Flow_0d1n6j8" name="Abklärungs-bedürftig" sourceRef="Gateway_10udrva" targetRef="Activity_0es6xoa">
+      <extensionElements>
+        <i18n:translation lang="de">Abklärungs-bedürftig</i18n:translation>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_0awyaof" sourceRef="Gateway_1hb6sbm" targetRef="Gateway_10udrva" />
+    <sequenceFlow id="Flow_198vlmg" name="Kontroll-&#10;bedürftig" sourceRef="Gateway_10udrva" targetRef="Activity_07i9gmj">
+      <extensionElements>
+        <i18n:translation lang="de">Kontroll-
+bedürftig</i18n:translation>
+      </extensionElements>
+    </sequenceFlow>
+    <task id="Activity_0gyncma" name="Gemeinsame Beurteilung vornehmen (§5 Abs.3)">
+      <documentation>Gemäß §5 Abs.3 LuKrFrühErkV: Im Anschluss an die Befundung wird die CT-Aufnahme abschließend von dem Erstbefunder und dem Zweitbefunder gemeinsam beurteilt.
+
+Handelt es sich nach der gemeinsamen Beurteilung um einen kontrollbedürftigen Befund, ist eine gemeinsame Empfehlung für den Zeitpunkt der nächsten Untersuchung zur Lungenkrebsfrüherkennung abzugeben.</documentation>
+      <extensionElements>
+        <i18n:translation lang="de">Gemeinsame Beurteilung durch
+Erst- und Zweitbefunder (§5 Abs.3)</i18n:translation>
+        <i18n:translation lang="en">Gemeinsame Beurteilung vornehmen (§5 Abs.3)</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_0edgsms</incoming>
+      <outgoing>Flow_0rj07cg</outgoing>
+      <dataOutputAssociation id="DataOutputAssociation_0ztq2ca">
+        <targetRef>DataObjectReference_0bn2m5b</targetRef>
+      </dataOutputAssociation>
+    </task>
+    <parallelGateway id="Gateway_1drmrlk" name="">
+      <incoming>Flow_19mknw8</incoming>
+      <outgoing>Flow_0edgsms</outgoing>
+      <outgoing>Flow_00rwb1l</outgoing>
+    </parallelGateway>
+    <parallelGateway id="Gateway_1hb6sbm" name="">
+      <incoming>Flow_18jqku0</incoming>
+      <incoming>Flow_0rj07cg</incoming>
+      <outgoing>Flow_0awyaof</outgoing>
+    </parallelGateway>
+    <task id="Activity_10riunt" name="Gemeinsame Beurteilung vornehmen (§5 Abs.3)">
+      <documentation>Gemäß §5 Abs.3 LuKrFrühErkV: Im Anschluss an die Befundung wird die CT-Aufnahme abschließend von dem Erstbefunder und dem Zweitbefunder gemeinsam beurteilt.
+
+Handelt es sich nach der gemeinsamen Beurteilung um einen kontrollbedürftigen Befund, ist eine gemeinsame Empfehlung für den Zeitpunkt der nächsten Untersuchung zur Lungenkrebsfrüherkennung abzugeben.</documentation>
+      <extensionElements>
+        <i18n:translation lang="de">Gemeinsame Beurteilung durch
+Erst- und Zweitbefunder (§5 Abs.3)</i18n:translation>
+        <i18n:translation lang="en">Gemeinsame Beurteilung vornehmen (§5 Abs.3)</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_00rwb1l</incoming>
+      <outgoing>Flow_18jqku0</outgoing>
+    </task>
+    <dataObjectReference id="DataObjectReference_0hhqu1h" name="Bericht gem. §2 Abs.1 Nr.3" dataObjectRef="DataObject_1cslgak">
+      <extensionElements>
+        <i18n:translation lang="de">Bericht gem. §2 Abs.1 Nr.3</i18n:translation>
+      </extensionElements>
+    </dataObjectReference>
+    <dataObject id="DataObject_1cslgak" />
+    <task id="Activity_0es6xoa" name="Klinische Abklärung&#10;anzeigen und Überweisung ausstellen">
+      <documentation>Bei abklärungsbedürftigem Befund (§1 Abs.5): Die Radiologin/der Radiologe bespricht die weiteren Schritte persönlich mit der versicherten Person. Es werden die notwendigen Maßnahmen umgehend eingeleitet (G-BA VI, S. 9).
+
+In einer spezialisierten Praxis oder Klinik finden weitere Untersuchungen statt, z.B.:
+- Gewebeentnahme (Biopsie) aus der Lunge
+- Weitere bildgebende Diagnostik
+Das Ergebnis wird zeitnah mitgeteilt.</documentation>
+      <extensionElements>
+        <i18n:translation lang="de">Klinische Abklärung
+anzeigen</i18n:translation>
+        <i18n:translation lang="en">Klinische Abklärung
+anzeigen und Überweisung ausstellen</i18n:translation>
+      </extensionElements>
+      <incoming>Flow_0d1n6j8</incoming>
+      <outgoing>Flow_0ggpjpe</outgoing>
+      <dataOutputAssociation id="DataOutputAssociation_1z1303t">
+        <targetRef>DataObjectReference_0nkkzl8</targetRef>
+      </dataOutputAssociation>
+    </task>
+    <dataObjectReference id="DataObjectReference_0nkkzl8" name="Überweisung" dataObjectRef="DataObject_1898nin">
+      <extensionElements>
+        <i18n:translation lang="en">Überweisung</i18n:translation>
+      </extensionElements>
+    </dataObjectReference>
+    <dataObject id="DataObject_1898nin" />
+    <dataObjectReference id="DataObjectReference_0bn2m5b" name="Beurteilung" dataObjectRef="DataObject_0njovxk">
+      <extensionElements>
+        <i18n:translation lang="en">Beurteilung</i18n:translation>
+      </extensionElements>
+    </dataObjectReference>
+    <dataObject id="DataObject_0njovxk" isCollection="true" />
+    <dataObjectReference id="DataObjectReference_0l2c9b0" name="Beurteilung" dataObjectRef="DataObject_09ifvrd">
+      <extensionElements>
+        <i18n:translation lang="en">Beurteilung</i18n:translation>
+      </extensionElements>
+    </dataObjectReference>
+    <dataObject id="DataObject_09ifvrd" isCollection="true" />
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_LuKrFrueh">
+      <bpmndi:BPMNShape id="BPMNShape_04uqytt" bpmnElement="Participant_05x1big" isHorizontal="true">
+        <omgdc:Bounds x="-70" y="1790" width="7750" height="430" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_16eirv7_di" bpmnElement="Activity_16eirv7">
+        <omgdc:Bounds x="2130" y="2014" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_13cj0ye_di" bpmnElement="Event_1hwpffc">
+        <omgdc:Bounds x="1962" y="2036" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1937" y="1980" width="86" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_12u9vfw" bpmnElement="Activity_00yhsqy">
+        <omgdc:Bounds x="260" y="2014" width="180" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_15j7t4l" bpmnElement="Event_0qh7lu0">
+        <omgdc:Bounds x="132" y="2036" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="114" y="1979" width="71" height="53" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1h7kvd9_di" bpmnElement="Event_1w13vdp">
+        <omgdc:Bounds x="6912" y="2036" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="6893" y="1985" width="75" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0io1wvp_di" bpmnElement="Activity_0io1wvp">
+        <omgdc:Bounds x="7140" y="2014" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0nesy5q_di" bpmnElement="Event_0nesy5q">
+        <omgdc:Bounds x="7502" y="2036" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="7479" y="2079" width="83" height="66" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1dj77wn_di" bpmnElement="Gateway_1dj77wn" isMarkerVisible="true">
+        <omgdc:Bounds x="7365" y="2029" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="7360" y="2089" width="59" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_02zcdxn" bpmnElement="Event_1fjvvjs">
+        <omgdc:Bounds x="7372" y="1892" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="7365" y="1842" width="50" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1442b6d_di" bpmnElement="Flow_1442b6d">
+        <omgdi:waypoint x="1998" y="2054" />
+        <omgdi:waypoint x="2130" y="2054" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1qvntgg_di" bpmnElement="Flow_1qvntgg">
+        <omgdi:waypoint x="440" y="2054" />
+        <omgdi:waypoint x="1962" y="2054" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_0105dzi" bpmnElement="Flow_0l0dz6h">
+        <omgdi:waypoint x="168" y="2054" />
+        <omgdi:waypoint x="260" y="2054" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_19studm_di" bpmnElement="Flow_19studm">
+        <omgdi:waypoint x="6948" y="2054" />
+        <omgdi:waypoint x="7140" y="2054" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1uucqpn_di" bpmnElement="Flow_1uucqpn">
+        <omgdi:waypoint x="7240" y="2054" />
+        <omgdi:waypoint x="7365" y="2054" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_03pgwlu_di" bpmnElement="Flow_03pgwlu">
+        <omgdi:waypoint x="7390" y="2029" />
+        <omgdi:waypoint x="7390" y="1928" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="7398" y="1969" width="23" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_19p2tm4_di" bpmnElement="Flow_19p2tm4">
+        <omgdi:waypoint x="7415" y="2054" />
+        <omgdi:waypoint x="7502" y="2054" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_0j0durn" bpmnElement="Participant_00hsnkf" isHorizontal="true">
+        <omgdc:Bounds x="-70" y="2250" width="7750" height="550" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_19xm81l_di" bpmnElement="Event_13jgib0">
+        <omgdc:Bounds x="6860" y="2456" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="6842" y="2413" width="75" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_17m122u_di" bpmnElement="Activity_17m122u" bioc:stroke="#000000" color:border-color="#000000">
+        <omgdc:Bounds x="1930" y="2418" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_06ya2dw_di" bpmnElement="Gateway_1aronx8">
+        <omgdc:Bounds x="775" y="2433" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1kk6cwd_di" bpmnElement="Gateway_1k0ekdt">
+        <omgdc:Bounds x="1125" y="2433" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0f2lkuk_di" bpmnElement="Activity_0f2lkuk">
+        <omgdc:Bounds x="930" y="2418" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0e82ewp_di" bpmnElement="Activity_0e82ewp">
+        <omgdc:Bounds x="930" y="2628" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1npn3bx_di" bpmnElement="Activity_1npn3bx">
+        <omgdc:Bounds x="1330" y="2418" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1uslwyl" bpmnElement="DataObjectReference_07wjx8v">
+        <omgdc:Bounds x="1362" y="2537" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1341" y="2598" width="78" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ya2ob0_di" bpmnElement="Activity_0ya2ob0">
+        <omgdc:Bounds x="300" y="2418" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0sru9ei" bpmnElement="Gateway_1whuu15" isMarkerVisible="true">
+        <omgdc:Bounds x="555" y="2433" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="540" y="2493" width="86" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0clrasz" bpmnElement="Event_1uilxb6" bioc:stroke="#000000" color:border-color="#000000">
+        <omgdc:Bounds x="2" y="2440" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="-15" y="2390" width="70" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0o694d5_di" bpmnElement="Activity_0o694d5">
+        <omgdc:Bounds x="100" y="2418" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_10zk8k9" bpmnElement="Event_0rhy6wb">
+        <omgdc:Bounds x="562" y="2322" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="487" y="2327" width="65" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1yhje0j" bpmnElement="Activity_1fi5rrl">
+        <omgdc:Bounds x="1600" y="2418" width="180" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0e6udcx" bpmnElement="DataObjectReference_1lxykdr">
+        <omgdc:Bounds x="1677" y="2537" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1663" y="2594" width="65" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0wslknf" bpmnElement="Event_0z2esy1">
+        <omgdc:Bounds x="7502" y="2456" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="7483" y="2502" width="74" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1ta6sej_di" bpmnElement="Activity_1ta6sej">
+        <omgdc:Bounds x="7140" y="2434" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1ywog1r_di" bpmnElement="Flow_1ywog1r">
+        <omgdi:waypoint x="1780" y="2458" />
+        <omgdi:waypoint x="1930" y="2458" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0244izw_di" bpmnElement="Flow_0244izw">
+        <omgdi:waypoint x="1430" y="2458" />
+        <omgdi:waypoint x="1600" y="2458" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0348anc_di" bpmnElement="Flow_0348anc">
+        <omgdi:waypoint x="605" y="2458" />
+        <omgdi:waypoint x="775" y="2458" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="687" y="2440" width="12" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0lhp1ml_di" bpmnElement="Flow_0lhp1ml">
+        <omgdi:waypoint x="825" y="2458" />
+        <omgdi:waypoint x="930" y="2458" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0bl92tl_di" bpmnElement="Flow_0bl92tl">
+        <omgdi:waypoint x="800" y="2483" />
+        <omgdi:waypoint x="800" y="2668" />
+        <omgdi:waypoint x="930" y="2668" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ugdraj_di" bpmnElement="Flow_0ugdraj">
+        <omgdi:waypoint x="1030" y="2668" />
+        <omgdi:waypoint x="1150" y="2668" />
+        <omgdi:waypoint x="1150" y="2483" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1qfp2vw_di" bpmnElement="Flow_1qfp2vw">
+        <omgdi:waypoint x="1030" y="2458" />
+        <omgdi:waypoint x="1125" y="2458" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1x8fb6i_di" bpmnElement="Flow_1x8fb6i">
+        <omgdi:waypoint x="1175" y="2458" />
+        <omgdi:waypoint x="1330" y="2458" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_14vujop_di" bpmnElement="Flow_14vujop">
+        <omgdi:waypoint x="400" y="2458" />
+        <omgdi:waypoint x="555" y="2458" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_1pkks8z" bpmnElement="Flow_0ykdesb">
+        <omgdi:waypoint x="580" y="2433" />
+        <omgdi:waypoint x="580" y="2358" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="543" y="2396" width="23" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_03m5rvg_di" bpmnElement="Flow_03m5rvg">
+        <omgdi:waypoint x="38" y="2458" />
+        <omgdi:waypoint x="100" y="2458" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ha46mu_di" bpmnElement="Flow_1ha46mu">
+        <omgdi:waypoint x="6896" y="2474" />
+        <omgdi:waypoint x="7140" y="2474" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0e3zvsn_di" bpmnElement="Flow_0e3zvsn">
+        <omgdi:waypoint x="7240" y="2474" />
+        <omgdi:waypoint x="7502" y="2474" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0jqw3k3_di" bpmnElement="Flow_0jqw3k3">
+        <omgdi:waypoint x="200" y="2458" />
+        <omgdi:waypoint x="300" y="2458" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_1soq66v" bpmnElement="Association_0qdcu2z">
+        <omgdi:waypoint x="1769" y="2498" />
+        <omgdi:waypoint x="1855" y="2604" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_1evmafc" bpmnElement="Participant_137upzq" isHorizontal="true">
+        <omgdc:Bounds x="-70" y="2829" width="7750" height="1924" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_15hdmqn" bpmnElement="Lane_1nxn6lf" isHorizontal="true">
+        <omgdc:Bounds x="-40" y="2829" width="7720" height="1182" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0c4nqvu" bpmnElement="Lane_140qs11" isHorizontal="true">
+        <omgdc:Bounds x="-70" y="4011" width="7720" height="742" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_12ef5s1_di" bpmnElement="Activity_12ef5s1" bioc:stroke="#000000" color:border-color="#000000">
+        <omgdc:Bounds x="6850" y="4227" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_11nm50t" bpmnElement="Activity_0d4a27r">
+        <omgdc:Bounds x="7110" y="4227" width="220" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_02tgwkv" bpmnElement="Event_10ae0lt">
+        <omgdc:Bounds x="7482" y="4249" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="7464" y="4299" width="74" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_11h9bwq_di" bpmnElement="Event_11h9bwq">
+        <omgdc:Bounds x="2162" y="3412" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="2146" y="3455" width="68" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0ofbhg1_di" bpmnElement="Gateway_0ofbhg1" isMarkerVisible="true">
+        <omgdc:Bounds x="2995" y="3405" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="2984" y="3462" width="73" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0kdzao8_di" bpmnElement="Event_0kdzao8">
+        <omgdc:Bounds x="3002" y="3242" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="2923" y="3246" width="69" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_12ajetw" bpmnElement="Activity_0l9ecr6">
+        <omgdc:Bounds x="2590" y="3390" width="180" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1uptzny_di" bpmnElement="Activity_1uptzny">
+        <omgdc:Bounds x="3260" y="3390" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0jgpvd3_di" bpmnElement="Gateway_0jgpvd3" isMarkerVisible="true" bioc:stroke="#050505" color:border-color="#050505">
+        <omgdc:Bounds x="3515" y="3405" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="3500" y="3462" width="81" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_12rqd7e_di" bpmnElement="Event_12rqd7e" bioc:stroke="#000000" color:border-color="#000000">
+        <omgdc:Bounds x="3522" y="3264" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="3430" y="3262" width="86" height="53" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0nteol6" bpmnElement="Activity_12qrin2" bioc:stroke="#030303" color:border-color="#030303">
+        <omgdc:Bounds x="3790" y="3390" width="220" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1e2c4pv" bpmnElement="Activity_1tdikdp">
+        <omgdc:Bounds x="4160" y="3390" width="220" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_bildbefund_di" bpmnElement="DataObjectReference_bildbefund" bioc:stroke="#000000" color:border-color="#000000">
+        <omgdc:Bounds x="3882" y="3545" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="3877" y="3603" width="46" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1dnjhiw" bpmnElement="Activity_1mvivag">
+        <omgdc:Bounds x="4510" y="3390" width="220" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0mk0bmb_di" bpmnElement="Gateway_0mk0bmb" isMarkerVisible="true">
+        <omgdc:Bounds x="4845" y="3405" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="4905" y="3403" width="86" height="53" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataStoreReference_10mkbcy_di" bpmnElement="DataStoreReference_10mkbcy" bioc:stroke="#000000" color:border-color="#000000">
+        <omgdc:Bounds x="4245" y="3205" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="4305" y="3187" width="30" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0n8f87s_di" bpmnElement="Event_1wdocxd">
+        <omgdc:Bounds x="5252" y="3212" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="5226" y="3258" width="89" height="66" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_18evm8h" bpmnElement="Activity_1rsqdi6">
+        <omgdc:Bounds x="5170" y="3580" width="220" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_16pwpb0" bpmnElement="Activity_1ww2vbt">
+        <omgdc:Bounds x="5170" y="4227" width="220" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_125yy1l_di" bpmnElement="DataObjectReference_125yy1l">
+        <omgdc:Bounds x="5262" y="4355" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="5257" y="4412" width="46" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0g6hh4x" bpmnElement="Activity_0mx6d87">
+        <omgdc:Bounds x="5470" y="4227" width="220" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataStoreReference_0o74xeq_di" bpmnElement="DataStoreReference_0o74xeq">
+        <omgdc:Bounds x="5405" y="4485" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="5415" y="4542" width="30" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1rd4qnc_di" bpmnElement="Activity_1rd4qnc">
+        <omgdc:Bounds x="2310" y="3390" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1h7l95g" bpmnElement="Gateway_1g1kn3s" isMarkerVisible="true">
+        <omgdc:Bounds x="6705" y="4242" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="6687" y="4299" width="87" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0tympcj" bpmnElement="Gateway_10udrva" isMarkerVisible="true">
+        <omgdc:Bounds x="6275" y="4242" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="6244" y="4211" width="52" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1ivkss9" bpmnElement="Activity_07i9gmj">
+        <omgdc:Bounds x="6430" y="4227" width="220" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1frze9x" bpmnElement="Activity_0gyncma">
+        <omgdc:Bounds x="5855" y="4227" width="250" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1v5rigy_di" bpmnElement="Gateway_1drmrlk">
+        <omgdc:Bounds x="5745" y="4242" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0z1xwv4_di" bpmnElement="Gateway_1hb6sbm">
+        <omgdc:Bounds x="6165" y="4242" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1h3bvgh" bpmnElement="Activity_10riunt">
+        <omgdc:Bounds x="5645" y="3580" width="250" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_17a90p3" bpmnElement="DataObjectReference_0hhqu1h">
+        <omgdc:Bounds x="2342" y="3525" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="2321" y="3586" width="78" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_17n4to3" bpmnElement="Activity_0es6xoa" bioc:stroke="#000000" color:border-color="#000000">
+        <omgdc:Bounds x="6430" y="4413" width="220" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_0nkkzl8_di" bpmnElement="DataObjectReference_0nkkzl8" bioc:stroke="#080808" color:border-color="#080808">
+        <omgdc:Bounds x="6522" y="4518" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="6508" y="4575" width="65" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_0bn2m5b_di" bpmnElement="DataObjectReference_0bn2m5b">
+        <omgdc:Bounds x="6032" y="4355" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="6022" y="4412" width="56" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0v2gg0v" bpmnElement="DataObjectReference_0l2c9b0">
+        <omgdc:Bounds x="6882" y="4355" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="6872" y="4412" width="56" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1yd1mno_di" bpmnElement="Flow_1yd1mno">
+        <omgdi:waypoint x="6755" y="4267" />
+        <omgdi:waypoint x="6850" y="4267" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0tabuk8_di" bpmnElement="Flow_0tabuk8">
+        <omgdi:waypoint x="6950" y="4267" />
+        <omgdi:waypoint x="7110" y="4267" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_1q7hh3i" bpmnElement="Flow_0qh657v">
+        <omgdi:waypoint x="5390" y="4267" />
+        <omgdi:waypoint x="5470" y="4267" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_1gbmup4" bpmnElement="Flow_0igif76">
+        <omgdi:waypoint x="4010" y="3430" />
+        <omgdi:waypoint x="4160" y="3430" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_0sjztb2" bpmnElement="Flow_0v6q92j">
+        <omgdi:waypoint x="4380" y="3430" />
+        <omgdi:waypoint x="4510" y="3430" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1wm0mnp_di" bpmnElement="Flow_1wm0mnp">
+        <omgdi:waypoint x="4730" y="3430" />
+        <omgdi:waypoint x="4845" y="3430" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1nqzrw4_di" bpmnElement="Flow_1nqzrw4">
+        <omgdi:waypoint x="4870" y="3405" />
+        <omgdi:waypoint x="4870" y="3230" />
+        <omgdi:waypoint x="5252" y="3230" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="4980" y="3248" width="23" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1l8y7d5_di" bpmnElement="Flow_1l8y7d5">
+        <omgdi:waypoint x="3565" y="3430" />
+        <omgdi:waypoint x="3790" y="3430" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="3645" y="3435" width="9" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_0k9j43r" bpmnElement="Flow_0koyyre">
+        <omgdi:waypoint x="7330" y="4267" />
+        <omgdi:waypoint x="7482" y="4267" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_08ht96b_di" bpmnElement="Flow_08ht96b">
+        <omgdi:waypoint x="3540" y="3405" />
+        <omgdi:waypoint x="3540" y="3300" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="3498" y="3356" width="23" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_04b1wln_di" bpmnElement="Flow_04b1wln">
+        <omgdi:waypoint x="2198" y="3430" />
+        <omgdi:waypoint x="2310" y="3430" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1mzo8j3_di" bpmnElement="Flow_1mzo8j3">
+        <omgdi:waypoint x="2410" y="3430" />
+        <omgdi:waypoint x="2590" y="3430" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ywdcp4_di" bpmnElement="Flow_1ywdcp4">
+        <omgdi:waypoint x="3360" y="3430" />
+        <omgdi:waypoint x="3515" y="3430" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0kvixb6_di" bpmnElement="Flow_0kvixb6">
+        <omgdi:waypoint x="3045" y="3430" />
+        <omgdi:waypoint x="3260" y="3430" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="3148" y="3412" width="9" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0s1r5f0_di" bpmnElement="Flow_0s1r5f0">
+        <omgdi:waypoint x="2770" y="3430" />
+        <omgdi:waypoint x="2995" y="3430" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0wph264_di" bpmnElement="Flow_0wph264">
+        <omgdi:waypoint x="3020" y="3405" />
+        <omgdi:waypoint x="3020" y="3278" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="3029" y="3324" width="21" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1a2mew9_di" bpmnElement="Flow_1a2mew9">
+        <omgdi:waypoint x="4870" y="3455" />
+        <omgdi:waypoint x="4870" y="3620" />
+        <omgdi:waypoint x="5170" y="3620" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0jd3bdf_di" bpmnElement="Flow_0jd3bdf">
+        <omgdi:waypoint x="5280" y="3660" />
+        <omgdi:waypoint x="5280" y="4227" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_19mknw8_di" bpmnElement="Flow_19mknw8">
+        <omgdi:waypoint x="5690" y="4267" />
+        <omgdi:waypoint x="5745" y="4267" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0edgsms_di" bpmnElement="Flow_0edgsms">
+        <omgdi:waypoint x="5795" y="4267" />
+        <omgdi:waypoint x="5855" y="4267" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_00rwb1l_di" bpmnElement="Flow_00rwb1l">
+        <omgdi:waypoint x="5770" y="4242" />
+        <omgdi:waypoint x="5770" y="3660" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_18jqku0_di" bpmnElement="Flow_18jqku0">
+        <omgdi:waypoint x="5895" y="3620" />
+        <omgdi:waypoint x="6190" y="3620" />
+        <omgdi:waypoint x="6190" y="4242" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0rj07cg_di" bpmnElement="Flow_0rj07cg">
+        <omgdi:waypoint x="6105" y="4267" />
+        <omgdi:waypoint x="6165" y="4267" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_179ulmz" bpmnElement="Flow_11dfdyo">
+        <omgdi:waypoint x="6300" y="4242" />
+        <omgdi:waypoint x="6300" y="4090" />
+        <omgdi:waypoint x="6730" y="4090" />
+        <omgdi:waypoint x="6730" y="4242" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="6334" y="4066" width="52" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_0j9spah" bpmnElement="Flow_1hdduka">
+        <omgdi:waypoint x="6650" y="4267" />
+        <omgdi:waypoint x="6705" y="4267" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_0ryek3j" bpmnElement="Flow_0ggpjpe">
+        <omgdi:waypoint x="6650" y="4453" />
+        <omgdi:waypoint x="6730" y="4453" />
+        <omgdi:waypoint x="6730" y="4292" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_0f3sra2" bpmnElement="Flow_0d1n6j8">
+        <omgdi:waypoint x="6300" y="4292" />
+        <omgdi:waypoint x="6300" y="4453" />
+        <omgdi:waypoint x="6430" y="4453" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="6326" y="4408" width="59" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0awyaof_di" bpmnElement="Flow_0awyaof">
+        <omgdi:waypoint x="6215" y="4267" />
+        <omgdi:waypoint x="6275" y="4267" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_1tm9qsc" bpmnElement="Flow_198vlmg">
+        <omgdi:waypoint x="6325" y="4267" />
+        <omgdi:waypoint x="6430" y="4267" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="6352" y="4229" width="43" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_1vkktn5" bpmnElement="TextAnnotation_0wytj9r" bioc:stroke="#000000" color:border-color="#000000">
+        <omgdc:Bounds x="1220" y="2680" width="420" height="86" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0ylho1z" bpmnElement="TextAnnotation_1lj7gkz">
+        <omgdc:Bounds x="1790" y="2604" width="200" height="72" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1vtvbbn_di" bpmnElement="TextAnnotation_1vtvbbn">
+        <omgdc:Bounds x="-270" y="3243" width="120" height="288" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0ld0v19_di" bpmnElement="TextAnnotation_0ld0v19" bioc:stroke="#000000" color:border-color="#000000">
+        <omgdc:Bounds x="270" y="2558" width="280" height="129" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1y5xxon_di" bpmnElement="TextAnnotation_1y5xxon">
+        <omgdc:Bounds x="5650" y="4460" width="260" height="129" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1flh6q6" bpmnElement="TextAnnotation_0khguqa">
+        <omgdc:Bounds x="4660" y="4150" width="350" height="72" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0be060z" bpmnElement="TextAnnotation_0w0g0vy">
+        <omgdc:Bounds x="4360" y="3630" width="310" height="129" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1tvkunk" bpmnElement="TextAnnotation_0wr24g7">
+        <omgdc:Bounds x="3781" y="3150" width="290" height="129" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1s2ra54" bpmnElement="TextAnnotation_0784s41">
+        <omgdc:Bounds x="7040" y="4370" width="390" height="100" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0pdxxof_di" bpmnElement="TextAnnotation_0pdxxof">
+        <omgdc:Bounds x="100" y="2558" width="100" height="40" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0m5wzfu_di" bpmnElement="TextAnnotation_0m5wzfu">
+        <omgdc:Bounds x="300" y="1924" width="100" height="40" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1a22ivr_di" bpmnElement="TextAnnotation_1a22ivr">
+        <omgdc:Bounds x="2540" y="3545" width="280" height="100" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_0l25e5n_di" bpmnElement="DataOutputAssociation_0l25e5n">
+        <omgdi:waypoint x="1381" y="2498" />
+        <omgdi:waypoint x="1382" y="2537" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_1fan4w6_di" bpmnElement="DataOutputAssociation_1fan4w6">
+        <omgdi:waypoint x="1690" y="2500" />
+        <omgdi:waypoint x="1691" y="2537" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_1k3e5it_di" bpmnElement="DataInputAssociation_1k3e5it">
+        <omgdi:waypoint x="6900" y="4355" />
+        <omgdi:waypoint x="6900" y="4307" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_119by6f_di" bpmnElement="DataOutputAssociation_119by6f">
+        <omgdi:waypoint x="3950" y="3390" />
+        <omgdi:waypoint x="4245" y="3243" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_bildbefund_di" bpmnElement="DataOutputAssociation_bildbefund">
+        <omgdi:waypoint x="3900" y="3470" />
+        <omgdi:waypoint x="3900" y="3545" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_0hgh36o_di" bpmnElement="DataOutputAssociation_0hgh36o">
+        <omgdi:waypoint x="4270" y="3390" />
+        <omgdi:waypoint x="4270" y="3255" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_1wqkchm_di" bpmnElement="DataInputAssociation_1wqkchm">
+        <omgdi:waypoint x="4295" y="3244" />
+        <omgdi:waypoint x="4550" y="3390" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_1ldital_di" bpmnElement="DataInputAssociation_1ldital">
+        <omgdi:waypoint x="5280" y="4355" />
+        <omgdi:waypoint x="5280" y="4307" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_0j6to8v_di" bpmnElement="DataOutputAssociation_0j6to8v">
+        <omgdi:waypoint x="5304" y="4307" />
+        <omgdi:waypoint x="5413" y="4485" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_0mt6167_di" bpmnElement="DataOutputAssociation_0mt6167">
+        <omgdi:waypoint x="5555" y="4307" />
+        <omgdi:waypoint x="5445" y="4485" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_013n113_di" bpmnElement="DataInputAssociation_013n113">
+        <omgdi:waypoint x="2360" y="3525" />
+        <omgdi:waypoint x="2360" y="3470" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_0ztq2ca_di" bpmnElement="DataOutputAssociation_0ztq2ca">
+        <omgdi:waypoint x="6050" y="4310" />
+        <omgdi:waypoint x="6050" y="4355" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_1z1303t_di" bpmnElement="DataOutputAssociation_1z1303t">
+        <omgdi:waypoint x="6540" y="4493" />
+        <omgdi:waypoint x="6540" y="4518" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1qis001_di" bpmnElement="Flow_1qis001" bioc:stroke="#000000" color:border-color="#000000">
+        <omgdi:waypoint x="6878" y="4227" />
+        <omgdi:waypoint x="6878" y="2492" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="6781" y="3139" width="78" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0fyy4uk_di" bpmnElement="Flow_0fyy4uk">
+        <omgdi:waypoint x="1980" y="2418" />
+        <omgdi:waypoint x="1980" y="2072" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1cfdou4_di" bpmnElement="Flow_1cfdou4">
+        <omgdi:waypoint x="2180" y="2094" />
+        <omgdi:waypoint x="2180" y="3412" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_08xr7cz_di" bpmnElement="Flow_08xr7cz">
+        <omgdi:waypoint x="350" y="2094" />
+        <omgdi:waypoint x="350" y="2418" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="361" y="2259" width="57" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0n4xis8_di" bpmnElement="Flow_0n4xis8">
+        <omgdi:waypoint x="150" y="2418" />
+        <omgdi:waypoint x="150" y="2072" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="59" y="2256" width="81" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_08vhqnw_di" bpmnElement="Flow_08vhqnw">
+        <omgdi:waypoint x="6930" y="4227" />
+        <omgdi:waypoint x="6930" y="2072" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="6941" y="3139" width="78" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1e4xvbq_di" bpmnElement="Flow_1e4xvbq">
+        <omgdi:waypoint x="5270" y="3212" />
+        <omgdi:waypoint x="5270" y="2474" />
+        <omgdi:waypoint x="6860" y="2474" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_07a7hn6_di" bpmnElement="Flow_07a7hn6">
+        <omgdi:waypoint x="3020" y="3242" />
+        <omgdi:waypoint x="3020" y="2474" />
+        <omgdi:waypoint x="6860" y="2474" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1xez4w2_di" bpmnElement="Flow_1xez4w2">
+        <omgdi:waypoint x="7180" y="2434" />
+        <omgdi:waypoint x="7180" y="2094" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0f9ubv7_di" bpmnElement="Flow_0f9ubv7">
+        <omgdi:waypoint x="7210" y="2094" />
+        <omgdi:waypoint x="7210" y="2434" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_14qcdi5_di" bpmnElement="Association_14qcdi5">
+        <omgdi:waypoint x="-70" y="3320" />
+        <omgdi:waypoint x="-150" y="3316" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_07whmbv_di" bpmnElement="Association_07whmbv">
+        <omgdi:waypoint x="350" y="2558" />
+        <omgdi:waypoint x="350" y="2498" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_0n9vk6y" bpmnElement="Association_05nu60k">
+        <omgdi:waypoint x="1333" y="2495" />
+        <omgdi:waypoint x="1241" y="2680" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_1snogkr_di" bpmnElement="Association_1snogkr">
+        <omgdi:waypoint x="150" y="2498" />
+        <omgdi:waypoint x="150" y="2558" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0r9rdfo_di" bpmnElement="Association_0r9rdfo">
+        <omgdi:waypoint x="350" y="2014" />
+        <omgdi:waypoint x="350" y="1964" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_1n60hht" bpmnElement="Association_153uwy5">
+        <omgdi:waypoint x="7223" y="4307" />
+        <omgdi:waypoint x="7228" y="4370" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_1smnmj8_di" bpmnElement="Association_1smnmj8">
+        <omgdi:waypoint x="2680" y="3470" />
+        <omgdi:waypoint x="2680" y="3545" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_11cgw9o" bpmnElement="Association_1my54ky">
+        <omgdi:waypoint x="3901" y="3390" />
+        <omgdi:waypoint x="3901" y="3279" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_1yro9bg" bpmnElement="Association_1xho4f1">
+        <omgdi:waypoint x="4608" y="3470" />
+        <omgdi:waypoint x="4558" y="3630" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_13njj06" bpmnElement="Association_17ohy5l">
+        <omgdi:waypoint x="5170" y="4247" />
+        <omgdi:waypoint x="5010" y="4218" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_19p7pld_di" bpmnElement="Association_19p7pld">
+        <omgdi:waypoint x="5887" y="4307" />
+        <omgdi:waypoint x="5812" y="4460" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
