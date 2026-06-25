@@ -19,9 +19,10 @@
 import { spawnSync } from 'node:child_process';
 
 const checks = [
+  { name: 'model naming convention (ADR-0004: lung-cancer-<phase>-pathway)', cmd: process.execPath, args: ['tools/check-naming.mjs'], blocking: true },
   { name: 'bpmnlint (BPMN structure/correctness)', cmd: process.execPath, args: ['tools/lint-bpmn.mjs'], blocking: true },
   { name: 'model metrics (Abnahme SYN-5 blocking; SYN-2/4 advisory)', cmd: process.execPath, args: ['tools/check-model-metrics.mjs'], blocking: true },
-  { name: 'moddle roundtrip (serialization stability)', cmd: process.execPath, args: ['tools/moddle-roundtrip.mjs'], blocking: false },
+  { name: 'moddle roundtrip (cp:/i18n lossless + stable)', cmd: process.execPath, args: ['tools/moddle-roundtrip.mjs'], blocking: true },
   { name: 'XSD core (OMG BPMN20.xsd)', cmd: 'bash', args: ['tools/validate-xsd.sh'], blocking: false },
 ];
 

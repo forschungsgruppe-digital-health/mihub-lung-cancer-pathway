@@ -10,13 +10,12 @@
  *
  * Why programmatic (not the bpmnlint CLI): these models carry rich clinical
  * extension content (`cp:` BPMN4CP quality indicators, 500+ `i18n:translation`
- * elements) for which no moddle descriptor is registered yet. The CLI would
- * elevate every such "unparsable extension content" import warning to an error
- * and drown the genuine structural findings. We therefore parse with bpmn-moddle
- * ourselves (absorbing those extension-import warnings) and lint the parsed tree,
- * so bpmnlint reports ONLY real structural rule violations. Formalising the
- * `cp:`/`i18n:` descriptors (so the extension content is validated too) is a
- * tracked follow-up; see tools/moddle-roundtrip.mjs and docs/decisions/0001.
+ * elements). The bpmnlint CLI would elevate every "unparsable extension content"
+ * import warning to an error and drown the genuine structural findings. We therefore
+ * parse with bpmn-moddle ourselves — with the `cp:` descriptor from
+ * tools/moddle/descriptors.mjs registered (so cp:qualityIndicator parses cleanly and
+ * its QualityIndicator ids resolve) — and lint the parsed tree, so bpmnlint reports
+ * ONLY real structural rule violations.
  *
  * The clinical/size/gateway conventions of the Abnahme instrument that bpmnlint
  * does not cover (SYN-2/4, and SYN-5 cross-checked) live in
@@ -31,6 +30,7 @@ import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
 import { BpmnModdle } from 'bpmn-moddle';
 import { resolveBpmnFiles } from './bpmn-files.mjs';
+import { extensions } from './moddle/descriptors.mjs';
 
 const require = createRequire(import.meta.url);
 const { Linter } = require('bpmnlint');
@@ -54,11 +54,11 @@ console.log(`bpmnlint: linting ${files.length} file(s)…\n`);
 
 for (const file of files) {
   const xml = readFileSync(file, 'utf8');
-  const moddle = new BpmnModdle();
+  const moddle = new BpmnModdle(extensions);
 
   let rootElement;
   try {
-    // Ignore extension-content import warnings on purpose (see header).
+    // Benign extension warnings are ignored on purpose (see header).
     ({ rootElement } = await moddle.fromXML(xml));
   } catch (err) {
     console.log(`✖ ${file}\n    parse error: ${err.message}`);

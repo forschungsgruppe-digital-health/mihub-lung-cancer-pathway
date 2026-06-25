@@ -9,9 +9,10 @@ acceptance gate in `docs/governance/`; do not duplicate them.
 ## What this repo is
 
 A set of **BPMN 2.0 models of the lung-cancer patient pathway** (one overarching
-pathway + six sub-pathways), developed in the MiHUB project (TU Dresden /
-Forschungsgruppe Digital Health). Each model ships as a `.bpmn` source and a `.svg`
-render. The repository is **model-only** and is **published openly under CC BY 4.0**
+pathway + seven sub-pathways: screening, diagnostic, patient-consultation, tumor-board,
+molecular-tumor-board, treatment, aftercare), developed in the MiHUB project (TU Dresden /
+Forschungsgruppe Digital Health). The models live under `models/` (naming convention
+`lung-cancer-<phase>-pathway`, ADR-0004); each `.bpmn` source has a paired `.svg` render. The repository is **model-only** and is **published openly under CC BY 4.0**
 (a Zenodo DOI is planned). There is no application here.
 
 > ⚠️ **Intended use.** These models are a research / education / interoperability
@@ -65,6 +66,11 @@ consensus. The automatable criteria (SYN-1/2/4/5, STR-1..4) are tooled; the clin
 - **Declared conformance class: Analytic** (minus OR-gateways) — see `docs/decisions/0001`.
 - **Decompose** levels > ~50 elements via Call Activities (SYN-4).
 - **Conventional Commits**; scope = the pathway file (`feat(aftercare)!: …`, `docs(overarching): …`).
+- **Language:** the repo default is **German** (README, CONVENTIONS, governance instrument).
+  **Technical documentation is written in English** (ADRs in `docs/decisions/`, this file,
+  `CONTRIBUTING.md`, `docs/model-issues/`, tool docstrings/comments). The Abnahme governance
+  instrument (`docs/governance/`) is **bilingual** (DE original + EN translation, same version).
+  **Issue templates are always bilingual (DE + EN).**
 
 ## Branching and pull requests
 
@@ -82,12 +88,25 @@ Reusable workflows live once under `skills/<name>/SKILL.md` (the single source).
 Claude Code discovers them via `.claude/skills` → `../skills`; Codex/Copilot via
 `.agents/skills` → `../skills`. Never copy a skill body into a pointer file.
 
-| Skill (open this) | Fires when you edit | Gate |
+| Skill (open this) | Fires when you… | Gate / output |
 |---|---|---|
-| `skills/bpmn-conformance/SKILL.md` | any `**/*.bpmn` | `npm run check:conformance` |
+| `skills/bpmn-conformance/SKILL.md` | edit any `**/*.bpmn` | `npm run check:conformance` |
+| `skills/bpmn-acceptance/SKILL.md` | prepare a formal Abnahme | `npm run abnahme:protokoll` (evidence only; never stamps acceptance) |
+| `skills/clinical-pathway-review/SKILL.md` | review SEM/PRA criteria | advisory findings (read-only) |
+| `skills/model-inventory/SKILL.md` | map the model set | Model Inventory Matrix (read-only) |
+| `skills/bpmn-soundness/SKILL.md` | check STR-1…4 soundness | `npm run check:soundness` (advisory; needs the analyzer container) |
 
 ## Hard rules (do not violate)
 
+- **🔒 NEVER modify a `.bpmn` model or its `.svg` export.** The models are the
+  clinically-validated artifact (Abnahme **SEM-6** face validity); changes are made only
+  by a **human modeler** and re-validated. Agents are **read-only** w.r.t. the models —
+  this also forbids renaming, reformatting, `sed -i`, and redirect/`tee` writes. Found a
+  BPMN-XML issue? **Report it** in [`docs/model-issues/`](docs/model-issues/) with a
+  ready-to-file GitHub-issue suggestion ([template](.github/ISSUE_TEMPLATE/bpmn-model-issue.md)) —
+  never fix it. Enforced for Claude Code by the `guard-model-files` PreToolUse hook
+  (`.claude/hooks/guard-model-files.sh`, wired in `.claude/settings.json`); other tools
+  must honor it. (Humans editing models follow `CONTRIBUTING.md`.)
 - **No real patient data.** Use only synthetic / abstract pathway content. Never
   commit patient data, even realistic-looking.
 - **Not for clinical use.** Do not remove or weaken `DISCLAIMER.md` or the README

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "packages": {
+    ".": {
+      "release-type": "simple",
+      "package-name": "mihub-lung-cancer-pathway"
+    }
+  },
+  "include-component-in-tag": false,
+  "changelog-sections": [
+    { "type": "feat", "section": "Pathway changes" },
+    { "type": "fix", "section": "Corrections" },
+    { "type": "docs", "section": "Documentation & governance" },
+    { "type": "refactor", "section": "Model refactoring" },
+    { "type": "perf", "section": "Model refactoring", "hidden": true },
+    { "type": "chore", "section": "Tooling & maintenance", "hidden": true },
+    { "type": "build", "section": "Tooling & maintenance", "hidden": true },
+    { "type": "ci", "section": "CI", "hidden": true },
+    { "type": "test", "section": "Tests", "hidden": true }
+  ]
+}

@@ -6,9 +6,13 @@ each `skills/<name>/SKILL.md` carries YAML frontmatter (`name`, `description`) p
 Markdown instructions. Tools match on the `description` to decide when a skill
 applies. All tool-specific files only point here — never copy a skill's body.
 
-| Skill | When it fires | Gate |
+| Skill | When it fires | Gate / output |
 |---|---|---|
-| [`bpmn-conformance`](bpmn-conformance/SKILL.md) | editing any `**/*.bpmn` | `npm run check:conformance` |
+| [`bpmn-conformance`](bpmn-conformance/SKILL.md) | editing any `**/*.bpmn` | `npm run check:conformance` (deterministic) |
+| [`bpmn-acceptance`](bpmn-acceptance/SKILL.md) | preparing a formal Abnahme | `npm run abnahme:protokoll` → pre-filled Protokoll (never stamps acceptance) |
+| [`clinical-pathway-review`](clinical-pathway-review/SKILL.md) | reviewing a pathway for the SEM/PRA criteria | advisory findings only (LLM-judgment, read-only) |
+| [`model-inventory`](model-inventory/SKILL.md) | mapping what the model set contains | a Model Inventory Matrix (read-only) |
+| [`bpmn-soundness`](bpmn-soundness/SKILL.md) | checking STR-1…4 behavioural soundness | `npm run check:soundness` (advisory; needs the analyzer container) |
 
 ## How each tool consumes these skills
 
@@ -20,15 +24,13 @@ applies. All tool-specific files only point here — never copy a skill's body.
 - **Cursor / other AGENTS.md readers** — read the root [`AGENTS.md`](../AGENTS.md),
   whose "Agent skills" section lists the same trigger and gate command.
 
-## Planned (later phases — not in this repo yet)
+## Status notes
 
-These are designed but not shipped; they arrive with their backing tools:
-
-- **bpmn-acceptance** — runs the automatable Abnahme A-checks and emits a pre-filled
-  `docs/governance/abnahme-protokoll-…md` (it never stamps the overall decision).
-- **clinical-pathway-review** — advisory LLM review for the SEM/PRA criteria (never
-  pass/fail; evidence for human reviewers).
-- **bpmn-soundness** — STR-1..4 behavioural soundness via an external checker.
+- **bpmn-soundness** is shipped but **advisory**: its pilot (2026-06-25) found 4/7 models
+  inconclusive (unsupported OR-gateways + intermediate catch events) and the analyzable
+  ones violate on pre-existing defects, so STR-1…4 stay `HUMAN-INPUT-NEEDED` in the
+  `bpmn-acceptance` Protokoll and the CI job is non-blocking until the model remodel. See
+  [`docs/decisions/0003-soundness-tooling.md`](../docs/decisions/0003-soundness-tooling.md).
 
 ## Editing rule
 

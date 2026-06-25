@@ -327,7 +327,7 @@ flowchart LR
 | **2 – Syntaktische Validierung** | Im BPMN-Tool (z. B. Camunda Modeler, bpmn.io)                     |
 | **3 – Peer-Review**              | Durch einen weiteren Modellierer (Checkliste oben als Grundlage)  |
 | **4 – Klinische Validierung**    | Durch Fachexperten auf medizinische Korrektheit                   |
-| **5 – Freigabe & Versionierung** | Im Repository mit Changelog und Versionsnummer                    |
+| **5 – Freigabe & Versionierung** | Im Repository mit Changelog und Versionsnummer – **SemVer + release-please** (`simple`); Änderungs→Bump-Politik und Zenodo/DOI-Ablauf in [ADR-0002](docs/decisions/0002-versioning-and-release.md)                    |
 
 ---
 

@@ -17,8 +17,8 @@ rules themselves live in [`CONVENTIONS.md`](CONVENTIONS.md); the acceptance crit
 
 | Path | What |
 |---|---|
-| `lung-cancer_*.bpmn` | the BPMN 2.0 model **sources** (edit these) |
-| `lung-cancer_*.svg` | the **derived** renders — re-export when the `.bpmn` changes |
+| `models/lung-cancer-*-pathway.bpmn` | the BPMN 2.0 model **sources** (edit these) |
+| `models/lung-cancer-*-pathway.svg` | the **derived** renders — re-export when the `.bpmn` changes |
 | `CONVENTIONS.md` | modelling guideline (the reference) |
 | `docs/governance/` | the Abnahme acceptance instrument |
 | `docs/decisions/` | architecture/modelling decision records (ADRs) |
@@ -58,7 +58,8 @@ for how to read the output.
 - **Conventional Commits**, scope = the pathway file:
   `feat(treatment)!: replace OR-gateway with XOR`, `docs(governance): …`,
   `fix(aftercare): add missing end event`. A `!` (or `BREAKING CHANGE:`) marks a change
-  that alters the pathway's structure/semantics (see the versioning policy — planned).
+  that alters the pathway's structure/semantics (see the versioning policy in
+  [`docs/decisions/0002`](docs/decisions/0002-versioning-and-release.md)).
 - **Branch off `dev`** and open a **pull request into `dev`** (`gh pr create --base dev`).
   `dev` is the active-development branch; `main` is for **releases**. Do **not** push
   directly to `dev`/`main`, and never `git push origin dev:main`. Promotion is a
@@ -73,6 +74,23 @@ conformance gate. A **formal acceptance** ("Abnahme") of a pathway additionally 
 the [governance instrument](docs/governance/): a technical gate (tools), a clinical
 gate (expert consensus), and a pragmatic gate (joint walkthrough), recorded in a
 signed Protokoll. Tools prepare evidence; humans decide.
+
+## Reporting issues
+
+Report bugs, model defects, and change requests via the repository's **GitHub issue tracker**
+(the *Issues* tab): <https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/issues>.
+Use the provided templates — e.g. **BPMN model issue** for a problem with a `.bpmn` model.
+Issue templates are bilingual (DE + EN). For BPMN-XML problems surfaced by a tool or agent,
+see [`docs/model-issues/`](docs/model-issues/): tools/agents record findings there (they never
+edit a model), and a human files the issue from that finding.
+
+## Language
+
+The repository default language is **German** (README, `CONVENTIONS.md`, the governance
+instrument). **Technical documentation is in English** (ADRs, `AGENTS.md`, this file,
+`docs/model-issues/`). The Abnahme governance instrument (`docs/governance/`) is **bilingual**
+(German original + English translation, kept at the same version). New **issue templates are
+always provided in both languages**.
 
 ## Questions
 
