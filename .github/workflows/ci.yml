@@ -1,0 +1,43 @@
+name: CI
+
+# The BPMN conformance gate (bpmnlint + model metrics + roundtrip + XSD core).
+# Runs on PRs into and pushes to dev/main. The decision lives in the tools under
+# tools/ — this workflow just runs `npm run check:conformance`.
+#
+# NOTE: this gate is expected to be RED on the current models (pre-existing
+# structural defects + four OR-gateways) — see docs/decisions/0001. Do not make
+# this a required status check on dev/main until the remodel follow-up greens it.
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+
+permissions:
+  contents: read
+
+jobs:
+  conformance:
+    name: BPMN conformance gate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Ensure xmllint is available (for XSD core validation)
+        run: xmllint --version || (sudo apt-get update && sudo apt-get install -y libxml2-utils)
+
+      # Blocking layers: structural bpmnlint + the no-OR model-metrics gate.
+      # Informational layers (roundtrip, XSD core) are reported but never block.
+      - name: Conformance (bpmnlint + metrics + roundtrip + XSD)
+        run: npm run check:conformance
