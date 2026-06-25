@@ -5,6 +5,13 @@ description: Prepare a pre-filled Abnahme (acceptance) Protokoll for the lung-ca
 
 # BPMN acceptance (Protokoll pre-filler)
 
+> **🔒 Model guard — read-only.** Never edit or modify a `.bpmn` model or its `.svg` export.
+> The models are clinically validated (Abnahme **SEM-6** face validity) and change only via a
+> human modeler + re-validation. Found a BPMN-XML problem while assembling evidence? **Report
+> it** in [`docs/model-issues/`](../../docs/model-issues/) and propose a GitHub issue
+> ([template](../../.github/ISSUE_TEMPLATE/bpmn-model-issue.md)) — do not change the model.
+> Enforced in Claude Code by the `guard-model-files` PreToolUse hook.
+
 You assemble **evidence**, you do **not** approve. The Abnahme instrument
 (`docs/governance/`) decides acceptance via three gates — Technical (tools),
 Clinical (expert consensus), Pragmatic (joint walkthrough) — and only humans sign off.

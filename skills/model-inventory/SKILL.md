@@ -5,6 +5,13 @@ description: Produce a Markdown inventory matrix of the BPMN pathway models (the
 
 # Model inventory
 
+> **🔒 Model guard — read-only.** Never edit or modify a `.bpmn` model or its `.svg` export.
+> The models are clinically validated (Abnahme **SEM-6** face validity) and change only via a
+> human modeler + re-validation. If you notice a BPMN-XML problem while inventorying, **report
+> it** in [`docs/model-issues/`](../../docs/model-issues/) with a GitHub-issue suggestion
+> ([template](../../.github/ISSUE_TEMPLATE/bpmn-model-issue.md)) — never change the model.
+> Enforced in Claude Code by the `guard-model-files` PreToolUse hook.
+
 Build a first-pass **Feature/Model Inventory Matrix** across the seven `.bpmn` files
 so a reviewer can see the whole pathway set at a glance. Read-only.
 

@@ -5,6 +5,13 @@ description: Advisory, read-only review of a lung-cancer BPMN pathway against th
 
 # Clinical pathway review (advisory)
 
+> **🔒 Model guard — read-only.** Never edit or modify a `.bpmn` model or its `.svg` export.
+> The models are clinically validated (Abnahme **SEM-6** face validity) and change only via a
+> human modeler + re-validation. Surface findings as candidates and **report** any BPMN-XML
+> problem in [`docs/model-issues/`](../../docs/model-issues/) with a GitHub-issue suggestion
+> ([template](../../.github/ISSUE_TEMPLATE/bpmn-model-issue.md)) — never change the model.
+> Enforced in Claude Code by the `guard-model-files` PreToolUse hook.
+
 You produce **evidence and questions for the human reviewers**, not verdicts. The
 clinical and pragmatic acceptance gates are decided by people (see `docs/governance/`).
 This is the only skill in the repo that is LLM-judgment rather than a deterministic

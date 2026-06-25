@@ -92,6 +92,15 @@ Claude Code discovers them via `.claude/skills` → `../skills`; Codex/Copilot v
 
 ## Hard rules (do not violate)
 
+- **🔒 NEVER modify a `.bpmn` model or its `.svg` export.** The models are the
+  clinically-validated artifact (Abnahme **SEM-6** face validity); changes are made only
+  by a **human modeler** and re-validated. Agents are **read-only** w.r.t. the models —
+  this also forbids renaming, reformatting, `sed -i`, and redirect/`tee` writes. Found a
+  BPMN-XML issue? **Report it** in [`docs/model-issues/`](docs/model-issues/) with a
+  ready-to-file GitHub-issue suggestion ([template](.github/ISSUE_TEMPLATE/bpmn-model-issue.md)) —
+  never fix it. Enforced for Claude Code by the `guard-model-files` PreToolUse hook
+  (`.claude/hooks/guard-model-files.sh`, wired in `.claude/settings.json`); other tools
+  must honor it. (Humans editing models follow `CONTRIBUTING.md`.)
 - **No real patient data.** Use only synthetic / abstract pathway content. Never
   commit patient data, even realistic-looking.
 - **Not for clinical use.** Do not remove or weaken `DISCLAIMER.md` or the README
