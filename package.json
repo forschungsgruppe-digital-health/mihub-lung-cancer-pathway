@@ -11,6 +11,7 @@
   },
   "scripts": {
     "lint:bpmn": "node tools/lint-bpmn.mjs",
+    "check:naming": "node tools/check-naming.mjs",
     "check:metrics": "node tools/check-model-metrics.mjs",
     "check:roundtrip": "node tools/moddle-roundtrip.mjs",
     "check:xsd": "bash tools/validate-xsd.sh",
