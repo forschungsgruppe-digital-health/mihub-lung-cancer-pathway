@@ -1,0 +1,26 @@
+{
+  "name": "mihub-lung-cancer-pathway",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Dev/CI tooling for the MiHUB lung-cancer BPMN patient-pathway models. The published artifacts are the .bpmn/.svg models and docs (CC BY 4.0); this package is NOT published and node_modules is never committed.",
+  "license": "CC-BY-4.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway.git"
+  },
+  "scripts": {
+    "lint:bpmn": "node tools/lint-bpmn.mjs",
+    "check:metrics": "node tools/check-model-metrics.mjs",
+    "check:roundtrip": "node tools/moddle-roundtrip.mjs",
+    "check:xsd": "bash tools/validate-xsd.sh",
+    "check:conformance": "node tools/check-conformance.mjs"
+  },
+  "devDependencies": {
+    "bpmn-moddle": "^10.0.0",
+    "bpmnlint": "^11.12.1"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
