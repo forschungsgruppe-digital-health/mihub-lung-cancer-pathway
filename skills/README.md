@@ -12,6 +12,7 @@ applies. All tool-specific files only point here — never copy a skill's body.
 | [`bpmn-acceptance`](bpmn-acceptance/SKILL.md) | preparing a formal Abnahme | `npm run abnahme:protokoll` → pre-filled Protokoll (never stamps acceptance) |
 | [`clinical-pathway-review`](clinical-pathway-review/SKILL.md) | reviewing a pathway for the SEM/PRA criteria | advisory findings only (LLM-judgment, read-only) |
 | [`model-inventory`](model-inventory/SKILL.md) | mapping what the model set contains | a Model Inventory Matrix (read-only) |
+| [`bpmn-soundness`](bpmn-soundness/SKILL.md) | checking STR-1…4 behavioural soundness | `npm run check:soundness` (advisory; needs the analyzer container) |
 
 ## How each tool consumes these skills
 
@@ -23,14 +24,13 @@ applies. All tool-specific files only point here — never copy a skill's body.
 - **Cursor / other AGENTS.md readers** — read the root [`AGENTS.md`](../AGENTS.md),
   whose "Agent skills" section lists the same trigger and gate command.
 
-## Planned (later phases — not in this repo yet)
+## Status notes
 
-These are designed but not shipped; they arrive with their backing tools:
-
-- **bpmn-soundness** — STR-1…4 behavioural soundness via an external model checker
-  (`rust_bpmn_analyzer`). Approach + pilot protocol in
-  [`docs/decisions/0003-soundness-tooling.md`](../docs/decisions/0003-soundness-tooling.md);
-  until piloted, STR-1…4 stay `HUMAN-INPUT-NEEDED` in the `bpmn-acceptance` Protokoll.
+- **bpmn-soundness** is shipped but **advisory**: its pilot (2026-06-25) found 4/7 models
+  inconclusive (unsupported OR-gateways + intermediate catch events) and the analyzable
+  ones violate on pre-existing defects, so STR-1…4 stay `HUMAN-INPUT-NEEDED` in the
+  `bpmn-acceptance` Protokoll and the CI job is non-blocking until the model remodel. See
+  [`docs/decisions/0003-soundness-tooling.md`](../docs/decisions/0003-soundness-tooling.md).
 
 ## Editing rule
 

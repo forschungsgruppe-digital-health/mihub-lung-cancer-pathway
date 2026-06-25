@@ -1,6 +1,7 @@
 # 0003 — Behavioural soundness tooling (STR-1…STR-4)
 
-- Status: accepted (approach); **implementation deferred to a piloted follow-up**
+- Status: accepted; **pilot executed 2026-06-25** — advisory wrapper shipped; a
+  *blocking* gate stays deferred until the model remodel (see Pilot results)
 - Date: 2026-06-25
 - Deciders: Forschungsgruppe Digital Health (FGDH), TU Dresden
 - Relates: [`0001-repo-tooling-and-conformance-gate.md`](0001-repo-tooling-and-conformance-gate.md),
@@ -54,11 +55,48 @@ Three load-bearing facts make a *piloted* integration mandatory before we trust 
    mode (the wrapper exits with a distinct "inconclusive" status that neither falsely
    passes nor hard-blocks).
 
+## Pilot results (2026-06-25 — executed)
+
+Run via the **published, pinned image**
+`tkra/rust_bpmn_analyzer@sha256:9d939b84e82ca0ef55e9b34847d55bacd32b293fc7ef670e53d37d2ebcd3778c`
+— no source build was needed (Docker Hub publishes it). The image is the *webserver*
+binary (distroless, `linux/amd64`); method: `POST /check_bpmn` with
+`{bpmn_file_content, properties_to_be_checked:[Safeness, OptionToComplete, ProperCompletion, NoDeadActivities]}`
+→ JSON `{property_results[].fulfilled, unsupported_elements[]}`.
+
+- **The exit-0 trap is confirmed**: the API returns HTTP 200 even for violating *and*
+  unsupported models — the verdict must come from the JSON body. `tools/check-soundness.mjs`
+  does exactly this. All files returned in < 100 ms.
+
+| Model | Result |
+|---|---|
+| tumor-board, diagnostic | analyzed → **NoDeadActivities violated** (dead activities) |
+| molecular-tumor-board | analyzed → **OptionToComplete + NoDeadActivities violated** |
+| aftercare, treatment | **inconclusive** — unsupported `inclusiveGateway` (OR) + `intermediateCatchEvent` |
+| overarching, patient-consultation | **inconclusive** — unsupported `intermediateCatchEvent` (timer/message wait) |
+
+**Findings:**
+- The analyzer's **supported subset excludes OR-gateways and `intermediateCatchEvent`s**,
+  both of which these models use → **4 of 7 are inconclusive today**. This overlaps the
+  existing SYN-5 (no-OR) defect and the timer/message-wait modelling.
+- The **3 analyzable models all violate soundness** (dead activities; molecular also no
+  option-to-complete) — consistent with the 99 bpmnlint structural defects (disconnected /
+  implicit-start activities are dead). **No false pass.**
+- **Timing** is not yet a concern for the supported subset, but the large overarching
+  pathway was never actually explored (it short-circuited on unsupported events at ~5 ms),
+  so its state-space cost is **untested**. The webserver runs **without POR**; if a large
+  *supported* model is analysed later and blows up, switch to the CLI with `--por` (needs a
+  CLI image build).
+
 ## Consequences / scope boundaries
 
-- After a green pilot: add `tools/check-soundness.mjs` (Docker-digest-pinned + result
-  parsing + inconclusive fallback) and a `bpmn-soundness` CI job; flip STR-1…STR-4 in the
-  Protokoll pre-filler from `HUMAN-INPUT-NEEDED` to tool-decided.
+- **Done (this PR):** `tools/check-soundness.mjs` (JSON result-parsing + INCONCLUSIVE
+  fallback + `--strict`), `npm run check:soundness`, the `bpmn-soundness` skill, and an
+  **advisory** (non-blocking) `soundness.yml` CI job using the pinned image.
+- **Deferred until the remodel:** a *blocking* gate and flipping STR-1…STR-4 in the
+  Protokoll from `HUMAN-INPUT-NEEDED` to tool-decided — premature while 4/7 models are
+  inconclusive (OR-gateways + catch events) and the analyzable ones violate on pre-existing
+  defects. After the OR-gateway/structural remodel, re-run and consider `--strict`.
 - **Inter-process soundness is NOT covered** by checking the 7 files independently: the
   overarching pathway calls sub-pathways via Call Activities; composition correctness
   stays a human-review item (CONVENTIONS §8.2 clinical validation).

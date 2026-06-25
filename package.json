@@ -15,6 +15,7 @@
     "check:roundtrip": "node tools/moddle-roundtrip.mjs",
     "check:xsd": "bash tools/validate-xsd.sh",
     "check:conformance": "node tools/check-conformance.mjs",
+    "check:soundness": "node tools/check-soundness.mjs",
     "abnahme:protokoll": "node tools/abnahme-protokoll.mjs"
   },
   "devDependencies": {

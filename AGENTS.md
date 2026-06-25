@@ -88,6 +88,7 @@ Claude Code discovers them via `.claude/skills` → `../skills`; Codex/Copilot v
 | `skills/bpmn-acceptance/SKILL.md` | prepare a formal Abnahme | `npm run abnahme:protokoll` (evidence only; never stamps acceptance) |
 | `skills/clinical-pathway-review/SKILL.md` | review SEM/PRA criteria | advisory findings (read-only) |
 | `skills/model-inventory/SKILL.md` | map the model set | Model Inventory Matrix (read-only) |
+| `skills/bpmn-soundness/SKILL.md` | check STR-1…4 soundness | `npm run check:soundness` (advisory; needs the analyzer container) |
 
 ## Hard rules (do not violate)
 
