@@ -30,6 +30,7 @@
 import { readFileSync } from 'node:fs';
 import { BpmnModdle } from 'bpmn-moddle';
 import { resolveBpmnFiles } from './bpmn-files.mjs';
+import { extensions } from './moddle/descriptors.mjs';
 
 const MAX_ELEMENTS_PER_LEVEL = 50; // Abnahme SYN-4 / 7PMG G7
 
@@ -64,7 +65,7 @@ for (const file of files) {
   const xml = readFileSync(file, 'utf8');
   prefixes.set(file, rootPrefix(xml));
 
-  const moddle = new BpmnModdle();
+  const moddle = new BpmnModdle(extensions);
   let definitions;
   try {
     ({ rootElement: definitions } = await moddle.fromXML(xml));

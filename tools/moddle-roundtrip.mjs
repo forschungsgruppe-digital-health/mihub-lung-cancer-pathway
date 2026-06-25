@@ -1,32 +1,34 @@
 #!/usr/bin/env node
 /**
- * Serialization-stability + extension-content roundtrip check (INFORMATIONAL).
+ * Lossless / stability roundtrip check for the clinical extension content
+ * (BLOCKING on data loss or instability).
+ *
+ * The models carry BPMN4CP `cp:` quality indicators (modelled in
+ * tools/moddle/bpmn4cp.json) and `i18n:translation` content. With the `cp:`
+ * descriptor registered, bpmn-moddle parses and re-serializes all of it losslessly
+ * (the nested i18n:translation rides along via lax extensionElements handling — see
+ * tools/moddle/descriptors.mjs for why no i18n descriptor is registered).
  *
  * For each file:
- *   1. parse (fromXML) with bpmn-moddle
+ *   1. parse (fromXML) with the cp: descriptor registered
  *   2. serialize (toXML, formatted)   -> A
  *   3. re-parse A and re-serialize     -> B
  *   4. assert A === B                   (stable / idempotent serialization)
- *   5. count custom extension elements (cp:/i18n:) in the source and surface
- *      bpmn-moddle parse warnings
- *
- * IMPORTANT — current coverage: this repo's clinical extension data lives under the
- * `cp:` (BPMN4CP, http://www.helict.de/bpmn4cp) and `i18n:` namespaces. No moddle
- * descriptor is registered for them yet, so bpmn-moddle treats that content as
- * generic/unparsed and may drop it on save. This check therefore reports extension
- * presence and parse warnings as NON-FATAL signals (motivating a follow-up that
- * registers a `cp:`/`i18n:` moddle descriptor to make the roundtrip lossless).
- * The one thing it does treat as a real bug is *instability* (A !== B).
+ *   5. assert cp:/i18n element count is preserved (no extension elements dropped)
  *
  * Severity:
- *   FAIL (exit 1) : serialization is not stable (A !== B) — a real bug.
- *   WARN (exit 0) : extension content present but not modelled, or parse warnings.
+ *   FAIL (exit 1) : parse error, OR cp:/i18n elements dropped on parse, OR
+ *                   serialization not stable (A !== B). These are real data loss / bugs.
+ *   WARN (exit 0) : benign "unknown attribute" notices (e.g. the cp:-prefixed
+ *                   cp:selectionBehavior / cp:definitionCanonical, and DI colour
+ *                   attributes) — preserved verbatim via lax $attrs, never dropped.
  *
  * Usage: node tools/moddle-roundtrip.mjs [file.bpmn ...]
  */
 import { readFileSync } from 'node:fs';
 import { BpmnModdle } from 'bpmn-moddle';
 import { resolveBpmnFiles } from './bpmn-files.mjs';
+import { extensions } from './moddle/descriptors.mjs';
 
 const files = resolveBpmnFiles(process.argv.slice(2));
 if (!files.length) {
@@ -38,13 +40,13 @@ if (!files.length) {
 const extCount = (xml) => (xml.match(/<(?:cp|i18n):[A-Za-z]/g) || []).length;
 
 let failures = 0;
-let warnTotal = 0;
+let benignWarnTotal = 0;
 
 console.log(`roundtrip: checking ${files.length} file(s)…\n`);
 
 for (const file of files) {
   const xml = readFileSync(file, 'utf8');
-  const moddle = new BpmnModdle();
+  const moddle = new BpmnModdle(extensions);
 
   let rootElement;
   let warnings = [];
@@ -63,31 +65,35 @@ for (const file of files) {
   const stable = a === b;
   const inCount = extCount(xml);
   const outCount = extCount(a);
-  const droppedExt = inCount > outCount;
-  warnTotal += warnings.length;
+  const dropped = inCount > outCount;
 
-  const lossy = warnings.length > 0 || droppedExt;
-  const status = !stable ? '✖' : lossy ? '⚠' : '✓';
+  // Only "unknown attribute" warnings are benign (lax-preserved). Any other warning
+  // (e.g. "unparsable content <element>") indicates content the model cannot represent.
+  const lossWarnings = warnings.filter((w) => !/unknown attribute/i.test(String(w.message)));
+  const benignWarnings = warnings.length - lossWarnings.length;
+  benignWarnTotal += benignWarnings;
+
+  const hardFail = !stable || dropped || lossWarnings.length > 0;
+  const status = hardFail ? '✖' : benignWarnings ? '⚠' : '✓';
   console.log(`${status} ${file}`);
-  console.log(`    stable=${stable}  cp:/i18n: extension-elements ${inCount} -> ${outCount}`);
+  console.log(`    stable=${stable}  cp:/i18n elements ${inCount} -> ${outCount}  (${benignWarnings} benign attr warning(s))`);
   if (!stable) console.log('    serialization is NOT idempotent (re-serializing changed the output)');
-  if (droppedExt) console.log('    note: extension content dropped on parse (no cp:/i18n: moddle descriptor registered yet)');
-  for (const w of warnings.slice(0, 3)) {
-    console.log(`    warning: ${String(w.message || w).split('\n')[0]}`);
+  if (dropped) console.log(`    DATA LOSS: ${inCount - outCount} extension element(s) dropped on parse`);
+  for (const w of lossWarnings.slice(0, 5)) {
+    console.log(`    loss warning: ${String(w.message).split('\n')[0]}`);
   }
-  if (warnings.length > 3) console.log(`    … and ${warnings.length - 3} more warning(s)`);
   console.log('');
 
-  if (!stable) failures++;
+  if (hardFail) failures++;
 }
 
-if (warnTotal || failures === 0) {
+if (benignWarnTotal) {
   console.log(
-    'roundtrip: extension/parse warnings are informational — register a cp:/i18n: moddle descriptor to make the roundtrip lossless (follow-up).'
+    `roundtrip: ${benignWarnTotal} benign "unknown attribute" notice(s) — preserved verbatim via lax $attrs (cp:selectionBehavior / cp:definitionCanonical / DI colours). Not data loss.`
   );
 }
 if (failures) {
-  console.error(`\nroundtrip: ${failures} file(s) had unstable serialization.`);
+  console.error(`\nroundtrip: ${failures} file(s) failed (data loss or unstable serialization).`);
   process.exit(1);
 }
-console.log('roundtrip: OK (serialization stable).');
+console.log('roundtrip: OK (lossless + stable).');
