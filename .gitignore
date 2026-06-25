@@ -1,2 +1,8 @@
 .DS_Store
 .vscode
+
+# Dev/CI tooling — never vendored into the published CC BY 4.0 artifact
+node_modules/
+npm-debug.log*
+*.log
+*.bak
