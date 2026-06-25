@@ -259,7 +259,7 @@ Dasselbe klinische Verfahren sollte für verschiedene Zielgruppen in unterschied
 | Pools         | Je ein Pool pro beteiligtem Standort oder System                                     |
 | Datenobjekte  | FHIR-Ressourcen, KDS-Profile, OMOP-Tabellen                                          |
 | Ziel          | Schnittstellenspezifikation, Systemarchitektur, Deployment-Planung                   |
-| Max. Elemente | 50–70 pro Diagramm                                                                   |
+| Max. Elemente | 50–70 pro Diagramm (Richtwert für die technische Sicht; das Abnahme-Kriterium **SYN-4** fordert ≤ 50 Symbole pro Diagramm – eine Überschreitung ist hier als dokumentierte **Soll**-Abweichung zulässig)                                                                   |
 
 ### 7.3 Sicht 3: Patientenverständliche Darstellung
 
@@ -290,24 +290,26 @@ flowchart TD
 
 ## 8 Qualitätssicherung
 
+> **Formelle Abnahme.** Dieser Abschnitt beschreibt die modellierungsbegleitende Qualitätssicherung. Das **verbindliche Abnahme- (Freigabe-)Instrument** ist die Abnahme-Checkliste unter [`docs/governance/`](docs/governance/abnahme-checkliste-bpmn-patientenpfad.md) (Kriterien SYN/STR/SEM/PRA, Schweregrade Muss/Soll, drei Gates). Die nachfolgende Review-Checkliste (§8.1) bildet die **technische Teilmenge** dieser Abnahme ab (Kriterien SYN/STR); die Zuordnung ist je Prüfpunkt in der Spalte „Abnahme" annotiert. Die automatisierbaren A-Kriterien werden über `npm run check:conformance` geprüft (siehe [`docs/governance/README.md`](docs/governance/README.md)).
+
 ### 8.1 Empfohlene Checkliste für Modell-Reviews
 
 Jedes BPMN-Modell sollte vor der Weitergabe gegen die folgende Checkliste geprüft werden:
 
-|     | Prüfpunkt                                                                 | Quelle                 |
-| --- | ------------------------------------------------------------------------- | ---------------------- |
-| ☐   | Modell hat **genau ein Start-Event**                                      | 7PMG G3 [1]            |
-| ☐   | Alle **End-Events sind benannt** (kein generisches „Ende")                | 7PMG G3, G6 [1]        |
-| ☐   | Alle Tasks folgen dem **Verb-Objekt-Schema**                              | 7PMG G6 [1]; [6]       |
-| ☐   | **Max. 50 Elemente** (sonst dekomponieren)                                | 7PMG G7 [1]            |
-| ☐   | **Kein OR-Gateway** vorhanden                                             | 7PMG G5 [1]            |
-| ☐   | Jedes **Split hat ein korrespondierendes Join**                           | 7PMG G4 [1]            |
-| ☐   | Alle **XOR-Ausgänge haben Bedingungslabels**                              | GoM: Klarheit [2]      |
-| ☐   | **Default-Sequenzfluss** an jedem XOR markiert                            | BPMN 2.0 Spec [9]      |
-| ☐   | **Happy Path** visuell als Hauptpfad erkennbar                            | Silver (2011) [4]      |
-| ☐   | Klinische Entscheidungen **referenzieren die zugrundeliegende Leitlinie** | BPM+ Health [3]        |
-| ☐   | **Keine kreuzenden Sequenzflüsse**                                        | GoM [2]; Corradini [5] |
-| ☐   | **Syntaktische Validierung** im Modellierungstool durchgeführt            | GoM: Korrektheit [2]   |
+|     | Prüfpunkt                                                                 | Quelle                 | Abnahme |
+| --- | ------------------------------------------------------------------------- | ---------------------- | ------------------ |
+| ☐   | Modell hat **genau ein Start-Event**                                      | 7PMG G3 [1]            | SYN-2 |
+| ☐   | Alle **End-Events sind benannt** (kein generisches „Ende")                | 7PMG G3, G6 [1]        | SYN-2, SYN-3 |
+| ☐   | Alle Tasks folgen dem **Verb-Objekt-Schema**                              | 7PMG G6 [1]; [6]       | SYN-3 |
+| ☐   | **Max. 50 Elemente** (sonst dekomponieren)                                | 7PMG G7 [1]            | SYN-4 |
+| ☐   | **Kein OR-Gateway** vorhanden                                             | 7PMG G5 [1]            | SYN-5 |
+| ☐   | Jedes **Split hat ein korrespondierendes Join**                           | 7PMG G4 [1]            | SYN-5, STR-4 |
+| ☐   | Alle **XOR-Ausgänge haben Bedingungslabels**                              | GoM: Klarheit [2]      | (vgl. SYN-3) |
+| ☐   | **Default-Sequenzfluss** an jedem XOR markiert                            | BPMN 2.0 Spec [9]      | (vgl. STR-1) |
+| ☐   | **Happy Path** visuell als Hauptpfad erkennbar                            | Silver (2011) [4]      | (vgl. PRA-1) |
+| ☐   | Klinische Entscheidungen **referenzieren die zugrundeliegende Leitlinie** | BPM+ Health [3]        | SEM-2 |
+| ☐   | **Keine kreuzenden Sequenzflüsse**                                        | GoM [2]; Corradini [5] | (vgl. SYN-5) |
+| ☐   | **Syntaktische Validierung** im Modellierungstool durchgeführt            | GoM: Korrektheit [2]   | SYN-1 |
 
 ### 8.2 Empfohlener Review-Prozess
 
@@ -325,9 +327,9 @@ flowchart LR
 | -------------------------------- | ----------------------------------------------------------------- |
 | **1 – Modellerstellung**         | Durch den verantwortlichen Modellierer (gemäß diesen Richtlinien) |
 | **2 – Syntaktische Validierung** | Im BPMN-Tool (z. B. Camunda Modeler, bpmn.io)                     |
-| **3 – Peer-Review**              | Durch einen weiteren Modellierer (Checkliste oben als Grundlage)  |
-| **4 – Klinische Validierung**    | Durch Fachexperten auf medizinische Korrektheit                   |
-| **5 – Freigabe & Versionierung** | Im Repository mit Changelog und Versionsnummer – **SemVer + release-please** (`simple`); Änderungs→Bump-Politik und Zenodo/DOI-Ablauf in [ADR-0002](docs/decisions/0002-versioning-and-release.md)                    |
+| **3 – Peer-Review**              | Durch einen weiteren Modellierer (Checkliste oben als Grundlage; entspricht der technischen Abnahme SYN/STR, siehe [`docs/governance/`](docs/governance/abnahme-checkliste-bpmn-patientenpfad.md))  |
+| **4 – Klinische Validierung**    | Durch Fachexperten auf medizinische Korrektheit (entspricht dem klinischen Abnahme-Gate: Kinsman-Gate SEM-1…5 + Face Validity SEM-6)                   |
+| **5 – Freigabe & Versionierung** | Formale Freigabe nach bestandener Gesamtabnahme (alle drei Gates), dokumentiert im Abnahme-Protokoll unter [`docs/governance/`](docs/governance/abnahme-protokoll-bpmn-patientenpfad.md); im Repository mit Changelog und Versionsnummer – **SemVer + release-please** (`simple`); Änderungs→Bump-Politik und Zenodo/DOI-Ablauf in [ADR-0002](docs/decisions/0002-versioning-and-release.md)                    |
 
 ---
 
