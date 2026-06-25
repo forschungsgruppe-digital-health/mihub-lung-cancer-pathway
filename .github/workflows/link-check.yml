@@ -1,0 +1,30 @@
+name: Link check
+
+# Verifies that Markdown links resolve — both internal cross-links and the external
+# attribution / funding URLs (mihubx.de, crane4health.eu, ina.gematik.de, the logos),
+# which rot easily and are load-bearing for the CC BY 4.0 attribution chain.
+# Non-blocking by design (external sites can be flaky); review the report.
+
+on:
+  pull_request:
+    branches: [main, dev]
+  schedule:
+    - cron: "0 6 * * 1" # Mondays 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    name: lychee link check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - name: Run lychee
+        uses: lycheeverse/lychee-action@82202e5e9c2f4ef1a55a3d02563e1cb6041e5332 # v2
+        with:
+          args: --no-progress --verbose './**/*.md'
+          fail: false
