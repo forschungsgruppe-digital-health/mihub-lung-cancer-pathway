@@ -14,7 +14,8 @@
     "check:metrics": "node tools/check-model-metrics.mjs",
     "check:roundtrip": "node tools/moddle-roundtrip.mjs",
     "check:xsd": "bash tools/validate-xsd.sh",
-    "check:conformance": "node tools/check-conformance.mjs"
+    "check:conformance": "node tools/check-conformance.mjs",
+    "abnahme:protokoll": "node tools/abnahme-protokoll.mjs"
   },
   "devDependencies": {
     "bpmn-moddle": "^10.0.0",
