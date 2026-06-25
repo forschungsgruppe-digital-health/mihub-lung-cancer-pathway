@@ -58,7 +58,8 @@ for how to read the output.
 - **Conventional Commits**, scope = the pathway file:
   `feat(treatment)!: replace OR-gateway with XOR`, `docs(governance): …`,
   `fix(aftercare): add missing end event`. A `!` (or `BREAKING CHANGE:`) marks a change
-  that alters the pathway's structure/semantics (see the versioning policy — planned).
+  that alters the pathway's structure/semantics (see the versioning policy in
+  [`docs/decisions/0002`](docs/decisions/0002-versioning-and-release.md)).
 - **Branch off `dev`** and open a **pull request into `dev`** (`gh pr create --base dev`).
   `dev` is the active-development branch; `main` is for **releases**. Do **not** push
   directly to `dev`/`main`, and never `git push origin dev:main`. Promotion is a
