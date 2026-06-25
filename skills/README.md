@@ -6,9 +6,12 @@ each `skills/<name>/SKILL.md` carries YAML frontmatter (`name`, `description`) p
 Markdown instructions. Tools match on the `description` to decide when a skill
 applies. All tool-specific files only point here — never copy a skill's body.
 
-| Skill | When it fires | Gate |
+| Skill | When it fires | Gate / output |
 |---|---|---|
-| [`bpmn-conformance`](bpmn-conformance/SKILL.md) | editing any `**/*.bpmn` | `npm run check:conformance` |
+| [`bpmn-conformance`](bpmn-conformance/SKILL.md) | editing any `**/*.bpmn` | `npm run check:conformance` (deterministic) |
+| [`bpmn-acceptance`](bpmn-acceptance/SKILL.md) | preparing a formal Abnahme | `npm run abnahme:protokoll` → pre-filled Protokoll (never stamps acceptance) |
+| [`clinical-pathway-review`](clinical-pathway-review/SKILL.md) | reviewing a pathway for the SEM/PRA criteria | advisory findings only (LLM-judgment, read-only) |
+| [`model-inventory`](model-inventory/SKILL.md) | mapping what the model set contains | a Model Inventory Matrix (read-only) |
 
 ## How each tool consumes these skills
 
@@ -24,11 +27,10 @@ applies. All tool-specific files only point here — never copy a skill's body.
 
 These are designed but not shipped; they arrive with their backing tools:
 
-- **bpmn-acceptance** — runs the automatable Abnahme A-checks and emits a pre-filled
-  `docs/governance/abnahme-protokoll-…md` (it never stamps the overall decision).
-- **clinical-pathway-review** — advisory LLM review for the SEM/PRA criteria (never
-  pass/fail; evidence for human reviewers).
-- **bpmn-soundness** — STR-1..4 behavioural soundness via an external checker.
+- **bpmn-soundness** — STR-1…4 behavioural soundness via an external model checker
+  (`rust_bpmn_analyzer`). Approach + pilot protocol in
+  [`docs/decisions/0003-soundness-tooling.md`](../docs/decisions/0003-soundness-tooling.md);
+  until piloted, STR-1…4 stay `HUMAN-INPUT-NEEDED` in the `bpmn-acceptance` Protokoll.
 
 ## Editing rule
 

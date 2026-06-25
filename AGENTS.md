@@ -82,9 +82,12 @@ Reusable workflows live once under `skills/<name>/SKILL.md` (the single source).
 Claude Code discovers them via `.claude/skills` → `../skills`; Codex/Copilot via
 `.agents/skills` → `../skills`. Never copy a skill body into a pointer file.
 
-| Skill (open this) | Fires when you edit | Gate |
+| Skill (open this) | Fires when you… | Gate / output |
 |---|---|---|
-| `skills/bpmn-conformance/SKILL.md` | any `**/*.bpmn` | `npm run check:conformance` |
+| `skills/bpmn-conformance/SKILL.md` | edit any `**/*.bpmn` | `npm run check:conformance` |
+| `skills/bpmn-acceptance/SKILL.md` | prepare a formal Abnahme | `npm run abnahme:protokoll` (evidence only; never stamps acceptance) |
+| `skills/clinical-pathway-review/SKILL.md` | review SEM/PRA criteria | advisory findings (read-only) |
+| `skills/model-inventory/SKILL.md` | map the model set | Model Inventory Matrix (read-only) |
 
 ## Hard rules (do not violate)
 
