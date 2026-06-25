@@ -3,11 +3,16 @@
 This folder holds the **Abnahme instrument** used to formally accept (sign off) a
 BPMN-modelled patient pathway, together with its rationale and a fill-in protocol.
 
-| File | Purpose |
-|---|---|
-| [`abnahme-checkliste-bpmn-patientenpfad.md`](abnahme-checkliste-bpmn-patientenpfad.md) | **The instrument (v0.3.1)** — the criteria, severities, methods, and gates. |
-| [`abnahme-handout-bpmn-patientenpfad.md`](abnahme-handout-bpmn-patientenpfad.md) | **Rationale + examples** — why each criterion exists (with sources) and one lung-cancer example per item. |
-| [`abnahme-protokoll-bpmn-patientenpfad.md`](abnahme-protokoll-bpmn-patientenpfad.md) | **Sign-off protocol** — fill in per acceptance; one protocol per acceptance event. |
+Each document is maintained **bilingually**: German is the authoritative original; the
+English `*.en.md` is a translation kept in sync at the same version (repo language policy in
+`AGENTS.md`). The documents are **draft / not final** — changes are tracked in
+[`CHANGELOG.md`](CHANGELOG.md) and via Conventional Commits (`docs(governance): …`).
+
+| Document | Version | DE (original) | EN (translation) |
+|---|---|---|---|
+| **Acceptance Checklist** — the instrument (criteria, severities, methods, gates) | 0.3.1 | [DE](abnahme-checkliste-bpmn-patientenpfad.md) | [EN](abnahme-checkliste-bpmn-patientenpfad.en.md) |
+| **Handout** — rationale + one lung-cancer example per criterion (with sources) | 0.2 | [DE](abnahme-handout-bpmn-patientenpfad.md) | [EN](abnahme-handout-bpmn-patientenpfad.en.md) |
+| **Acceptance Protocol** — fill-in sign-off form (one per acceptance) | 1.0 | [DE](abnahme-protokoll-bpmn-patientenpfad.md) | [EN](abnahme-protokoll-bpmn-patientenpfad.en.md) |
 
 ## How to read it
 

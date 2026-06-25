@@ -1,0 +1,39 @@
+# Changelog — Abnahme (acceptance) instrument
+
+Tracks changes to the governance/acceptance documents in this folder. **These documents are
+draft and not final — expect change.** Each document also carries its own `version` (in its
+front matter or header): the Checklist (the instrument) is the version reference; the Handout
+and the Protocol template are versioned independently.
+
+German is the authoritative original; the English `*.en.md` files are translations kept in
+sync at the same version. Changes follow Conventional Commits (`docs(governance): …`) and
+flow into the repo-level [CHANGELOG](../../CHANGELOG.md) via release-please. Format loosely
+follows [Keep a Changelog](https://keepachangelog.com/).
+
+## [Unreleased]
+
+### Added
+- English translations of all three documents (`*.en.md`) alongside the German originals;
+  German remains authoritative (2026-06-25).
+- This consolidated changelog and a version/status table in the folder README (2026-06-25).
+
+## Checklist (instrument) v0.3.1
+- BPMN4CP reference clarified: Revised = HICSS 2016 (pp. 3249–3258, DOI 10.1109/HICSS.2016.407);
+  BIBM-2014 and HICSS-2016 versions cited separately.
+
+## Checklist v0.3
+- Publication-ready instrument: front matter, derivation note, construct-to-source mapping,
+  evaluation plan, references, license/citation.
+
+## Checklist v0.2
+- Beginner-friendliness (glossary, check questions); full-text reconciliation of the core sources.
+
+## Checklist v0.1
+- Initial structure (dimensions, gates, sign-off).
+
+---
+
+### Companion documents
+
+- **Handout** v0.2 — per-criterion rationale + one lung-cancer example each; BPMN4CP appendix.
+- **Acceptance Protocol** (template) v1.0 — fill-in sign-off form (one protocol per acceptance).
