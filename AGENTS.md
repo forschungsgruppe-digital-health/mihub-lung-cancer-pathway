@@ -65,6 +65,11 @@ consensus. The automatable criteria (SYN-1/2/4/5, STR-1..4) are tooled; the clin
 - **Declared conformance class: Analytic** (minus OR-gateways) — see `docs/decisions/0001`.
 - **Decompose** levels > ~50 elements via Call Activities (SYN-4).
 - **Conventional Commits**; scope = the pathway file (`feat(aftercare)!: …`, `docs(overarching): …`).
+- **Language:** the repo default is **German** (README, CONVENTIONS, governance instrument).
+  **Technical documentation is written in English** (ADRs in `docs/decisions/`, this file,
+  `CONTRIBUTING.md`, `docs/model-issues/`, tool docstrings/comments). The Abnahme governance
+  instrument (`docs/governance/`) is **bilingual** (DE original + EN translation, same version).
+  **Issue templates are always bilingual (DE + EN).**
 
 ## Branching and pull requests
 
