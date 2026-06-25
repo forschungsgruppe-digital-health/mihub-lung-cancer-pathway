@@ -16,7 +16,7 @@ validiert. Skills/Agenten melden nach docs/model-issues/ und bearbeiten nie ein 
 
 ### Affected model(s) · Betroffene(s) Modell(e)
 
-<!-- e.g. lung-cancer_treatment-subpathway.bpmn -->
+<!-- e.g. models/lung-cancer-treatment-pathway.bpmn -->
 
 ### What was found · Befund
 

@@ -9,9 +9,10 @@ acceptance gate in `docs/governance/`; do not duplicate them.
 ## What this repo is
 
 A set of **BPMN 2.0 models of the lung-cancer patient pathway** (one overarching
-pathway + six sub-pathways), developed in the MiHUB project (TU Dresden /
-Forschungsgruppe Digital Health). Each model ships as a `.bpmn` source and a `.svg`
-render. The repository is **model-only** and is **published openly under CC BY 4.0**
+pathway + seven sub-pathways: screening, diagnostic, patient-consultation, tumor-board,
+molecular-tumor-board, treatment, aftercare), developed in the MiHUB project (TU Dresden /
+Forschungsgruppe Digital Health). The models live under `models/` (naming convention
+`lung-cancer-<phase>-pathway`, ADR-0004); each `.bpmn` source has a paired `.svg` render. The repository is **model-only** and is **published openly under CC BY 4.0**
 (a Zenodo DOI is planned). There is no application here.
 
 > ⚠️ **Intended use.** These models are a research / education / interoperability

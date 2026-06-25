@@ -17,8 +17,8 @@ rules themselves live in [`CONVENTIONS.md`](CONVENTIONS.md); the acceptance crit
 
 | Path | What |
 |---|---|
-| `lung-cancer_*.bpmn` | the BPMN 2.0 model **sources** (edit these) |
-| `lung-cancer_*.svg` | the **derived** renders — re-export when the `.bpmn` changes |
+| `models/lung-cancer-*-pathway.bpmn` | the BPMN 2.0 model **sources** (edit these) |
+| `models/lung-cancer-*-pathway.svg` | the **derived** renders — re-export when the `.bpmn` changes |
 | `CONVENTIONS.md` | modelling guideline (the reference) |
 | `docs/governance/` | the Abnahme acceptance instrument |
 | `docs/decisions/` | architecture/modelling decision records (ADRs) |

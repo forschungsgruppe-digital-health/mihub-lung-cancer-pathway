@@ -33,7 +33,7 @@ npm run check:roundtrip       # serialization stability + cp:/i18n: extension pr
 npm run check:xsd             # OMG BPMN20.xsd core validation (informational)
 ```
 
-Scope to specific files by appending paths, e.g. `npm run check:metrics -- lung-cancer_treatment-subpathway.bpmn`.
+Scope to specific files by appending paths, e.g. `npm run check:metrics -- models/lung-cancer-treatment-pathway.bpmn`.
 
 ## Division of labour (do not conflate)
 

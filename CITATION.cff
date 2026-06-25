@@ -2,9 +2,9 @@ cff-version: 1.2.0
 message: "If you use these models, please cite them as below."
 title: "Lungenkrebspatientenpfad – MiHUB (BPMN-Modell)"
 abstract: >-
-  BPMN 2.0 models of the overarching lung-cancer patient pathway and six
-  sub-pathways (diagnostics, patient consultation, tumor board, molecular tumor
-  board, treatment, aftercare), developed in the MiHUB project (TU Dresden /
+  BPMN 2.0 models of the overarching lung-cancer patient pathway and seven
+  sub-pathways (screening, diagnostics, patient consultation, tumor board, molecular
+  tumor board, treatment, aftercare), developed in the MiHUB project (TU Dresden /
   Forschungsgruppe Digital Health). A research, education and
   interoperability-reference artifact — not clinically validated and not for use
   in direct patient care (see DISCLAIMER.md).

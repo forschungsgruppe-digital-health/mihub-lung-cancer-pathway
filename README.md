@@ -103,7 +103,7 @@ Erhebung notwendiger Datenelemente, digitaler Unterstützungsoptionen und gewün
 
 ## Artefakte in diesem Repository
 
-Die BPMN-Modelle werden in zwei Formaten bereitgestellt:
+Alle Modelle liegen im Verzeichnis [`models/`](./models/) (Namenskonvention `lung-cancer-<phase>-pathway`, siehe [ADR-0004](./docs/decisions/0004-repo-structure-and-model-naming.md) und die Modellübersicht [`models/README.md`](./models/README.md)). Die BPMN-Modelle werden in zwei Formaten bereitgestellt:
 
 - **BPMN** (`.bpmn`): Maschinenlesbare BPMN-2.0-Quelldatei, direkt bearbeitbar mit gängigen BPMN-Editoren (s. u.)
 - **SVG** (`.svg`): Skalierbare Vektorgrafik zur menschenlesbaren Visualisierung, darstellbar im Browser oder in Vektorgrafik-Software
@@ -112,8 +112,8 @@ Die BPMN-Modelle werden in zwei Formaten bereitgestellt:
 
 | Datei                                                                          | Beschreibung                                                 |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------ |
-| [`lung-cancer_overarching-pathway.bpmn`](./lung-cancer_overarching-pathway.bpmn) | BPMN-Quelldatei des übergreifenden Lungenkrebspatientenpfads |
-| [`lung-cancer_overarching-pathway.svg`](./lung-cancer_overarching-pathway.svg) | Visualisierung des übergreifenden Lungenkrebspatientenpfads  |
+| [`models/lung-cancer-overarching-pathway.bpmn`](./models/lung-cancer-overarching-pathway.bpmn) | BPMN-Quelldatei des übergreifenden Lungenkrebspatientenpfads |
+| [`models/lung-cancer-overarching-pathway.svg`](./models/lung-cancer-overarching-pathway.svg) | Visualisierung des übergreifenden Lungenkrebspatientenpfads  |
 
 Der übergreifende Pfad bildet den vollständigen Patient:innen-Journey von der Prävention/Früherkennung bis zur Nachsorge ab und verknüpft alle Teilpfade miteinander.
 
@@ -121,12 +121,13 @@ Der übergreifende Pfad bildet den vollständigen Patient:innen-Journey von der 
 
 | Datei                                                                                                                                                                   | Beschreibung                            |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
-| [`lung-cancer_diagnostic-subpathway.bpmn`](./lung-cancer_diagnostic-subpathway.bpmn) / [`.svg`](./lung-cancer_diagnostic-subpathway.svg)                                  | Teilpfad Diagnostik                     |
-| [`lung-cancer_patient-consultation-subpathway.bpmn`](./lung-cancer_patient-consultation-subpathway.bpmn) / [`.svg`](./lung-cancer_patient-consultation-subpathway.svg)    | Teilpfad Patientengespräch / Aufklärung |
-| [`lung-cancer_tumor-board-subpathway.bpmn`](./lung-cancer_tumor-board-subpathway.bpmn) / [`.svg`](./lung-cancer_tumor-board-subpathway.svg)                               | Teilpfad Tumorboard                     |
-| [`lung-cancer_molecular-tumor-board-subpathway.bpmn`](./lung-cancer_molecular-tumor-board-subpathway.bpmn) / [`.svg`](./lung-cancer_molecular-tumor-board-subpathway.svg) | Teilpfad Molekulares Tumorboard         |
-| [`lung-cancer_treatment-subpathway.bpmn`](./lung-cancer_treatment-subpathway.bpmn) / [`.svg`](./lung-cancer_treatment-subpathway.svg)                                     | Teilpfad Behandlung                     |
-| [`lung-cancer_aftercare-subpathway.bpmn`](./lung-cancer_aftercare-subpathway.bpmn) / [`.svg`](./lung-cancer_aftercare-subpathway.svg)                                     | Teilpfad Nachsorge                      |
+| [`models/lung-cancer-diagnostic-pathway.bpmn`](./models/lung-cancer-diagnostic-pathway.bpmn) / [`.svg`](./models/lung-cancer-diagnostic-pathway.svg)                                  | Teilpfad Diagnostik                     |
+| [`models/lung-cancer-patient-consultation-pathway.bpmn`](./models/lung-cancer-patient-consultation-pathway.bpmn) / [`.svg`](./models/lung-cancer-patient-consultation-pathway.svg)    | Teilpfad Patientengespräch / Aufklärung |
+| [`models/lung-cancer-tumor-board-pathway.bpmn`](./models/lung-cancer-tumor-board-pathway.bpmn) / [`.svg`](./models/lung-cancer-tumor-board-pathway.svg)                               | Teilpfad Tumorboard                     |
+| [`models/lung-cancer-molecular-tumor-board-pathway.bpmn`](./models/lung-cancer-molecular-tumor-board-pathway.bpmn) / [`.svg`](./models/lung-cancer-molecular-tumor-board-pathway.svg) | Teilpfad Molekulares Tumorboard         |
+| [`models/lung-cancer-treatment-pathway.bpmn`](./models/lung-cancer-treatment-pathway.bpmn) / [`.svg`](./models/lung-cancer-treatment-pathway.svg)                                     | Teilpfad Behandlung                     |
+| [`models/lung-cancer-aftercare-pathway.bpmn`](./models/lung-cancer-aftercare-pathway.bpmn) / [`.svg`](./models/lung-cancer-aftercare-pathway.svg)                                     | Teilpfad Nachsorge                      |
+| [`models/lung-cancer-screening-pathway.bpmn`](./models/lung-cancer-screening-pathway.bpmn) / [`.svg`](./models/lung-cancer-screening-pathway.svg) | Teilpfad Krebsfrüherkennung (Lung Cancer Screening) |
 
 ---
 
