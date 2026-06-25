@@ -174,4 +174,4 @@ A **formative → summative** evaluation trajectory is planned in the sense of F
 
 ---
 
-*Rationale and one example per item: `abnahme-handout-bpmn-patientenpfad.md`. Status of the source check documented there.*
+*Rationale and one example per item: `acceptance-handout-bpmn-patient-pathway.md`. Status of the source check documented there.*

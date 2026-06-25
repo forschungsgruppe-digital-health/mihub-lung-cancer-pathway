@@ -4,15 +4,15 @@ This folder holds the **Abnahme instrument** used to formally accept (sign off) 
 BPMN-modelled patient pathway, together with its rationale and a fill-in protocol.
 
 Each document is maintained **bilingually**: German is the authoritative original; the
-English `*.en.md` is a translation kept in sync at the same version (repo language policy in
+English `acceptance-*.md` is a translation kept in sync at the same version (repo language policy in
 `AGENTS.md`). The documents are **draft / not final** — changes are tracked in
 [`CHANGELOG.md`](CHANGELOG.md) and via Conventional Commits (`docs(governance): …`).
 
 | Document | Version | DE (original) | EN (translation) |
 |---|---|---|---|
-| **Acceptance Checklist** — the instrument (criteria, severities, methods, gates) | 0.3.1 | [DE](abnahme-checkliste-bpmn-patientenpfad.md) | [EN](abnahme-checkliste-bpmn-patientenpfad.en.md) |
-| **Handout** — rationale + one lung-cancer example per criterion (with sources) | 0.2 | [DE](abnahme-handout-bpmn-patientenpfad.md) | [EN](abnahme-handout-bpmn-patientenpfad.en.md) |
-| **Acceptance Protocol** — fill-in sign-off form (one per acceptance) | 1.0 | [DE](abnahme-protokoll-bpmn-patientenpfad.md) | [EN](abnahme-protokoll-bpmn-patientenpfad.en.md) |
+| **Acceptance Checklist** — the instrument (criteria, severities, methods, gates) | 0.3.1 | [DE](abnahme-checkliste-bpmn-patientenpfad.md) | [EN](acceptance-checklist-bpmn-patient-pathway.md) |
+| **Handout** — rationale + one lung-cancer example per criterion (with sources) | 0.2 | [DE](abnahme-handout-bpmn-patientenpfad.md) | [EN](acceptance-handout-bpmn-patient-pathway.md) |
+| **Acceptance Protocol** — fill-in sign-off form (one per acceptance) | 1.0 | [DE](abnahme-protokoll-bpmn-patientenpfad.md) | [EN](acceptance-protocol-bpmn-patient-pathway.md) |
 
 ## How to read it
 
@@ -53,5 +53,7 @@ BPMN4CP, BPMN-2.0 conformance, soundness). It is **not yet empirically validated
 the planned evaluation trajectory is described in §6 of the Checkliste. It is licensed
 CC BY 4.0; cite per the Checkliste's citation note when reused.
 
-See also the modelling reference [`../../CONVENTIONS.md`](../../CONVENTIONS.md) (§8 in
-particular maps closely onto this instrument).
+See also the modelling reference [`../../CONVENTIONS.md`](../../CONVENTIONS.md): its §8.1
+review checklist is the **technical-acceptance subset** of this instrument (each row is
+annotated with the matching SYN/STR id), and its §8.2 review process maps step 3 → the
+technical gate (SYN/STR) and step 4 → the clinical gate (Kinsman-Gate + SEM-6).
