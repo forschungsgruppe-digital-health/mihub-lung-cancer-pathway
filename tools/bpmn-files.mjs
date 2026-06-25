@@ -14,8 +14,8 @@
  *   - With no arguments                     -> discover every `.bpmn` under the ROOTS
  *     below, excluding dependencies and VCS metadata.
  *
- * In this repo the models live at the repository root (e.g. `lung-cancer_*.bpmn`),
- * so ROOT is `.`; add more roots here if models are ever moved into subfolders.
+ * In this repo the models live under `models/` (ADR-0004); add more roots here if a
+ * second model location is ever introduced.
  *
  * CLI usage:
  *   node tools/bpmn-files.mjs            # print discovered files, one per line
@@ -26,7 +26,7 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 /** Directories scanned for `.bpmn` files when no explicit paths are given. */
-const ROOTS = ['.'];
+const ROOTS = ['models'];
 
 /** Directory names never descended into (deps, build output, VCS). */
 const EXCLUDE_DIRS = new Set(['node_modules', 'dist', '.git', 'coverage', '.github']);
