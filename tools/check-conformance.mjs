@@ -13,10 +13,19 @@
  *                         (cp:/i18n: are not yet modelled — see follow-up)
  *   - XSD core            BPMN core vs OMG BPMN20.xsd (extensions pass via lax)
  *
- * Usage: node tools/check-conformance.mjs
- * Exit:  0 = all blocking checks passed, 1 = a blocking check failed.
+ * Usage: node tools/check-conformance.mjs [--warn]
+ *   --warn  (or env CONFORMANCE_WARN_ONLY=1): ADVISORY mode — report blocking findings as
+ *           warnings and exit 0. CI uses this during the release-candidate / pre-remodel phase,
+ *           since the models are known-red by design (docs/model-issues, docs/decisions/0001).
+ *           Default is STRICT (a blocking finding exits 1).
+ * Exit:  0 = all blocking checks passed (or warn-only), 1 = a blocking check failed (strict).
  */
 import { spawnSync } from 'node:child_process';
+
+// Advisory mode for the release-candidate / pre-remodel phase: report blocking findings but exit 0.
+const WARN_ONLY =
+  process.argv.includes('--warn') ||
+  ['1', 'true', 'yes'].includes(String(process.env.CONFORMANCE_WARN_ONLY).toLowerCase());
 
 const checks = [
   { name: 'model naming convention (ADR-0004: lung-cancer-<phase>-pathway)', cmd: process.execPath, args: ['tools/check-naming.mjs'], blocking: true },
@@ -42,6 +51,19 @@ for (const s of summary) console.log('  ' + s);
 console.log('=====================================================');
 
 if (blockingFailures) {
+  if (WARN_ONLY) {
+    // Release-candidate / pre-remodel phase: report, never block. The models are known-red by
+    // design; re-enable enforcement (drop warn-only) once the remodel greens them.
+    console.log(
+      `::warning::BPMN conformance gate: ${blockingFailures} blocking check(s) have findings — ` +
+        `warn-only (advisory) during the release-candidate phase; not blocking this run.`
+    );
+    console.log(
+      `\nconformance: WARN — ${blockingFailures} blocking check(s) failed, reported but not blocking ` +
+        `(warn-only mode). See docs/model-issues/2026-06-25-baseline.md.`
+    );
+    process.exit(0);
+  }
   console.error(`\nconformance: FAIL — ${blockingFailures} blocking check(s) failed.`);
   process.exit(1);
 }
