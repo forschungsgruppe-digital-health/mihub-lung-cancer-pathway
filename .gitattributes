@@ -1,0 +1,38 @@
+# Controls the contents of the GitHub release source archive — and therefore the Zenodo deposit.
+#
+# GitHub builds the release tarball/zip with `git archive`, which honors `export-ignore`, and
+# Zenodo archives that tarball. So the published/archived release is trimmed to the citable
+# artifact — the BPMN models + their SVG images — plus the essential metadata, without the
+# development & tooling scaffolding.
+#
+# KEPT in the archive: models/ (.bpmn + .svg), README.md, LICENSE, CITATION.cff, DISCLAIMER.md
+# Everything listed below is EXCLUDED.
+#
+# NOTE: applies to FUTURE releases only — the file must be present in the tagged commit. The
+# already-archived v0.2.1-rc.1 is unaffected. To exclude/keep more, edit the lists below.
+
+# --- development & build tooling ---
+/tools/                         export-ignore
+/skills/                        export-ignore
+/.github/                       export-ignore
+/package.json                   export-ignore
+/package-lock.json              export-ignore
+/release-please-config.json     export-ignore
+/.release-please-manifest.json  export-ignore
+/version.txt                    export-ignore
+/.bpmnlintrc                    export-ignore
+
+# --- editor / agent / repo meta ---
+/.vscode/                       export-ignore
+/.claude/                       export-ignore
+/.agents/                       export-ignore
+/.gitignore                     export-ignore
+/.gitattributes                 export-ignore
+/AGENTS.md                      export-ignore
+/CLAUDE.md                      export-ignore
+
+# --- contributor & process docs (not part of the model artifact) ---
+/CONTRIBUTING.md                export-ignore
+/CONVENTIONS.md                 export-ignore
+/CODE_OF_CONDUCT.md             export-ignore
+/docs/                          export-ignore
