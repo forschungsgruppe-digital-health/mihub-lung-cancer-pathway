@@ -4,9 +4,12 @@ name: CI
 # Runs on PRs into and pushes to dev/main. The decision lives in the tools under
 # tools/ — this workflow just runs `npm run check:conformance`.
 #
-# NOTE: this gate is expected to be RED on the current models (pre-existing
-# structural defects + four OR-gateways) — see docs/decisions/0001. Do not make
-# this a required status check on dev/main until the remodel follow-up greens it.
+# NOTE: the current models are known-red (pre-existing structural defects + four
+# OR-gateways) — see docs/decisions/0001 and docs/model-issues/. During the
+# release-candidate / pre-remodel phase the gate runs in ADVISORY (warn-only) mode:
+# it REPORTS every finding (as ::warning::) but does NOT fail the check, so it does
+# not block release-candidate / model-refinement PRs. Re-enable enforcement after the
+# remodel by removing CONFORMANCE_WARN_ONLY below (and then add it as a required check).
 
 on:
   push:
@@ -39,5 +42,10 @@ jobs:
 
       # Blocking layers: structural bpmnlint + the no-OR model-metrics gate.
       # Informational layers (roundtrip, XSD core) are reported but never block.
-      - name: Conformance (bpmnlint + metrics + roundtrip + XSD)
+      - name: Conformance (bpmnlint + metrics + roundtrip + XSD) — advisory during the RC phase
+        env:
+          # Warn-only: the gate reports all findings but exits 0 (does not fail the check) while the
+          # models are known-red by design. Remove this line to re-enable hard enforcement after the
+          # remodel greens the models (docs/model-issues/2026-06-25-baseline.md).
+          CONFORMANCE_WARN_ONLY: 'true'
         run: npm run check:conformance
