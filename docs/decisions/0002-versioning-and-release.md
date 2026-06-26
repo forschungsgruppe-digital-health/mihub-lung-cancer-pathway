@@ -33,11 +33,14 @@ breaking change (`feat!`/`refactor!`) bumps the **MINOR** (`0.1.0 → 0.2.0`), n
 while no model has yet passed the acceptance test.
 
 **Release candidates.** To cut a candidate rather than a final release, set
-**`"release-as": "X.Y.Z-rc.N"`** in `release-please-config.json` (e.g. `0.2.0-rc.1`);
-release-please forces that version and marks the `-rc` tag as a GitHub **pre-release** (not
-`latest`), so no consumer treats it as stable. Advance the suffix for further candidates
-(`-rc.2`, …) and **remove `release-as`** to cut the final `X.Y.Z` once the acceptance test
-is "Accepted".
+**`"release-as": "X.Y.Z-rc.N"`** (e.g. `0.2.0-rc.1`) **and `"prerelease": true`** in
+`release-please-config.json`: `release-as` forces the version and `prerelease: true` marks the
+GitHub release as a **pre-release** (not `latest`), so no consumer treats it as stable.
+(`release-as` **alone does not** flag the pre-release — both keys are required; a missed
+`prerelease: true` is why `v0.2.0-rc.1` first published as a full release.) Advance the suffix for
+further candidates (`-rc.2`, …); to cut the final `X.Y.Z` once the acceptance test is "Accepted",
+**remove both `release-as` and `prerelease`** (otherwise the stable release is wrongly marked a
+pre-release).
 
 Bumps are derived from **Conventional Commit** messages scoped by pathway file
 (`feat(treatment)!: …` = breaking; `feat(aftercare): …` = minor; `fix`/`docs` = patch).
