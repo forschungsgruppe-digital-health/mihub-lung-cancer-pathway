@@ -9,9 +9,12 @@ abstract: >-
   interoperability-reference artifact — not clinically validated and not for use
   in direct patient care (see DISCLAIMER.md).
 type: dataset
-# Author order is provisional (listed alphabetically) — set the intended authorship before a
-# stable release; add further contributors as needed.
+# Author order: first author Susky, senior (last) author Schlieter; add further contributors as needed.
 authors:
+  - given-names: Marcel
+    family-names: Susky
+    affiliation: "Forschungsgruppe Digital Health, Technische Universität Dresden"
+    orcid: "https://orcid.org/0000-0002-3906-0452"
   - given-names: Rebecca
     family-names: Scheel
     affiliation: "Forschungsgruppe Digital Health, Technische Universität Dresden"
@@ -20,10 +23,6 @@ authors:
     family-names: Schlieter
     affiliation: "Forschungsgruppe Digital Health, Technische Universität Dresden"
     orcid: "https://orcid.org/0000-0002-6513-9017"
-  - given-names: Marcel
-    family-names: Susky
-    affiliation: "Forschungsgruppe Digital Health, Technische Universität Dresden"
-    orcid: "https://orcid.org/0000-0002-3906-0452"
 license: CC-BY-4.0
 doi: "10.5281/zenodo.20943916"  # concept DOI (all versions); resolves to the latest Zenodo release
 repository-code: "https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway"
