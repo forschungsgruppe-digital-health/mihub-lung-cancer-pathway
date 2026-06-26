@@ -1,0 +1,6 @@
+{
+  "extends": ["bpmnlint:recommended", "bpmnlint:correctness"],
+  "rules": {
+    "no-inclusive-gateway": "error"
+  }
+}

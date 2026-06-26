@@ -7,6 +7,30 @@
 [![Projekt: MII](https://img.shields.io/badge/Projekt-MII-blue)](https://www.medizininformatik-initiative.de/)
 [![Standard: BPMN 2.0](https://img.shields.io/badge/Standard-BPMN%202.0-orange)](https://www.omg.org/spec/BPMN/2.0/)
 
+[![CI – Conformance Gate](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions/workflows/ci.yml/badge.svg?branch=dev)](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions/workflows/ci.yml?query=branch%3Adev)
+[![Soundness (advisory)](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions/workflows/soundness.yml/badge.svg?branch=dev)](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions/workflows/soundness.yml?query=branch%3Adev)
+[![Link check](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions/workflows/link-check.yml/badge.svg?branch=dev)](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions/workflows/link-check.yml?query=branch%3Adev)
+
+ℹ️ Die **CI-Konformitätsprüfung** ist derzeit **rot — und zwar absichtlich**: das Gate meldet die bekannten Modellbefunde (Struktur, OR-Gateways) vor der geplanten Ummodellierung (siehe [`docs/model-issues/`](./docs/model-issues/) und [ADR-0001](./docs/decisions/0001-repo-tooling-and-conformance-gate.md)). Namenskonvention, Roundtrip und XSD-Prüfung sind grün. Live-Status: [GitHub Actions](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions).
+
+> ⚠️ **Hinweis zur Zweckbestimmung / Haftungsausschluss.** Dieses BPMN-Modell ist ein **Forschungs-, Lehr- und Interoperabilitäts-Referenzartefakt**. Es ist **nicht** für den Einsatz in der unmittelbaren Patient:innenversorgung oder zur klinischen Entscheidungsfindung bestimmt, **nicht klinisch validiert** und stellt **keine medizinische Beratung** dar. Die Autor:innen weisen ihm **keine medizinische Zweckbestimmung** im Sinne der EU-Medizinprodukteverordnung (MDR 2017/745) zu. Jede Nutzung in einem Versorgungskontext erfordert eine eigenständige klinische Validierung und regulatorische Bewertung durch die nutzende Stelle. Es gelten [`DISCLAIMER.md`](./DISCLAIMER.md) und Abschnitt 5 der [`LICENSE`](./LICENSE).
+>
+> _This BPMN model is a research, education and interoperability-reference artifact. It is **not** intended for direct patient care or clinical decision-making, has **not** been clinically validated, and is not medical advice. The authors assign it **no medical intended purpose** under EU MDR 2017/745. See [`DISCLAIMER.md`](./DISCLAIMER.md)._
+
+---
+
+## Schnellnavigation
+
+| Ich möchte … | Hier entlang |
+| --- | --- |
+| die Modelle **ansehen / verwenden** | [Artefakte](#artefakte-in-diesem-repository) · [Verwendung](#verwendung) |
+| die **Modellierungsregeln** verstehen | [`CONVENTIONS.md`](./CONVENTIONS.md) |
+| ein Modell **erweitern / beitragen** | [`CONTRIBUTING.md`](./CONTRIBUTING.md) |
+| die **Abnahmetest-/Qualitätskriterien** | [`docs/governance/`](./docs/governance/) |
+| die **Konformitätsprüfung** lokal ausführen | [`skills/bpmn-conformance/SKILL.md`](./skills/bpmn-conformance/SKILL.md) (`npm run check:conformance`) |
+| **Entscheidungen (ADR)** nachlesen | [`docs/decisions/`](./docs/decisions/) |
+| **Zweckbestimmung / Haftung** | [`DISCLAIMER.md`](./DISCLAIMER.md) |
+
 ---
 
 ## Projektkontext
@@ -85,7 +109,7 @@ Erhebung notwendiger Datenelemente, digitaler Unterstützungsoptionen und gewün
 
 ## Artefakte in diesem Repository
 
-Die BPMN-Modelle werden in zwei Formaten bereitgestellt:
+Alle Modelle liegen im Verzeichnis [`models/`](./models/) (Namenskonvention `lung-cancer-<phase>-pathway`, siehe [ADR-0004](./docs/decisions/0004-repo-structure-and-model-naming.md) und die Modellübersicht [`models/README.md`](./models/README.md)). Die BPMN-Modelle werden in zwei Formaten bereitgestellt:
 
 - **BPMN** (`.bpmn`): Maschinenlesbare BPMN-2.0-Quelldatei, direkt bearbeitbar mit gängigen BPMN-Editoren (s. u.)
 - **SVG** (`.svg`): Skalierbare Vektorgrafik zur menschenlesbaren Visualisierung, darstellbar im Browser oder in Vektorgrafik-Software
@@ -94,8 +118,8 @@ Die BPMN-Modelle werden in zwei Formaten bereitgestellt:
 
 | Datei                                                                          | Beschreibung                                                 |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------ |
-| [`lung-cancer_overarching-pathway.bpmn`](./lung-cancer_overarching-pathway.bpmn) | BPMN-Quelldatei des übergreifenden Lungenkrebspatientenpfads |
-| [`lung-cancer_overarching-pathway.svg`](./lung-cancer_overarching-pathway.svg) | Visualisierung des übergreifenden Lungenkrebspatientenpfads  |
+| [`models/lung-cancer-overarching-pathway.bpmn`](./models/lung-cancer-overarching-pathway.bpmn) | BPMN-Quelldatei des übergreifenden Lungenkrebspatientenpfads |
+| [`models/lung-cancer-overarching-pathway.svg`](./models/lung-cancer-overarching-pathway.svg) | Visualisierung des übergreifenden Lungenkrebspatientenpfads  |
 
 Der übergreifende Pfad bildet den vollständigen Patient:innen-Journey von der Prävention/Früherkennung bis zur Nachsorge ab und verknüpft alle Teilpfade miteinander.
 
@@ -103,12 +127,13 @@ Der übergreifende Pfad bildet den vollständigen Patient:innen-Journey von der 
 
 | Datei                                                                                                                                                                   | Beschreibung                            |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
-| [`lung-cancer_diagnostic-subpathway.bpmn`](./lung-cancer_diagnostic-subpathway.bpmn) / [`.svg`](./lung-cancer_diagnostic-subpathway.svg)                                  | Teilpfad Diagnostik                     |
-| [`lung-cancer_patient-consultation-subpathway.bpmn`](./lung-cancer_patient-consultation-subpathway.bpmn) / [`.svg`](./lung-cancer_patient-consultation-subpathway.svg)    | Teilpfad Patientengespräch / Aufklärung |
-| [`lung-cancer_tumor-board-subpathway.bpmn`](./lung-cancer_tumor-board-subpathway.bpmn) / [`.svg`](./lung-cancer_tumor-board-subpathway.svg)                               | Teilpfad Tumorboard                     |
-| [`lung-cancer_molecular-tumor-board-subpathway.bpmn`](./lung-cancer_molecular-tumor-board-subpathway.bpmn) / [`.svg`](./lung-cancer_molecular-tumor-board-subpathway.svg) | Teilpfad Molekulares Tumorboard         |
-| [`lung-cancer_treatment-subpathway.bpmn`](./lung-cancer_treatment-subpathway.bpmn) / [`.svg`](./lung-cancer_treatment-subpathway.svg)                                     | Teilpfad Behandlung                     |
-| [`lung-cancer_aftercare-subpathway.bpmn`](./lung-cancer_aftercare-subpathway.bpmn) / [`.svg`](./lung-cancer_aftercare-subpathway.svg)                                     | Teilpfad Nachsorge                      |
+| [`models/lung-cancer-diagnostic-pathway.bpmn`](./models/lung-cancer-diagnostic-pathway.bpmn) / [`.svg`](./models/lung-cancer-diagnostic-pathway.svg)                                  | Teilpfad Diagnostik                     |
+| [`models/lung-cancer-patient-consultation-pathway.bpmn`](./models/lung-cancer-patient-consultation-pathway.bpmn) / [`.svg`](./models/lung-cancer-patient-consultation-pathway.svg)    | Teilpfad Patientengespräch / Aufklärung |
+| [`models/lung-cancer-tumor-board-pathway.bpmn`](./models/lung-cancer-tumor-board-pathway.bpmn) / [`.svg`](./models/lung-cancer-tumor-board-pathway.svg)                               | Teilpfad Tumorboard                     |
+| [`models/lung-cancer-molecular-tumor-board-pathway.bpmn`](./models/lung-cancer-molecular-tumor-board-pathway.bpmn) / [`.svg`](./models/lung-cancer-molecular-tumor-board-pathway.svg) | Teilpfad Molekulares Tumorboard         |
+| [`models/lung-cancer-treatment-pathway.bpmn`](./models/lung-cancer-treatment-pathway.bpmn) / [`.svg`](./models/lung-cancer-treatment-pathway.svg)                                     | Teilpfad Behandlung                     |
+| [`models/lung-cancer-aftercare-pathway.bpmn`](./models/lung-cancer-aftercare-pathway.bpmn) / [`.svg`](./models/lung-cancer-aftercare-pathway.svg)                                     | Teilpfad Nachsorge                      |
+| [`models/lung-cancer-screening-pathway.bpmn`](./models/lung-cancer-screening-pathway.bpmn) / [`.svg`](./models/lung-cancer-screening-pathway.svg) | Teilpfad Krebsfrüherkennung (Lung Cancer Screening) |
 
 ---
 
