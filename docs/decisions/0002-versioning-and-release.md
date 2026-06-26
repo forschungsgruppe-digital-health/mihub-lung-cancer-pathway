@@ -37,10 +37,13 @@ while no model has yet passed the acceptance test.
 `release-please-config.json`: `release-as` forces the version and `prerelease: true` marks the
 GitHub release as a **pre-release** (not `latest`), so no consumer treats it as stable.
 (`release-as` **alone does not** flag the pre-release — both keys are required; a missed
-`prerelease: true` is why `v0.2.0-rc.1` first published as a full release.) Advance the suffix for
-further candidates (`-rc.2`, …); to cut the final `X.Y.Z` once the acceptance test is "Accepted",
-**remove both `release-as` and `prerelease`** (otherwise the stable release is wrongly marked a
-pre-release).
+`prerelease: true` is why `v0.2.0-rc.1` first published as a full release.) **After a candidate is
+tagged, remove (or advance) `release-as`** — if it stays pinned to an already-released version,
+release-please re-proposes it and the release step **fails with a duplicate-tag (`already_exists`)
+error** (this happened after `v0.2.0-rc.1` was cut). With `prerelease: true` kept, release-please
+proposes the next candidate (`-rc.2`, …) itself once there is a releasable commit. To cut the final
+`X.Y.Z` once the acceptance test is "Accepted", **remove both `release-as` and `prerelease`**
+(otherwise the stable release is wrongly marked a pre-release).
 
 Bumps are derived from **Conventional Commit** messages scoped by pathway file
 (`feat(treatment)!: …` = breaking; `feat(aftercare): …` = minor; `fix`/`docs` = patch).
