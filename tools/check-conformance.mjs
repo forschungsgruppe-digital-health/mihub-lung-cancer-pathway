@@ -7,7 +7,7 @@
  *
  * Blocking layers (decision lives in the tool, never in the model):
  *   - bpmnlint            structural BPMN 2.0 correctness
- *   - model metrics       Abnahme SYN-5 (no OR-gateway); SYN-2/SYN-4 advisory
+ *   - model metrics       Abnahmetest SYN-5 (no OR-gateway); SYN-2/SYN-4 advisory
  * Informational layers (reported, never blocking yet):
  *   - moddle roundtrip    serialization stability + extension-content presence
  *                         (cp:/i18n: are not yet modelled — see follow-up)
@@ -21,7 +21,7 @@ import { spawnSync } from 'node:child_process';
 const checks = [
   { name: 'model naming convention (ADR-0004: lung-cancer-<phase>-pathway)', cmd: process.execPath, args: ['tools/check-naming.mjs'], blocking: true },
   { name: 'bpmnlint (BPMN structure/correctness)', cmd: process.execPath, args: ['tools/lint-bpmn.mjs'], blocking: true },
-  { name: 'model metrics (Abnahme SYN-5 blocking; SYN-2/4 advisory)', cmd: process.execPath, args: ['tools/check-model-metrics.mjs'], blocking: true },
+  { name: 'model metrics (Abnahmetest SYN-5 blocking; SYN-2/4 advisory)', cmd: process.execPath, args: ['tools/check-model-metrics.mjs'], blocking: true },
   { name: 'moddle roundtrip (cp:/i18n lossless + stable)', cmd: process.execPath, args: ['tools/moddle-roundtrip.mjs'], blocking: true },
   { name: 'XSD core (OMG BPMN20.xsd)', cmd: 'bash', args: ['tools/validate-xsd.sh'], blocking: false },
 ];

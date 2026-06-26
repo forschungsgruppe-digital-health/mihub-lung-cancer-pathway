@@ -4,9 +4,9 @@ Begleitdokument: abnahme-checkliste-bpmn-patientenpfad.md (gleiche Kriterien-IDs
 Version: 0.2 | Sprache: DE
 -->
 
-# Handout zur Abnahme-Checkliste: BPMN-modellierter Patientenpfad
+# Handout zur Abnahmetest-Checkliste: BPMN-modellierter Patientenpfad
 
-**Zweck.** Dieses Dokument begründet jedes Abnahmekriterium nachvollziehbar anhand der Quellen und illustriert es mit je einem Beispiel aus dem Lungenkarzinom-Kontext. IDs sind identisch zur Checkliste. Fachbegriffe sind im **Mini-Glossar der Checkliste** erklärt.
+**Zweck.** Dieses Dokument begründet jedes Abnahmetestkriterium nachvollziehbar anhand der Quellen und illustriert es mit je einem Beispiel aus dem Lungenkarzinom-Kontext. IDs sind identisch zur Checkliste. Fachbegriffe sind im **Mini-Glossar der Checkliste** erklärt.
 
 **Aufbau je Kriterium:** *Kriterium* → *Begründung (Quelle)* → *Beispiel*.
 
@@ -14,13 +14,13 @@ Version: 0.2 | Sprache: DE
 
 ---
 
-## A. Verständlichkeit & technische Korrektheit (technische Abnahme)
+## A. Verständlichkeit & technische Korrektheit (technischer Abnahmetest)
 
 ### SYN-1 · Conformance-Klasse deklariert und eingehalten
 
 **Kriterium.** Der angestrebte BPMN-2.0-Sprachumfang (Descriptive, Analytic, Common Executable) ist festgelegt, und das Modell nutzt nur dort zulässige Elemente.
 
-**Begründung (Quelle).** Die OMG-Spezifikation BPMN 2.0 definiert drei aufeinander aufbauende Process-Modeling-Conformance-Unterklassen mit jeweils begrenztem Element- und Attributumfang. Ohne deklarierte Zielklasse ist nicht prüfbar, ob verschiedene Werkzeuge das Modell gleich interpretieren oder serialisieren — Inkonsistenzen bei der XML-Serialisierung zwischen Tools sind dokumentiert. Die Festlegung macht die technische Abnahme erst objektivierbar.
+**Begründung (Quelle).** Die OMG-Spezifikation BPMN 2.0 definiert drei aufeinander aufbauende Process-Modeling-Conformance-Unterklassen mit jeweils begrenztem Element- und Attributumfang. Ohne deklarierte Zielklasse ist nicht prüfbar, ob verschiedene Werkzeuge das Modell gleich interpretieren oder serialisieren — Inkonsistenzen bei der XML-Serialisierung zwischen Tools sind dokumentiert. Die Festlegung macht den technischen Abnahmetest erst objektivierbar.
 
 **Beispiel.** Ein Pfad mit Timer-Event („molekulare Diagnostik binnen 14 Tagen") und Message-Event („Befund an Tumorboard") überschreitet **Descriptive**. Korrekt ist **Analytic**; soll der Pfad später von einer Engine ausgeführt werden, ist **Common Executable** nötig.
 
@@ -60,13 +60,13 @@ Version: 0.2 | Sprache: DE
 
 **Kriterium.** Das Modell ist *sound*: jeder Durchlauf kann das Ende erreichen (STR-1), am Ende verbleiben keine aktiven Token (STR-2), keine toten/unerreichbaren Aktivitäten (STR-3), kein Deadlock/Livelock (STR-4).
 
-**Begründung (Quelle).** Soundness ist das etablierte Korrektheitskriterium für Prozessmodelle (van der Aalst), abgeleitet über die Petri-Netz-Eigenschaften Liveness und Boundedness. Fahland et al. (2011, *Data & Knowledge Engineering* 70, 448–466) zeigen, dass diese Eigenschaften für realistische Industriemodelle praktisch sofort automatisiert prüfbar sind („Analysis on demand"). Soundness ist der objektivierbare Kern der technischen Abnahme — am besten per Werkzeug geprüft.
+**Begründung (Quelle).** Soundness ist das etablierte Korrektheitskriterium für Prozessmodelle (van der Aalst), abgeleitet über die Petri-Netz-Eigenschaften Liveness und Boundedness. Fahland et al. (2011, *Data & Knowledge Engineering* 70, 448–466) zeigen, dass diese Eigenschaften für realistische Industriemodelle praktisch sofort automatisiert prüfbar sind („Analysis on demand"). Soundness ist der objektivierbare Kern des technischen Abnahmetests — am besten per Werkzeug geprüft.
 
 **Beispiel (Deadlock, STR-4).** Nach „Staging abschließen" öffnet ein **AND-Split** zwei Zweige (Pathologie, Radiologie); zusammengeführt werden sie fälschlich mit einem **XOR-Join**. Der XOR-Join feuert beim ersten eintreffenden Token, das zweite bleibt liegen → STR-2 verletzt. Umgekehrt erzeugt ein **AND-Join nach XOR-Split** einen Deadlock (wartet ewig auf einen Zweig, der nie aktiviert wurde). Regel: gleichen Gateway-Typ paaren.
 
 ---
 
-## B. Klinische Inhaltsvalidität (klinische Abnahme)
+## B. Klinische Inhaltsvalidität (klinischer Abnahmetest)
 
 > Grundlage B.1: Kinsman, Rotter, James, Snow, Willis (2010): *What is a clinical pathway? Development of a definition to inform the debate.* **BMC Medicine** 8:31 — fünf Kriterien, entwickelt in Abstimmung mit der European Pathways Association. Operationalisierung (im Volltext bestätigt): Kriterium 1 (Muss) plus ≥ 3 der übrigen vier.
 
@@ -116,7 +116,7 @@ Version: 0.2 | Sprache: DE
 
 **Begründung (Quelle).** Validierung („das *richtige* Modell") ist — anders als die automatisierbare Verifikation — auf Domänenexpertise angewiesen. Belegtes Vorgehen: Benevento et al. (2023) validierten ihr normatives BPMN-Modell qualitativ in mehreren Sitzungen mit Ärzt:innen der Intensiv-/Intermediate-Care und verfeinerten es, bis alle zustimmten.
 
-**Beispiel.** Das Pfadmodell wird in zwei bis drei moderierten Sitzungen im Tumorboard vorgestellt; Änderungswünsche werden versioniert eingearbeitet, bis das Board einstimmig freigibt (Protokoll als Abnahmenachweis).
+**Beispiel.** Das Pfadmodell wird in zwei bis drei moderierten Sitzungen im Tumorboard vorgestellt; Änderungswünsche werden versioniert eingearbeitet, bis das Board einstimmig freigibt (Protokoll als Abnahmetestnachweis).
 
 ### SEM-7 · Domänenspezifische Artefakte (BPMN4CP)
 
@@ -128,13 +128,13 @@ Version: 0.2 | Sprache: DE
 
 ---
 
-## C. Verständlichkeit für beide Seiten (gemeinsame Abnahme)
+## C. Verständlichkeit für beide Seiten (gemeinsamer Abnahmetest)
 
 ### PRA-1 · Verständlichkeit für klinische und technische Adressaten
 
 **Kriterium.** Das Modell ist für beide Adressatengruppen gleichermaßen verständlich.
 
-**Begründung (Quelle).** SEQUAL (Lindland, Sindre, Sølvberg 1994; erweitert durch Krogstie et al.) definiert **pragmatische Qualität** als Übereinstimmung zwischen Modell und Interpretation der Adressaten — ausdrücklich getrennt nach *sozialer* (hier klinischer) und *technischer* Audience. Genau diese Doppel-Verständlichkeit ist das gemeinsame Abnahmekriterium. (7PMG bezeichnet SEQUAL als wertvoll, aber für Einsteiger zu abstrakt — deshalb ergänzt die Checkliste konkrete 7PMG-Items.)
+**Begründung (Quelle).** SEQUAL (Lindland, Sindre, Sølvberg 1994; erweitert durch Krogstie et al.) definiert **pragmatische Qualität** als Übereinstimmung zwischen Modell und Interpretation der Adressaten — ausdrücklich getrennt nach *sozialer* (hier klinischer) und *technischer* Audience. Genau diese Doppel-Verständlichkeit ist das gemeinsame Abnahmetestkriterium. (7PMG bezeichnet SEQUAL als wertvoll, aber für Einsteiger zu abstrakt — deshalb ergänzt die Checkliste konkrete 7PMG-Items.)
 
 **Beispiel.** Im gemeinsamen Walkthrough paraphrasiert je eine klinische und eine technische Person denselben Pfadabschnitt; weichen die Interpretationen ab (z. B. Bedeutung eines Gateways), wird Modell oder Beschriftung nachgeschärft.
 
@@ -148,11 +148,11 @@ Version: 0.2 | Sprache: DE
 
 ### PRA-3 · Relevanz
 
-**Kriterium.** Keine für den Abnahmezweck überflüssigen Elemente.
+**Kriterium.** Keine für den Abnahmetestzweck überflüssigen Elemente.
 
 **Begründung (Quelle).** GoM-Grundsatz **Relevanz** (Becker, Rosemann, Schütte 1995) und 7PMG **G1** („so wenige Elemente wie möglich"): Überflüssige Elemente erhöhen kognitive Last und Fehlerrisiko ohne Erkenntnisgewinn. Im 7PMG-Beispiel sank die Elementzahl durch Anwendung von G1 von 37 auf 31, ohne die Logik zu verändern.
 
-**Beispiel.** Rein dekorative Zwischenereignisse oder doppelt geführte Hilfsaktivitäten, die für die Abnahmeentscheidung irrelevant sind, werden entfernt oder in eine Detailsicht verschoben.
+**Beispiel.** Rein dekorative Zwischenereignisse oder doppelt geführte Hilfsaktivitäten, die für die Abnahmetestentscheidung irrelevant sind, werden entfernt oder in eine Detailsicht verschoben.
 
 ---
 

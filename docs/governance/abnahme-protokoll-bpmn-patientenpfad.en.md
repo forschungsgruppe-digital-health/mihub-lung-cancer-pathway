@@ -4,9 +4,9 @@ Provided for reference; keep both language versions in sync and at the same vers
 Status: draft — not final, likely to change. Change history: docs/governance/CHANGELOG.md.
 -->
 
-# Acceptance Protocol — BPMN-modelled patient pathway
+# Acceptance Test Protocol — BPMN-modelled patient pathway
 
-*To be filled in during the acceptance meeting. Criteria basis: Instrument v0.3.1 (IDs identical). If a criterion is unclear, see the handout.*
+*To be filled in during the acceptance-test meeting. Criteria basis: Instrument v0.3.1 (IDs identical). If a criterion is unclear, see the handout.*
 
 ## 0. General data
 
@@ -16,8 +16,8 @@ Status: draft — not final, likely to change. Change history: docs/governance/C
 | Model version / commit hash | |
 | Artifact / repository link | |
 | Target conformance class | ☐ Descriptive ☐ Analytic ☐ Common Executable |
-| Date / location of acceptance | |
-| Criteria basis | Acceptance Instrument v0.3.1 |
+| Date / location of acceptance test | |
+| Criteria basis | Acceptance Test instrument v0.3.1 |
 | Protocol ID | |
 
 ### Participants
@@ -96,7 +96,7 @@ Soundness tool / version: ________________  Run result: ☐ green ☐ findings (
 
 ---
 
-## 4. Acceptance decision
+## 4. Acceptance-test decision
 
 ☐ **Accepted** — all three gates met, no open items.
 ☐ **Accepted with conditions** — all three gates met; open should-items per §3 with a due date.
@@ -106,7 +106,7 @@ Soundness tool / version: ________________  Run result: ☐ green ☐ findings (
 
 _____________________________________________________________
 
-**Re-check / re-acceptance date (if conditions or rejection):** ____________
+**Re-check / re-acceptance-test date (if conditions or rejection):** ____________
 
 > Decision rule: An open **Must** criterion rules out "Accepted with conditions". "With conditions" is only permissible for open **Should** items.
 
@@ -127,6 +127,6 @@ _____________________________________________________________
 - ☐ Model export / diagram (file, version)
 - ☐ Soundness / analysis report (tool, date)
 - ☐ Minutes of the clinical validation session(s) (evidence for SEM-6)
-- ☐ Acceptance Instrument v0.3.1 · ☐ accompanying handout
+- ☐ Acceptance Test instrument v0.3.1 · ☐ accompanying handout
 
-*This protocol documents a single acceptance. Earlier acceptances of the same pathway are retained as separate protocols (version traceability).*
+*This protocol documents a single acceptance test. Earlier acceptance tests of the same pathway are retained as separate protocols (version traceability).*

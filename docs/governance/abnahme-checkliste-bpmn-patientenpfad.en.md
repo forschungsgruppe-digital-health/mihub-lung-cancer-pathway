@@ -5,8 +5,8 @@ Status: draft — not final, likely to change. Change history: docs/governance/C
 -->
 
 ---
-title: "Acceptance Checklist for BPMN-Modelled Patient Pathways"
-short_title: "BPMN-CP Acceptance Instrument"
+title: "Acceptance Test Checklist for BPMN-Modelled Patient Pathways"
+short_title: "BPMN-CP Acceptance-Test Instrument"
 version: "0.3.1"
 status: "Proposed artifact (DSR) – conceptually derived from kernel theories, not yet empirically validated"
 language: "EN"
@@ -18,11 +18,11 @@ persistent_id: "[DOI/Zenodo nach Hinterlegung]"
 audience: "clinical and technical stakeholders; including modeling beginners"
 ---
 
-# Acceptance Checklist for BPMN-Modelled Patient Pathways (v0.3.1)
+# Acceptance Test Checklist for BPMN-Modelled Patient Pathways (v0.3.1)
 
 ## Suggested citation
 
-> [Nachname, Initiale] ([Jahr]). *Abnahme-Checkliste für BPMN-modellierte Patientenpfade* (Version 0.3) [Evaluationsinstrument]. [Einrichtung]. [DOI].
+> [Nachname, Initiale] ([Jahr]). *Abnahmetest-Checkliste für BPMN-modellierte Patientenpfade* (Version 0.3) [Evaluationsinstrument]. [Einrichtung]. [DOI].
 
 When used in a publication, please additionally cite the core sources named in the Construct-to-source mapping (§4).
 
@@ -30,7 +30,7 @@ When used in a publication, please additionally cite the core sources named in t
 
 ## 1. Purpose and scope
 
-The instrument supports the **structured, traceable acceptance (release)** of a patient pathway modelled in BPMN by **clinical** and **technical** stakeholders. It is designed as a compact assessment grid (items with dichotomous / partly criteria-based checking) and is formulated as tested for intersectoral, oncological care pathways; the items are transferable independently of the domain.
+The instrument supports the **structured, traceable acceptance test (release)** of a patient pathway modelled in BPMN by **clinical** and **technical** stakeholders. It is designed as a compact assessment grid (items with dichotomous / partly criteria-based checking) and is formulated as tested for intersectoral, oncological care pathways; the items are transferable independently of the domain.
 
 ## 2. Methodological derivation (transparency)
 
@@ -40,7 +40,7 @@ The items were **conceptually** synthesised from established kernel theories (in
 2. **Clinical pathway validity** — operational pathway definition according to Kinsman et al. (2010); domain-specific modelling concepts according to BPMN4CP (Braun et al. 2014).
 3. **Technical correctness/executability** — conformance classes of the OMG BPMN 2.0 specification; soundness concept (van der Aalst; operationalised in Fahland et al. 2011).
 
-The acceptance logic follows the distinction between **verification vs. validation** and the SEQUAL separation of pragmatic quality by *social* (clinical) and *technical* audience group. The instrument is understood as a DSR artifact; for positioning and planned evaluation see §6.
+The acceptance-test logic follows the distinction between **verification vs. validation** and the SEQUAL separation of pragmatic quality by *social* (clinical) and *technical* audience group. The instrument is understood as a DSR artifact; for positioning and planned evaluation see §6.
 
 **Limitation.** This version is a theory-driven construction. An empirical validation (content validity, reliability, applicability) is pending (§6).
 
@@ -50,7 +50,7 @@ The acceptance logic follows the distinction between **verification vs. validati
 
 **Reading aid.** **Must** = knock-out criterion · **Should** = important, document deviation. **Check method:** **A** = automatic (tool) · **R** = visual check in review · **K** = consensus (Konsens). Tick off: `[x]` met · `[ ]` open. For technical terms see Mini glossary (§8).
 
-### A. Understandability & technical correctness — *technical acceptance*
+### A. Understandability & technical correctness — *technical acceptance test*
 
 - [ ] **SYN-1** The BPMN **language scope (conformance class)** is declared and adhered to. 👉 *concretely:* Descriptive/Analytic/Common Executable named; only their elements used. *(Must · A)*
 - [ ] **SYN-2** **Exactly one start and one end event** per level. 👉 *concretely:* multiple ends only with justification. *(Must · A/R)*
@@ -62,7 +62,7 @@ The acceptance logic follows the distinction between **verification vs. validati
 - [ ] **STR-3** **No dead/unreachable activities.** *(Must · A)*
 - [ ] **STR-4** **No deadlock/livelock** (gateway types correctly paired). *(Must · A)*
 
-### B. Clinical content validity — *clinical acceptance*
+### B. Clinical content validity — *clinical acceptance test*
 
 - [ ] **SEM-1** **Multidisciplinary**: all participating disciplines visible as a lane. *(Must · R)*
 - [ ] **SEM-2** **Guideline/evidence reference** noted at important steps (e.g. S3 guideline / nNGM). *(Should\* · R)*
@@ -74,13 +74,13 @@ The acceptance logic follows the distinction between **verification vs. validati
 
 > **Kinsman gate (Must):** SEM-1 **and** ≥ 3 of 4 from {SEM-2…SEM-5}.
 
-### C. Understandability for both sides — *joint acceptance*
+### C. Understandability for both sides — *joint acceptance test*
 
 - [ ] **PRA-1** Clinical and IT side **understand the model identically** (joint walkthrough). *(Must · R)*
 - [ ] **PRA-2** **Overview and technical detail view** available. *(Should · R)*
 - [ ] **PRA-3** **Relevance**: no superfluous elements. *(Should · R)*
 
-### Acceptance gates
+### Acceptance-test gates
 
 | Gate | Condition | Method |
 |---|---|---|
@@ -88,7 +88,7 @@ The acceptance logic follows the distinction between **verification vs. validati
 | Clinical | Kinsman gate **and** SEM-6 | R + K |
 | Pragmatic | PRA-1 | R |
 
-**Overall acceptance** only with all three gates. Document open Should items in the sign-off with measure/deadline.
+**Overall acceptance test** only with all three gates. Document open Should items in the sign-off with measure/deadline.
 
 ---
 
@@ -174,4 +174,4 @@ A **formative → summative** evaluation trajectory is planned in the sense of F
 
 ---
 
-*Rationale and one example per item: `acceptance-handout-bpmn-patient-pathway.md`. Status of the source check documented there.*
+*Rationale and one example per item: `abnahme-handout-bpmn-patientenpfad.en.md`. Status of the source check documented there.*

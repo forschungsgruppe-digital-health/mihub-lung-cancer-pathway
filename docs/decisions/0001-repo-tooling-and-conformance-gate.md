@@ -10,9 +10,9 @@
 
 The repository ships seven BPMN 2.0 models (one overarching pathway + six
 sub-pathways) as `.bpmn` sources plus `.svg` renders, with a strong written
-modelling guideline (`CONVENTIONS.md`) and a proposed acceptance instrument (the
-"Abnahme", now in `docs/governance/`). It had **no automated checks**. We want a
-reproducible conformance gate that mechanises the *automatable* Abnahme criteria
+modelling guideline (`CONVENTIONS.md`) and a proposed acceptance-test instrument (the
+"Abnahmetest", now in `docs/governance/`). It had **no automated checks**. We want a
+reproducible conformance gate that mechanises the *automatable* acceptance-test criteria
 without changing the nature of the published artifact.
 
 Three decisions were coupled and are recorded together.
@@ -31,12 +31,12 @@ never committed**, and the published artifacts remain the `*.bpmn` / `*.svg` / `
 (CC BY 4.0). The tooling `package.json` is licensed `CC-BY-4.0` and marked `private`
 (never published to a registry).
 
-## Decision 2 — Declared conformance class: **Analytic** (minus OR-gateways)  *(Abnahme SYN-1)*
+## Decision 2 — Declared conformance class: **Analytic** (minus OR-gateways)  *(acceptance-test SYN-1)*
 
-The Abnahme SYN-1 requires a declared BPMN 2.0 conformance sub-class. The models use
+The acceptance-test SYN-1 requires a declared BPMN 2.0 conformance sub-class. The models use
 timer / message / boundary events and sub-processes (beyond **Descriptive**) but no
 engine-execution attributes (below **Common Executable**), so the target class is
-**Analytic**. As a house restriction (CONVENTIONS R5 / Abnahme SYN-5) the subset
+**Analytic**. As a house restriction (CONVENTIONS R5 / acceptance-test SYN-5) the subset
 **excludes OR (`inclusiveGateway`) and `complexGateway`**.
 
 This declaration is the anchor SYN-1 checks against. **Known deviation:** four

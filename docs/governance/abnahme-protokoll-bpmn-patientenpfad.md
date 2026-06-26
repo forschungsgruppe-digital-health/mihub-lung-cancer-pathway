@@ -5,9 +5,9 @@ abnahme-handout-bpmn-patientenpfad.md
 Protokoll-Vorlage Version: 1.0
 -->
 
-# Abnahmeprotokoll — BPMN-modellierter Patientenpfad
+# Abnahmetestprotokoll — BPMN-modellierter Patientenpfad
 
-*Auszufüllen im Abnahmetermin. Kriteriengrundlage: Instrument v0.3.1 (IDs identisch). Bei Unklarheit zu einem Kriterium siehe Handout.*
+*Auszufüllen im Abnahmetesttermin. Kriteriengrundlage: Instrument v0.3.1 (IDs identisch). Bei Unklarheit zu einem Kriterium siehe Handout.*
 
 ## 0. Rahmendaten
 
@@ -17,8 +17,8 @@ Protokoll-Vorlage Version: 1.0
 | Modellversion / Commit-Hash | |
 | Artefakt-/Repository-Link | |
 | Ziel-Conformance-Klasse | ☐ Descriptive ☐ Analytic ☐ Common Executable |
-| Datum / Ort der Abnahme | |
-| Kriteriengrundlage | Abnahme-Instrument v0.3.1 |
+| Datum / Ort des Abnahmetests | |
+| Kriteriengrundlage | Abnahmetest-Instrument v0.3.1 |
 | Protokoll-ID | |
 
 ### Teilnehmende
@@ -97,7 +97,7 @@ Soundness-Tool / Version: ________________  Lauf-Ergebnis: ☐ grün ☐ Befunde
 
 ---
 
-## 4. Abnahmeentscheidung
+## 4. Abnahmetestentscheidung
 
 ☐ **Angenommen** — alle drei Gates erfüllt, keine offenen Punkte.
 ☐ **Angenommen mit Auflagen** — alle drei Gates erfüllt; offene Soll-Punkte gemäß §3 mit Frist.
@@ -107,7 +107,7 @@ Soundness-Tool / Version: ________________  Lauf-Ergebnis: ☐ grün ☐ Befunde
 
 _____________________________________________________________
 
-**Termin Nachprüfung / Re-Abnahme (falls Auflagen oder Ablehnung):** ____________
+**Termin Nachprüfung / Re-Abnahmetest (falls Auflagen oder Ablehnung):** ____________
 
 > Entscheidungsregel: Ein offenes **Muss**-Kriterium schließt „Angenommen mit Auflagen" aus. „Mit Auflagen" ist nur bei offenen **Soll**-Punkten zulässig.
 
@@ -128,6 +128,6 @@ _____________________________________________________________
 - ☐ Modellexport / Diagramm (Datei, Version)
 - ☐ Soundness-/Analyse-Report (Tool, Datum)
 - ☐ Protokoll der klinischen Validierungssitzung(en) (Beleg zu SEM-6)
-- ☐ Abnahme-Instrument v0.3.1 · ☐ Begleit-Handout
+- ☐ Abnahmetest-Instrument v0.3.1 · ☐ Begleit-Handout
 
-*Dieses Protokoll dokumentiert eine einzelne Abnahme. Frühere Abnahmen desselben Pfads bleiben als eigene Protokolle erhalten (Versionsnachvollziehbarkeit).*
+*Dieses Protokoll dokumentiert einen einzelnen Abnahmetest. Frühere Abnahmetests desselben Pfads bleiben als eigene Protokolle erhalten (Versionsnachvollziehbarkeit).*

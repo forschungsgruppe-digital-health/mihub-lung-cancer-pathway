@@ -4,7 +4,7 @@ Operational context for AI coding agents (Claude Code, Codex, Cursor, Gemini CLI
 Copilot — anything that reads the open AGENTS.md standard). Single source of truth:
 tool-specific files (e.g. `CLAUDE.md`) only point here. Keep this lean — the project
 narrative lives in `README.md`, the modelling rules in `CONVENTIONS.md`, the
-acceptance gate in `docs/governance/`; do not duplicate them.
+acceptance-test gate in `docs/governance/`; do not duplicate them.
 
 ## What this repo is
 
@@ -36,7 +36,7 @@ decision lives in the tool, never in the model.** A green local run ⇒ a green 
 | Layer | Command | Severity |
 |---|---|---|
 | bpmnlint (BPMN structure/correctness, `no-inclusive-gateway`=error) | `npm run lint:bpmn` | **Blocking** |
-| model metrics (Abnahme SYN-5 no-OR blocking; SYN-2/4, lanes, prefix advisory) | `npm run check:metrics` | **Blocking** on OR-gateways |
+| model metrics (Abnahmetest SYN-5 no-OR blocking; SYN-2/4, lanes, prefix advisory) | `npm run check:metrics` | **Blocking** on OR-gateways |
 | moddle roundtrip (serialization stability; `cp:`/`i18n:` extension presence) | `npm run check:roundtrip` | Informational |
 | XSD core (OMG BPMN20.xsd) | `npm run check:xsd` | Informational |
 | **all of the above (full report, blocks on the blocking layers)** | `npm run check:conformance` | **the gate** |
@@ -50,14 +50,14 @@ Run `npm ci` once (Node ≥ 18), then `npm run check:conformance`. To register a
 > requires modelling + clinical judgment — agents must not "fix" pathway logic
 > unilaterally.
 
-## Acceptance (the human + tool gate)
+## Acceptance Test (the human + tool gate)
 
-Formal sign-off of a model uses the **Abnahme instrument** in
+Formal sign-off of a model uses the **Acceptance Test instrument** in
 [`docs/governance/`](docs/governance/) (Checkliste / Handout / Protokoll, v0.3.1).
 Method column: **A** = automatable tool (the gate above), **R** = review, **K** =
 consensus. The automatable criteria (SYN-1/2/4/5, STR-1..4) are tooled; the clinical
 (SEM) and pragmatic (PRA) criteria, the three gates, and the overall decision are
-**human** — no tool or agent may stamp acceptance.
+**human** — no tool or agent may stamp acceptance test.
 
 ## Conventions (see `CONVENTIONS.md` for the full reference — link, don't restate)
 
@@ -68,7 +68,7 @@ consensus. The automatable criteria (SYN-1/2/4/5, STR-1..4) are tooled; the clin
 - **Conventional Commits**; scope = the pathway file (`feat(aftercare)!: …`, `docs(overarching): …`).
 - **Language:** the repo default is **German** (README, CONVENTIONS, governance instrument).
   **Technical documentation is written in English** (ADRs in `docs/decisions/`, this file,
-  `CONTRIBUTING.md`, `docs/model-issues/`, tool docstrings/comments). The Abnahme governance
+  `CONTRIBUTING.md`, `docs/model-issues/`, tool docstrings/comments). The Abnahmetest governance
   instrument (`docs/governance/`) is **bilingual** (DE original + EN translation, same version).
   **Issue templates are always bilingual (DE + EN).**
 
@@ -91,7 +91,7 @@ Claude Code discovers them via `.claude/skills` → `../skills`; Codex/Copilot v
 | Skill (open this) | Fires when you… | Gate / output |
 |---|---|---|
 | `skills/bpmn-conformance/SKILL.md` | edit any `**/*.bpmn` | `npm run check:conformance` |
-| `skills/bpmn-acceptance/SKILL.md` | prepare a formal Abnahme | `npm run abnahme:protokoll` (evidence only; never stamps acceptance) |
+| `skills/bpmn-acceptance/SKILL.md` | prepare a formal acceptance test | `npm run abnahme:protokoll` (evidence only; never stamps acceptance test) |
 | `skills/clinical-pathway-review/SKILL.md` | review SEM/PRA criteria | advisory findings (read-only) |
 | `skills/model-inventory/SKILL.md` | map the model set | Model Inventory Matrix (read-only) |
 | `skills/bpmn-soundness/SKILL.md` | check STR-1…4 soundness | `npm run check:soundness` (advisory; needs the analyzer container) |
@@ -99,7 +99,7 @@ Claude Code discovers them via `.claude/skills` → `../skills`; Codex/Copilot v
 ## Hard rules (do not violate)
 
 - **🔒 NEVER modify a `.bpmn` model or its `.svg` export.** The models are the
-  clinically-validated artifact (Abnahme **SEM-6** face validity); changes are made only
+  clinically-validated artifact (Abnahmetest **SEM-6** face validity); changes are made only
   by a **human modeler** and re-validated. Agents are **read-only** w.r.t. the models —
   this also forbids renaming, reformatting, `sed -i`, and redirect/`tee` writes. Found a
   BPMN-XML issue? **Report it** in [`docs/model-issues/`](docs/model-issues/) with a
@@ -120,7 +120,7 @@ Claude Code discovers them via `.claude/skills` → `../skills`; Codex/Copilot v
 ## Where to look first
 
 - Modelling rules: `CONVENTIONS.md`
-- Acceptance gate: `docs/governance/`
+- Acceptance-test gate: `docs/governance/`
 - Conformance tooling: `tools/` + `skills/bpmn-conformance/SKILL.md`
 - Decisions: `docs/decisions/`
 - Intended use / liability: `DISCLAIMER.md`

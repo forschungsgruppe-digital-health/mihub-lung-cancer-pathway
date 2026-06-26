@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
- * Abnahme protocol pre-filler (evidence preparer — NEVER an approver).
+ * Abnahmetest protocol pre-filler (evidence preparer — NEVER an approver).
  *
  * Runs the automatable (method "A") conformance checks and emits a pre-filled
- * Abnahme Protokoll (docs/governance/abnahme-protokoll-bpmn-patientenpfad.md shape):
+ * Abnahmetest Protokoll (docs/governance/abnahme-protokoll-bpmn-patientenpfad.md shape):
  *   - the A-rows it can decide are ticked with the tool evidence,
  *   - every review (R) / consensus (K) row, and any A-criterion whose tool is not yet
  *     available (STR-1..4 soundness), is stamped HUMAN-INPUT-NEEDED,
@@ -39,7 +39,7 @@ const date = new Date().toISOString().slice(0, 10);
 const yn = (ok) => (ok ? '☑ ✓' : '☐ ✗');
 const H = 'HUMAN-INPUT-NEEDED';
 
-const md = `# Abnahmeprotokoll (vorausgefüllt — Tool-Evidenz) — BPMN-Lungenkrebspatientenpfad
+const md = `# Abnahmetestprotokoll (vorausgefüllt — Tool-Evidenz) — BPMN-Lungenkrebspatientenpfad
 
 > Auto-generiert von \`tools/abnahme-protokoll.mjs\` am ${date}. **Dies ist KEINE Freigabe.**
 > Nur die automatisierbaren (A)-Kriterien sind tool-vorbefüllt; R/K-Kriterien, die drei
@@ -55,7 +55,7 @@ const md = `# Abnahmeprotokoll (vorausgefüllt — Tool-Evidenz) — BPMN-Lungen
 | Commit | ${commit} |
 | Ziel-Conformance-Klasse | Analytic (ohne OR-Gateways) — ADR-0001 |
 | Datum (Vorbefüllung) | ${date} |
-| Kriteriengrundlage | Abnahme-Instrument v0.3.1 |
+| Kriteriengrundlage | Abnahmetest-Instrument v0.3.1 |
 
 ## 1. Prüfergebnisse
 
@@ -107,7 +107,7 @@ const md = `# Abnahmeprotokoll (vorausgefüllt — Tool-Evidenz) — BPMN-Lungen
 
 ## 3. Gesamtentscheidung
 
-**${H}** — wird ausschließlich von den menschlichen Leads im Abnahmetermin getroffen
+**${H}** — wird ausschließlich von den menschlichen Leads im Abnahmetesttermin getroffen
 und unterschrieben (siehe Template §4/§5). Dieses Dokument liefert nur Tool-Evidenz.
 `;
 

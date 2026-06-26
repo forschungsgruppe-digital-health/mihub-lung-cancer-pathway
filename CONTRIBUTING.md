@@ -2,7 +2,7 @@
 
 Thank you for helping improve the MiHUB lung-cancer patient-pathway models. This guide
 covers how to edit the models, run the checks, and propose a change. The modelling
-rules themselves live in [`CONVENTIONS.md`](CONVENTIONS.md); the acceptance criteria in
+rules themselves live in [`CONVENTIONS.md`](CONVENTIONS.md); the acceptance-test criteria in
 [`docs/governance/`](docs/governance/). Please also read the
 [`DISCLAIMER.md`](DISCLAIMER.md) and the [Code of Conduct](CODE_OF_CONDUCT.md).
 
@@ -20,7 +20,7 @@ rules themselves live in [`CONVENTIONS.md`](CONVENTIONS.md); the acceptance crit
 | `models/lung-cancer-*-pathway.bpmn` | the BPMN 2.0 model **sources** (edit these) |
 | `models/lung-cancer-*-pathway.svg` | the **derived** renders — re-export when the `.bpmn` changes |
 | `CONVENTIONS.md` | modelling guideline (the reference) |
-| `docs/governance/` | the Abnahme acceptance instrument |
+| `docs/governance/` | the Abnahmetest acceptance-test instrument |
 | `docs/decisions/` | architecture/modelling decision records (ADRs) |
 | `tools/`, `package.json` | dev/CI conformance tooling (not part of the published artifact) |
 
@@ -67,10 +67,10 @@ for how to read the output.
 - **One logical change per PR**; keep diffs reviewable. A human reviews and merges —
   please don't self-merge. The PR template lists the checks to confirm.
 
-## Review & acceptance
+## Review & acceptance test
 
 Routine PRs get a peer review against [`CONVENTIONS.md`](CONVENTIONS.md) §8.1 and the
-conformance gate. A **formal acceptance** ("Abnahme") of a pathway additionally runs
+conformance gate. A **formal acceptance test** ("Abnahmetest") of a pathway additionally runs
 the [governance instrument](docs/governance/): a technical gate (tools), a clinical
 gate (expert consensus), and a pragmatic gate (joint walkthrough), recorded in a
 signed Protokoll. Tools prepare evidence; humans decide.
@@ -88,7 +88,7 @@ edit a model), and a human files the issue from that finding.
 
 The repository default language is **German** (README, `CONVENTIONS.md`, the governance
 instrument). **Technical documentation is in English** (ADRs, `AGENTS.md`, this file,
-`docs/model-issues/`). The Abnahme governance instrument (`docs/governance/`) is **bilingual**
+`docs/model-issues/`). The Abnahmetest governance instrument (`docs/governance/`) is **bilingual**
 (German original + English translation, kept at the same version). New **issue templates are
 always provided in both languages**.
 

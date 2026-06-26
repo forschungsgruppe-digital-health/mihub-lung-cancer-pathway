@@ -4,8 +4,8 @@ Begleitdokument (Begründung + Beispiele): abnahme-handout-bpmn-patientenpfad.md
 -->
 
 ---
-titel: "Abnahme-Checkliste für BPMN-modellierte Patientenpfade"
-kurztitel: "BPMN-CP-Abnahmeinstrument"
+titel: "Abnahmetest-Checkliste für BPMN-modellierte Patientenpfade"
+kurztitel: "BPMN-CP-Abnahmetestinstrument"
 version: "0.3.1"
 status: "Vorgeschlagenes Artefakt (DSR) – konzeptionell aus Kerntheorien abgeleitet, noch nicht empirisch validiert"
 sprache: "DE"
@@ -17,11 +17,11 @@ persistent_id: "[DOI/Zenodo nach Hinterlegung]"
 zielgruppe: "klinische und technische Stakeholder; auch Modellierungsanfänger:innen"
 ---
 
-# Abnahme-Checkliste für BPMN-modellierte Patientenpfade (v0.3.1)
+# Abnahmetest-Checkliste für BPMN-modellierte Patientenpfade (v0.3.1)
 
 ## Zitationsvorschlag
 
-> [Nachname, Initiale] ([Jahr]). *Abnahme-Checkliste für BPMN-modellierte Patientenpfade* (Version 0.3) [Evaluationsinstrument]. [Einrichtung]. [DOI].
+> [Nachname, Initiale] ([Jahr]). *Abnahmetest-Checkliste für BPMN-modellierte Patientenpfade* (Version 0.3) [Evaluationsinstrument]. [Einrichtung]. [DOI].
 
 Bei Verwendung in einer Publikation bitte zusätzlich die im Konstrukt-Quellen-Mapping (§4) genannten Kernquellen zitieren.
 
@@ -29,7 +29,7 @@ Bei Verwendung in einer Publikation bitte zusätzlich die im Konstrukt-Quellen-M
 
 ## 1. Zweck und Geltungsbereich
 
-Das Instrument unterstützt die **strukturierte, nachvollziehbare Abnahme (Freigabe)** eines in BPMN modellierten Patientenpfads durch **klinische** und **technische** Stakeholder. Es ist als kompaktes Bewertungsraster (Items mit dichotomer/teils kriterienbasierter Prüfung) konzipiert und für intersektorale, onkologische Versorgungspfade erprobt formuliert; die Items sind domänenunabhängig übertragbar.
+Das Instrument unterstützt den **strukturierten, nachvollziehbaren Abnahmetest (Freigabe)** eines in BPMN modellierten Patientenpfads durch **klinische** und **technische** Stakeholder. Es ist als kompaktes Bewertungsraster (Items mit dichotomer/teils kriterienbasierter Prüfung) konzipiert und für intersektorale, onkologische Versorgungspfade erprobt formuliert; die Items sind domänenunabhängig übertragbar.
 
 ## 2. Methodische Herleitung (Transparenz)
 
@@ -39,7 +39,7 @@ Die Items wurden **konzeptionell** aus etablierten Kerntheorien („kernel theor
 2. **Klinische Pfadvalidität** — operationale Pfaddefinition nach Kinsman et al. (2010); domänenspezifische Modellierungskonzepte nach BPMN4CP (Braun et al. 2014).
 3. **Technische Korrektheit/Ausführbarkeit** — Konformitätsklassen der OMG BPMN-2.0-Spezifikation; Soundness-Begriff (van der Aalst; operationalisiert bei Fahland et al. 2011).
 
-Die Abnahme-Logik folgt der Unterscheidung **Verifikation vs. Validierung** und der SEQUAL-Trennung pragmatischer Qualität nach *sozialer* (klinischer) und *technischer* Adressatengruppe. Das Instrument versteht sich als DSR-Artefakt; Positionierung und vorgesehene Evaluation siehe §6.
+Die Abnahmetest-Logik folgt der Unterscheidung **Verifikation vs. Validierung** und der SEQUAL-Trennung pragmatischer Qualität nach *sozialer* (klinischer) und *technischer* Adressatengruppe. Das Instrument versteht sich als DSR-Artefakt; Positionierung und vorgesehene Evaluation siehe §6.
 
 **Einschränkung.** Diese Version ist eine theoriegeleitete Konstruktion. Eine empirische Validierung (Inhaltsvalidität, Reliabilität, Anwendbarkeit) steht aus (§6).
 
@@ -49,7 +49,7 @@ Die Abnahme-Logik folgt der Unterscheidung **Verifikation vs. Validierung** und 
 
 **Lesehilfe.** **Muss** = K.-o.-Kriterium · **Soll** = wichtig, Abweichung dokumentieren. **Prüfmethode:** **A** = automatisch (Tool) · **R** = Sichtprüfung im Review · **K** = Konsens. Hake ab: `[x]` erfüllt · `[ ]` offen. Fachbegriffe siehe Mini-Glossar (§8).
 
-### A. Verständlichkeit & technische Korrektheit — *technische Abnahme*
+### A. Verständlichkeit & technische Korrektheit — *technische Abnahmetest*
 
 - [ ] **SYN-1** Der BPMN-**Sprachumfang (Conformance-Klasse)** ist deklariert und eingehalten. 👉 *konkret:* Descriptive/Analytic/Common Executable benannt; nur deren Elemente genutzt. *(Muss · A)*
 - [ ] **SYN-2** **Genau ein Start- und ein End-Event** je Ebene. 👉 *konkret:* mehrere Enden nur begründet. *(Muss · A/R)*
@@ -61,7 +61,7 @@ Die Abnahme-Logik folgt der Unterscheidung **Verifikation vs. Validierung** und 
 - [ ] **STR-3** **Keine toten/unerreichbaren Aktivitäten.** *(Muss · A)*
 - [ ] **STR-4** **Kein Deadlock/Livelock** (Gateway-Typen korrekt gepaart). *(Muss · A)*
 
-### B. Klinische Inhaltsvalidität — *klinische Abnahme*
+### B. Klinische Inhaltsvalidität — *klinische Abnahmetest*
 
 - [ ] **SEM-1** **Multidisziplinär**: alle beteiligten Disziplinen als Lane sichtbar. *(Muss · R)*
 - [ ] **SEM-2** **Leitlinien-/Evidenzbezug** bei wichtigen Schritten vermerkt (z. B. S3-LL / nNGM). *(Soll\* · R)*
@@ -73,13 +73,13 @@ Die Abnahme-Logik folgt der Unterscheidung **Verifikation vs. Validierung** und 
 
 > **Kinsman-Gate (Muss):** SEM-1 **und** ≥ 3 von 4 aus {SEM-2…SEM-5}.
 
-### C. Verständlichkeit für beide Seiten — *gemeinsame Abnahme*
+### C. Verständlichkeit für beide Seiten — *gemeinsame Abnahmetest*
 
 - [ ] **PRA-1** Klinik- und IT-Seite **verstehen das Modell gleich** (gemeinsamer Walkthrough). *(Muss · R)*
 - [ ] **PRA-2** **Übersichts- und technische Detailsicht** vorhanden. *(Soll · R)*
 - [ ] **PRA-3** **Relevanz**: keine überflüssigen Elemente. *(Soll · R)*
 
-### Abnahme-Gates
+### Abnahmetest-Gates
 
 | Gate | Bedingung | Methode |
 |---|---|---|
@@ -87,7 +87,7 @@ Die Abnahme-Logik folgt der Unterscheidung **Verifikation vs. Validierung** und 
 | Klinisch | Kinsman-Gate **und** SEM-6 | R + K |
 | Pragmatisch | PRA-1 | R |
 
-**Gesamtabnahme** nur bei allen drei Gates. Offene Soll-Punkte im Sign-off mit Maßnahme/Frist dokumentieren.
+**Gesamtabnahmetest** nur bei allen drei Gates. Offene Soll-Punkte im Sign-off mit Maßnahme/Frist dokumentieren.
 
 ---
 

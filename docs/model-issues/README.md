@@ -2,7 +2,7 @@
 
 The `.bpmn` pathway models are the **clinically-validated artifact**. **No skill or agent
 may modify a model** (`.bpmn` or its `.svg`) — every change is made by a **human modeler**
-and re-validated for face validity (Abnahme **SEM-6**). See `AGENTS.md` (Hard rules) and the
+and re-validated for face validity (acceptance test **SEM-6**). See `AGENTS.md` (Hard rules) and the
 `guard-model-files` PreToolUse hook (`.claude/hooks/guard-model-files.sh`).
 
 When a tool or agent finds a problem with the BPMN XML, it records it **here** as a finding

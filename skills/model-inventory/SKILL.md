@@ -6,7 +6,7 @@ description: Produce a Markdown inventory matrix of the BPMN pathway models (the
 # Model inventory
 
 > **🔒 Model guard — read-only.** Never edit or modify a `.bpmn` model or its `.svg` export.
-> The models are clinically validated (Abnahme **SEM-6** face validity) and change only via a
+> The models are clinically validated (acceptance-test **SEM-6** face validity) and change only via a
 > human modeler + re-validation. If you notice a BPMN-XML problem while inventorying, **report
 > it** in [`docs/model-issues/`](../../docs/model-issues/) with a GitHub-issue suggestion
 > ([template](../../.github/ISSUE_TEMPLATE/bpmn-model-issue.md)) — never change the model.
@@ -35,11 +35,11 @@ and lanes per model.
 Then a short narrative: the decomposition map (overarching → which sub-pathways via Call
 Activity), and any **preliminary** observations (e.g. files carrying OR-gateways, files
 with no lanes). Mark maturity/observations as **PRELIMINARY** — this skill suggests, it
-does not decide. Cross-link to `docs/governance/` for the acceptance view and to
+does not decide. Cross-link to `docs/governance/` for the acceptance-test view and to
 `CONVENTIONS.md` for the rules.
 
 ## Rules
 
 - Read-only; never edit a model or delete anything.
-- Do not assign an acceptance status — that is the Abnahme instrument's and the human
+- Do not assign an acceptance-test status — that is the acceptance-test instrument's and the human
   reviewers' job.

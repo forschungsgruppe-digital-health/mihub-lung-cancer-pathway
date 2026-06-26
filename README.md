@@ -26,7 +26,7 @@
 | die Modelle **ansehen / verwenden** | [Artefakte](#artefakte-in-diesem-repository) · [Verwendung](#verwendung) |
 | die **Modellierungsregeln** verstehen | [`CONVENTIONS.md`](./CONVENTIONS.md) |
 | ein Modell **erweitern / beitragen** | [`CONTRIBUTING.md`](./CONTRIBUTING.md) |
-| die **Abnahme-/Qualitätskriterien** | [`docs/governance/`](./docs/governance/) |
+| die **Abnahmetest-/Qualitätskriterien** | [`docs/governance/`](./docs/governance/) |
 | die **Konformitätsprüfung** lokal ausführen | [`skills/bpmn-conformance/SKILL.md`](./skills/bpmn-conformance/SKILL.md) (`npm run check:conformance`) |
 | **Entscheidungen (ADR)** nachlesen | [`docs/decisions/`](./docs/decisions/) |
 | **Zweckbestimmung / Haftung** | [`DISCLAIMER.md`](./DISCLAIMER.md) |

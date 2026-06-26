@@ -1,19 +1,19 @@
 ---
 name: bpmn-acceptance
-description: Prepare a pre-filled Abnahme (acceptance) Protokoll for the lung-cancer pathway models by running the automatable A-checks and stamping every review/consensus criterion as HUMAN-INPUT-NEEDED. Use before a formal acceptance meeting to assemble the technical evidence. It NEVER stamps the overall acceptance — that is a human decision.
+description: Prepare a pre-filled Abnahmetest (acceptance test) Protokoll for the lung-cancer pathway models by running the automatable A-checks and stamping every review/consensus criterion as HUMAN-INPUT-NEEDED. Use before a formal acceptance-test meeting to assemble the technical evidence. It NEVER stamps the overall acceptance test — that is a human decision.
 ---
 
 # BPMN acceptance (Protokoll pre-filler)
 
 > **🔒 Model guard — read-only.** Never edit or modify a `.bpmn` model or its `.svg` export.
-> The models are clinically validated (Abnahme **SEM-6** face validity) and change only via a
+> The models are clinically validated (acceptance test **SEM-6** face validity) and change only via a
 > human modeler + re-validation. Found a BPMN-XML problem while assembling evidence? **Report
 > it** in [`docs/model-issues/`](../../docs/model-issues/) and propose a GitHub issue
 > ([template](../../.github/ISSUE_TEMPLATE/bpmn-model-issue.md)) — do not change the model.
 > Enforced in Claude Code by the `guard-model-files` PreToolUse hook.
 
-You assemble **evidence**, you do **not** approve. The Abnahme instrument
-(`docs/governance/`) decides acceptance via three gates — Technical (tools),
+You assemble **evidence**, you do **not** approve. The Acceptance Test instrument
+(`docs/governance/`) decides the acceptance test via three gates — Technical (tools),
 Clinical (expert consensus), Pragmatic (joint walkthrough) — and only humans sign off.
 
 ## Run
@@ -38,8 +38,8 @@ It runs the automatable (method **A**) checks — `lint:bpmn`, `check:metrics`,
 
 - Never convert a `HUMAN-INPUT-NEEDED` row into a ✓. SEM-1 completeness, SEM-6
   (consensus), PRA-1 (walkthrough) and the overall decision are human — full stop.
-- The generated file is a **draft for the acceptance meeting**, not a record of
-  acceptance. The signed record is the human-completed
+- The generated file is a **draft for the acceptance-test meeting**, not a record of
+  the acceptance test. The signed record is the human-completed
   `docs/governance/abnahme-protokoll-bpmn-patientenpfad.md`.
 - STR-1…STR-4 stay `HUMAN-INPUT-NEEDED` until the soundness tool is integrated and
   validated (see `docs/decisions/0003`); do not claim soundness from bpmnlint.
