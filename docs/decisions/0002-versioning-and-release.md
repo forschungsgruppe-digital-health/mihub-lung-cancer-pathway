@@ -100,8 +100,9 @@ acceptance-test sign-offs + GitHub "generate release notes") is a legitimate fal
 
 ## Consequences / open items
 
-- **Branch protection on `main` is intentionally NOT set yet.** The conformance gate is
-  red on the current models (ADR-0001); making it a required check now would block all
-  merges. Enable it (require the conformance check) **after** the remodel follow-up
-  greens CI. This is a manual GitHub setting (outward-facing; not done by an agent).
+- **Branch protection on `main` is intentionally NOT set yet.** The conformance gate runs
+  advisory (warn-only) in CI today (ADR-0001) — it reports findings as warnings but does
+  not fail the check or block merges. Make it a **required** check **after** the remodel
+  follow-up, once hard enforcement is re-enabled (remove `CONFORMANCE_WARN_ONLY`). This is
+  a manual GitHub setting (outward-facing; not done by an agent).
 - The first release / DOI should follow, not precede, a first formal acceptance test.

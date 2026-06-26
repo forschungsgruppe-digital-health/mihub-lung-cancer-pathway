@@ -49,7 +49,7 @@ Die Abnahmetest-Logik folgt der Unterscheidung **Verifikation vs. Validierung** 
 
 **Lesehilfe.** **Muss** = K.-o.-Kriterium · **Soll** = wichtig, Abweichung dokumentieren. **Prüfmethode:** **A** = automatisch (Tool) · **R** = Sichtprüfung im Review · **K** = Konsens. Hake ab: `[x]` erfüllt · `[ ]` offen. Fachbegriffe siehe Mini-Glossar (§8).
 
-### A. Verständlichkeit & technische Korrektheit — *technische Abnahmetest*
+### A. Verständlichkeit & technische Korrektheit — *technischer Abnahmetest*
 
 - [ ] **SYN-1** Der BPMN-**Sprachumfang (Conformance-Klasse)** ist deklariert und eingehalten. 👉 *konkret:* Descriptive/Analytic/Common Executable benannt; nur deren Elemente genutzt. *(Muss · A)*
 - [ ] **SYN-2** **Genau ein Start- und ein End-Event** je Ebene. 👉 *konkret:* mehrere Enden nur begründet. *(Muss · A/R)*
@@ -61,7 +61,7 @@ Die Abnahmetest-Logik folgt der Unterscheidung **Verifikation vs. Validierung** 
 - [ ] **STR-3** **Keine toten/unerreichbaren Aktivitäten.** *(Muss · A)*
 - [ ] **STR-4** **Kein Deadlock/Livelock** (Gateway-Typen korrekt gepaart). *(Muss · A)*
 
-### B. Klinische Inhaltsvalidität — *klinische Abnahmetest*
+### B. Klinische Inhaltsvalidität — *klinischer Abnahmetest*
 
 - [ ] **SEM-1** **Multidisziplinär**: alle beteiligten Disziplinen als Lane sichtbar. *(Muss · R)*
 - [ ] **SEM-2** **Leitlinien-/Evidenzbezug** bei wichtigen Schritten vermerkt (z. B. S3-LL / nNGM). *(Soll\* · R)*
@@ -73,7 +73,7 @@ Die Abnahmetest-Logik folgt der Unterscheidung **Verifikation vs. Validierung** 
 
 > **Kinsman-Gate (Muss):** SEM-1 **und** ≥ 3 von 4 aus {SEM-2…SEM-5}.
 
-### C. Verständlichkeit für beide Seiten — *gemeinsame Abnahmetest*
+### C. Verständlichkeit für beide Seiten — *gemeinsamer Abnahmetest*
 
 - [ ] **PRA-1** Klinik- und IT-Seite **verstehen das Modell gleich** (gemeinsamer Walkthrough). *(Muss · R)*
 - [ ] **PRA-2** **Übersichts- und technische Detailsicht** vorhanden. *(Soll · R)*
