@@ -31,7 +31,7 @@ Forschungsgruppe Digital Health). The models live under `models/` (naming conven
 ## Quality gate — one source, every runner
 
 Every check is a deterministic CLI under `tools/`, wired to an npm script. **The
-decision lives in the tool, never in the model.** A green local run ⇒ a green CI run.
+decision lives in the tool, never in the model.** A green local run ⇒ a green CI run. (During the RC/pre-remodel phase the CI conformance gate is **advisory/warn-only** and stays green regardless of findings; the local default is strict.)
 
 | Layer | Command | Severity |
 |---|---|---|
@@ -39,14 +39,14 @@ decision lives in the tool, never in the model.** A green local run ⇒ a green 
 | model metrics (Abnahmetest SYN-5 no-OR blocking; SYN-2/4, lanes, prefix advisory) | `npm run check:metrics` | **Blocking** on OR-gateways |
 | moddle roundtrip (serialization stability; `cp:`/`i18n:` extension presence) | `npm run check:roundtrip` | Informational |
 | XSD core (OMG BPMN20.xsd) | `npm run check:xsd` | Informational |
-| **all of the above (full report, blocks on the blocking layers)** | `npm run check:conformance` | **the gate** |
+| **all of the above (full report, blocks on the blocking layers)** | `npm run check:conformance` | **the gate** (CI advisory/warn-only during the RC/pre-remodel phase; local default strict) |
 
 Run `npm ci` once (Node ≥ 18), then `npm run check:conformance`. To register a new
 `.bpmn` location, edit `ROOTS` in `tools/bpmn-files.mjs` (the single file-discovery source).
 
-> The gate currently **fails on purpose**: the existing models carry structural
+> The CI gate currently runs **advisory (warn-only)**: the existing models carry structural
 > defects, four `bpmn:InclusiveGateway`s (OR), and unformalised `cp:`/`i18n:`
-> extension content. Greening it is tracked work (see `docs/decisions/0001`), and it
+> extension content, so the gate **reports** these as warnings but does **not** fail the check or block PRs (env `CONFORMANCE_WARN_ONLY` in `.github/workflows/ci.yml`; local default stays strict). Hard enforcement is re-enabled after the remodel. Greening it is tracked work (see `docs/decisions/0001`), and it
 > requires modelling + clinical judgment — agents must not "fix" pathway logic
 > unilaterally.
 
@@ -57,7 +57,7 @@ Formal sign-off of a model uses the **Acceptance Test instrument** in
 Method column: **A** = automatable tool (the gate above), **R** = review, **K** =
 consensus. The automatable criteria (SYN-1/2/4/5, STR-1..4) are tooled; the clinical
 (SEM) and pragmatic (PRA) criteria, the three gates, and the overall decision are
-**human** — no tool or agent may stamp acceptance test.
+**human** — no tool or agent may stamp the acceptance test.
 
 ## Conventions (see `CONVENTIONS.md` for the full reference — link, don't restate)
 
@@ -91,7 +91,7 @@ Claude Code discovers them via `.claude/skills` → `../skills`; Codex/Copilot v
 | Skill (open this) | Fires when you… | Gate / output |
 |---|---|---|
 | `skills/bpmn-conformance/SKILL.md` | edit any `**/*.bpmn` | `npm run check:conformance` |
-| `skills/bpmn-acceptance/SKILL.md` | prepare a formal acceptance test | `npm run abnahme:protokoll` (evidence only; never stamps acceptance test) |
+| `skills/bpmn-acceptance/SKILL.md` | prepare a formal acceptance test | `npm run abnahme:protokoll` (evidence only; never stamps the acceptance test) |
 | `skills/clinical-pathway-review/SKILL.md` | review SEM/PRA criteria | advisory findings (read-only) |
 | `skills/model-inventory/SKILL.md` | map the model set | Model Inventory Matrix (read-only) |
 | `skills/bpmn-soundness/SKILL.md` | check STR-1…4 soundness | `npm run check:soundness` (advisory; needs the analyzer container) |

@@ -1,6 +1,6 @@
 # Governance — Abnahmetest (acceptance test) of BPMN patient-pathway models
 
-This folder holds the **Acceptance Test instrument** used to formally accept (sign off) a
+This folder holds the **acceptance-test instrument** (Abnahmetest) used to formally accept (sign off) a
 BPMN-modelled patient pathway, together with its rationale and a fill-in protocol.
 
 Each document is maintained **bilingually**: German is the authoritative original; the
@@ -10,9 +10,9 @@ English `*.en.md` is a translation kept in sync at the same version (repo langua
 
 | Document | Version | DE (original) | EN (translation) |
 |---|---|---|---|
-| **Acceptance Test Checklist** — the instrument (criteria, severities, methods, gates) | 0.3.1 | [DE](abnahme-checkliste-bpmn-patientenpfad.md) | [EN](abnahme-checkliste-bpmn-patientenpfad.en.md) |
+| **Acceptance-Test Checklist** — the instrument (criteria, severities, methods, gates) | 0.3.1 | [DE](abnahme-checkliste-bpmn-patientenpfad.md) | [EN](abnahme-checkliste-bpmn-patientenpfad.en.md) |
 | **Handout** — rationale + one lung-cancer example per criterion (with sources) | 0.2 | [DE](abnahme-handout-bpmn-patientenpfad.md) | [EN](abnahme-handout-bpmn-patientenpfad.en.md) |
-| **Acceptance Test Protocol** — fill-in sign-off form (one per acceptance test) | 1.0 | [DE](abnahme-protokoll-bpmn-patientenpfad.md) | [EN](abnahme-protokoll-bpmn-patientenpfad.en.md) |
+| **Acceptance-Test Protocol** — fill-in sign-off form (one per acceptance test) | 1.0 | [DE](abnahme-protokoll-bpmn-patientenpfad.md) | [EN](abnahme-protokoll-bpmn-patientenpfad.en.md) |
 
 ## How to read it
 

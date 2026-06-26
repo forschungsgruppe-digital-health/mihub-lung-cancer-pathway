@@ -3,7 +3,7 @@ name: bpmn-acceptance
 description: Prepare a pre-filled Abnahmetest (acceptance test) Protokoll for the lung-cancer pathway models by running the automatable A-checks and stamping every review/consensus criterion as HUMAN-INPUT-NEEDED. Use before a formal acceptance-test meeting to assemble the technical evidence. It NEVER stamps the overall acceptance test — that is a human decision.
 ---
 
-# BPMN acceptance (Protokoll pre-filler)
+# BPMN acceptance test (Protokoll pre-filler)
 
 > **🔒 Model guard — read-only.** Never edit or modify a `.bpmn` model or its `.svg` export.
 > The models are clinically validated (acceptance test **SEM-6** face validity) and change only via a
@@ -12,7 +12,7 @@ description: Prepare a pre-filled Abnahmetest (acceptance test) Protokoll for th
 > ([template](../../.github/ISSUE_TEMPLATE/bpmn-model-issue.md)) — do not change the model.
 > Enforced in Claude Code by the `guard-model-files` PreToolUse hook.
 
-You assemble **evidence**, you do **not** approve. The Acceptance Test instrument
+You assemble **evidence**, you do **not** approve. The acceptance-test instrument
 (`docs/governance/`) decides the acceptance test via three gates — Technical (tools),
 Clinical (expert consensus), Pragmatic (joint walkthrough) — and only humans sign off.
 

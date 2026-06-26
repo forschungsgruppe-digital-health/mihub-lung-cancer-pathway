@@ -44,6 +44,8 @@ Scope to specific files by appending paths, e.g. `npm run check:metrics -- model
 | Extension data | `moddle-roundtrip.mjs` | serialization is idempotent; `cp:`/`i18n:` content present | no (informational) |
 | Standard core | xmllint vs BPMN20.xsd | BPMN core matches OMG schema | no (informational) |
 
+> Note: the "Blocking?" column is the LOCAL default (strict). During the 0.2.0-rc / pre-remodel phase the CI gate runs ADVISORY (warn-only): it reports every finding as `::warning::` and exits 0, so it does NOT block PRs. Hard enforcement is re-enabled (drop `CONFORMANCE_WARN_ONLY`) after the model remodel — see `.github/workflows/ci.yml` and `tools/check-conformance.mjs`.
+
 ## Interpreting results
 
 - **bpmnlint error** → a real structural defect (or an OR-gateway). It needs a human
