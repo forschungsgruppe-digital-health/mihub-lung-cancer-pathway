@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.2.1-rc.1](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/compare/v0.2.0-rc.1...v0.2.1-rc.1) (2026-06-26)
+
+
+### Corrections
+
+* **release:** unpin release-as — stop the duplicate-tag release-please failure ([8a917c0](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/8a917c09fafdcbf4b72347c49f9e5186497b1e6c))
+* **release:** unpin release-as after v0.2.0-rc.1 (stop the duplicate-tag loop) ([c8c08f4](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/c8c08f48666423e1229ca7553a97d59aaf240fad))
+* **release:** unpin release-as after v0.2.0-rc.1 (stop the duplicate-tag loop) ([609441b](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/609441b23d03b2d639e7e220934b63232a5b40a8))
+
+
+### Documentation & governance
+
+* restore consistency after the terminology / RC / warn-mode changes ([d6405bc](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/d6405bc9f7b1ebdb846aa52758bcae06515ceb64))
+* restore consistency after the terminology / RC / warn-mode changes ([c7a5e1d](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/c7a5e1d4f4f4809e310955c8dae7dd730b0429a5))
+
 ## [0.2.0-rc.1](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/compare/v0.2.0-rc.1...v0.2.0-rc.1) (2026-06-26)
 
 
