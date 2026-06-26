@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.0-rc.1](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/compare/v0.2.0-rc.1...v0.2.0-rc.1) (2026-06-26)
+
+
+### Documentation & governance
+
+* restore consistency after the terminology / RC / warn-mode changes ([d6405bc](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/d6405bc9f7b1ebdb846aa52758bcae06515ceb64))
+* restore consistency after the terminology / RC / warn-mode changes ([c7a5e1d](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/c7a5e1d4f4f4809e310955c8dae7dd730b0429a5))
+
 ## [0.2.0-rc.1](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/compare/v0.1.0...v0.2.0-rc.1) (2026-06-26)
 
 
