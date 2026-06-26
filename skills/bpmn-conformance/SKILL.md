@@ -1,13 +1,13 @@
 ---
 name: bpmn-conformance
-description: Validate the lung-cancer pathway .bpmn models for BPMN 2.0 structural correctness and the automatable Abnahme conventions (no OR-gateway, single start/end, size) before a commit or PR. Use whenever you edit any .bpmn file. Runs bpmnlint + the model-metrics gate + serialization roundtrip + XSD core, then explains the results.
+description: Validate the lung-cancer pathway .bpmn models for BPMN 2.0 structural correctness and the automatable acceptance-test conventions (no OR-gateway, single start/end, size) before a commit or PR. Use whenever you edit any .bpmn file. Runs bpmnlint + the model-metrics gate + serialization roundtrip + XSD core, then explains the results.
 ---
 
 # BPMN conformance
 
 > **🔒 Model guard — read-only.** Never edit, reformat, or otherwise modify a `.bpmn`
 > model or its `.svg` export, *not even to fix an issue this skill finds*. The models are
-> clinically validated (Abnahme **SEM-6** face validity) and change only via a human
+> clinically validated (acceptance-test **SEM-6** face validity) and change only via a human
 > modeler + re-validation. Found a BPMN-XML problem? **Report it** in
 > [`docs/model-issues/`](../../docs/model-issues/) and propose a GitHub issue
 > ([template](../../.github/ISSUE_TEMPLATE/bpmn-model-issue.md)) — do not change the model.
@@ -28,7 +28,7 @@ Or individually:
 
 ```bash
 npm run lint:bpmn             # structural BPMN 2.0 (bpmnlint recommended + correctness; no-OR = error)
-npm run check:metrics         # Abnahme SYN-5 (no OR-gateway, blocking) + SYN-2/4, lanes, prefix (advisory)
+npm run check:metrics         # acceptance-test SYN-5 (no OR-gateway, blocking) + SYN-2/4, lanes, prefix (advisory)
 npm run check:roundtrip       # serialization stability + cp:/i18n: extension presence (informational)
 npm run check:xsd             # OMG BPMN20.xsd core validation (informational)
 ```
@@ -50,7 +50,7 @@ Scope to specific files by appending paths, e.g. `npm run check:metrics -- model
   modeler — **report it** (see the Model guard above); do not edit the model yourself.
 - **metrics ✖ SYN-5** → an `InclusiveGateway`/`ComplexGateway` is present. A human modeler
   must remodel it to XOR/AND (CONVENTIONS R5); **report it** via `docs/model-issues/` and the
-  Abnahme Protokoll — do not edit the model.
+  acceptance-test Protokoll — do not edit the model.
 - **metrics ⚠** (SYN-2/SYN-4/lanes/prefix) → advisory; a reviewer adjudicates
   intentional multi-start, orchestration size, etc. Not a build failure.
 - **roundtrip `note: extension content dropped`** → expected today: no `cp:`/`i18n:`
@@ -65,6 +65,6 @@ Scope to specific files by appending paths, e.g. `npm run check:metrics -- model
 Never claim "XSD green ⇒ everything valid". State which layers passed and which are
 informational.
 
-> This skill covers only the **automatable (A)** Abnahme criteria. The clinical (SEM)
-> and pragmatic (PRA) criteria, the three acceptance gates, and the overall decision
+> This skill covers only the **automatable (A)** acceptance-test criteria. The clinical (SEM)
+> and pragmatic (PRA) criteria, the three acceptance-test gates, and the overall decision
 > are human — see `docs/governance/`.

@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 /**
- * Clinical-pathway model-metrics gate — the automatable subset of the Abnahme
- * acceptance instrument (docs/governance/) that bpmnlint does NOT cover.
+ * Clinical-pathway model-metrics gate — the automatable subset of the Abnahmetest
+ * acceptance-test instrument (docs/governance/) that bpmnlint does NOT cover.
  *
  * Parses each `.bpmn` with bpmn-moddle and inspects every FlowElementsContainer
  * (Process / SubProcess / AdHocSubProcess — i.e. every "level"):
  *
  *   SYN-5 (no OR-gateways)   — BLOCKING. Any bpmn:InclusiveGateway / bpmn:ComplexGateway
- *                              is a K.O. finding (Abnahme SYN-5 "kein OR-Gateway";
+ *                              is a K.O. finding (Abnahmetest SYN-5 "kein OR-Gateway";
  *                              CONVENTIONS §3 R5). bpmn-moddle normalises the source
  *                              prefix, so this catches both `bpmn:` and `bpmn2:` files.
  *   SYN-2 (one start/end)    — WARN. Exactly one start- and one end-event per level;
@@ -32,7 +32,7 @@ import { BpmnModdle } from 'bpmn-moddle';
 import { resolveBpmnFiles } from './bpmn-files.mjs';
 import { extensions } from './moddle/descriptors.mjs';
 
-const MAX_ELEMENTS_PER_LEVEL = 50; // Abnahme SYN-4 / 7PMG G7
+const MAX_ELEMENTS_PER_LEVEL = 50; // Abnahmetest SYN-4 / 7PMG G7
 
 const files = resolveBpmnFiles(process.argv.slice(2));
 if (!files.length) {
@@ -131,7 +131,7 @@ if (distinct.size > 1) {
 console.log('---------------------------------------------------------------');
 console.log(`metrics: ${orFindings} blocking OR-gateway finding(s), ${warnings} advisory warning(s).`);
 if (orFindings) {
-  console.error('metrics: FAIL — remove/rework OR-gateways (Abnahme SYN-5 / CONVENTIONS R5), or document the deviation.');
+  console.error('metrics: FAIL — remove/rework OR-gateways (Abnahmetest SYN-5 / CONVENTIONS R5), or document the deviation.');
   process.exit(1);
 }
 console.log('metrics: OK (no blocking findings; advisory warnings are for review).');

@@ -1,13 +1,13 @@
 ---
 name: bpmn-soundness
-description: Run the behavioural soundness check (Abnahme STR-1..4) on the pathway models via the rust_bpmn_analyzer model checker (pinned Docker image), classifying each model SOUND / VIOLATION / INCONCLUSIVE. Use to gather STR evidence. Advisory — an INCONCLUSIVE (unsupported elements) is never a pass, and the overall acceptance stays human.
+description: Run the behavioural soundness check (acceptance-test STR-1..4) on the pathway models via the rust_bpmn_analyzer model checker (pinned Docker image), classifying each model SOUND / VIOLATION / INCONCLUSIVE. Use to gather STR evidence. Advisory — an INCONCLUSIVE (unsupported elements) is never a pass, and the overall acceptance test stays human.
 ---
 
 # BPMN soundness (advisory)
 
 > **🔒 Model guard — read-only.** Never edit, reformat, or otherwise modify a `.bpmn`
 > model or its `.svg` export, *not even to fix a violation this skill finds*. The models are
-> clinically validated (Abnahme **SEM-6** face validity) and change only via a human
+> clinically validated (acceptance-test **SEM-6** face validity) and change only via a human
 > modeler + re-validation. Found a BPMN-XML problem? **Report it** in
 > [`docs/model-issues/`](../../docs/model-issues/) and propose a GitHub issue
 > ([template](../../.github/ISSUE_TEMPLATE/bpmn-model-issue.md)) — do not change the model.
@@ -33,7 +33,7 @@ non-blocking via `.github/workflows/soundness.yml` (the analyzer as a service co
 
 ## Interpreting results (per model)
 
-| Result | Meaning | Abnahme |
+| Result | Meaning | Acceptance-test implication |
 |---|---|---|
 | **SOUND** | all four properties fulfilled | STR-1…4 evidence = OK |
 | **VIOLATION** | a supported model violates a property: OptionToComplete=STR-1, ProperCompletion=STR-2, NoDeadActivities=STR-3; a deadlock/livelock (STR-4) shows as OptionToComplete=✗ | a real STR finding — **report it** (a human modeler fixes the model) |

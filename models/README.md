@@ -16,8 +16,8 @@ per CI geprüft mit `npm run check:naming`). Jede `.bpmn`-Quelle hat eine zugeh�
 | `lung-cancer-treatment-pathway` | Behandlung | Behandlungs-Teilpfad |
 | `lung-cancer-aftercare-pathway` | Nachsorge | Nachsorge-Teilpfad |
 
-> **Abnahme / Status:** siehe [`../docs/governance/`](../docs/governance/).
+> **Abnahmetest / Status:** siehe [`../docs/governance/`](../docs/governance/).
 > **Bekannte Modellprobleme:** [`../docs/model-issues/`](../docs/model-issues/).
 > **Änderungen** an Modellen erfolgen ausschließlich durch Modellierer:innen (Agenten sind
-> read-only, Abnahme SEM-6 Face Validity) — siehe [`../AGENTS.md`](../AGENTS.md) und
+> read-only, Abnahmetest SEM-6 Face Validity) — siehe [`../AGENTS.md`](../AGENTS.md) und
 > [`../CONTRIBUTING.md`](../CONTRIBUTING.md).

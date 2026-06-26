@@ -5,11 +5,11 @@
 - Date: 2026-06-25
 - Deciders: Forschungsgruppe Digital Health (FGDH), TU Dresden
 - Relates: [`0001-repo-tooling-and-conformance-gate.md`](0001-repo-tooling-and-conformance-gate.md),
-  the Abnahme instrument (`../governance/`).
+  the acceptance-test instrument (`../governance/`).
 
 ## Context
 
-Abnahme criteria **STR-1…STR-4** are the Muss soundness properties: option-to-complete
+Acceptance-test criteria **STR-1…STR-4** are the Muss soundness properties: option-to-complete
 (STR-1), proper completion / no leftover tokens (STR-2), no dead/unreachable activities
 (STR-3), no deadlock/livelock (STR-4). bpmnlint does **not** decide these (its
 `no-disconnected` is only partial STR-3 hygiene); they require a model checker. Until

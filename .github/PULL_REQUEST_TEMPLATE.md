@@ -1,6 +1,6 @@
 <!--
 One logical change per PR, into `dev`. Keep the diff reviewable.
-See CONTRIBUTING.md and docs/governance/ for the acceptance criteria.
+See CONTRIBUTING.md and docs/governance/ for the acceptance-test criteria.
 -->
 
 ## What & why
@@ -18,9 +18,9 @@ See CONTRIBUTING.md and docs/governance/ for the acceptance criteria.
 
 - [ ] `npm run check:conformance` run locally; output reviewed
 - [ ] No **new** bpmnlint errors introduced
-- [ ] No **new** OR-gateway / `complexGateway` introduced (Abnahme **SYN-5**)
+- [ ] No **new** OR-gateway / `complexGateway` introduced (acceptance test **SYN-5**)
 
-## Abnahme — Muss criteria touched by this change
+## Acceptance test — Muss criteria touched by this change
 
 <!-- Tick only what this PR affects; full sign-off uses docs/governance/abnahme-protokoll-…md -->
 

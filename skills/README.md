@@ -9,7 +9,7 @@ applies. All tool-specific files only point here — never copy a skill's body.
 | Skill | When it fires | Gate / output |
 |---|---|---|
 | [`bpmn-conformance`](bpmn-conformance/SKILL.md) | editing any `**/*.bpmn` | `npm run check:conformance` (deterministic) |
-| [`bpmn-acceptance`](bpmn-acceptance/SKILL.md) | preparing a formal Abnahme | `npm run abnahme:protokoll` → pre-filled Protokoll (never stamps acceptance) |
+| [`bpmn-acceptance`](bpmn-acceptance/SKILL.md) | preparing a formal acceptance test | `npm run abnahme:protokoll` → pre-filled Protokoll (never stamps acceptance test) |
 | [`clinical-pathway-review`](clinical-pathway-review/SKILL.md) | reviewing a pathway for the SEM/PRA criteria | advisory findings only (LLM-judgment, read-only) |
 | [`model-inventory`](model-inventory/SKILL.md) | mapping what the model set contains | a Model Inventory Matrix (read-only) |
 | [`bpmn-soundness`](bpmn-soundness/SKILL.md) | checking STR-1…4 behavioural soundness | `npm run check:soundness` (advisory; needs the analyzer container) |

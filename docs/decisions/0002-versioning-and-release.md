@@ -26,7 +26,7 @@ specifications rather than adopting SemVer 2.0.0 verbatim.)
 | **PATCH** | fixes a label/typo while preserving the verb-object intent (SYN-3); layout/DI changes; **`.svg` re-export**; colour; metadata; documentation. |
 
 **Pre-1.0.0:** treat `0.MINOR` as the breaking axis. **Reach `1.0.0` at the first
-formal Abnahme "Accepted"** (see [`../governance/`](../governance/)).
+formal acceptance test "Accepted"** (see [`../governance/`](../governance/)).
 
 Bumps are derived from **Conventional Commit** messages scoped by pathway file
 (`feat(treatment)!: …` = breaking; `feat(aftercare): …` = minor; `fix`/`docs` = patch).
@@ -62,7 +62,7 @@ sibling code repo); the `package.json` here is unmanaged private tooling metadat
   so the release PR will not re-run CI. Expected.
 
 A **lighter alternative** (manual `git tag` + a hand-maintained CHANGELOG keyed to
-Abnahme sign-offs + GitHub "generate release notes") is a legitimate fallback for a
+acceptance-test sign-offs + GitHub "generate release notes") is a legitimate fallback for a
 7-file repo; we choose release-please for reproducibility and changelog automation.
 
 ## Decision 3 — Citation and DOI (CITATION.cff + Zenodo)
@@ -93,4 +93,4 @@ Abnahme sign-offs + GitHub "generate release notes") is a legitimate fallback fo
   red on the current models (ADR-0001); making it a required check now would block all
   merges. Enable it (require the conformance check) **after** the remodel follow-up
   greens CI. This is a manual GitHub setting (outward-facing; not done by an agent).
-- The first release / DOI should follow, not precede, a first formal Abnahme.
+- The first release / DOI should follow, not precede, a first formal acceptance test.

@@ -4,7 +4,7 @@
  *
  * Runs `bpmnlint` over the project's `.bpmn` files using the repo-level
  * `.bpmnlintrc` (extends `bpmnlint:recommended` + `bpmnlint:correctness`, with
- * `no-inclusive-gateway` promoted to error for Abnahme SYN-5). bpmnlint's job is
+ * `no-inclusive-gateway` promoted to error for Abnahmetest SYN-5). bpmnlint's job is
  * BPMN *structure / correctness* — disconnected nodes, missing start/end events,
  * implicit splits, missing labels, etc.
  *
@@ -17,7 +17,7 @@
  * its QualityIndicator ids resolve) — and lint the parsed tree, so bpmnlint reports
  * ONLY real structural rule violations.
  *
- * The clinical/size/gateway conventions of the Abnahme instrument that bpmnlint
+ * The clinical/size/gateway conventions of the Abnahmetest instrument that bpmnlint
  * does not cover (SYN-2/4, and SYN-5 cross-checked) live in
  * `tools/check-model-metrics.mjs`. See `skills/bpmn-conformance/SKILL.md`.
  *

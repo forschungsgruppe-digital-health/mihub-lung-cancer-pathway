@@ -63,7 +63,7 @@ file does not change the BPMN content.
 
 GitHub marks PRs #29–#34 as *merged*, but because they were **stacked** (each based on the
 previous feature branch), only **#29 (Phase 0-2)** actually landed on `dev`; the content of
-**#30–#34** (versioning/release, the cp:/i18n descriptor + acceptance orchestrator + review
+**#30–#34** (versioning/release, the cp:/i18n descriptor + acceptance-test orchestrator + review
 skills, the soundness pilot, the model guard, the bilingual governance docs) merged into the
 intermediate feature branches and **never reached `dev`**. This PR is built from the full
 stack merged with current `dev` (recovering the LCS pathway), so merging it brings `dev`

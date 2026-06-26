@@ -4,9 +4,9 @@ Provided for reference; keep both language versions in sync and at the same vers
 Status: draft — not final, likely to change. Change history: docs/governance/CHANGELOG.md.
 -->
 
-# Handout for the Acceptance Checklist: BPMN-modelled Patient Pathway
+# Handout for the Acceptance Test Checklist: BPMN-modelled Patient Pathway
 
-**Purpose.** This document provides a traceable rationale for each acceptance criterion based on the sources and illustrates it with one example each from the lung-cancer context. The IDs are identical to those in the checklist. Technical terms are explained in the **mini-glossary of the checklist**.
+**Purpose.** This document provides a traceable rationale for each acceptance-test criterion based on the sources and illustrates it with one example each from the lung-cancer context. The IDs are identical to those in the checklist. Technical terms are explained in the **mini-glossary of the checklist**.
 
 **Structure per criterion:** *Criterion* → *Rationale (source)* → *Example*.
 
@@ -14,13 +14,13 @@ Status: draft — not final, likely to change. Change history: docs/governance/C
 
 ---
 
-## A. Understandability & technical correctness (technical acceptance)
+## A. Understandability & technical correctness (technical acceptance test)
 
 ### SYN-1 · Conformance class declared and adhered to
 
 **Criterion.** The intended BPMN 2.0 language scope (Descriptive, Analytic, Common Executable) is defined, and the model uses only the elements permitted there.
 
-**Rationale (source).** The OMG specification BPMN 2.0 defines three process-modeling conformance subclasses that build on one another, each with a limited scope of elements and attributes. Without a declared target class it is not verifiable whether different tools interpret or serialise the model identically — inconsistencies in XML serialisation between tools are documented. Defining the class is what makes the technical acceptance objectifiable in the first place.
+**Rationale (source).** The OMG specification BPMN 2.0 defines three process-modeling conformance subclasses that build on one another, each with a limited scope of elements and attributes. Without a declared target class it is not verifiable whether different tools interpret or serialise the model identically — inconsistencies in XML serialisation between tools are documented. Defining the class is what makes the technical acceptance test objectifiable in the first place.
 
 **Example.** A pathway with a timer event ("molecular diagnostics within 14 days") and a message event ("findings to tumor board") exceeds **Descriptive**. The correct class is **Analytic**; if the pathway is later to be executed by an engine, **Common Executable** is required.
 
@@ -60,13 +60,13 @@ Status: draft — not final, likely to change. Change history: docs/governance/C
 
 **Criterion.** The model is *sound*: every run can reach the end (STR-1), no active tokens remain at the end (STR-2), no dead/unreachable activities (STR-3), no deadlock/livelock (STR-4).
 
-**Rationale (source).** Soundness is the established correctness criterion for process models (van der Aalst), derived via the Petri-net properties liveness and boundedness. Fahland et al. (2011, *Data & Knowledge Engineering* 70, 448–466) show that these properties are practically instantaneously checkable in an automated way for realistic industrial models ("Analysis on demand"). Soundness is the objectifiable core of the technical acceptance — best checked by tool.
+**Rationale (source).** Soundness is the established correctness criterion for process models (van der Aalst), derived via the Petri-net properties liveness and boundedness. Fahland et al. (2011, *Data & Knowledge Engineering* 70, 448–466) show that these properties are practically instantaneously checkable in an automated way for realistic industrial models ("Analysis on demand"). Soundness is the objectifiable core of the technical acceptance test — best checked by tool.
 
 **Example (deadlock, STR-4).** After "Complete staging", an **AND-split** opens two branches (pathology, radiology); they are then erroneously merged with an **XOR-join**. The XOR-join fires on the first arriving token, the second one remains stranded → STR-2 violated. Conversely, an **AND-join after an XOR-split** creates a deadlock (waits forever for a branch that was never activated). Rule: pair gateways of the same type.
 
 ---
 
-## B. Clinical content validity (clinical acceptance)
+## B. Clinical content validity (clinical acceptance test)
 
 > Basis B.1: Kinsman, Rotter, James, Snow, Willis (2010): *What is a clinical pathway? Development of a definition to inform the debate.* **BMC Medicine** 8:31 — five criteria, developed in coordination with the European Pathways Association. Operationalisation (confirmed against the full text): criterion 1 (must) plus ≥ 3 of the remaining four.
 
@@ -116,7 +116,7 @@ Status: draft — not final, likely to change. Change history: docs/governance/C
 
 **Rationale (source).** Validation ("the *right* model") relies on domain expertise — unlike the automatable verification. Documented approach: Benevento et al. (2023) validated their normative BPMN model qualitatively in several sessions with physicians from intensive/intermediate care and refined it until all agreed.
 
-**Example.** The pathway model is presented in two to three moderated sessions in the tumor board; change requests are incorporated in a versioned manner until the board unanimously approves it (protocol as proof of acceptance).
+**Example.** The pathway model is presented in two to three moderated sessions in the tumor board; change requests are incorporated in a versioned manner until the board unanimously approves it (protocol as proof of acceptance test).
 
 ### SEM-7 · Domain-specific artefacts (BPMN4CP)
 
@@ -128,13 +128,13 @@ Status: draft — not final, likely to change. Change history: docs/governance/C
 
 ---
 
-## C. Understandability for both sides (joint acceptance)
+## C. Understandability for both sides (joint acceptance test)
 
 ### PRA-1 · Understandability for clinical and technical audiences
 
 **Criterion.** The model is equally understandable for both audience groups.
 
-**Rationale (source).** SEQUAL (Lindland, Sindre, Sølvberg 1994; extended by Krogstie et al.) defines **pragmatic quality** as the correspondence between the model and the audience's interpretation — explicitly separated into *social* (here clinical) and *technical* audience. This very dual understandability is the joint acceptance criterion. (7PMG describes SEQUAL as valuable, but too abstract for beginners — which is why the checklist adds concrete 7PMG items.)
+**Rationale (source).** SEQUAL (Lindland, Sindre, Sølvberg 1994; extended by Krogstie et al.) defines **pragmatic quality** as the correspondence between the model and the audience's interpretation — explicitly separated into *social* (here clinical) and *technical* audience. This very dual understandability is the joint acceptance-test criterion. (7PMG describes SEQUAL as valuable, but too abstract for beginners — which is why the checklist adds concrete 7PMG items.)
 
 **Example.** In the joint walkthrough, one clinical and one technical person each paraphrase the same pathway segment; if the interpretations diverge (e.g. the meaning of a gateway), the model or the label is sharpened.
 
@@ -148,11 +148,11 @@ Status: draft — not final, likely to change. Change history: docs/governance/C
 
 ### PRA-3 · Relevance
 
-**Criterion.** No elements superfluous for the acceptance purpose.
+**Criterion.** No elements superfluous for the acceptance-test purpose.
 
 **Rationale (source).** GoM principle of **relevance** (Becker, Rosemann, Schütte 1995) and 7PMG **G1** ("as few elements as possible"): Superfluous elements increase cognitive load and the risk of error without yielding any insight. In the 7PMG example, applying G1 reduced the element count from 37 to 31 without changing the logic.
 
-**Example.** Purely decorative intermediate events or duplicated auxiliary activities that are irrelevant to the acceptance decision are removed or moved into a detail view.
+**Example.** Purely decorative intermediate events or duplicated auxiliary activities that are irrelevant to the acceptance-test decision are removed or moved into a detail view.
 
 ---
 
