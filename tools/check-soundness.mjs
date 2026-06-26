@@ -32,6 +32,7 @@
  */
 import { readFileSync } from 'node:fs';
 import { resolveBpmnFiles } from './bpmn-files.mjs';
+import { indexFromXml, labelForId } from './element-names.mjs';
 
 // Default host port 8090 (matches the documented `docker run -p 8090:8080` and avoids
 // colliding with services commonly on 8080). Override with SOUNDNESS_URL.
@@ -46,7 +47,11 @@ if (!files.length) {
 }
 
 async function check(file) {
-  const body = JSON.stringify({ bpmn_file_content: readFileSync(file, 'utf8'), properties_to_be_checked: PROPS });
+  const xml = readFileSync(file, 'utf8');
+  // id → editor label, so the analyzer's element ids are locatable by a reviewer.
+  let index = new Map();
+  try { index = await indexFromXml(xml); } catch { /* malformed model → analyzer reports it below */ }
+  const body = JSON.stringify({ bpmn_file_content: xml, properties_to_be_checked: PROPS });
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), Number(process.env.SOUNDNESS_TIMEOUT_MS || 120000));
   try {
@@ -59,7 +64,16 @@ async function check(file) {
       return { kind: 'INCONCLUSIVE', detail: [...new Set(j.unsupported_elements)].join(', ') };
     }
     const viol = (j.property_results || []).filter((r) => !r.fulfilled);
-    if (viol.length) return { kind: 'VIOLATION', detail: viol.map((v) => `${v.property}${v.problematic_elements?.length ? ` [${v.problematic_elements.slice(0, 4).join(', ')}]` : ''}`).join('; ') };
+    if (viol.length)
+      return {
+        kind: 'VIOLATION',
+        detail: viol
+          .map((v) => {
+            const els = (v.problematic_elements || []).slice(0, 4).map((id) => labelForId(id, index));
+            return `${v.property}${els.length ? ` [${els.join(', ')}]` : ''}`;
+          })
+          .join('; '),
+      };
     return { kind: 'SOUND', detail: 'all properties fulfilled' };
   } catch (e) {
     if (e.name === 'AbortError') return { kind: 'ERROR', detail: 'timeout (state-space blowup — the webserver runs without POR)' };

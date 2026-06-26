@@ -31,6 +31,7 @@ import { readFileSync } from 'node:fs';
 import { BpmnModdle } from 'bpmn-moddle';
 import { resolveBpmnFiles } from './bpmn-files.mjs';
 import { extensions } from './moddle/descriptors.mjs';
+import { labelForElement } from './element-names.mjs';
 
 const MAX_ELEMENTS_PER_LEVEL = 50; // Abnahmetest SYN-4 / 7PMG G7
 
@@ -85,21 +86,24 @@ for (const file of files) {
 
   for (const lvl of levels) {
     const els = lvl.flowElements;
-    const inclusive = byType(els, 'bpmn:InclusiveGateway').length;
-    const complex = byType(els, 'bpmn:ComplexGateway').length;
-    const starts = byType(els, 'bpmn:StartEvent').length;
-    const ends = byType(els, 'bpmn:EndEvent').length;
+    const orGateways = [...byType(els, 'bpmn:InclusiveGateway'), ...byType(els, 'bpmn:ComplexGateway')];
+    const startEvents = byType(els, 'bpmn:StartEvent');
+    const endEvents = byType(els, 'bpmn:EndEvent');
     const count = els.length;
 
-    if (inclusive || complex) {
-      fileOr += inclusive + complex;
-      fileLines.push(
-        `    ✖ SYN-5 [${lvl.name}] OR-gateway(s): ${inclusive} inclusive, ${complex} complex — not allowed`
-      );
+    if (orGateways.length) {
+      fileOr += orGateways.length;
+      // Name each offending gateway by its editor label so it can be located, not just counted.
+      fileLines.push(`    ✖ SYN-5 [${lvl.name}] ${orGateways.length} OR-gateway(s) — not allowed:`);
+      for (const g of orGateways) fileLines.push(`        ${labelForElement(g)}`);
     }
-    if (starts !== 1 || ends !== 1) {
+    if (startEvents.length !== 1 || endEvents.length !== 1) {
       fileWarn++;
-      fileLines.push(`    ⚠ SYN-2 [${lvl.name}] start-events=${starts}, end-events=${ends} (expected 1/1 — review)`);
+      fileLines.push(
+        `    ⚠ SYN-2 [${lvl.name}] start-events=${startEvents.length}, end-events=${endEvents.length} (expected 1/1 — review)`
+      );
+      if (startEvents.length > 1) fileLines.push(`        starts: ${startEvents.map(labelForElement).join(', ')}`);
+      if (endEvents.length > 1) fileLines.push(`        ends:   ${endEvents.map(labelForElement).join(', ')}`);
     }
     if (count > MAX_ELEMENTS_PER_LEVEL) {
       fileWarn++;
