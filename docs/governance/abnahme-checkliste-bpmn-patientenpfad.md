@@ -13,7 +13,7 @@ autor: "[Nachname, Initiale]"
 affiliation: "[Einrichtung]"
 orcid: "[ORCID]"
 lizenz: "CC BY 4.0"
-persistent_id: "[DOI/Zenodo nach Hinterlegung]"
+persistent_id: "10.5281/zenodo.20943916 (Concept-DOI des Repository-Archivs)"
 zielgruppe: "klinische und technische Stakeholder; auch Modellierungsanfänger:innen"
 ---
 
@@ -21,7 +21,9 @@ zielgruppe: "klinische und technische Stakeholder; auch Modellierungsanfänger:i
 
 ## Zitationsvorschlag
 
-> [Nachname, Initiale] ([Jahr]). *Abnahmetest-Checkliste für BPMN-modellierte Patientenpfade* (Version 0.3) [Evaluationsinstrument]. [Einrichtung]. [DOI].
+> [Nachname, Initiale] ([Jahr]). *Abnahmetest-Checkliste für BPMN-modellierte Patientenpfade* (Version 0.3) [Evaluationsinstrument]. [Einrichtung]. https://doi.org/10.5281/zenodo.20943916.
+
+*(Der DOI verweist auf das Repository-Archiv „Lungenkrebspatientenpfad – MiHUB (BPMN-Modell)“, in dem dieses Instrument enthalten ist; ein eigenständiger Instrument-DOI würde eine separate Zenodo-Hinterlegung erfordern.)*
 
 Bei Verwendung in einer Publikation bitte zusätzlich die im Konstrukt-Quellen-Mapping (§4) genannten Kernquellen zitieren.
 
