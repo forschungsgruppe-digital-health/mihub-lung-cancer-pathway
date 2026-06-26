@@ -16,6 +16,7 @@ authors:
   - name: "Forschungsgruppe Digital Health, Technische Universität Dresden"
     website: "https://tu-dresden.de/bu/wirtschaft/winf/digital-health"
 license: CC-BY-4.0
+doi: "10.5281/zenodo.20943916"  # concept DOI (all versions); resolves to the latest Zenodo release
 repository-code: "https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway"
 url: "https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway"
 version: 0.1.0
