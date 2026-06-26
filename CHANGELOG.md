@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.2.1-rc.2](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/compare/v0.2.1-rc.1...v0.2.1-rc.2) (2026-06-26)
+
+
+### Documentation & governance
+
+* **citation:** wire the Zenodo concept DOI (CITATION.cff, README, instrument) ([e0daec2](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/e0daec25eb590c7c2a5e1e123f2ac6d7a8f1882c))
+* **citation:** wire the Zenodo concept DOI into CITATION.cff, README + the instrument ([5efbba3](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/5efbba3124d585a9e95f15127ee20e3fd6c58cde))
+* **readme:** add Zenodo DOI badge ([c7660c0](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/c7660c04465767d64dfeac95f28655e4eb169873))
+* **readme:** add Zenodo DOI badge (concept/all-versions, repo-id keyed) ([1f6070a](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/1f6070a9d0d6fbd4abf8163bd0bde05192dca240))
+* **release:** control the release archive (.gitattributes) + add authors/ORCIDs + sync version ([87f42bc](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/87f42bc846a15a31dba7be8f6354216798fe80b3))
+* **release:** keep instrument in archive + author order (Susky first, Schlieter senior) ([74650c7](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/74650c7f7776a3257ed9b598df1f6ea74facf612))
+* **release:** keep the acceptance-test instrument in the archive + set author order ([400fcd9](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/400fcd95996111f8277d582118c0ca6ef284bce3))
+* **release:** release-archive control (.gitattributes) + CITATION authors/ORCIDs + version sync ([7250be2](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/7250be2d6e95caaf006dc20dfb87f83379ce9887))
+
+
+### Tooling & maintenance
+
+* release as 0.2.1-rc.2 (next candidate) ([ef3177f](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/ef3177f166fcbce036c3810887663b73e03b447a))
+
 ## [0.2.1-rc.1](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/compare/v0.2.0-rc.1...v0.2.1-rc.1) (2026-06-26)
 
 
