@@ -27,8 +27,8 @@ license: CC-BY-4.0
 doi: "10.5281/zenodo.20943916"  # concept DOI (all versions); resolves to the latest Zenodo release
 repository-code: "https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway"
 url: "https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway"
-version: "0.2.1-rc.1"
-date-released: "2026-06-26"
+version: "0.2.1-rc.2"
+date-released: "2026-06-27"
 keywords:
   - BPMN
   - clinical pathway
