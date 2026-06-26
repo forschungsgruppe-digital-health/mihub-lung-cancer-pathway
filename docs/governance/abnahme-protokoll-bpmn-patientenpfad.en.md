@@ -4,7 +4,7 @@ Provided for reference; keep both language versions in sync and at the same vers
 Status: draft — not final, likely to change. Change history: docs/governance/CHANGELOG.md.
 -->
 
-# Acceptance Test Protocol — BPMN-modelled patient pathway
+# Acceptance-Test Protocol — BPMN-modelled patient pathway
 
 *To be filled in during the acceptance-test meeting. Criteria basis: Instrument v0.3.1 (IDs identical). If a criterion is unclear, see the handout.*
 
@@ -17,7 +17,7 @@ Status: draft — not final, likely to change. Change history: docs/governance/C
 | Artifact / repository link | |
 | Target conformance class | ☐ Descriptive ☐ Analytic ☐ Common Executable |
 | Date / location of acceptance test | |
-| Criteria basis | Acceptance Test instrument v0.3.1 |
+| Criteria basis | Acceptance-test instrument v0.3.1 |
 | Protocol ID | |
 
 ### Participants
@@ -127,6 +127,6 @@ _____________________________________________________________
 - ☐ Model export / diagram (file, version)
 - ☐ Soundness / analysis report (tool, date)
 - ☐ Minutes of the clinical validation session(s) (evidence for SEM-6)
-- ☐ Acceptance Test instrument v0.3.1 · ☐ accompanying handout
+- ☐ Acceptance-test instrument v0.3.1 · ☐ accompanying handout
 
 *This protocol documents a single acceptance test. Earlier acceptance tests of the same pathway are retained as separate protocols (version traceability).*

@@ -42,19 +42,22 @@ engine-execution attributes (below **Common Executable**), so the target class i
 This declaration is the anchor SYN-1 checks against. **Known deviation:** four
 `inclusiveGateway`s currently exist (treatment ×2, aftercare ×2) — see Decision 3.
 
-## Decision 3 — Conformance gate composition, and an intentionally-red baseline
+## Decision 3 — Conformance gate composition, and an intentionally-noisy baseline (advisory in CI)
 
-`npm run check:conformance` aggregates four layers and reports all of them, failing
-only on the blocking ones:
+`npm run check:conformance` aggregates four layers and reports all of them. Locally
+(STRICT default) it fails on the blocking layers; in CI during the RC/pre-remodel phase
+it runs ADVISORY (warn-only via `CONFORMANCE_WARN_ONLY`) — it reports every finding as
+`::warning::` and exits 0, so it does not fail the check or block PRs. The 'Blocking'
+column below is the local STRICT behaviour:
 
-| Layer | Tool | Blocking |
+| Layer | Tool | Blocking (local STRICT) |
 |---|---|---|
 | structure | bpmnlint (recommended + correctness, `no-inclusive-gateway`=error), run programmatically so `cp:`/`i18n:` extension content does not drown the signal | **yes** |
 | conventions | `tools/check-model-metrics.mjs` — SYN-5 no-OR (blocking); SYN-2/SYN-4/lanes/prefix (advisory) | **yes** on OR-gateways |
 | extension data | `tools/moddle-roundtrip.mjs` — serialization stability + `cp:`/`i18n:` presence | informational |
 | standard core | `tools/validate-xsd.sh` — OMG BPMN20.xsd | informational |
 
-**The gate fails on the current models by design** — it surfaces the real baseline:
+**The gate surfaces the real baseline on the current models by design** (and in CI reports it warn-only, without failing the check) — namely:
 99 bpmnlint structural errors (disconnected nodes, implicit start/end, missing
 labels, multiple blank start events), the four OR-gateways, and unformalised
 `cp:`/`i18n:` extension content. We add the gate first (this PR) so the baseline is
@@ -63,8 +66,10 @@ modelling and clinical judgment and must not be done by an agent unilaterally.
 
 ## Consequences
 
-- CI is red until the follow-ups land. **Do not enable `main`/`dev` branch
-  protection on the conformance check until the remodel PR greens it.**
+- The conformance check runs **advisory (warn-only)** in CI today, so it passes
+  (reports findings as warnings) and does not block merges. **Hard enforcement is
+  re-enabled after the remodel** by removing `CONFORMANCE_WARN_ONLY` and then making
+  the conformance check a required check for `main`/`dev` branch protection.
 - **Follow-ups (separate PRs):** (a) remodel the four OR-gateways to XOR/AND and fix
   the structural defects (re-export the `.svg`s); (b) register `cp:` (BPMN4CP) +
   `i18n:` moddle descriptors so the roundtrip validates the extension data losslessly;

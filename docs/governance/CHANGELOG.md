@@ -19,9 +19,11 @@ follows [Keep a Changelog](https://keepachangelog.com/).
 
 ### Changed
 - Terminology: the instrument and all governance documents now use **Abnahmetest** (DE) /
-  **acceptance test** (EN) throughout, replacing *Abnahme* / *acceptance* (maintainer decision,
-  2026-06-26). Filenames keep the `abnahme-` stem (`*.en.md` for the English translation);
-  criteria IDs, severities, methods, gates, and document versions are unchanged.
+  **acceptance test** (EN) — adjectival **acceptance-test** (e.g. "acceptance-test instrument") —
+  throughout, replacing *Abnahme* / *acceptance* (maintainer decision, 2026-06-26). The decision
+  outcomes (Accepted / Accepted with conditions / Rejected) and the verb *accept* / *sign off* are
+  unchanged. Filenames keep the `abnahme-` stem (`*.en.md` for the English translation); criteria
+  IDs, severities, methods, gates, and document versions are unchanged.
 
 ## Checklist (instrument) v0.3.1
 - BPMN4CP reference clarified: Revised = HICSS 2016 (pp. 3249–3258, DOI 10.1109/HICSS.2016.407);

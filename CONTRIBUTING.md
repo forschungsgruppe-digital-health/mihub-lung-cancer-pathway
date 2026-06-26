@@ -49,9 +49,11 @@ The decision lives in the tools, not in the model. Blocking layers: bpmnlint
 roundtrip and XSD core. See [`skills/bpmn-conformance/SKILL.md`](skills/bpmn-conformance/SKILL.md)
 for how to read the output.
 
-> The gate is currently **red on the existing models by design** (pre-existing
-> structural defects + OR-gateways) — see [`docs/decisions/0001`](docs/decisions/0001-repo-tooling-and-conformance-gate.md).
-> When you touch a model, aim to leave it no worse; the planned remodel will green it.
+> The CI conformance gate currently runs **advisory (warn-only) on the existing models by design**
+> (pre-existing structural defects + OR-gateways): it **reports** the findings as warnings but does
+> **not** fail the check or block PRs — the local default stays strict, and hard enforcement is
+> re-enabled after the planned remodel. See [`docs/decisions/0001`](docs/decisions/0001-repo-tooling-and-conformance-gate.md).
+> When you touch a model, aim to leave it no worse; the planned remodel will green the strict gate.
 
 ## Commits, branches, and pull requests
 
