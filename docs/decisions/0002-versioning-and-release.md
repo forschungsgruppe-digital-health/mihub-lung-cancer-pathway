@@ -28,6 +28,17 @@ specifications rather than adopting SemVer 2.0.0 verbatim.)
 **Pre-1.0.0:** treat `0.MINOR` as the breaking axis. **Reach `1.0.0` at the first
 formal acceptance test "Accepted"** (see [`../governance/`](../governance/)).
 
+`release-please-config.json` enforces this with **`bump-minor-pre-major: true`** — a
+breaking change (`feat!`/`refactor!`) bumps the **MINOR** (`0.1.0 → 0.2.0`), not to `1.0.0`,
+while no model has yet passed the acceptance test.
+
+**Release candidates.** To cut a candidate rather than a final release, set
+**`"release-as": "X.Y.Z-rc.N"`** in `release-please-config.json` (e.g. `0.2.0-rc.1`);
+release-please forces that version and marks the `-rc` tag as a GitHub **pre-release** (not
+`latest`), so no consumer treats it as stable. Advance the suffix for further candidates
+(`-rc.2`, …) and **remove `release-as`** to cut the final `X.Y.Z` once the acceptance test
+is "Accepted".
+
 Bumps are derived from **Conventional Commit** messages scoped by pathway file
 (`feat(treatment)!: …` = breaking; `feat(aftercare): …` = minor; `fix`/`docs` = patch).
 Note: commit-lint enforces the *type*, not the *semantic correctness* of the bump — a
