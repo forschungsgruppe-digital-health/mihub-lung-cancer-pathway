@@ -2,6 +2,7 @@
 
 > **BPMN-Modell der übergreifenden Lungenkrebs-Patient Journey** (_sog. Patientenpfad_) im Rahmen des Medical Informatics Hub (MiHUB). Der Patientenpfad wird federführend in Arbeitspaket 3 (AP3) entwickelt und bildet die fachliche Grundlage für die Use-Case-Arbeitspakete AP6 (Krebsfrüherkennung), AP7 (Kooperative Krebsversorgung) und AP8 (Nachsorge und Langzeitbegleitung).
 
+[![DOI](https://zenodo.org/badge/1167600846.svg)](https://zenodo.org/badge/latestdoi/1167600846)
 [![Lizenz: CC BY 4.0](https://img.shields.io/badge/Lizenz-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Projekt: MiHUB](https://img.shields.io/badge/Projekt-MiHUB-blue)](https://mihubx.de/mihub/)
 [![Projekt: MII](https://img.shields.io/badge/Projekt-MII-blue)](https://www.medizininformatik-initiative.de/)
