@@ -31,6 +31,7 @@ import { createRequire } from 'node:module';
 import { BpmnModdle } from 'bpmn-moddle';
 import { resolveBpmnFiles } from './bpmn-files.mjs';
 import { extensions } from './moddle/descriptors.mjs';
+import { indexById, labelForId } from './element-names.mjs';
 
 const require = createRequire(import.meta.url);
 const { Linter } = require('bpmnlint');
@@ -68,6 +69,7 @@ for (const file of files) {
 
   const reports = await linter.lint(rootElement);
   const rules = Object.keys(reports);
+  const index = indexById(rootElement); // id → human-readable editor label
 
   let fileErrors = 0;
   let fileWarnings = 0;
@@ -77,7 +79,9 @@ for (const file of files) {
       const isError = r.category === 'error';
       if (isError) fileErrors++;
       else fileWarnings++;
-      lines.push(`    ${isError ? 'error  ' : 'warning'}  ${(r.id || '').padEnd(18)} ${r.message}  (${rule})`);
+      // Report the editor label (`"Name" (id)`) so the element is locatable, not the bare id.
+      const where = r.id ? `  →  ${labelForId(r.id, index)}` : '';
+      lines.push(`    ${isError ? 'error  ' : 'warning'}  ${r.message}${where}  (${rule})`);
     }
   }
 
