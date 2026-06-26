@@ -9,17 +9,27 @@ abstract: >-
   interoperability-reference artifact — not clinically validated and not for use
   in direct patient care (see DISCLAIMER.md).
 type: dataset
-# TODO before the first DOI release: replace the institutional author below with the
-# individual authors (given-names / family-names / orcid), keeping the institution as
-# an affiliation. The Zenodo record version comes from the git tag, not this file.
+# Author order is provisional (listed alphabetically) — set the intended authorship before a
+# stable release; add further contributors as needed.
 authors:
-  - name: "Forschungsgruppe Digital Health, Technische Universität Dresden"
-    website: "https://tu-dresden.de/bu/wirtschaft/winf/digital-health"
+  - given-names: Rebecca
+    family-names: Scheel
+    affiliation: "Forschungsgruppe Digital Health, Technische Universität Dresden"
+    orcid: "https://orcid.org/0009-0001-6054-7812"
+  - given-names: Hannes
+    family-names: Schlieter
+    affiliation: "Forschungsgruppe Digital Health, Technische Universität Dresden"
+    orcid: "https://orcid.org/0000-0002-6513-9017"
+  - given-names: Marcel
+    family-names: Susky
+    affiliation: "Forschungsgruppe Digital Health, Technische Universität Dresden"
+    orcid: "https://orcid.org/0000-0002-3906-0452"
 license: CC-BY-4.0
 doi: "10.5281/zenodo.20943916"  # concept DOI (all versions); resolves to the latest Zenodo release
 repository-code: "https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway"
 url: "https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway"
-version: 0.1.0
+version: "0.2.1-rc.1"
+date-released: "2026-06-26"
 keywords:
   - BPMN
   - clinical pathway
