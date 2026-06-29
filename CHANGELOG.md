@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.3.0-rc.1](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/compare/v0.2.1-rc.2...v0.3.0-rc.1) (2026-06-29)
+
+
+### Pathway changes
+
+* **models:** integrate palliative-care sub-pathway + README (cut 0.3.0-rc.1) ([f6b94a1](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/f6b94a14c202fdef005143f53e6727d289b9ca49))
+* **models:** integrate palliative-care sub-pathway + README; release as 0.3.0-rc.1 ([ecb38e9](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/ecb38e91cdec7bad77b45238a4590d8102962e53))
+
+
+### Documentation & governance
+
+* **model-issues:** file palliative-care WIP conformance findings (2026-06-29) ([66310cc](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/66310cc3d4670ec4f3fdbfc68a052dfd394f28f9))
+* **model-issues:** palliative-care WIP conformance findings ([b08f656](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/b08f656de0ab612cf86611d4b5175a439dc223e3))
+
 ## [0.2.1-rc.2](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/compare/v0.2.1-rc.1...v0.2.1-rc.2) (2026-06-26)
 
 
