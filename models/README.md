@@ -14,6 +14,7 @@ per CI geprÃ¼ft mit `npm run check:naming`). Jede `.bpmn`-Quelle hat eine zugehÃ
 | `lung-cancer-tumor-board-pathway` | Tumorboard | Tumorboard-Teilpfad |
 | `lung-cancer-molecular-tumor-board-pathway` | Molekulares Tumorboard | molekulares Tumorboard |
 | `lung-cancer-treatment-pathway` | Behandlung | Behandlungs-Teilpfad |
+| `lung-cancer-palliative-care-pathway` | Palliativversorgung | Palliativ-Teilpfad _(Entwurf / WIP)_ |
 | `lung-cancer-aftercare-pathway` | Nachsorge | Nachsorge-Teilpfad |
 
 > **Abnahmetest / Status:** siehe [`../docs/governance/`](../docs/governance/).
