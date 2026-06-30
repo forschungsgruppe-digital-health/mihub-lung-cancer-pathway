@@ -17,6 +17,8 @@
 > ⚠️ **Hinweis zur Zweckbestimmung / Haftungsausschluss.** Dieses BPMN-Modell ist ein **Forschungs-, Lehr- und Interoperabilitäts-Referenzartefakt**. Es ist **nicht** für den Einsatz in der unmittelbaren Patient:innenversorgung oder zur klinischen Entscheidungsfindung bestimmt, **nicht klinisch validiert** und stellt **keine medizinische Beratung** dar. Die Autor:innen weisen ihm **keine medizinische Zweckbestimmung** im Sinne der EU-Medizinprodukteverordnung (MDR 2017/745) zu. Jede Nutzung in einem Versorgungskontext erfordert eine eigenständige klinische Validierung und regulatorische Bewertung durch die nutzende Stelle. Es gelten [`DISCLAIMER.md`](./DISCLAIMER.md) und Abschnitt 5 der [`LICENSE`](./LICENSE).
 >
 > _This BPMN model is a research, education and interoperability-reference artifact. It is **not** intended for direct patient care or clinical decision-making, has **not** been clinically validated, and is not medical advice. The authors assign it **no medical intended purpose** under EU MDR 2017/745. See [`DISCLAIMER.md`](./DISCLAIMER.md)._
+>
+> 🧩 **Ergänzendes Repository — Datenelemente.** Die _inhaltliche_ Datenseite dieses Pfads — _welche_ klinischen Datenelemente an den Aktivitäten und Übergängen erhoben, ausgetauscht und sekundär genutzt werden — wird im Schwester-Repository [`mihub-lung-cancer-pathway-data-elements`](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway-data-elements) gepflegt (AP6/AP7/AP8). Dieses Repository beschreibt den **Prozess** (_wann, durch wen_), das Datenelement-Repository die **Inhalte** (_was wird dokumentiert/ausgetauscht_). Beide sind komplementär.
 
 ---
 
@@ -31,6 +33,7 @@
 | die **Konformitätsprüfung** lokal ausführen | [`skills/bpmn-conformance/SKILL.md`](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/skills/bpmn-conformance/SKILL.md) (`npm run check:conformance`) |
 | **Entscheidungen (ADR)** nachlesen | [`docs/decisions/`](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/tree/main/docs/decisions) |
 | **Zweckbestimmung / Haftung** | [`DISCLAIMER.md`](./DISCLAIMER.md) |
+| die **Datenelemente** (Inhaltsseite) erkunden | Schwester-Repo [`…-data-elements`](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway-data-elements) |
 
 ---
 
