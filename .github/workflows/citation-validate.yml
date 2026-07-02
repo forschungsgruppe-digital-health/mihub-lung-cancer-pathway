@@ -1,0 +1,27 @@
+name: Validate CITATION.cff
+
+# An invalid CITATION.cff silently aborts the Zenodo publish on release, so we
+# validate it against the Citation File Format schema on any change. Blocking.
+
+on:
+  pull_request:
+    branches: [main, dev]
+    paths: ["CITATION.cff"]
+  push:
+    branches: [main, dev]
+    paths: ["CITATION.cff"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: cff schema validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - name: Validate CITATION.cff
+        uses: dieghernan/cff-validator@54c8e737314b948f25c0e5524a9d8ae3f39b207b # v5

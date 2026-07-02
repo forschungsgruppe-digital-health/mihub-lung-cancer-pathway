@@ -1,0 +1,57 @@
+name: Soundness (advisory)
+
+# Behavioural soundness (Abnahme STR-1..4) via rust_bpmn_analyzer (pinned by digest),
+# run as a service container. ADVISORY / non-blocking: it reports SOUND / VIOLATION /
+# INCONCLUSIVE per model and never fails the build. As of the 2026-06-25 pilot, 4/7
+# models are INCONCLUSIVE (unsupported OR-gateways + intermediate catch events) and the
+# analyzable ones violate on pre-existing defects — see docs/decisions/0003. Flip to
+# `--strict` (blocking) only after the model remodel.
+
+on:
+  pull_request:
+    branches: [main, dev]
+    paths:
+      - "**/*.bpmn"
+      - "tools/check-soundness.mjs"
+      - ".github/workflows/soundness.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  soundness:
+    name: soundness (advisory)
+    runs-on: ubuntu-latest
+    services:
+      analyzer:
+        # Pinned by digest (see docs/decisions/0003). The image is the webserver binary
+        # and binds 0.0.0.0:8080; mapped to localhost:8090 on the runner.
+        image: tkra/rust_bpmn_analyzer@sha256:9d939b84e82ca0ef55e9b34847d55bacd32b293fc7ef670e53d37d2ebcd3778c
+        ports:
+          - 8090:8080
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Wait for the analyzer
+        run: |
+          for i in $(seq 1 30); do
+            if curl -fsS -o /dev/null http://localhost:8090/; then echo "analyzer ready"; exit 0; fi
+            sleep 1
+          done
+          echo "analyzer not ready — the wrapper will skip (advisory)."
+
+      - name: Soundness (advisory, non-blocking)
+        env:
+          SOUNDNESS_URL: http://localhost:8090/check_bpmn
+        run: node tools/check-soundness.mjs

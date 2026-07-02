@@ -1,0 +1,35 @@
+{
+  "name": "BPMN4CP",
+  "uri": "http://www.helict.de/bpmn4cp",
+  "prefix": "cp",
+  "xml": { "tagAlias": "lowerCase" },
+  "types": [
+    {
+      "name": "ProcessExtension",
+      "extends": ["bpmn:Process"],
+      "properties": [
+        { "name": "qualityIndicators", "type": "QualityIndicator", "isMany": true }
+      ]
+    },
+    {
+      "name": "QualityIndicator",
+      "properties": [
+        { "name": "id", "type": "String", "isAttr": true, "isId": true },
+        { "name": "name", "type": "String", "isAttr": true },
+        { "name": "dataObjectRef", "type": "String", "isAttr": true },
+        { "name": "extensionElements", "type": "bpmn:ExtensionElements" },
+        { "name": "qIDefinition", "type": "QIDefinition" }
+      ]
+    },
+    {
+      "name": "QIDefinition",
+      "properties": [
+        { "name": "type", "type": "String", "isAttr": true },
+        { "name": "text", "type": "String", "isAttr": true },
+        { "name": "numerator", "type": "String", "isAttr": true },
+        { "name": "denumerator", "type": "String", "isAttr": true },
+        { "name": "extensionElements", "type": "bpmn:ExtensionElements" }
+      ]
+    }
+  ]
+}
