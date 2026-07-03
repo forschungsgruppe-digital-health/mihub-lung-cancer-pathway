@@ -38,11 +38,25 @@ Crucially, **both are directed graphs with branching logic**, and process graphs
 Four concrete reasons to pair them:
 
 1. **One clinically validated source of truth.** The BPMN pathway is built on clinical guidelines, the CraNE EU standard, and empirically grounded modelling guidelines (7PMG; Mendling, Reijers & van der Aalst, 2010 [^mendling2010]). Using it as the *skeleton* of the Synthea module means the synthetic data follows the **same reviewed pathway** — giving provenance and avoiding a second, divergent description of the journey.
-2. **The annotations close the gap.** Our [`bpmn-js-clinical-semantics`](https://github.com/forschungsgruppe-digital-health/bpmn-js-clinical-semantics) extension already adds SNOMED CT / LOINC / ICD-10-GM / OPS / ATC / ICD-O-3 codes (`term:`) and FHIR resource mappings (`fhirmap:`) to BPMN elements, and the [`…-data-elements`](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway-data-elements) repo carries the codes + MII bindings per step. So **annotated BPMN supplies most of what a GMF clinical state needs** (the resource type and the code).
+2. **Annotations close the gap — three small BPMN extensions.** The tooling that adds machine-readable clinical meaning to the BPMN is split into three focused [bpmn.io](https://bpmn.io) extensions (one per concern), and the [`…-data-elements`](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway-data-elements) repo carries the codes + MII bindings per pathway step. So **annotated BPMN supplies most of what a GMF clinical state needs** — the resource type, the code, and the simulation parameters. See *The three BPMN extensions* below.
 3. **Clinical pathways are routinely modelled in BPMN — and are meant to be made computable.** BPMN is an established notation for clinical pathways (Scheuerlein et al., 2012 [^scheuerlein2012]; BPM+ Health, 2020 [^bpmplus]; BPMN4CP — Braun et al., 2014 [^braun2014], 2016 [^braun2016]), and transforming such pathways into executable artefacts is an active, demonstrated practice (e.g. FHIR2BPMN — Helm et al., 2022 [^helm2022]; comparative analysis of BPMN vs. openEHR Task Planning — Iglesias, Juárez & Campos, 2022 [^iglesias2022]).
 4. **Single source → multiple artefacts.** The same annotated BPMN can feed *both* the Synthea generation module *and* the planned FHIR `PlanDefinition`/Implementation Guide (deliverable D3.2). One model, several computable outputs.
 
 **In one sentence:** the BPMN pathway gives us the *clinically correct skeleton*; Synthea turns it into a *running data generator*; the annotations and data-element codes are the connective tissue.
+
+### The three BPMN extensions (the annotation layers)
+
+Clinical meaning is added to the BPMN with three small, independent [bpmn.io / bpmn-js](https://bpmn.io) extensions — each stores its data as standard BPMN `<extensionElements>` under its own namespace, so ordinary BPMN tools ignore it and the models stay portable:
+
+| Extension repo | What it annotates on a BPMN element | Namespace |
+|---|---|---|
+| [`bpmn-extension-medical-terminology`](https://github.com/forschungsgruppe-digital-health/bpmn-extension-medical-terminology) | medical **codes** — SNOMED CT, LOINC, ICD-10-GM, OPS, ATC, ICD-O-3 | `term:` |
+| [`bpmn-extension-fhir-mapping`](https://github.com/forschungsgruppe-digital-health/bpmn-extension-fhir-mapping) | the **FHIR resource** a step produces — `resourceType`, profile, key elements | `fhirmap:` |
+| [`bpmn-extension-synthea-module`](https://github.com/forschungsgruppe-digital-health/bpmn-extension-synthea-module) | **simulation** parameters for Synthea — branch probability, timing/`Delay`, incidence, GMF state hints | `synthea:` |
+
+Each extension is a **moddle descriptor** (defines the typed data + namespace it stores in the BPMN XML) plus a **properties panel** (so a modeller edits it visually in the bpmn-js editor), all built from the shared [`bpmn-extension-template`](https://github.com/forschungsgruppe-digital-health/bpmn-extension-template). Together they turn a plain BPMN diagram into a machine-readable one: the terminology + FHIR-mapping layers supply the **codes and resource types**, the Synthea layer supplies the **probabilities and timing** — exactly the inputs a GMF module needs (§4).
+
+> **Status (July 2026):** these three repos **replace** the earlier single repo `bpmn-js-clinical-semantics`; the split is **in progress** (repos scaffolded from the template, the real `term:`/`fhirmap:` code being ported over), and the old monorepo will be **removed once porting completes**. The three repos are **private during porting** (so their links resolve only for org members for now).
 
 ---
 

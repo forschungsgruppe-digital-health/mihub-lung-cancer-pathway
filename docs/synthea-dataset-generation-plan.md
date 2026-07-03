@@ -37,10 +37,10 @@
 |---|---|
 | `mihub-lung-cancer-pathway` (this repo) | BPMN4CP models under [`models/`](../models/) → Synthea state-machine **topology** (when/who, branches, loops). Consumed **read-only** — agents may not edit `.bpmn` ([AGENTS.md](../AGENTS.md)). |
 | `mihub-lung-cancer-pathway-data-elements` | YAML data elements → **codes + MII-KDS/oBDS bindings** per pathway step (`care_process.trigger` links elements to steps; `build-fhir-logical-models.py` already emits FSH) |
-| `bpmn-js-clinical-semantics` | `term:` (SNOMED/LOINC/ICD-10-GM/OPS/ATC/ICD-O-3) + `fhirmap:` (resourceType/profile/keyElement) annotation layers stored as BPMN `extensionElements` |
-| `mihubx-terminology-server` | `$expand` / `$validate-code` / `$translate` for German editions (membership checks, RxNorm→ATC) |
+| [`bpmn-extension-medical-terminology`](https://github.com/forschungsgruppe-digital-health/bpmn-extension-medical-terminology) | `term:` codes on BPMN elements — SNOMED/LOINC/ICD-10-GM/OPS/ATC/ICD-O-3 (stored as BPMN `extensionElements`) |
+| [`bpmn-extension-fhir-mapping`](https://github.com/forschungsgruppe-digital-health/bpmn-extension-fhir-mapping) | `fhirmap:` — the FHIR `resourceType`/profile/key-element a step produces |
+| [`bpmn-extension-synthea-module`](https://github.com/forschungsgruppe-digital-health/bpmn-extension-synthea-module) | `synthea:` — simulation parameters (branch probability, timing/`Delay`, incidence, GMF state hints) |
 | `kerndatensatzmodul-onkologie` (+ base modules) | MII profile packages = the conformance target + validation packages |
-| `mihubx-onkostar-export-to-fhir-mapper` | Existing oBDS→FHIR mapping logic — prior art for the MII export step |
 
 **Tooling:** Synthea (Apache-2.0, GMF + Flexporter), Module Builder, Matchbox (validation).
 
@@ -61,7 +61,7 @@ flowchart LR
     TR --> GMF["Synthea GMF module<br/>+ submodules (synthea/)"]
     GMF --> SY["Synthea run"]
     SY --> USC["US-Core FHIR R4 bundles"]
-    USC --> FX["Flexporter + ConceptMaps<br/>(terminology-server, onkostar-mapper)"]
+    USC --> FX["Flexporter + ConceptMaps<br/>(RxNav: RxNorm→ATC)"]
     FX --> MII["MII-KDS-conformant FHIR"]
     MII --> VAL["Matchbox validation gate<br/>(MII packages)"]
     VAL --> REL["Versioned dataset release"]
@@ -74,7 +74,7 @@ flowchart LR
 
 ## 5. Execution plan (phased TODO)
 
-> 🔒 **Ways of working.** The `.bpmn` models are edited **only by human modellers** and re-validated (Abnahmetest SEM-6); agents/tools are **read-only** on `**/*.bpmn` ([AGENTS.md](../AGENTS.md) hard rules, `guard-model-files` hook). This includes adding `term:`/`fhirmap:`/`synthea:` annotations (done in the bpmn-js editor with `bpmn-js-clinical-semantics`) and any remodelling — report findings via [`docs/model-issues/`](model-issues/), don't self-edit. The Synthea/transpiler side (this plan's tooling, under `tools/`/`synthea/`) consumes the models read-only.
+> 🔒 **Ways of working.** The `.bpmn` models are edited **only by human modellers** and re-validated (Abnahmetest SEM-6); agents/tools are **read-only** on `**/*.bpmn` ([AGENTS.md](../AGENTS.md) hard rules, `guard-model-files` hook). This includes adding `term:`/`fhirmap:`/`synthea:` annotations (done in the bpmn-js editor with the three extensions — [terminology](https://github.com/forschungsgruppe-digital-health/bpmn-extension-medical-terminology) / [fhir-mapping](https://github.com/forschungsgruppe-digital-health/bpmn-extension-fhir-mapping) / [synthea-module](https://github.com/forschungsgruppe-digital-health/bpmn-extension-synthea-module)) and any remodelling — report findings via [`docs/model-issues/`](model-issues/), don't self-edit. The Synthea/transpiler side (this plan's tooling, under `tools/`/`synthea/`) consumes the models read-only.
 
 ### Phase 0 — Setup & decisions
 - [ ] Confirm repo placement + dual-license (§2); add Apache `LICENSE` for `tools/`.
@@ -88,9 +88,9 @@ flowchart LR
 - [ ] Review the topology diagram with clinical/AP3 before any JSON.
 
 ### Phase 2 — **Step (a): annotation conventions** → see §6
-- [ ] Adopt `term:` for codes and `fhirmap:` for FHIR resource type/profile (reuse `bpmn-js-clinical-semantics`).
+- [ ] Adopt `term:` for codes and `fhirmap:` for FHIR resource type/profile (the `bpmn-extension-medical-terminology` + `bpmn-extension-fhir-mapping` extensions).
 - [ ] Specify a minimal **new `synthea:` annotation layer** for simulation-only properties (branch probability, delay/timing, entry/incidence, state-type override, attribute name).
-- [ ] Implement `synthea:` as a third package in `bpmn-js-clinical-semantics` (Apache-2.0, pluggable layer) **or** a local moddle descriptor.
+- [ ] Use the `synthea:` layer from its own repo, [`bpmn-extension-synthea-module`](https://github.com/forschungsgruppe-digital-health/bpmn-extension-synthea-module) (scaffolded from `bpmn-extension-template`; porting in progress).
 - [ ] Align BPMN element/annotation IDs with data-element IDs (`care_process.trigger`) so codes/MII bindings can be pulled from the data-elements catalog.
 
 ### Phase 3 — GMF-compatibility modelling pass (human modellers) → see §8
@@ -116,7 +116,7 @@ flowchart LR
 
 ### Phase 7 — MII conformance (export-time mapping)
 - [ ] Author a **Flexporter** mapping: `apply_profiles` (MII profile URLs from `fhirmap:`/data-elements) + code remap.
-- [ ] Wire ConceptMaps: RxNorm→ATC (terminology-server / RxNav), curated SNOMED→ICD-10-GM (C34.\*) + SNOMED→OPS lookups for the codes this module emits; reuse `onkostar-export-to-fhir-mapper` logic for oncology resources.
+- [ ] Wire ConceptMaps: RxNorm→ATC (RxNav), curated SNOMED→ICD-10-GM (C34.\*) + SNOMED→OPS lookups for the codes this module emits.
 - [ ] Author the oncology core that Synthea can't generate cleanly (TNM Observations, ICD-O-3, grading, ECOG, genetic variants) — prefer `excel2fhir`/FSH for a few guideline-perfect anchor cases.
 
 ### Phase 8 — Validation gate
@@ -133,7 +133,7 @@ flowchart LR
 
 ## 6. Step (a) — Annotation conventions (detail)
 
-**Reuse, don't reinvent.** `bpmn-js-clinical-semantics` already covers the two hard layers:
+**Reuse, don't reinvent.** The `bpmn-extension-medical-terminology` and `bpmn-extension-fhir-mapping` extensions cover the two hard layers:
 
 | Need | Layer | Example (BPMN `extensionElements`) |
 |---|---|---|
@@ -151,7 +151,7 @@ flowchart LR
 | Task (override) | `stateType` when `fhirmap:resourceType` is insufficient (`SetAttribute`, `Symptom`, `CarePlanStart`) | GMF state type |
 | Data object | `attribute` (Person attribute name) | `SetAttribute` / `Attribute` logic |
 
-**Recommendation:** implement `synthea:` as a **third pluggable package** in `bpmn-js-clinical-semantics` (`@bpmn-js-clinical-semantics/synthea-simulation`, Apache-2.0) — same moddle-extension + properties-panel pattern, so modellers set probabilities/timing in the same editor. The transpiler then reads all three namespaces.
+**Home:** the `synthea:` layer lives in its own repo, [`bpmn-extension-synthea-module`](https://github.com/forschungsgruppe-digital-health/bpmn-extension-synthea-module) — a bpmn.io moddle-extension + properties-panel from the shared [`bpmn-extension-template`](https://github.com/forschungsgruppe-digital-health/bpmn-extension-template) — so modellers set probabilities/timing in the same editor. The transpiler then reads all three namespaces (`term:`/`fhirmap:`/`synthea:`).
 
 ---
 
@@ -230,7 +230,7 @@ flowchart TD
 
 ## 10. Open decisions
 - [ ] Single source for codes: inline `term:`/`fhirmap:` in BPMN **vs** referenced from the data-elements catalog (recommended: catalog is source, annotations reference element IDs).
-- [ ] Build the `synthea:` layer inside `bpmn-js-clinical-semantics` (preferred) vs a standalone moddle descriptor in `tools/`.
+- [x] ~~Build the `synthea:` layer inside a monorepo vs standalone~~ — **decided:** it has its own repo, [`bpmn-extension-synthea-module`](https://github.com/forschungsgruppe-digital-health/bpmn-extension-synthea-module).
 - [ ] Transpiler language/library (`bpmn-moddle` JS vs Camunda Java vs `bpmn-python`).
 - [ ] How much oncology core to generate via the extended GMF module vs author via `excel2fhir`/FSH anchor cases.
 - [ ] Relationship to D3.2 (FHIR `PlanDefinition`/IG, M16): can the same annotated BPMN feed both the Synthea module *and* the computable-pathway FHIR artifacts? (Strategic single-source upside.)
@@ -243,6 +243,6 @@ flowchart TD
 
 **Synthea & MII:**
 - Synthea GMF: <https://github.com/synthetichealth/synthea/wiki/Generic-Module-Framework> · Flexporter: <https://github.com/synthetichealth/synthea/wiki/Flexporter> · Module Builder: <https://synthetichealth.github.io/module-builder/>
-- `bpmn-js-clinical-semantics` (this org) — `term:` / `fhirmap:` annotation layers.
+- BPMN annotation extensions (this org): [`bpmn-extension-medical-terminology`](https://github.com/forschungsgruppe-digital-health/bpmn-extension-medical-terminology) (`term:`), [`bpmn-extension-fhir-mapping`](https://github.com/forschungsgruppe-digital-health/bpmn-extension-fhir-mapping) (`fhirmap:`), [`bpmn-extension-synthea-module`](https://github.com/forschungsgruppe-digital-health/bpmn-extension-synthea-module) (`synthea:`) — from [`bpmn-extension-template`](https://github.com/forschungsgruppe-digital-health/bpmn-extension-template); they replace the retiring monorepo `bpmn-js-clinical-semantics`.
 - `mihub-lung-cancer-pathway-data-elements` (this org) — data elements + codings + MII/oBDS mappings.
 - MII Onkologie IG: <https://www.medizininformatik-initiative.de/Kerndatensatz/KDS_Onkologie_2026/MIIIGModulOnkologie.html>
