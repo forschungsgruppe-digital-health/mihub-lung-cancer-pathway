@@ -24,7 +24,7 @@
 |---|---|
 | Where does the Synthea module + generation pipeline live? | **This repo** (`mihub-lung-cancer-pathway`) — co-located with the BPMN source of truth it is generated from. |
 | Where does the portal get data? | The portal consumes a **versioned dataset release** (NDJSON/FHIR bundles as GitHub release assets) + runs its own validation gate. No Synthea in the portal. |
-| Content vs code licensing | This repo is **CC-BY-4.0** (content). The **transpiler and scripts are code → Apache-2.0.** Mirror the dual-license pattern already used by `mihub-lung-cancer-pathway-data-elements` (CC-BY content + Apache scripts). Put code under `tools/` with an Apache `LICENSE`. |
+| Content vs code licensing | This repo is **CC-BY-4.0** (content: `.bpmn`/`.svg`/docs). The **transpiler and scripts are code → Apache-2.0.** Mirror the dual-license pattern of `mihub-lung-cancer-pathway-data-elements` (CC-BY content + Apache scripts). Put the transpiler under [`tools/`](../tools/) — which already hosts the conformance tooling ([AGENTS.md](../AGENTS.md) "Artifacts vs. tooling") — and clarify code-vs-content licensing. |
 | Generated GMF module + Flexporter mapping | Treat the GMF JSON + mapping as build artifacts living under `synthea/` (regenerable from BPMN). |
 
 ---
@@ -35,7 +35,7 @@
 
 | Asset | Role in the pipeline |
 |---|---|
-| `mihub-lung-cancer-pathway` (this repo) | BPMN4CP graph → Synthea state-machine **topology** (when/who, branches, loops) |
+| `mihub-lung-cancer-pathway` (this repo) | BPMN4CP models under [`models/`](../models/) → Synthea state-machine **topology** (when/who, branches, loops). Consumed **read-only** — agents may not edit `.bpmn` ([AGENTS.md](../AGENTS.md)). |
 | `mihub-lung-cancer-pathway-data-elements` | YAML data elements → **codes + MII-KDS/oBDS bindings** per pathway step (`care_process.trigger` links elements to steps; `build-fhir-logical-models.py` already emits FSH) |
 | `bpmn-js-clinical-semantics` | `term:` (SNOMED/LOINC/ICD-10-GM/OPS/ATC/ICD-O-3) + `fhirmap:` (resourceType/profile/keyElement) annotation layers stored as BPMN `extensionElements` |
 | `mihubx-terminology-server` | `$expand` / `$validate-code` / `$translate` for German editions (membership checks, RxNorm→ATC) |
@@ -74,6 +74,8 @@ flowchart LR
 
 ## 5. Execution plan (phased TODO)
 
+> 🔒 **Ways of working.** The `.bpmn` models are edited **only by human modellers** and re-validated (Abnahmetest SEM-6); agents/tools are **read-only** on `**/*.bpmn` ([AGENTS.md](../AGENTS.md) hard rules, `guard-model-files` hook). This includes adding `term:`/`fhirmap:`/`synthea:` annotations (done in the bpmn-js editor with `bpmn-js-clinical-semantics`) and any remodelling — report findings via [`docs/model-issues/`](model-issues/), don't self-edit. The Synthea/transpiler side (this plan's tooling, under `tools/`/`synthea/`) consumes the models read-only.
+
 ### Phase 0 — Setup & decisions
 - [ ] Confirm repo placement + dual-license (§2); add Apache `LICENSE` for `tools/`.
 - [ ] Pin a Synthea version (record commit/tag) for reproducibility.
@@ -81,7 +83,7 @@ flowchart LR
 - [ ] Decide dataset cohort target (e.g. N patients; stage/histology/biomarker mix; curative vs palliative ratio).
 
 ### Phase 1 — **Step (b): target Synthea module topology** → see §7
-- [ ] Define main module `lung_cancer_mihub` + one submodule per BPMN sub-pathway.
+- [ ] Define main module `lung_cancer_mihub` + one submodule per BPMN sub-pathway under [`models/`](../models/) (screening, diagnostic, patient-consultation, tumor-board, molecular-tumor-board, treatment, palliative-care [WIP], aftercare).
 - [ ] Define the shared Person-attribute contract (stage, histology, biomarkers, treatment_intent…).
 - [ ] Review the topology diagram with clinical/AP3 before any JSON.
 
@@ -91,13 +93,14 @@ flowchart LR
 - [ ] Implement `synthea:` as a third package in `bpmn-js-clinical-semantics` (Apache-2.0, pluggable layer) **or** a local moddle descriptor.
 - [ ] Align BPMN element/annotation IDs with data-element IDs (`care_process.trigger`) so codes/MII bindings can be pulled from the data-elements catalog.
 
-### Phase 3 — GMF-compatibility modelling pass → see §8
-- [ ] Apply the §8 preconditions to the overarching pathway + 7 sub-pathways (clean OR-gateways, single entry/exit, typed tasks, named end-states, attribute data objects).
-- [ ] Add the **curative-intent branch** + surveillance/recurrence loop to the treatment/aftercare models (the main clinical extension).
-- [ ] Add entry/risk criteria to the overarching start (age, smoking) for the incidence gate.
+### Phase 3 — GMF-compatibility modelling pass (human modellers) → see §8
+- [ ] Reconcile the **known baseline findings** first ([`docs/model-issues/2026-06-25-baseline.md`](model-issues/2026-06-25-baseline.md)): the **4 OR-gateways** in treatment (2) + aftercare (2) (SYN-5 / R5), the structural + dead-activity defects, the molecular-tumor-board soundness deadlock (STR-1), and decomposing the overarching pathway (5 start events, 140 elements > 50 — SYN-4).
+- [ ] Apply the §8 preconditions to the overarching pathway + its 8 sub-pathways (single entry/exit, typed tasks, named end-states, attribute data objects). Several are already tool-enforced by the conformance gate (`npm run check:conformance`): no-OR (SYN-5), single start/end (SYN-2), labels (SYN-3), size (SYN-4).
+- [ ] Add the **curative-intent branch** + surveillance/recurrence loop to the [treatment](../models/lung-cancer-treatment-pathway.bpmn) / [aftercare](../models/lung-cancer-aftercare-pathway.bpmn) models (the main clinical extension).
+- [ ] Add entry/risk criteria (age, smoking) via the [screening](../models/lung-cancer-screening-pathway.bpmn) / overarching start for the incidence gate.
 
 ### Phase 4 — Transpiler (BPMN4CP → GMF)
-- [ ] **Manual first:** hand-build the GMF in the Module Builder using the §7 topology, to validate the mapping and discover annotation gaps.
+- [ ] **Manual first:** hand-build the GMF in the Module Builder using the §7 topology (reading [`models/`](../models/) read-only), to validate the mapping and discover annotation gaps.
 - [ ] **Then automate:** `tools/bpmn2gmf` parses BPMN 2.0 XML (e.g. `bpmn-moddle`/Camunda model API/`bpmn-python`), emits GMF JSON; reads `fhirmap:resourceType`→state type, `term:coding`→codes, `synthea:*`→probabilities/timing; unannotated elements become explicit `TODO` placeholders.
 - [ ] Round-trip: regenerate on BPMN change; validate output in the Module Builder.
 
@@ -154,12 +157,15 @@ flowchart LR
 
 ## 7. Step (b) — Target Synthea module topology (detail)
 
-One main module + one submodule per BPMN sub-pathway (1:1 with this repo's files), plus a risk/entry submodule (cf. stock `lung_cancer/lung_cancer_probabilities`).
+One main module + one submodule per BPMN sub-pathway (1:1 with [`models/lung-cancer-<phase>-pathway.bpmn`](../models/), naming per [ADR-0004](decisions/0004-repo-structure-and-model-naming.md)), plus a risk/entry submodule (cf. stock `lung_cancer/lung_cancer_probabilities`). Screening and palliative-care now have their own models (the latter WIP).
 
 ```mermaid
 flowchart TD
     INIT([Initial]) --> RISK[["risk_entry<br/>(incidence: age, smoking)"]]
-    RISK --> DIAG[["diagnostic"]]
+    RISK --> ENTRY{"screening-eligible?<br/>(AP6 / LuKrFrühErkV)"}
+    ENTRY -->|"ja: LDCT"| SCREEN[["screening"]]
+    ENTRY -->|"nein / symptomatic"| DIAG
+    SCREEN --> DIAG[["diagnostic"]]
     DIAG --> CONS[["patient_consultation"]]
     CONS --> TB[["tumor_board"]]
     TB --> MTBd{"molecular<br/>indicated?"}
@@ -168,14 +174,14 @@ flowchart TD
     MTB --> TX[["treatment"]]
     TX --> INTENT{"treatment_intent?"}
     INTENT -->|kurativ| AC[["aftercare"]]
-    INTENT -->|palliativ| PAL[["palliative"]]
+    INTENT -->|palliativ| PAL[["palliative_care<br/>(WIP)"]]
     AC --> RECUR{"Rezidiv?"}
     RECUR -->|ja| TB
     RECUR -->|nein| SURV([Survivorship — Terminal])
     PAL --> DEATH([Death])
 ```
 
-**Files (under `synthea/modules/`):** `lung_cancer_mihub.json` (main) + `lung_cancer_mihub/{risk_entry, diagnostic, patient_consultation, tumor_board, molecular_tumor_board, treatment, aftercare, palliative}.json`.
+**Files (under `synthea/modules/`):** `lung_cancer_mihub.json` (main) + `lung_cancer_mihub/{risk_entry, screening, diagnostic, patient_consultation, tumor_board, molecular_tumor_board, treatment, palliative_care, aftercare}.json` — one submodule per source model in [`models/`](../models/) (plus `risk_entry`).
 
 **Shared Person-attribute contract** (the cross-submodule wiring): `lc_histology` (NSCLC/SCLC), `lc_uicc_stage` (1–4), `lc_biomarker_egfr` / `_alk` / `_pdl1`, `lc_treatment_intent` (curative/palliative), `lc_resectable`, `lc_recurrence`, plus engine attributes (`smoker`, `quit smoking age`).
 
@@ -188,7 +194,7 @@ flowchart TD
 > Apply these **while modelling the BPMN**, so the pathway transpiles cleanly into Synthea GMF. They **extend** `CONVENTIONS.md`; the R-numbers below reference its 7PMG rules. ✅ = your conventions already enforce this.
 
 **Structural**
-- [ ] ✅ **No OR-gateways** (R5). GMF has no inclusive-OR semantics — use **XOR** (→ conditional/distributed transition) and **AND** (→ parallel) only.
+- [ ] ✅ **No OR-gateways** (R5, tool-enforced as SYN-5 / bpmnlint `no-inclusive-gateway`). GMF has no inclusive-OR semantics — use **XOR** (→ conditional/distributed transition) and **AND** (→ parallel) only. *(4 OR-gateways still remain in treatment/aftercare — [model-issues Issue 1](model-issues/2026-06-25-baseline.md).)*
 - [ ] ✅ **One start, explicitly named end-states** (R3). Each (sub)pathway = one Synthea (sub)module with a single `Initial` and named `Terminal`(s); map terminal clinical states to `Terminal` vs `Death`.
 - [ ] ✅ **Structured split/join** (R4). Every split has a matching join; avoid crossing flows and unstructured cycles (except explicit, bounded loops, e.g. surveillance).
 - [ ] ✅ **Decompose by phase into sub-pathways** (R7) → these become Synthea **submodules** (`CallSubmodule`). Keep each ≤ ~30–50 elements (R1).
@@ -210,8 +216,8 @@ flowchart TD
 
 **Hygiene**
 - [ ] ✅ Verb-object task labels; gateways as questions (R6) — improves auto-generated state names.
-- [ ] Run the `CONVENTIONS.md` §8 review checklist before transpiling; a model that passes it is largely GMF-ready.
-- [ ] Reconcile the known sub-pathway inconsistencies first (e.g. the treatment model's inclusive-OR gateways, which R5 prohibits) — cleaning them benefits both the clinical model and the transpiler.
+- [ ] Run the **conformance + soundness gate** before transpiling: `npm run check:conformance` (bpmnlint + metrics + XSD) and `npm run check:soundness` — the Abnahmetest gate ([`docs/governance/`](governance/)) enforces SYN-2 (single start/end), SYN-3 (labels), SYN-4 (size), SYN-5 (no-OR) and STR-1..4 (soundness). A model that passes it is largely GMF-ready.
+- [ ] Reconcile the known baseline findings first ([`docs/model-issues/`](model-issues/)) — the 4 OR-gateways, dead activities, the molecular-tumor-board deadlock, and the overarching decomposition. Cleaning them benefits both the clinical model and the transpiler.
 
 ---
 
@@ -232,8 +238,11 @@ flowchart TD
 ---
 
 ## 11. References
+
+**This repo:** [`models/`](../models/) (BPMN sources + [`README`](../models/README.md)) · [`CONVENTIONS.md`](../CONVENTIONS.md) (7PMG modelling rules) · [`AGENTS.md`](../AGENTS.md) (ways of working, read-only models) · [`docs/governance/`](governance/) (Abnahmetest gate) · [`docs/model-issues/`](model-issues/) (known findings) · [`docs/decisions/`](decisions/) (ADRs) · conformance tooling under [`tools/`](../tools/) + [`skills/`](../skills/).
+
+**Synthea & MII:**
 - Synthea GMF: <https://github.com/synthetichealth/synthea/wiki/Generic-Module-Framework> · Flexporter: <https://github.com/synthetichealth/synthea/wiki/Flexporter> · Module Builder: <https://synthetichealth.github.io/module-builder/>
 - `bpmn-js-clinical-semantics` (this org) — `term:` / `fhirmap:` annotation layers.
 - `mihub-lung-cancer-pathway-data-elements` (this org) — data elements + codings + MII/oBDS mappings.
 - MII Onkologie IG: <https://www.medizininformatik-initiative.de/Kerndatensatz/KDS_Onkologie_2026/MIIIGModulOnkologie.html>
-- `CONVENTIONS.md` (this repo) — 7PMG-based modelling guidelines.

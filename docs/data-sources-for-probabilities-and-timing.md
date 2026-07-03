@@ -47,7 +47,7 @@ Construct legend: `dist` = `distributed_transition`, `Delay` = timed delay state
 
 ## 2a. AP6 — LDCT lung-cancer screening (verified against German law)
 
-**Status (mid-2026):** LDCT lung-cancer screening is a **live, reimbursed GKV program**. Legal basis: the *Lungenkrebs-Früherkennungs-Verordnung* (LuKrFrühErkV, 15 May 2024, under §84(2) StrlSchG), in force since 2024-07-01 [^lukrfrueherkv]; integrated into statutory care via the G-BA Krebsfrüherkennungs-Richtlinie (Beschluss 2025-06-18) with EBM reimbursement from **2026-04-01** [^gba_kfe]. Preceded by the BfS §84 scientific evaluation (2021) [^bfs84] and the IQWiG benefit assessment (S19-02 / update S23-02) [^iqwig_s1902]. ⇒ **Use the German statutory criteria, not USPSTF.**
+**Status (mid-2026):** LDCT lung-cancer screening is a **live, reimbursed GKV program**. Legal basis: the *Lungenkrebs-Früherkennungs-Verordnung* (LuKrFrühErkV, 15 May 2024, under §84(2) StrlSchG), in force since 2024-07-01 [^lukrfrueherkv]; integrated into statutory care via the G-BA Krebsfrüherkennungs-Richtlinie (Beschluss 2025-06-18) with EBM reimbursement from **2026-04-01** [^gba_kfe]. Preceded by the BfS §84 scientific evaluation (2021) [^bfs84] and the IQWiG benefit assessment (S19-02 / update S23-02) [^iqwig_s1902]. The AP6 entry `Guard` maps from the [screening pathway model](../models/lung-cancer-screening-pathway.bpmn). ⇒ **Use the German statutory criteria, not USPSTF.**
 
 **Entry `Guard` (verified verbatim from LuKrFrühErkV §1–§2 [^lukrfrueherkv]):**
 - age **50–75** (completed 50th but not yet 76th year of life)
