@@ -1,0 +1,31 @@
+name: release-please
+
+# Drives releases from the default (release) branch `main`: maintains a single
+# "release PR" and, on its merge, bumps version.txt, updates CHANGELOG.md, tags
+# `v<version>`, and creates the GitHub Release. Versions are derived from
+# Conventional Commit messages (release-type: simple — no language ecosystem).
+#
+# Branching: development happens on `dev`; promotion is a `dev` -> `main` PR; this
+# workflow then manages the `main` side. See docs/decisions/0002-versioning-and-release.md.
+#
+# NOTE: PRs opened by GITHUB_TOKEN do not themselves trigger other workflows, so the
+# release PR will not re-run CI — that is expected.
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write # create tags + GitHub Releases, commit version/CHANGELOG bumps
+  pull-requests: write # open/update the release PR
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7 # v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
