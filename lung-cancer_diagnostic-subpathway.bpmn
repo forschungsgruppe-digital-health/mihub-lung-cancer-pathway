@@ -1,407 +1,1515 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" xmlns:cp="http://www.helict.de/bpmn4cp" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" xml:lang="de">
-  <bpmn:collaboration id="Collaboration_1aftimr">
-    <bpmn:participant id="Participant_10yfyq5" name="Staging" processRef="Process_1">
-      <bpmn:extensionElements>
-        <i18n:translation xml:lang="en">Staging Diagnostics - Lung Cancer</i18n:translation>
-        <i18n:translation xml:lang="de">Staging</i18n:translation>
-      </bpmn:extensionElements>
-    </bpmn:participant>
-    <bpmn:participant id="Participant_1ldw844" name="Hausärztliche Praxis" processRef="Process_0bdppus">
-      <bpmn:extensionElements>
-        <i18n:translation xml:lang="de">Hausärztliche Praxis</i18n:translation>
-      </bpmn:extensionElements>
-    </bpmn:participant>
-    <bpmn:participant id="Participant_0whntbe" name="Fachärztliche Praxis" processRef="Process_1cffczp">
-      <bpmn:extensionElements>
-        <i18n:translation xml:lang="de">Fachärztliche Praxis</i18n:translation>
-      </bpmn:extensionElements>
-    </bpmn:participant>
-    <bpmn:textAnnotation id="TextAnnotation_19sf7d0">
-      <bpmn:extensionElements>
-        <i18n:translation target="@text" xml:lang="en">time to first pathology report (primary
-          diagnosis) max. 3 working days 
-          [LC SoS 2.1.3]</i18n:translation>
-        <i18n:translation target="@text" xml:lang="de">Zeit bis zum ersten pathologischen Befund
-          (Primärdiagnose) max. 3 Arbeitstage 
-          [LC SoS 2.1.3]</i18n:translation>
-      </bpmn:extensionElements>
-      <bpmn:text>Zeit bis zum ersten pathologischen Befund
-          (Primärdiagnose) max. 3 Arbeitstage 
-          [LC SoS 2.1.3]</bpmn:text>
-    </bpmn:textAnnotation>
-    <bpmn:textAnnotation id="TextAnnotation_11f9q4r">
-      <bpmn:extensionElements>
-        <i18n:translation target="@text" xml:lang="en">according to guideline recommendations; if
-          needed Liquid Biopsy</i18n:translation>
-        <i18n:translation target="@text" xml:lang="de">gemäß Leitlinienempfehlungen; bei Bedarf Liquid Biopsy</i18n:translation>
-      </bpmn:extensionElements>
-      <bpmn:text>gemäß Leitlinienempfehlungen; bei Bedarf Liquid Biopsy</bpmn:text>
-    </bpmn:textAnnotation>
-    <bpmn:association id="Association_0swazng" sourceRef="Activity_1tdn0dk" targetRef="TextAnnotation_11f9q4r" />
-    <bpmn:textAnnotation id="TextAnnotation_0e70ar9">
-      <bpmn:extensionElements>
-        <i18n:translation target="@text" xml:lang="en">usually in ambulatory care; possibilities:
-          X-ray thorax, PET/CT thorax/abdomen, MRI skull</i18n:translation>
-        <i18n:translation target="@text" xml:lang="de">in der Regel ambulant; Möglichkeiten:
-          Thorax-Röntgen, PET/CT Thorax/Abdomen, MRT Schädel</i18n:translation>
-      </bpmn:extensionElements>
-      <bpmn:text>in der Regel ambulant; Möglichkeiten:
-          Thorax-Röntgen, PET/CT Thorax/Abdomen, MRT Schädel</bpmn:text>
-    </bpmn:textAnnotation>
-    <bpmn:association id="Association_1dbypp4" sourceRef="Activity_10hbg7g" targetRef="TextAnnotation_0e70ar9" />
-    <bpmn:association id="Association_0zm9y8e" associationDirection="None" sourceRef="DataObjectReference_0nnzpd8" targetRef="TextAnnotation_19sf7d0" />
-  </bpmn:collaboration>
-  <bpmn:process id="Process_1" isExecutable="false">
-    <bpmn:parallelGateway id="Gateway_1xjgvsi" name="">
-      <bpmn:incoming>Flow_0058fwa</bpmn:incoming>
-      <bpmn:outgoing>Flow_0mj6tw5</bpmn:outgoing>
-      <bpmn:outgoing>Flow_1jka1pa</bpmn:outgoing>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1koo1ye" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="18.22.0">
+  <bpmn:process id="Process_14tjbqi" isExecutable="false">
+    <bpmn:startEvent id="StartEvent_0etitgn" name="vermutetes Lungenkarzinom">
+      <bpmn:outgoing>Flow_0964lti</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:startEvent id="Event_1rhj5u9" name="nachgewiesenes Lungenkarzinom">
+      <bpmn:outgoing>Flow_0misiti</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:exclusiveGateway id="Gateway_0dz3iun">
+      <bpmn:incoming>Flow_0964lti</bpmn:incoming>
+      <bpmn:incoming>Flow_0misiti</bpmn:incoming>
+      <bpmn:outgoing>Flow_01qb3xy</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0964lti" sourceRef="StartEvent_0etitgn" targetRef="Gateway_0dz3iun" />
+    <bpmn:sequenceFlow id="Flow_0misiti" sourceRef="Event_1rhj5u9" targetRef="Gateway_0dz3iun" />
+    <bpmn:sequenceFlow id="Flow_01qb3xy" sourceRef="Gateway_0dz3iun" targetRef="Gateway_0rualex" />
+    <bpmn:parallelGateway id="Gateway_0rualex">
+      <bpmn:incoming>Flow_01qb3xy</bpmn:incoming>
+      <bpmn:outgoing>Flow_0nrtorc</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1kl7rps</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1ame6c5</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1tal3me</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0hlxhzq</bpmn:outgoing>
+      <bpmn:outgoing>Flow_09gn6io</bpmn:outgoing>
     </bpmn:parallelGateway>
-    <bpmn:task id="Activity_10hbg7g" name="Bildgebung">
-      <bpmn:extensionElements>
-        <i18n:translation xml:lang="en">imaging</i18n:translation>
-        <i18n:translation xml:lang="de">Bildgebung</i18n:translation>
-      </bpmn:extensionElements>
-      <bpmn:incoming>Flow_0mj6tw5</bpmn:incoming>
-      <bpmn:outgoing>Flow_1rff0er</bpmn:outgoing>
+    <bpmn:task id="Activity_19c5pm0" name="Anamnese durchführen">
+      <bpmn:incoming>Flow_0nrtorc</bpmn:incoming>
+      <bpmn:outgoing>Flow_19ynkwt</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:task id="Activity_1tdn0dk" name="Pathologie/ Molekularpathologie&#10;          [LC SoS 8.1]">
-      <bpmn:extensionElements>
-        <i18n:translation xml:lang="en">pathology/ molecular pathology
-          [LC SoS 8.1]</i18n:translation>
-        <i18n:translation xml:lang="de">Pathologie/ Molekularpathologie
-          [LC SoS 8.1]</i18n:translation>
-      </bpmn:extensionElements>
-      <bpmn:incoming>Flow_1hk0w7g</bpmn:incoming>
-      <bpmn:outgoing>Flow_01n2wpf</bpmn:outgoing>
-      <bpmn:dataOutputAssociation id="DataOutputAssociation_0sae2dt">
-        <bpmn:targetRef>DataObjectReference_0nnzpd8</bpmn:targetRef>
+    <bpmn:sequenceFlow id="Flow_0nrtorc" sourceRef="Gateway_0rualex" targetRef="Activity_19c5pm0" />
+    <bpmn:task id="Activity_0ierngm" name="Laboruntersuchungen durchführen">
+      <bpmn:incoming>Flow_1kl7rps</bpmn:incoming>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1kl7rps" sourceRef="Gateway_0rualex" targetRef="Activity_0ierngm" />
+    <bpmn:task id="Activity_0zfqdme" name="Röntgen Thorax (p.a. und seitlich) durchführen">
+      <bpmn:incoming>Flow_1ame6c5</bpmn:incoming>
+      <bpmn:property id="Property_0892jjm" name="__targetRef_placeholder" />
+      <bpmn:dataInputAssociation id="DataInputAssociation_07jj1il">
+        <bpmn:sourceRef>DataObjectReference_0utl728</bpmn:sourceRef>
+        <bpmn:targetRef>Property_0892jjm</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+      <bpmn:dataInputAssociation id="DataInputAssociation_0phab79">
+        <bpmn:sourceRef>DataObjectReference_1tckq3w</bpmn:sourceRef>
+        <bpmn:targetRef>Property_0892jjm</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1ame6c5" sourceRef="Gateway_0rualex" targetRef="Activity_0zfqdme" />
+    <bpmn:task id="Activity_10f994h" name="CT-Thorax mit intravenöser Kontrastmittelgabe (inkl. Oberbauchregion bis inkl. Nebennieren) durchführen">
+      <bpmn:incoming>Flow_1tal3me</bpmn:incoming>
+      <bpmn:property id="Property_1muc7fj" name="__targetRef_placeholder" />
+      <bpmn:dataInputAssociation id="DataInputAssociation_1ciew7y">
+        <bpmn:sourceRef>DataObjectReference_0utl728</bpmn:sourceRef>
+        <bpmn:targetRef>Property_1muc7fj</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+      <bpmn:dataInputAssociation id="DataInputAssociation_1qao6d4">
+        <bpmn:sourceRef>DataObjectReference_1tckq3w</bpmn:sourceRef>
+        <bpmn:targetRef>Property_1muc7fj</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_0bfnnxw">
+        <bpmn:targetRef>DataObjectReference_0zycea6</bpmn:targetRef>
       </bpmn:dataOutputAssociation>
     </bpmn:task>
-    <bpmn:subProcess id="Activity_013emyo" name="Diagnosesicherung" cp:selectionBehavior="any">
-      <bpmn:extensionElements>
-        <i18n:translation xml:lang="en">diagnosis assurance</i18n:translation>
-        <i18n:translation xml:lang="de">Diagnosesicherung</i18n:translation>
-      </bpmn:extensionElements>
-      <bpmn:incoming>Flow_1jka1pa</bpmn:incoming>
-      <bpmn:outgoing>Flow_1hk0w7g</bpmn:outgoing>
-      <bpmn:task id="Activity_11j60zy" name="Mediastinales Staging (z.B. EBUS/EUS,&#10;Mediastinoskopie)">
-        <bpmn:extensionElements>
-          <i18n:translation xml:lang="en">mediastinal staging (e.g. EBUS/EUS,
-            medianoscopy)</i18n:translation>
-          <i18n:translation xml:lang="de">Mediastinales Staging (z.B. EBUS/EUS,
-Mediastinoskopie)</i18n:translation>
-        </bpmn:extensionElements>
-      </bpmn:task>
-      <bpmn:task id="Activity_13fvkvl" name="Bildgesteuerte Biopsie (Primärläsion,&#10;Metastasen)">
-        <bpmn:extensionElements>
-          <i18n:translation xml:lang="en">image-guided biopsy (primary lesion,
-            metastases)</i18n:translation>
-          <i18n:translation xml:lang="de">Bildgesteuerte Biopsie (Primärläsion,
-Metastasen)</i18n:translation>
-        </bpmn:extensionElements>
-      </bpmn:task>
-      <bpmn:task id="Activity_137xg0a" name="Bronchoskopie">
-        <bpmn:extensionElements>
-          <i18n:translation xml:lang="en">bronchoscopy</i18n:translation>
-          <i18n:translation xml:lang="de">Bronchoskopie</i18n:translation>
-        </bpmn:extensionElements>
-      </bpmn:task>
-    </bpmn:subProcess>
-    <bpmn:startEvent id="Event_1a8ka9t" name="Beginn der Staging-Diagnostik">
-      <bpmn:extensionElements>
-        <i18n:translation xml:lang="en">beginning of staging diagnostics</i18n:translation>
-        <i18n:translation xml:lang="de">Beginn der Staging-Diagnostik</i18n:translation>
-      </bpmn:extensionElements>
-      <bpmn:outgoing>Flow_0058fwa</bpmn:outgoing>
-    </bpmn:startEvent>
-    <cp:qualityIndicator id="QualityIndicator_0j6w6bc" name="#5 pathologische Diagnose – Tumorsubtyp" dataObjectRef="DataObject_1qu69lw">
-      <bpmn:extensionElements>
-        <i18n:translation xml:lang="en">#5 pathological diagnosis – tumour subtype</i18n:translation>
-        <i18n:translation xml:lang="de">#5 pathologische Diagnose – Tumorsubtyp</i18n:translation>
-      </bpmn:extensionElements>
-      <cp:qIDefinition type="ratio" numerator="Anzahl der Patienten mit pathologischer Diagnose von NSCLC, bei denen ein Tumorsubtyp identifiziert wurde." denumerator="Alle Patienten mit pathologischer Diagnose von NSCLC.">
-        <bpmn:extensionElements>
-          <i18n:translation target="@numerator" xml:lang="en">Number of patients with a pathological
-            diagnosis of NSCLC who have a tumour subtype identified.</i18n:translation>
-          <i18n:translation target="@numerator" xml:lang="de">Anzahl der Patienten mit
-            pathologischer Diagnose von NSCLC, bei denen ein Tumorsubtyp identifiziert wurde.</i18n:translation>
-          <i18n:translation target="@denumerator" xml:lang="en">All patients with a pathological
-            diagnosis of NSCLC.</i18n:translation>
-          <i18n:translation target="@denumerator" xml:lang="de">Alle Patienten mit pathologischer
-            Diagnose von NSCLC.</i18n:translation>
-        </bpmn:extensionElements>
-      </cp:qIDefinition>
-    </cp:qualityIndicator>
-    <bpmn:dataObject id="DataObject_1qu69lw" />
-    <cp:qualityIndicator id="QualityIndicator_0nvwtz8" name="#4 pathologische Diagnose" dataObjectRef="DataObject_1mf4ptv">
-      <bpmn:extensionElements>
-        <i18n:translation xml:lang="en">#4 pathological diagnosis</i18n:translation>
-        <i18n:translation xml:lang="de">#4 pathologische Diagnose</i18n:translation>
-      </bpmn:extensionElements>
-      <cp:qIDefinition type="ratio" numerator="Anzahl der Patienten mit Lungenkrebs, die eine pathologische Diagnose haben (einschließlich nach chirurgischer Resektion)." denumerator="Alle Patienten mit Lungenkrebs.">
-        <bpmn:extensionElements>
-          <i18n:translation target="@numerator" xml:lang="en">Number of patients with Lung Cancer
-            who have a pathological diagnosis (including following surgical resection).</i18n:translation>
-          <i18n:translation target="@numerator" xml:lang="de">Anzahl der Patienten mit Lungenkrebs,
-            die eine pathologische Diagnose haben (einschließlich nach chirurgischer Resektion).</i18n:translation>
-          <i18n:translation target="@denumerator" xml:lang="en">All patients with Lung Cancer.</i18n:translation>
-          <i18n:translation target="@denumerator" xml:lang="de">Alle Patienten mit Lungenkrebs.</i18n:translation>
-        </bpmn:extensionElements>
-      </cp:qIDefinition>
-    </cp:qualityIndicator>
-    <bpmn:dataObject id="DataObject_1mf4ptv" />
-    <bpmn:parallelGateway id="Gateway_00g65l5" name="">
-      <bpmn:incoming>Flow_01n2wpf</bpmn:incoming>
-      <bpmn:incoming>Flow_1rff0er</bpmn:incoming>
-      <bpmn:outgoing>Flow_0ijz914</bpmn:outgoing>
+    <bpmn:sequenceFlow id="Flow_1tal3me" name="V.a. Lungenkarzinom und absehbarer Therapieoption und keine Kontraindikationen gegen Röntgenkonstrastmittel, unmittelbar davor keine invasiven Maßnahmen durchgeführt" sourceRef="Gateway_0rualex" targetRef="Activity_10f994h" />
+    <bpmn:task id="Activity_0a70pdc" name="Bronchoskopie durchführen">
+      <bpmn:incoming>Flow_0hlxhzq</bpmn:incoming>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0hlxhzq" sourceRef="Gateway_0rualex" targetRef="Activity_0a70pdc" />
+    <bpmn:task id="Activity_0tzvob8" name="klinische Untersuchung durchführen">
+      <bpmn:incoming>Flow_09gn6io</bpmn:incoming>
+      <bpmn:outgoing>Flow_07basxd</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_09gn6io" sourceRef="Gateway_0rualex" targetRef="Activity_0tzvob8" />
+    <bpmn:sequenceFlow id="Flow_19ynkwt" sourceRef="Activity_19c5pm0" targetRef="Gateway_0atr9o3" />
+    <bpmn:sequenceFlow id="Flow_07basxd" sourceRef="Activity_0tzvob8" targetRef="Gateway_0atr9o3" />
+    <bpmn:parallelGateway id="Gateway_0atr9o3">
+      <bpmn:incoming>Flow_19ynkwt</bpmn:incoming>
+      <bpmn:incoming>Flow_07basxd</bpmn:incoming>
+      <bpmn:outgoing>Flow_1uea7ma</bpmn:outgoing>
     </bpmn:parallelGateway>
-    <bpmn:task id="Activity_0g38zlb" name="Clinical TNM (cTNM)-Klassifikation und Staging">
-      <bpmn:extensionElements>
-        <i18n:translation xml:lang="en">cTNM classification and staging</i18n:translation>
-        <i18n:translation xml:lang="de">Clinical TNM (cTNM)-Klassifikation und Staging</i18n:translation>
-      </bpmn:extensionElements>
-      <bpmn:incoming>Flow_0ijz914</bpmn:incoming>
-      <bpmn:outgoing>Flow_0vxd55a</bpmn:outgoing>
+    <bpmn:task id="Activity_0dg2tuc" name="Allgemeinzustand anhand des Karnofsky-Index und des ECOG/WHO Performance Status quantifiziert">
+      <bpmn:incoming>Flow_1uea7ma</bpmn:incoming>
     </bpmn:task>
-    <bpmn:endEvent id="Event_0sik5ks" name="Ende der Staging-Diagnostik">
-      <bpmn:extensionElements>
-        <i18n:translation xml:lang="en">end of staging diagnostics</i18n:translation>
-        <i18n:translation xml:lang="de">Ende der Staging-Diagnostik</i18n:translation>
-      </bpmn:extensionElements>
-      <bpmn:incoming>Flow_0vxd55a</bpmn:incoming>
-    </bpmn:endEvent>
-    <bpmn:dataObjectReference id="DataObjectReference_0nnzpd8" name="Pathologiebefund" dataObjectRef="DataObject_04r3617">
-      <bpmn:extensionElements>
-        <i18n:translation xml:lang="en">pathology report</i18n:translation>
-        <i18n:translation xml:lang="de">Pathologiebefund</i18n:translation>
-      </bpmn:extensionElements>
-    </bpmn:dataObjectReference>
-    <bpmn:dataObject id="DataObject_04r3617" isCollection="true" />
-    <bpmn:sequenceFlow id="Flow_0058fwa" sourceRef="Event_1a8ka9t" targetRef="Gateway_1xjgvsi" />
-    <bpmn:sequenceFlow id="Flow_0mj6tw5" sourceRef="Gateway_1xjgvsi" targetRef="Activity_10hbg7g" />
-    <bpmn:sequenceFlow id="Flow_1jka1pa" sourceRef="Gateway_1xjgvsi" targetRef="Activity_013emyo" />
-    <bpmn:sequenceFlow id="Flow_1rff0er" sourceRef="Activity_10hbg7g" targetRef="Gateway_00g65l5" />
-    <bpmn:sequenceFlow id="Flow_1hk0w7g" sourceRef="Activity_013emyo" targetRef="Activity_1tdn0dk" />
-    <bpmn:sequenceFlow id="Flow_01n2wpf" sourceRef="Activity_1tdn0dk" targetRef="Gateway_00g65l5" />
-    <bpmn:sequenceFlow id="Flow_0ijz914" sourceRef="Gateway_00g65l5" targetRef="Activity_0g38zlb" />
-    <bpmn:sequenceFlow id="Flow_0vxd55a" sourceRef="Activity_0g38zlb" targetRef="Event_0sik5ks" />
-    <cp:qualityIndicator id="QualityIndicator_0ohfvaw" name="#6 Diagnose vor Behandlungsbeginn" dataObjectRef="DataObject_17g765p">
-      <bpmn:extensionElements>
-        <i18n:translation xml:lang="en">#6 pre-treatment diagnosis</i18n:translation>
-        <i18n:translation xml:lang="de">#6 Diagnose vor Behandlungsbeginn</i18n:translation>
-      </bpmn:extensionElements>
-      <cp:qIDefinition type="ratio" numerator="Anzahl der Patienten, die eine kurative Behandlung (radikale Strahlentherapie, radikale Radiochemotherapie oder chirurgische Resektion) erhalten und vor der Behandlung eine zytologische / histologische Diagnose haben." denumerator="Alle Patienten mit Lungenkrebs, die eine kurative Behandlung (radikale Strahlentherapie, radikale Radiochemotherapie oder chirurgische Resektion) erhalten. Ausgenommen Patienten, die Untersuchungen ablehnen.">
-        <bpmn:extensionElements>
-          <i18n:translation target="@numerator" xml:lang="en">Number of patients who receive
-            curative treatment (radical radiotherapy, radical chemoradiotherapy or surgical
-            resection) that have a cytological / histological diagnosis prior to treatment.</i18n:translation>
-          <i18n:translation target="@numerator" xml:lang="de">Anzahl der Patienten, die eine
-            kurative Behandlung (radikale Strahlentherapie, radikale Radiochemotherapie oder
-            chirurgische Resektion) erhalten und vor der Behandlung eine zytologische /
-            histologische Diagnose haben.</i18n:translation>
-          <i18n:translation target="@denumerator" xml:lang="en">All patients with Lung Cancer who
-            receive curative treatment (radical radiotherapy, radical chemoradiotherapy or surgical
-            resection). Excluding patients who refuse investigations.</i18n:translation>
-          <i18n:translation target="@denumerator" xml:lang="de">Alle Patienten mit Lungenkrebs, die
-            eine kurative Behandlung (radikale Strahlentherapie, radikale Radiochemotherapie oder
-            chirurgische Resektion) erhalten. Ausgenommen Patienten, die Untersuchungen ablehnen.</i18n:translation>
-        </bpmn:extensionElements>
-      </cp:qIDefinition>
-    </cp:qualityIndicator>
-    <bpmn:dataObject id="DataObject_17g765p" />
-    <bpmn:task id="Activity_0u7tiem" name="Vorbereitung">
-      <bpmn:extensionElements>
-        <i18n:translation xml:lang="de">Vorbereitung</i18n:translation>
-      </bpmn:extensionElements>
+    <bpmn:sequenceFlow id="Flow_1uea7ma" sourceRef="Gateway_0atr9o3" targetRef="Activity_0dg2tuc" />
+    <bpmn:exclusiveGateway id="Gateway_18sa339" />
+    <bpmn:dataObjectReference id="DataObjectReference_0utl728" name="rechtfertigende Indikation für Einsatz nach § 83 StrSchG eines:einer im Stahlenschutz entsprechend fachkundigen Arzt:Ärztin" dataObjectRef="DataObject_1jxc57w" />
+    <bpmn:dataObject id="DataObject_1jxc57w" />
+    <bpmn:task id="Activity_0xxpmrp" name="PET/CT durchführen">
+      <bpmn:property id="Property_1sxsj20" name="__targetRef_placeholder" />
+      <bpmn:dataInputAssociation id="DataInputAssociation_08gau9c">
+        <bpmn:sourceRef>DataObjectReference_0utl728</bpmn:sourceRef>
+        <bpmn:targetRef>Property_1sxsj20</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
     </bpmn:task>
-    <bpmn:task id="Activity_063n77a" name="Anamnese">
-      <bpmn:extensionElements>
-        <i18n:translation xml:lang="de">Anamnese</i18n:translation>
-      </bpmn:extensionElements>
+    <bpmn:dataObjectReference id="DataObjectReference_0zycea6" name="[Ergebnisse]" dataObjectRef="DataObject_1yvjmh2" />
+    <bpmn:dataObject id="DataObject_1yvjmh2" />
+    <bpmn:task id="Activity_1fx33pw" name="Ausbreitungsdiagnostik innerhalb des Stagings durchführen">
+      <bpmn:property id="Property_0r9e0ut" name="__targetRef_placeholder" />
+      <bpmn:dataInputAssociation id="DataInputAssociation_0bcin4u">
+        <bpmn:sourceRef>DataObjectReference_0zycea6</bpmn:sourceRef>
+        <bpmn:targetRef>Property_0r9e0ut</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
     </bpmn:task>
-    <bpmn:task id="Activity_0dmkmqr" name="Überweisung">
-      <bpmn:extensionElements>
-        <i18n:translation xml:lang="de">Überweisung</i18n:translation>
-      </bpmn:extensionElements>
+    <bpmn:task id="Activity_0jxut5m" name="Thoraxsonographie (TTUS) durchführen">
+      <bpmn:incoming>Flow_17h32zc</bpmn:incoming>
+      <bpmn:outgoing>Flow_03ljugi</bpmn:outgoing>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_06larzi">
+        <bpmn:targetRef>DataObjectReference_18hwcmm</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
     </bpmn:task>
-    <bpmn:association id="Association_0xhqezc" sourceRef="Activity_1tdn0dk" targetRef="QualityIndicator_0j6w6bc" />
-    <bpmn:association id="Association_0jtilau" sourceRef="Activity_1tdn0dk" targetRef="QualityIndicator_0nvwtz8" />
-    <bpmn:association id="Association_0e7q11c" sourceRef="Event_0sik5ks" targetRef="QualityIndicator_0ohfvaw" />
+    <bpmn:dataObjectReference id="DataObjectReference_18hwcmm" name="Brustwandinfiltration?" dataObjectRef="DataObject_0xt2oj9" />
+    <bpmn:dataObject id="DataObject_0xt2oj9" />
+    <bpmn:exclusiveGateway id="Gateway_05m8lpt">
+      <bpmn:outgoing>Flow_17h32zc</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_17h32zc" name="Lokalisation eines Pleuraerguss notwendig" sourceRef="Gateway_05m8lpt" targetRef="Activity_0jxut5m" />
+    <bpmn:exclusiveGateway id="Gateway_1haijqb">
+      <bpmn:incoming>Flow_03ljugi</bpmn:incoming>
+      <bpmn:outgoing>Flow_05eladq</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_03ljugi" sourceRef="Activity_0jxut5m" targetRef="Gateway_1haijqb" />
+    <bpmn:task id="Activity_099cxz3" name="Ergusspunktion durchführen">
+      <bpmn:incoming>Flow_05eladq</bpmn:incoming>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_05eladq" name="Ergusspunktion notwendig" sourceRef="Gateway_1haijqb" targetRef="Activity_099cxz3" />
+    <bpmn:task id="Activity_1d147ji" name="MRT" />
+    <bpmn:task id="Activity_0dz494a" name="TTUS-gesteuerte Punktion brustwandständiger Tumore" />
+    <bpmn:task id="Activity_1xvizq0" name="CT-gesteuerte Punktion brustwandständiger Tumore" />
+    <bpmn:task id="Activity_0rkykov" name="quantitative Lungenperfusionsszintigraphie durchführen">
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_0r8xye9">
+        <bpmn:targetRef>DataObjectReference_1ff3pj9</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+    </bpmn:task>
+    <bpmn:dataObjectReference id="DataObjectReference_1ff3pj9" name="regionaler Anteil der Perfusion des zu resezierenden oder zu bestrahlenden Anteil an der Gesamtperfusion" dataObjectRef="DataObject_0mlsjdk" />
+    <bpmn:dataObject id="DataObject_0mlsjdk" />
+    <bpmn:task id="Activity_1u6lqil" name="postoperative Lungenfunktion kalkulieren">
+      <bpmn:property id="Property_0zvl24y" name="__targetRef_placeholder" />
+      <bpmn:dataInputAssociation id="DataInputAssociation_0tf4e83">
+        <bpmn:sourceRef>DataObjectReference_1ff3pj9</bpmn:sourceRef>
+        <bpmn:targetRef>Property_0zvl24y</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+    </bpmn:task>
+    <bpmn:task id="Activity_1vg5nbm" name="Skelettszintigraphie durchführen">
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_0zm5mpy">
+        <bpmn:targetRef>DataObjectReference_03ob3z8</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+    </bpmn:task>
+    <bpmn:dataObjectReference id="DataObjectReference_03ob3z8" name="Knochenmetastasen" dataObjectRef="DataObject_1qaif6u" />
+    <bpmn:dataObject id="DataObject_1qaif6u" />
+    <bpmn:dataObjectReference id="DataObjectReference_1tckq3w" name="diagnostische Referenzwerte (DRW) des Bundesamtes für Strahlenschutz (BfS) 2016" dataObjectRef="DataObject_0wv1i0p" />
+    <bpmn:dataObject id="DataObject_0wv1i0p" />
+    <bpmn:task id="Activity_1r5y7l3" name="Grund für Überschreitung der DRW dokumentieren">
+      <bpmn:incoming>Flow_1a01ybe</bpmn:incoming>
+    </bpmn:task>
+    <bpmn:boundaryEvent id="Event_1h9rmtv" name="Überschreitung der DRW" attachedToRef="Activity_0zfqdme">
+      <bpmn:outgoing>Flow_0kbgrdk</bpmn:outgoing>
+    </bpmn:boundaryEvent>
+    <bpmn:boundaryEvent id="Event_19bk5ly" name="Überschreitung der DRW" attachedToRef="Activity_10f994h">
+      <bpmn:outgoing>Flow_0nn0mwo</bpmn:outgoing>
+    </bpmn:boundaryEvent>
+    <bpmn:sequenceFlow id="Flow_0kbgrdk" sourceRef="Event_1h9rmtv" targetRef="Gateway_07vrsti" />
+    <bpmn:sequenceFlow id="Flow_0nn0mwo" sourceRef="Event_19bk5ly" targetRef="Gateway_07vrsti" />
+    <bpmn:exclusiveGateway id="Gateway_07vrsti">
+      <bpmn:incoming>Flow_0kbgrdk</bpmn:incoming>
+      <bpmn:incoming>Flow_0nn0mwo</bpmn:incoming>
+      <bpmn:outgoing>Flow_1a01ybe</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_1a01ybe" sourceRef="Gateway_07vrsti" targetRef="Activity_1r5y7l3" />
+    <bpmn:exclusiveGateway id="Gateway_03u1o84">
+      <bpmn:outgoing>Flow_0o8fbn8</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="Activity_0ehoolc" name="Volldiagnostisches CT des Thorax und Abdomen (Oberbauch und Becken) mit Kontrastmittel durchführen">
+      <bpmn:incoming>Flow_0k8y0n7</bpmn:incoming>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_1t0an29">
+        <bpmn:targetRef>DataObjectReference_0blyuja</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="Gateway_1ck2xft">
+      <bpmn:incoming>Flow_0eayzor</bpmn:incoming>
+      <bpmn:outgoing>Flow_0k8y0n7</bpmn:outgoing>
+      <bpmn:outgoing>Flow_15uxchp</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0k8y0n7" name="wenn kein FDG-PET/CT durchgeführt wird oder es kein volldiagnostisches CT enthält" sourceRef="Gateway_1ck2xft" targetRef="Activity_0ehoolc" />
+    <bpmn:exclusiveGateway id="Gateway_14e3hif">
+      <bpmn:incoming>Flow_1n87o9j</bpmn:incoming>
+      <bpmn:outgoing>Flow_17j9oa6</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1kmww30</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="Activity_1uqbj47" name="MRT ohne Kontrasmitteldurchführen durchführen">
+      <bpmn:incoming>Flow_1jtyyje</bpmn:incoming>
+      <bpmn:incoming>Flow_069g9lm</bpmn:incoming>
+      <bpmn:property id="Property_1w8rmy6" name="__targetRef_placeholder" />
+      <bpmn:dataInputAssociation id="DataInputAssociation_155gh7a">
+        <bpmn:sourceRef>DataObjectReference_16h6q5j</bpmn:sourceRef>
+        <bpmn:targetRef>Property_1w8rmy6</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+    </bpmn:task>
+    <bpmn:task id="Activity_1docrma" name="MRT mit Kontrasmitteldurchführen durchführen">
+      <bpmn:incoming>Flow_0k4qmm7</bpmn:incoming>
+      <bpmn:property id="Property_1m445py" name="__targetRef_placeholder" />
+      <bpmn:dataInputAssociation id="DataInputAssociation_064x3yf">
+        <bpmn:sourceRef>DataObjectReference_16h6q5j</bpmn:sourceRef>
+        <bpmn:targetRef>Property_1m445py</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="Gateway_1qk1b78">
+      <bpmn:incoming>Flow_1q4xvis</bpmn:incoming>
+      <bpmn:outgoing>Flow_1jtyyje</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1m3nrxf</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:parallelGateway id="Gateway_1hkjpbl">
+      <bpmn:incoming>Flow_1m3nrxf</bpmn:incoming>
+      <bpmn:outgoing>Flow_069g9lm</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0k4qmm7</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:dataObjectReference id="DataObjectReference_16h6q5j" name="Untersuchungsprotokoll" dataObjectRef="DataObject_0wzri9w" />
+    <bpmn:dataObject id="DataObject_0wzri9w" />
+    <bpmn:exclusiveGateway id="Gateway_0h3j4pl">
+      <bpmn:outgoing>Flow_1q4xvis</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_1jtyyje" sourceRef="Gateway_1qk1b78" targetRef="Activity_1uqbj47" />
+    <bpmn:sequenceFlow id="Flow_069g9lm" sourceRef="Gateway_1hkjpbl" targetRef="Activity_1uqbj47" />
+    <bpmn:sequenceFlow id="Flow_0k4qmm7" sourceRef="Gateway_1hkjpbl" targetRef="Activity_1docrma" />
+    <bpmn:sequenceFlow id="Flow_1q4xvis" name="keine Kontraindikation gegen MRT" sourceRef="Gateway_0h3j4pl" targetRef="Gateway_1qk1b78" />
+    <bpmn:sequenceFlow id="Flow_1m3nrxf" name="keine Kontraindikation gegen intravenöse Applikation von MR-Kontrastmittel" sourceRef="Gateway_1qk1b78" targetRef="Gateway_1hkjpbl" />
+    <bpmn:task id="Activity_07ifcm5" name="MRT des Hirnschädels durchführen">
+      <bpmn:incoming>Flow_17j9oa6</bpmn:incoming>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_0nvmwqh">
+        <bpmn:targetRef>DataObjectReference_1rlnq11</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_17j9oa6" name="keine Kontraindikation gegen MRT" sourceRef="Gateway_14e3hif" targetRef="Activity_07ifcm5" />
+    <bpmn:task id="Activity_00ye5xb" name="CT des Hirnschädels mit Kontrasmittel durchführen">
+      <bpmn:incoming>Flow_1kmww30</bpmn:incoming>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_0e6p0fj">
+        <bpmn:targetRef>DataObjectReference_1rlnq11</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1kmww30" name="ersatzweise, wenn Kontraindikation gegen MRT" sourceRef="Gateway_14e3hif" targetRef="Activity_00ye5xb" />
+    <bpmn:dataObjectReference id="DataObjectReference_1rlnq11" name="Fernmetastasenbefund oder Ausgangsbefund für Systemtherapie" dataObjectRef="DataObject_0701k8g" />
+    <bpmn:dataObject id="DataObject_0701k8g" />
+    <bpmn:dataObjectReference id="DataObjectReference_0blyuja" name="Metastasenbefund (lokoregionäre Lymphknoten, Lunge, Leber und Nebennieren)" dataObjectRef="DataObject_04iyq45" />
+    <bpmn:dataObject id="DataObject_04iyq45" />
+    <bpmn:dataObjectReference id="DataObjectReference_11b25id" name="Metastasenbefund (lokoregionäre Lymphknoten, Lunge, Leber und Nebennieren, Knochen, unerwarteter Fernmetastasen)" dataObjectRef="DataObject_18bcyfr" />
+    <bpmn:dataObject id="DataObject_18bcyfr" />
+    <bpmn:parallelGateway id="Gateway_0m1a5oq">
+      <bpmn:incoming>Flow_0o8fbn8</bpmn:incoming>
+      <bpmn:outgoing>Flow_1n87o9j</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0eayzor</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0487qs7</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0lrgczz</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:sequenceFlow id="Flow_1n87o9j" sourceRef="Gateway_0m1a5oq" targetRef="Gateway_14e3hif" />
+    <bpmn:sequenceFlow id="Flow_0eayzor" sourceRef="Gateway_0m1a5oq" targetRef="Gateway_1ck2xft" />
+    <bpmn:sequenceFlow id="Flow_0o8fbn8" name="bestehende Therapieoption" sourceRef="Gateway_03u1o84" targetRef="Gateway_0m1a5oq" />
+    <bpmn:task id="Activity_1awmjdh" name="Ganzkörper-FDG-PET/CT durchführen">
+      <bpmn:incoming>Flow_122ftt6</bpmn:incoming>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_049o4ji">
+        <bpmn:targetRef>DataObjectReference_11b25id</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="Gateway_07kiqcu">
+      <bpmn:incoming>Flow_15uxchp</bpmn:incoming>
+      <bpmn:outgoing>Flow_0rnoggt</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1hc7ybv</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0p74uz3</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0cyntsu</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0rnoggt" name="vermutetem oder nachgewiesenem nicht-kleinzelligen Lungenkarzinom im klinischen Stadium IB–IIIB und im oligometasta-sierten Stadium IV:&#10;Soll-Empfehlung" sourceRef="Gateway_07kiqcu" targetRef="Gateway_12zmg6t" />
+    <bpmn:task id="Activity_1w1tvpt" name="Ganzkörper-MRT durchführen">
+      <bpmn:incoming>Flow_1611mc0</bpmn:incoming>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="Gateway_00qobzl">
+      <bpmn:incoming>Flow_0591oer</bpmn:incoming>
+      <bpmn:outgoing>Flow_1611mc0</bpmn:outgoing>
+      <bpmn:outgoing>Flow_03xmmc0</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_1611mc0" sourceRef="Gateway_00qobzl" targetRef="Activity_1w1tvpt" />
+    <bpmn:task id="Activity_1cgwrno" name="Knochenszintigrafie durchführen">
+      <bpmn:incoming>Flow_0axjeaz</bpmn:incoming>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_03xmmc0" sourceRef="Gateway_00qobzl" targetRef="Gateway_16xhnhx" />
+    <bpmn:task id="Activity_16sdx54" name="CT Abdomen durchführen">
+      <bpmn:incoming>Flow_1qdgzbw</bpmn:incoming>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0axjeaz" sourceRef="Gateway_16xhnhx" targetRef="Activity_1cgwrno" />
+    <bpmn:sequenceFlow id="Flow_0of4jxt" sourceRef="Gateway_16xhnhx" targetRef="Gateway_0vis1gr" />
+    <bpmn:parallelGateway id="Gateway_16xhnhx">
+      <bpmn:incoming>Flow_03xmmc0</bpmn:incoming>
+      <bpmn:outgoing>Flow_0axjeaz</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0of4jxt</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:exclusiveGateway id="Gateway_0vis1gr">
+      <bpmn:incoming>Flow_0of4jxt</bpmn:incoming>
+      <bpmn:outgoing>Flow_1qdgzbw</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1mknxiy</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_1qdgzbw" sourceRef="Gateway_0vis1gr" targetRef="Activity_16sdx54" />
+    <bpmn:task id="Activity_0tfhoms" name="Sonographie Abdomen durchführen">
+      <bpmn:incoming>Flow_1mknxiy</bpmn:incoming>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1mknxiy" sourceRef="Gateway_0vis1gr" targetRef="Activity_0tfhoms" />
+    <bpmn:exclusiveGateway id="Gateway_12zmg6t">
+      <bpmn:incoming>Flow_0rnoggt</bpmn:incoming>
+      <bpmn:incoming>Flow_1hc7ybv</bpmn:incoming>
+      <bpmn:incoming>Flow_0p74uz3</bpmn:incoming>
+      <bpmn:incoming>Flow_0cyntsu</bpmn:incoming>
+      <bpmn:outgoing>Flow_122ftt6</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0591oer</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_122ftt6" sourceRef="Gateway_12zmg6t" targetRef="Activity_1awmjdh" />
+    <bpmn:sequenceFlow id="Flow_0591oer" name="medizinische Gründe lassen kein FDG-PET-Untersuchung zu" sourceRef="Gateway_12zmg6t" targetRef="Gateway_00qobzl" />
+    <bpmn:sequenceFlow id="Flow_1hc7ybv" name="vermutetem oder nachgewiesenem nicht-kleinzelligen Lungenkarzinom im klinischen Stadium IA: Kann-Empfehlung" sourceRef="Gateway_07kiqcu" targetRef="Gateway_12zmg6t" />
+    <bpmn:sequenceFlow id="Flow_15uxchp" sourceRef="Gateway_1ck2xft" targetRef="Gateway_07kiqcu" />
+    <bpmn:sequenceFlow id="Flow_0p74uz3" name="nachgewiesenes kleinzelliges Lungenkarzinom und kein M1-Stadium (&#34;extensive disease&#34;) gesichert:&#10;Soll-Empfehlung" sourceRef="Gateway_07kiqcu" targetRef="Gateway_12zmg6t" />
+    <bpmn:sequenceFlow id="Flow_0cyntsu" name="nachgewiesenes kleinzelliges Lungenkarzinom und mit M1-Stadium (&#34;extensive disease&#34;) gesichert:&#10;Kann-Empfehlung" sourceRef="Gateway_07kiqcu" targetRef="Gateway_12zmg6t" />
+    <bpmn:task id="Activity_1gjxrnn" name="MRT zur Beurteilung der lokalen Tumorausbreitung durchführen">
+      <bpmn:incoming>Flow_10we670</bpmn:incoming>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="Gateway_1n0rye5">
+      <bpmn:incoming>Flow_0487qs7</bpmn:incoming>
+      <bpmn:outgoing>Flow_10we670</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_10we670" name="Sulcus-superior-Tumor (Pancoast-Tumor)" sourceRef="Gateway_1n0rye5" targetRef="Activity_1gjxrnn" />
+    <bpmn:sequenceFlow id="Flow_0487qs7" sourceRef="Gateway_0m1a5oq" targetRef="Gateway_1n0rye5" />
+    <bpmn:exclusiveGateway id="Gateway_1uze6c3">
+      <bpmn:incoming>Flow_0lrgczz</bpmn:incoming>
+      <bpmn:outgoing>Flow_17u7o1o</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="Activity_10w45zs" name="nuklearmedizinische So-matostatin-Rezeptor-Diagnostik durchführen">
+      <bpmn:incoming>Flow_17u7o1o</bpmn:incoming>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_17u7o1o" name="gut differenzierten, neuroendokrinen Tumor der Lunge:&#10; Kann-Empfehlung" sourceRef="Gateway_1uze6c3" targetRef="Activity_10w45zs" />
+    <bpmn:sequenceFlow id="Flow_0lrgczz" sourceRef="Gateway_0m1a5oq" targetRef="Gateway_1uze6c3" />
+    <bpmn:task id="Activity_08wr6u1" name="Mediastinoskopie durchführen">
+      <bpmn:incoming>Flow_0wwm6uj</bpmn:incoming>
+      <bpmn:outgoing>Flow_1wmdohx</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="Gateway_1enejc3">
+      <bpmn:outgoing>Flow_0wwm6uj</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0luftwe</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0wwm6uj" name="große Lymphknoten, aber negativer PET" sourceRef="Gateway_1enejc3" targetRef="Activity_08wr6u1" />
+    <bpmn:exclusiveGateway id="Gateway_0o5vyha">
+      <bpmn:incoming>Flow_1wmdohx</bpmn:incoming>
+      <bpmn:incoming>Flow_0luftwe</bpmn:incoming>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_1wmdohx" sourceRef="Activity_08wr6u1" targetRef="Gateway_0o5vyha" />
+    <bpmn:sequenceFlow id="Flow_0luftwe" sourceRef="Gateway_1enejc3" targetRef="Gateway_0o5vyha" />
+    <bpmn:exclusiveGateway id="Gateway_1knxvac">
+      <bpmn:outgoing>Flow_1vz1gyg</bpmn:outgoing>
+      <bpmn:outgoing>Flow_160d1k3</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="Activity_0i3pg3a" name="gezielte Zusatzabklärung (ggf. MRT der betroffenen Region) durchführen">
+      <bpmn:incoming>Flow_1vz1gyg</bpmn:incoming>
+      <bpmn:outgoing>Flow_136k5m5</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1vz1gyg" name="Auffälliger klinischer Befund ohne Korrelat in der Staging-Bildgebung" sourceRef="Gateway_1knxvac" targetRef="Activity_0i3pg3a" />
+    <bpmn:exclusiveGateway id="Gateway_1xp3lfp">
+      <bpmn:incoming>Flow_160d1k3</bpmn:incoming>
+      <bpmn:incoming>Flow_136k5m5</bpmn:incoming>
+      <bpmn:outgoing>Flow_1oo0l73</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_160d1k3" sourceRef="Gateway_1knxvac" targetRef="Gateway_1xp3lfp" />
+    <bpmn:sequenceFlow id="Flow_136k5m5" sourceRef="Activity_0i3pg3a" targetRef="Gateway_1xp3lfp" />
+    <bpmn:task id="Activity_0q2kqqe" name="differentialdiagnostisches MRT durchführen">
+      <bpmn:incoming>Flow_1fvblb9</bpmn:incoming>
+      <bpmn:outgoing>Flow_04avvv4</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1oo0l73" sourceRef="Gateway_1xp3lfp" targetRef="Gateway_015jzpw" />
+    <bpmn:exclusiveGateway id="Gateway_015jzpw">
+      <bpmn:incoming>Flow_1oo0l73</bpmn:incoming>
+      <bpmn:outgoing>Flow_1fvblb9</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0mfbgl4</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_1fvblb9" name="metastasenverdächtiger bildgebender Befund" sourceRef="Gateway_015jzpw" targetRef="Activity_0q2kqqe" />
+    <bpmn:task id="Activity_1rypsn1" name="histologische Sicherung">
+      <bpmn:incoming>Flow_04avvv4</bpmn:incoming>
+      <bpmn:outgoing>Flow_0y16b5b</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_04avvv4" sourceRef="Activity_0q2kqqe" targetRef="Activity_1rypsn1" />
+    <bpmn:exclusiveGateway id="Gateway_0d2ycxc">
+      <bpmn:incoming>Flow_0mfbgl4</bpmn:incoming>
+      <bpmn:incoming>Flow_0y16b5b</bpmn:incoming>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0mfbgl4" sourceRef="Gateway_015jzpw" targetRef="Gateway_0d2ycxc" />
+    <bpmn:sequenceFlow id="Flow_0y16b5b" sourceRef="Activity_1rypsn1" targetRef="Gateway_0d2ycxc" />
+    <bpmn:textAnnotation id="TextAnnotation_11xb7dz">
+      <bpmn:text>Krankheitsvorgeschichte, Begleiterkrankungen, Familienanamnese, Rauchgewohnheiten, Arbeitsanamnese</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0zzqfr9" associationDirection="None" sourceRef="Activity_19c5pm0" targetRef="TextAnnotation_11xb7dz" />
+    <bpmn:textAnnotation id="TextAnnotation_1mgjw86">
+      <bpmn:text>physikalische Untersuchung: internistische Untersuchung, Beurteilung der horakalen Organe und verschiedenen Lymphknotenstationen</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_017bjuz" associationDirection="None" sourceRef="Activity_0tzvob8" targetRef="TextAnnotation_1mgjw86" />
+    <bpmn:textAnnotation id="TextAnnotation_0c838gw">
+      <bpmn:text>Basislaboruntersuchungen: Blutbild inkl. Differenzialblutbild, Elektrolyte, Leber- und Nierenparameter, Gerinnungswerte</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0tusuo0" associationDirection="None" sourceRef="Activity_0ierngm" targetRef="TextAnnotation_0c838gw" />
+    <bpmn:group id="Group_1t782x5" categoryValueRef="CategoryValue_0hz7hrd" />
+    <bpmn:textAnnotation id="TextAnnotation_1m4dzsh">
+      <bpmn:text>S3-Leitlinie v5.1: Empf. 6.1 (EK)</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1hjarv1" associationDirection="None" sourceRef="StartEvent_0etitgn" targetRef="TextAnnotation_1m4dzsh" />
+    <bpmn:association id="Association_1243zof" associationDirection="None" sourceRef="TextAnnotation_1m4dzsh" targetRef="Event_1rhj5u9" />
+    <bpmn:textAnnotation id="TextAnnotation_0vagwt4">
+      <bpmn:text>S3-Leitlinie v5.1: Empf. 6.1 (EK), Hintergrundtext S. 112 f.</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1x0mnij" associationDirection="None" sourceRef="TextAnnotation_0vagwt4" targetRef="Group_1t782x5" />
+    <bpmn:textAnnotation id="TextAnnotation_1scnuty">
+      <bpmn:text>S3-Leitlinie v5.1: Empf. 6.3 (2),</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0mzx7as" associationDirection="None" sourceRef="Activity_0zfqdme" targetRef="TextAnnotation_1scnuty" />
+    <bpmn:textAnnotation id="TextAnnotation_1gh4jz1">
+      <bpmn:text>S3-Leitlinie v5.1: Empf. 6.4 (EK), Hintergrundtext S. 119</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1j161ge" associationDirection="None" sourceRef="TextAnnotation_1gh4jz1" targetRef="Activity_10f994h" />
+    <bpmn:textAnnotation id="TextAnnotation_03ua54w">
+      <bpmn:text>mglw. Entscheidungsgateway notwendig</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0z1cuwv" associationDirection="None" sourceRef="Gateway_0rualex" targetRef="TextAnnotation_03ua54w" />
+    <bpmn:textAnnotation id="TextAnnotation_0dhhcdv">
+      <bpmn:text>mglw. Gateway einsetzen (Leitlinie S. 117, Empf. 6.4 (EK), S. 119)</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0a6om0v" associationDirection="None" sourceRef="Gateway_18sa339" targetRef="TextAnnotation_0dhhcdv" />
+    <bpmn:textAnnotation id="TextAnnotation_0obfogk">
+      <bpmn:text>S3-Leitlinie v5.1: Hintergrundtext S. 117</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0nkg4g8" associationDirection="None" sourceRef="DataObjectReference_0utl728" targetRef="TextAnnotation_0obfogk" />
+    <bpmn:textAnnotation id="TextAnnotation_1odn5ep">
+      <bpmn:text>S3-Leitlinie v5.1: Hintergrundtext S. 117</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0a97nhk" associationDirection="None" sourceRef="Activity_0xxpmrp" targetRef="TextAnnotation_1odn5ep" />
+    <bpmn:textAnnotation id="TextAnnotation_1d8ek17">
+      <bpmn:text>S3-Leitlinie v5.1: Hintergrundtext S. 119</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1ww8bu5" associationDirection="None" sourceRef="DataObjectReference_0zycea6" targetRef="TextAnnotation_1d8ek17" />
+    <bpmn:association id="Association_0fnqx01" associationDirection="None" sourceRef="TextAnnotation_1d8ek17" targetRef="Activity_1fx33pw" />
+    <bpmn:textAnnotation id="TextAnnotation_1t49oqj">
+      <bpmn:text>Ergänzend zum CT-Staging</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1vkj5nz" associationDirection="None" sourceRef="Activity_0jxut5m" targetRef="TextAnnotation_1t49oqj" />
+    <bpmn:textAnnotation id="TextAnnotation_066pmcf">
+      <bpmn:text>Ergänzend zum CT-Staging, Alternative zu TTUS</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1hu4q0p" associationDirection="None" sourceRef="Activity_1d147ji" targetRef="TextAnnotation_066pmcf" />
+    <bpmn:group id="Group_103xagx" />
+    <bpmn:textAnnotation id="TextAnnotation_1logq38">
+      <bpmn:text>S3-Leitlinie v5.1: Hintergrundtext S. 120</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_08bmxhn" associationDirection="None" sourceRef="Group_103xagx" targetRef="TextAnnotation_1logq38" />
+    <bpmn:group id="Group_1oy21ki" />
+    <bpmn:textAnnotation id="TextAnnotation_0orc05s">
+      <bpmn:text>S3-Leitlinie v5.1: Hintergrundtext S. 120</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0wcasbw" associationDirection="None" sourceRef="Group_1oy21ki" targetRef="TextAnnotation_0orc05s" />
+    <bpmn:textAnnotation id="TextAnnotation_0wv24tl">
+      <bpmn:text>S3-Leitlinie v5.1: Hintergrundtext S. 120</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_17ls7ul" associationDirection="None" sourceRef="TextAnnotation_0wv24tl" targetRef="Activity_1vg5nbm" />
+    <bpmn:association id="Association_0sw4umu" associationDirection="None" sourceRef="TextAnnotation_0wv24tl" targetRef="DataObjectReference_03ob3z8" />
+    <bpmn:textAnnotation id="TextAnnotation_060gnv3">
+      <bpmn:text>S3-Leitlinie v5.1: Hintergrundtext S. 121</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0oc7ii7" associationDirection="None" sourceRef="TextAnnotation_060gnv3" targetRef="DataObjectReference_1tckq3w" />
+    <bpmn:textAnnotation id="TextAnnotation_0p83ppq">
+      <bpmn:text>S3-Leitlinie v5.1: Hintergrundtext S. 121;
+§85 Abs. 1a StrlSchG</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0t0eghw" associationDirection="None" sourceRef="Activity_1r5y7l3" targetRef="TextAnnotation_0p83ppq" />
+    <bpmn:textAnnotation id="TextAnnotation_1dmjaj7">
+      <bpmn:text>im Staging und der Differentialdiagnostik</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:group id="Group_1sbhmr4" />
+    <bpmn:textAnnotation id="TextAnnotation_1gqg8z7">
+      <bpmn:text>S3-Leitlinie v5.1: Hintergrundtext S. 119</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1nrdyvu" associationDirection="None" sourceRef="Activity_1uqbj47" targetRef="TextAnnotation_1dmjaj7" />
+    <bpmn:association id="Association_0hdexaz" associationDirection="None" sourceRef="TextAnnotation_1dmjaj7" targetRef="Activity_1docrma" />
+    <bpmn:association id="Association_00nwhpq" associationDirection="None" sourceRef="Group_1sbhmr4" targetRef="TextAnnotation_1gqg8z7" />
+    <bpmn:group id="Group_16guk1n" categoryValueRef="CategoryValue_17ry3mi" />
+    <bpmn:textAnnotation id="TextAnnotation_1eqgtug">
+      <bpmn:text>S3-Leitlinie v5.1: Empf. 6.5 (2), Hintergrundtext S. 122</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1c8g7m2" associationDirection="None" sourceRef="TextAnnotation_1eqgtug" targetRef="Group_1dumhlt" />
+    <bpmn:group id="Group_1dumhlt" />
+    <bpmn:group id="Group_0auiu76" />
+    <bpmn:textAnnotation id="TextAnnotation_045txg9">
+      <bpmn:text>S3-Leitlinie v5.1: Empf. 6.6 (2), 6.7 (EK), Hintergrundtext S. 123</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1d8oo1n" associationDirection="None" sourceRef="Group_0auiu76" targetRef="TextAnnotation_045txg9" />
+    <bpmn:textAnnotation id="TextAnnotation_1ox9ual">
+      <bpmn:text>3-Leitlinie v5.1: Empf. 6.6 (2), 6.7 (EK), 6.8 (2), 6.9</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_09fzm19" associationDirection="None" sourceRef="Gateway_07kiqcu" targetRef="TextAnnotation_1ox9ual" />
+    <bpmn:textAnnotation id="TextAnnotation_0isoqw8">
+      <bpmn:text>S3-Leitlinie v5.1: 6.10 (EK)</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1n7ycer" associationDirection="None" sourceRef="Activity_1gjxrnn" targetRef="TextAnnotation_0isoqw8" />
+    <bpmn:textAnnotation id="TextAnnotation_1ongdev">
+      <bpmn:text>S3-Leitlinie v5.1: 6.11 (EK)</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_04uiqul" associationDirection="None" sourceRef="Activity_10w45zs" targetRef="TextAnnotation_1ongdev" />
+    <bpmn:textAnnotation id="TextAnnotation_0tu4ckc">
+      <bpmn:text>weiter verfeinern (Szintigraphie oder PET) für einheitliche Granularität?</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_11ig3cz" associationDirection="None" sourceRef="Activity_10w45zs" targetRef="TextAnnotation_0tu4ckc" />
+    <bpmn:textAnnotation id="TextAnnotation_0724fq0">
+      <bpmn:text>S3-Leitlinie v5.1: Hintergrundtext S. 127</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0u62q7l" associationDirection="None" sourceRef="Activity_08wr6u1" targetRef="TextAnnotation_0724fq0" />
+    <bpmn:group id="Group_1cts8eb" />
+    <bpmn:textAnnotation id="TextAnnotation_0d29t1n">
+      <bpmn:text>S3-Leitlinie v5.1: Empf. 6.12 (EK), 6.13 (EK), Hintergrundtext S. 127</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1ib2et8" associationDirection="None" sourceRef="Group_1cts8eb" targetRef="TextAnnotation_0d29t1n" />
+    <bpmn:group id="Group_171k5rt" categoryValueRef="CategoryValue_18d01ou" />
+    <bpmn:textAnnotation id="TextAnnotation_1h63f8x">
+      <bpmn:text>Stadien eher als Kommentar abbilden</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_103dvw3" associationDirection="None" sourceRef="Gateway_07kiqcu" targetRef="TextAnnotation_1h63f8x" />
   </bpmn:process>
-  <bpmn:process id="Process_0bdppus" />
-  <bpmn:process id="Process_1cffczp" />
+  <bpmn:category id="Category_1qyy4ro">
+    <bpmn:categoryValue id="CategoryValue_0hz7hrd" value="Basisdiagnostik" />
+  </bpmn:category>
+  <bpmn:category id="Category_11lwdy5">
+    <bpmn:categoryValue id="CategoryValue_17ry3mi" value="Staging-Untersuchung" />
+  </bpmn:category>
+  <bpmn:category id="Category_0c5eop4">
+    <bpmn:categoryValue id="CategoryValue_18d01ou" value="übergeordneter Pfadabschnitt" />
+  </bpmn:category>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
-    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1aftimr">
-      <bpmndi:BPMNShape id="Participant_10yfyq5_di" bpmnElement="Participant_10yfyq5" isHorizontal="true" bioc:stroke="#ff9200" color:border-color="#ff9200">
-        <dc:Bounds x="880" y="280" width="1060" height="800" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Gateway_1j7m4h2_di" bpmnElement="Gateway_1xjgvsi">
-        <dc:Bounds x="1045" y="445" width="50" height="50" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_10hbg7g_di" bpmnElement="Activity_10hbg7g" bioc:stroke="#ff9200" color:border-color="#ff9200">
-        <dc:Bounds x="1160" y="660" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1tdn0dk_di" bpmnElement="Activity_1tdn0dk" bioc:stroke="#ff9200" color:border-color="#ff9200">
-        <dc:Bounds x="1370" y="430" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0u7tiem_di" bpmnElement="Activity_0u7tiem" bioc:stroke="#ff9200" color:border-color="#ff9200">
-        <dc:Bounds x="1070" y="910" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_063n77a_di" bpmnElement="Activity_063n77a" bioc:stroke="#ff9200" color:border-color="#ff9200">
-        <dc:Bounds x="1180" y="910" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0dmkmqr_di" bpmnElement="Activity_0dmkmqr" bioc:stroke="#ff9200" color:border-color="#ff9200">
-        <dc:Bounds x="1300" y="910" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_013emyo_di" bpmnElement="Activity_013emyo" isExpanded="true">
-        <dc:Bounds x="1140" y="300" width="140" height="330" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_11j60zy_di" bpmnElement="Activity_11j60zy" bioc:stroke="#ff9200" color:border-color="#ff9200">
-        <dc:Bounds x="1160" y="440" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_13fvkvl_di" bpmnElement="Activity_13fvkvl" bioc:stroke="#ff9200" color:border-color="#ff9200">
-        <dc:Bounds x="1160" y="530" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_137xg0a_di" bpmnElement="Activity_137xg0a">
-        <dc:Bounds x="1160" y="350" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_1a8ka9t_di" bpmnElement="Event_1a8ka9t">
-        <dc:Bounds x="932" y="452" width="36" height="36" />
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_14tjbqi">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_0etitgn">
+        <dc:Bounds x="326" y="1152" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="923" y="495" width="57" height="40" />
+          <dc:Bounds x="303" y="1195" width="82" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="QualityIndicator_0j6w6bc_di" bpmnElement="QualityIndicator_0j6w6bc" bioc:fill="#decee2" color:background-color="#decee2">
-        <dc:Bounds x="1467" y="532" width="36" height="36" />
+      <bpmndi:BPMNShape id="Event_1rhj5u9_di" bpmnElement="Event_1rhj5u9">
+        <dc:Bounds x="326" y="1272" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1444" y="575" width="84" height="40" />
+          <dc:Bounds x="303" y="1315" width="82" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="QualityIndicator_0nvwtz8_di" bpmnElement="QualityIndicator_0nvwtz8" bioc:fill="#decee2" color:background-color="#decee2">
-        <dc:Bounds x="1332" y="532" width="36" height="36" />
+      <bpmndi:BPMNShape id="Gateway_0dz3iun_di" bpmnElement="Gateway_0dz3iun" isMarkerVisible="true">
+        <dc:Bounds x="465" y="1145" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0z8mdjl_di" bpmnElement="Gateway_0rualex" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="625" y="1145" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_19c5pm0_di" bpmnElement="Activity_19c5pm0">
+        <dc:Bounds x="790" y="1130" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ierngm_di" bpmnElement="Activity_0ierngm">
+        <dc:Bounds x="790" y="1350" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0zfqdme_di" bpmnElement="Activity_0zfqdme">
+        <dc:Bounds x="790" y="1460" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0tzvob8_di" bpmnElement="Activity_0tzvob8">
+        <dc:Bounds x="790" y="1240" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1p6ppx6_di" bpmnElement="Gateway_0atr9o3">
+        <dc:Bounds x="1115" y="1145" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0dg2tuc_di" bpmnElement="Activity_0dg2tuc">
+        <dc:Bounds x="1250" y="1130" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_10f994h_di" bpmnElement="Activity_10f994h" bioc:stroke="#5b176d" bioc:fill="#e1bee7" color:background-color="#e1bee7" color:border-color="#5b176d">
+        <dc:Bounds x="900" y="1570" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_18sa339_di" bpmnElement="Gateway_18sa339" isMarkerVisible="true" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="725" y="1605" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_0utl728_di" bpmnElement="DataObjectReference_0utl728">
+        <dc:Bounds x="422" y="1505" width="36" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1310" y="575" width="84" height="27" />
+          <dc:Bounds x="396" y="1562" width="88" height="119" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Gateway_0hlj6d0_di" bpmnElement="Gateway_00g65l5">
-        <dc:Bounds x="1590" y="445" width="50" height="50" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0g38zlb_di" bpmnElement="Activity_0g38zlb">
-        <dc:Bounds x="1680" y="430" width="100" height="80" />
+      <bpmndi:BPMNShape id="Activity_0xxpmrp_di" bpmnElement="Activity_0xxpmrp" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="424" y="1840" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0sik5ks_di" bpmnElement="Event_0sik5ks">
-        <dc:Bounds x="1832" y="452" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="1807" y="416" width="89" height="27" />
+      <bpmndi:BPMNShape id="Activity_0jxut5m_di" bpmnElement="Activity_0jxut5m" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="610" y="2560" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_18hwcmm_di" bpmnElement="DataObjectReference_18hwcmm" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="742" y="2665" width="36" height="50" />
+        <bpmndi:BPMNLabel color:color="#6b3c00">
+          <dc:Bounds x="718" y="2722" width="85" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="DataObjectReference_0nnzpd8_di" bpmnElement="DataObjectReference_0nnzpd8">
-        <dc:Bounds x="1392" y="610" width="36" height="50" />
+      <bpmndi:BPMNShape id="Gateway_05m8lpt_di" bpmnElement="Gateway_05m8lpt" isMarkerVisible="true" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="455" y="2575" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1haijqb_di" bpmnElement="Gateway_1haijqb" isMarkerVisible="true" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="815" y="2575" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_099cxz3_di" bpmnElement="Activity_099cxz3" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="970" y="2560" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1d147ji_di" bpmnElement="Activity_1d147ji" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="610" y="2770" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0dz494a_di" bpmnElement="Activity_0dz494a" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="1210" y="2560" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1htmsjd" bpmnElement="Activity_1xvizq0" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="1210" y="2680" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0rkykov_di" bpmnElement="Activity_0rkykov" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="440" y="3010" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_1ff3pj9_di" bpmnElement="DataObjectReference_1ff3pj9" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="566" y="3125" width="36" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1368" y="670" width="86" height="14" />
+          <dc:Bounds x="541" y="3182" width="87" height="93" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="QualityIndicator_0ohfvaw_di" bpmnElement="QualityIndicator_0ohfvaw" bioc:fill="#decee2" color:background-color="#decee2">
-        <dc:Bounds x="1832" y="532" width="36" height="36" />
+      <bpmndi:BPMNShape id="Activity_1u6lqil_di" bpmnElement="Activity_1u6lqil" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="790" y="3110" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1vg5nbm_di" bpmnElement="Activity_1vg5nbm" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="424" y="3350" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_03ob3z8_di" bpmnElement="DataObjectReference_03ob3z8" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="522" y="3465" width="36" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1811" y="575" width="86" height="40" />
+          <dc:Bounds x="499" y="3522" width="83" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Flow_0058fwa_di" bpmnElement="Flow_0058fwa">
-        <di:waypoint x="968" y="470" />
-        <di:waypoint x="1045" y="470" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0mj6tw5_di" bpmnElement="Flow_0mj6tw5">
-        <di:waypoint x="1070" y="495" />
-        <di:waypoint x="1070" y="700" />
-        <di:waypoint x="1160" y="700" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1jka1pa_di" bpmnElement="Flow_1jka1pa">
-        <di:waypoint x="1095" y="470" />
-        <di:waypoint x="1140" y="470" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1rff0er_di" bpmnElement="Flow_1rff0er">
-        <di:waypoint x="1260" y="700" />
-        <di:waypoint x="1615" y="700" />
-        <di:waypoint x="1615" y="495" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1hk0w7g_di" bpmnElement="Flow_1hk0w7g">
-        <di:waypoint x="1280" y="470" />
-        <di:waypoint x="1370" y="470" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_01n2wpf_di" bpmnElement="Flow_01n2wpf">
-        <di:waypoint x="1470" y="470" />
-        <di:waypoint x="1590" y="470" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0ijz914_di" bpmnElement="Flow_0ijz914">
-        <di:waypoint x="1640" y="470" />
-        <di:waypoint x="1680" y="470" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0vxd55a_di" bpmnElement="Flow_0vxd55a">
-        <di:waypoint x="1780" y="470" />
-        <di:waypoint x="1832" y="470" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Association_0xhqezc_di" bpmnElement="Association_0xhqezc">
-        <di:waypoint x="1460" y="510" />
-        <di:waypoint x="1474" y="532" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Association_0jtilau_di" bpmnElement="Association_0jtilau">
-        <di:waypoint x="1380" y="510" />
-        <di:waypoint x="1364" y="532" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Association_0e7q11c_di" bpmnElement="Association_0e7q11c">
-        <di:waypoint x="1850" y="488" />
-        <di:waypoint x="1850" y="532" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="Participant_1ldw844_di" bpmnElement="Participant_1ldw844" isHorizontal="true" bioc:stroke="#ff9200" color:border-color="#ff9200">
-        <dc:Bounds x="880" y="1080" width="600" height="250" />
+      <bpmndi:BPMNShape id="DataObjectReference_1tckq3w_di" bpmnElement="DataObjectReference_1tckq3w">
+        <dc:Bounds x="292" y="1605" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="268" y="1662" width="84" height="80" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_07vrsti_di" bpmnElement="Gateway_07vrsti" isMarkerVisible="true" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="1075" y="1515" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1r5y7l3_di" bpmnElement="Activity_1r5y7l3" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="1180" y="1500" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Participant_0whntbe_di" bpmnElement="Participant_0whntbe" isHorizontal="true" bioc:stroke="#ff9200" color:border-color="#ff9200">
-        <dc:Bounds x="880" y="1330" width="600" height="250" />
+      <bpmndi:BPMNShape id="Gateway_03u1o84_di" bpmnElement="Gateway_03u1o84" isMarkerVisible="true" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="1595" y="1135" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0s02b7o_di" bpmnElement="Gateway_0m1a5oq">
+        <dc:Bounds x="1785" y="1135" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1ck2xft_di" bpmnElement="Gateway_1ck2xft" isMarkerVisible="true" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="1905" y="1135" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0aul3ol" bpmnElement="Activity_1uqbj47" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="840" y="2060" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_19sf7d0_di" bpmnElement="TextAnnotation_19sf7d0" bioc:stroke="#000000" color:border-color="#000000">
-        <dc:Bounds x="1450" y="730" width="160" height="82" />
+      <bpmndi:BPMNShape id="BPMNShape_0jplg1p" bpmnElement="Activity_1docrma" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="840" y="2180" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_11f9q4r_di" bpmnElement="TextAnnotation_11f9q4r" bioc:stroke="#000000" color:border-color="#000000">
-        <dc:Bounds x="1410" y="350" width="150" height="53" />
+      <bpmndi:BPMNShape id="BPMNShape_0t8k3ne" bpmnElement="Gateway_1qk1b78" isMarkerVisible="true" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="575" y="2075" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_141jjjx" bpmnElement="Gateway_1hkjpbl" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="725" y="2195" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_01tnops" bpmnElement="DataObjectReference_16h6q5j" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="703" y="2295" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="676" y="2352" width="90" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0cz4ltk" bpmnElement="Gateway_0h3j4pl" isMarkerVisible="true" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="447" y="2075" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ehoolc_di" bpmnElement="Activity_0ehoolc" bioc:stroke="#5b176d" bioc:fill="#e1bee7" color:background-color="#e1bee7" color:border-color="#5b176d">
+        <dc:Bounds x="2120" y="1980" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_0e70ar9_di" bpmnElement="TextAnnotation_0e70ar9" bioc:stroke="#000000" color:border-color="#000000">
-        <dc:Bounds x="1220" y="760" width="164" height="82" />
+      <bpmndi:BPMNShape id="Gateway_14e3hif_di" bpmnElement="Gateway_14e3hif" isMarkerVisible="true" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="1905" y="2154" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0jw7lfi" bpmnElement="Activity_07ifcm5" bioc:stroke="#205022" bioc:fill="#c8e6c9" color:background-color="#c8e6c9" color:border-color="#205022">
+        <dc:Bounds x="2120" y="2139" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="DataOutputAssociation_0sae2dt_di" bpmnElement="DataOutputAssociation_0sae2dt">
-        <di:waypoint x="1410" y="510" />
-        <di:waypoint x="1410" y="610" />
+      <bpmndi:BPMNShape id="BPMNShape_03sids2" bpmnElement="Activity_00ye5xb" bioc:stroke="#205022" bioc:fill="#c8e6c9" color:background-color="#c8e6c9" color:border-color="#205022">
+        <dc:Bounds x="2120" y="2270" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_1rlnq11_di" bpmnElement="DataObjectReference_1rlnq11" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="2312" y="2115" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2287" y="2172" width="86" height="66" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_02deeax" bpmnElement="DataObjectReference_0blyuja" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="2302" y="1905" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2277" y="1962" width="87" height="80" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1awmjdh_di" bpmnElement="Activity_1awmjdh">
+        <dc:Bounds x="2490" y="1120" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_07kiqcu_di" bpmnElement="Gateway_07kiqcu" isMarkerVisible="true" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="2065" y="1135" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1w1tvpt_di" bpmnElement="Activity_1w1tvpt" bioc:stroke="#5b176d" bioc:fill="#e1bee7" color:background-color="#e1bee7" color:border-color="#5b176d">
+        <dc:Bounds x="2490" y="1228" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_00qobzl_di" bpmnElement="Gateway_00qobzl" isMarkerVisible="true" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="2295" y="1243" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0m215qj" bpmnElement="Activity_1cgwrno">
+        <dc:Bounds x="2490" y="1350" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_16sdx54_di" bpmnElement="Activity_16sdx54" bioc:stroke="#5b176d" bioc:fill="#e1bee7" color:background-color="#e1bee7" color:border-color="#5b176d">
+        <dc:Bounds x="2620" y="1449" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1s2mkpr_di" bpmnElement="Gateway_16xhnhx">
+        <dc:Bounds x="2395" y="1365" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0vis1gr_di" bpmnElement="Gateway_0vis1gr" isMarkerVisible="true" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="2515" y="1464" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0w3emka" bpmnElement="Activity_0tfhoms">
+        <dc:Bounds x="2620" y="1570" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_12zmg6t_di" bpmnElement="Gateway_12zmg6t" isMarkerVisible="true" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="2225" y="1135" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_00abqk7" bpmnElement="DataObjectReference_11b25id" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="2652" y="995" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2626" y="1054.5" width="87" height="119" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1gjxrnn_di" bpmnElement="Activity_1gjxrnn" bioc:stroke="#5b176d" bioc:fill="#e1bee7" color:background-color="#e1bee7" color:border-color="#5b176d">
+        <dc:Bounds x="2120" y="2492" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1n0rye5_di" bpmnElement="Gateway_1n0rye5" isMarkerVisible="true" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="1905" y="2507" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1ovojac" bpmnElement="Gateway_1uze6c3" isMarkerVisible="true" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="1905" y="2670" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_06tbk65" bpmnElement="Activity_10w45zs" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="2120" y="2655" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1enejc3_di" bpmnElement="Gateway_1enejc3" isMarkerVisible="true" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="2875" y="1145" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0o5vyha_di" bpmnElement="Gateway_0o5vyha" isMarkerVisible="true">
+        <dc:Bounds x="3265" y="1145" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_08wr6u1_di" bpmnElement="Activity_08wr6u1">
+        <dc:Bounds x="3040" y="1240" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1knxvac_di" bpmnElement="Gateway_1knxvac" isMarkerVisible="true" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="3535" y="1145" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0i3pg3a_di" bpmnElement="Activity_0i3pg3a">
+        <dc:Bounds x="3720" y="1250" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1xp3lfp_di" bpmnElement="Gateway_1xp3lfp" isMarkerVisible="true">
+        <dc:Bounds x="3835" y="1145" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0q2kqqe_di" bpmnElement="Activity_0q2kqqe">
+        <dc:Bounds x="4140" y="1130" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_015jzpw_di" bpmnElement="Gateway_015jzpw" isMarkerVisible="true" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="3945" y="1145" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1rypsn1_di" bpmnElement="Activity_1rypsn1" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="4300" y="1130" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0d2ycxc_di" bpmnElement="Gateway_0d2ycxc" isMarkerVisible="true">
+        <dc:Bounds x="4445" y="1145" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0a70pdc_di" bpmnElement="Activity_0a70pdc">
+        <dc:Bounds x="790" y="1780" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1fx33pw_di" bpmnElement="Activity_1fx33pw" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="1220" y="1890" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_0zycea6_di" bpmnElement="DataObjectReference_0zycea6" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="1082" y="1885" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1069" y="1942" width="62" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_1hjarv1_di" bpmnElement="Association_1hjarv1">
+        <di:waypoint x="328" y="1177" />
+        <di:waypoint x="255" y="1209" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Association_0swazng_di" bpmnElement="Association_0swazng">
-        <di:waypoint x="1390" y="430" />
-        <di:waypoint x="1410" y="388" />
+      <bpmndi:BPMNEdge id="Association_1243zof_di" bpmnElement="Association_1243zof">
+        <di:waypoint x="266" y="1259" />
+        <di:waypoint x="327" y="1283" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Association_1dbypp4_di" bpmnElement="Association_1dbypp4">
-        <di:waypoint x="1187" y="740" />
-        <di:waypoint x="1220" y="790" />
+      <bpmndi:BPMNEdge id="Association_0z1cuwv_di" bpmnElement="Association_0z1cuwv">
+        <di:waypoint x="661" y="1156" />
+        <di:waypoint x="688" y="1122" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Association_0zm9y8e_di" bpmnElement="Association_0zm9y8e">
-        <di:waypoint x="1428" y="652" />
-        <di:waypoint x="1513" y="730" />
+      <bpmndi:BPMNEdge id="Association_0zzqfr9_di" bpmnElement="Association_0zzqfr9">
+        <di:waypoint x="877" y="1130" />
+        <di:waypoint x="910" y="1094" />
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0tusuo0_di" bpmnElement="Association_0tusuo0">
+        <di:waypoint x="890" y="1365" />
+        <di:waypoint x="910" y="1355" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0mzx7as_di" bpmnElement="Association_0mzx7as">
+        <di:waypoint x="790" y="1479" />
+        <di:waypoint x="772" y="1472" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_017bjuz_di" bpmnElement="Association_017bjuz">
+        <di:waypoint x="889" y="1247" />
+        <di:waypoint x="910" y="1233" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_1j161ge_di" bpmnElement="Association_1j161ge">
+        <di:waypoint x="778" y="1568" />
+        <di:waypoint x="900" y="1587" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0a6om0v_di" bpmnElement="Association_0a6om0v">
+        <di:waypoint x="725" y="1630" />
+        <di:waypoint x="638" y="1630" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0nkg4g8_di" bpmnElement="Association_0nkg4g8">
+        <di:waypoint x="427" y="1505" />
+        <di:waypoint x="391" y="1435" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0a97nhk_di" bpmnElement="Association_0a97nhk">
+        <di:waypoint x="424" y="1858" />
+        <di:waypoint x="388" y="1843" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_1vkj5nz_di" bpmnElement="Association_1vkj5nz">
+        <di:waypoint x="710" y="2568" />
+        <di:waypoint x="734" y="2553" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_1hu4q0p_di" bpmnElement="Association_1hu4q0p">
+        <di:waypoint x="710" y="2800" />
+        <di:waypoint x="870" y="2770" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_17ls7ul_di" bpmnElement="Association_17ls7ul">
+        <di:waypoint x="620" y="3390" />
+        <di:waypoint x="524" y="3390" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0sw4umu_di" bpmnElement="Association_0sw4umu">
+        <di:waypoint x="625" y="3426" />
+        <di:waypoint x="558" y="3478" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0oc7ii7_di" bpmnElement="Association_0oc7ii7">
+        <di:waypoint x="232" y="1567" />
+        <di:waypoint x="292" y="1611" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0t0eghw_di" bpmnElement="Association_0t0eghw">
+        <di:waypoint x="1266" y="1500" />
+        <di:waypoint x="1280" y="1485" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_0u5v806" bpmnElement="Association_1nrdyvu">
+        <di:waypoint x="922" y="2140" />
+        <di:waypoint x="1003" y="2240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_0ceekir" bpmnElement="Association_0hdexaz">
+        <di:waypoint x="969" y="2244" />
+        <di:waypoint x="940" y="2226" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_09fzm19_di" bpmnElement="Association_09fzm19">
+        <di:waypoint x="2094" y="1181" />
+        <di:waypoint x="2107" y="1260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_1x0mnij_di" bpmnElement="Association_1x0mnij">
+        <di:waypoint x="510" y="882" />
+        <di:waypoint x="552" y="930" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_08bmxhn_di" bpmnElement="Association_08bmxhn">
+        <di:waypoint x="1263" y="2480" />
+        <di:waypoint x="1350" y="2436" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0wcasbw_di" bpmnElement="Association_0wcasbw">
+        <di:waypoint x="1341" y="2930" />
+        <di:waypoint x="1390" y="2910" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_1rflt0g" bpmnElement="Association_00nwhpq">
+        <di:waypoint x="1280" y="2080" />
+        <di:waypoint x="1320" y="2067" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_1d8oo1n_di" bpmnElement="Association_1d8oo1n">
+        <di:waypoint x="2815" y="870" />
+        <di:waypoint x="2830" y="854" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_1c8g7m2_di" bpmnElement="Association_1c8g7m2">
+        <di:waypoint x="1677" y="1012" />
+        <di:waypoint x="1679" y="1045" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_1n7ycer_di" bpmnElement="Association_1n7ycer">
+        <di:waypoint x="2212" y="2493" />
+        <di:waypoint x="2245" y="2462" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_1gezv52" bpmnElement="Association_04uiqul">
+        <di:waypoint x="2212" y="2656" />
+        <di:waypoint x="2245" y="2625" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_11ig3cz_di" bpmnElement="Association_11ig3cz">
+        <di:waypoint x="2220" y="2687" />
+        <di:waypoint x="2330" y="2668" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0u62q7l_di" bpmnElement="Association_0u62q7l">
+        <di:waypoint x="3140" y="1301" />
+        <di:waypoint x="3162" y="1310" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_1ib2et8_di" bpmnElement="Association_1ib2et8">
+        <di:waypoint x="3564" y="1030" />
+        <di:waypoint x="3525" y="992" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0fnqx01_di" bpmnElement="Association_0fnqx01">
+        <di:waypoint x="1222" y="1977" />
+        <di:waypoint x="1235" y="1970" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_1ww8bu5_di" bpmnElement="Association_1ww8bu5">
+        <di:waypoint x="1118" y="1931" />
+        <di:waypoint x="1153" y="1970" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_103dvw3_di" bpmnElement="Association_103dvw3">
+        <di:waypoint x="2079" y="1146" />
+        <di:waypoint x="1980" y="1027" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Event_0e1qxov_di" bpmnElement="Event_1h9rmtv" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="872" y="1522" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="852.5" y="1567.5" width="75" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0z4m3h6" bpmnElement="Event_19bk5ly" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="982" y="1632" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="963" y="1675" width="75" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_11xb7dz_di" bpmnElement="TextAnnotation_11xb7dz">
+        <dc:Bounds x="910" y="1020" width="140" height="100" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1mgjw86_di" bpmnElement="TextAnnotation_1mgjw86">
+        <dc:Bounds x="910" y="1180" width="200" height="86" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0c838gw_di" bpmnElement="TextAnnotation_0c838gw">
+        <dc:Bounds x="910" y="1310" width="220" height="86" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0964lti_di" bpmnElement="Flow_0964lti">
+        <di:waypoint x="362" y="1170" />
+        <di:waypoint x="465" y="1170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0misiti_di" bpmnElement="Flow_0misiti">
+        <di:waypoint x="362" y="1290" />
+        <di:waypoint x="490" y="1290" />
+        <di:waypoint x="490" y="1195" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_01qb3xy_di" bpmnElement="Flow_01qb3xy">
+        <di:waypoint x="515" y="1170" />
+        <di:waypoint x="625" y="1170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0nrtorc_di" bpmnElement="Flow_0nrtorc">
+        <di:waypoint x="675" y="1170" />
+        <di:waypoint x="790" y="1170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1kl7rps_di" bpmnElement="Flow_1kl7rps">
+        <di:waypoint x="650" y="1195" />
+        <di:waypoint x="650" y="1390" />
+        <di:waypoint x="790" y="1390" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ame6c5_di" bpmnElement="Flow_1ame6c5">
+        <di:waypoint x="650" y="1195" />
+        <di:waypoint x="650" y="1500" />
+        <di:waypoint x="790" y="1500" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1tal3me_di" bpmnElement="Flow_1tal3me">
+        <di:waypoint x="650" y="1195" />
+        <di:waypoint x="650" y="1610" />
+        <di:waypoint x="900" y="1610" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="807" y="1583.5" width="87" height="185" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0hlxhzq_di" bpmnElement="Flow_0hlxhzq">
+        <di:waypoint x="650" y="1195" />
+        <di:waypoint x="650" y="1820" />
+        <di:waypoint x="790" y="1820" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_09gn6io_di" bpmnElement="Flow_09gn6io">
+        <di:waypoint x="650" y="1195" />
+        <di:waypoint x="650" y="1280" />
+        <di:waypoint x="790" y="1280" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_19ynkwt_di" bpmnElement="Flow_19ynkwt">
+        <di:waypoint x="890" y="1170" />
+        <di:waypoint x="1115" y="1170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_07jj1il_di" bpmnElement="DataInputAssociation_07jj1il">
+        <di:waypoint x="458" y="1530" />
+        <di:waypoint x="790" y="1530" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_0phab79_di" bpmnElement="DataInputAssociation_0phab79">
+        <di:waypoint x="328" y="1626" />
+        <di:waypoint x="791" y="1532" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_07basxd_di" bpmnElement="Flow_07basxd">
+        <di:waypoint x="890" y="1280" />
+        <di:waypoint x="1140" y="1280" />
+        <di:waypoint x="1140" y="1195" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1uea7ma_di" bpmnElement="Flow_1uea7ma">
+        <di:waypoint x="1165" y="1170" />
+        <di:waypoint x="1250" y="1170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_1ciew7y_di" bpmnElement="DataInputAssociation_1ciew7y">
+        <di:waypoint x="458" y="1532" />
+        <di:waypoint x="901" y="1575" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_1qao6d4_di" bpmnElement="DataInputAssociation_1qao6d4">
+        <di:waypoint x="328" y="1629" />
+        <di:waypoint x="900" y="1593" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_0bfnnxw_di" bpmnElement="DataOutputAssociation_0bfnnxw">
+        <di:waypoint x="970" y="1650" />
+        <di:waypoint x="1089" y="1885" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_08gau9c_di" bpmnElement="DataInputAssociation_08gau9c">
+        <di:waypoint x="443" y="1555" />
+        <di:waypoint x="473" y="1840" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_0bcin4u_di" bpmnElement="DataInputAssociation_0bcin4u">
+        <di:waypoint x="1118" y="1913" />
+        <di:waypoint x="1220" y="1927" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_17h32zc_di" bpmnElement="Flow_17h32zc" bioc:stroke="#6b3c00" color:border-color="#6b3c00">
+        <di:waypoint x="505" y="2600" />
+        <di:waypoint x="610" y="2600" />
+        <bpmndi:BPMNLabel color:color="#6b3c00">
+          <dc:Bounds x="525" y="2573" width="65" height="53" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_06larzi_di" bpmnElement="DataOutputAssociation_06larzi" bioc:stroke="#6b3c00" color:border-color="#6b3c00">
+        <di:waypoint x="660" y="2640" />
+        <di:waypoint x="660" y="2695" />
+        <di:waypoint x="742" y="2695" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_03ljugi_di" bpmnElement="Flow_03ljugi">
+        <di:waypoint x="710" y="2600" />
+        <di:waypoint x="815" y="2600" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_05eladq_di" bpmnElement="Flow_05eladq">
+        <di:waypoint x="865" y="2600" />
+        <di:waypoint x="970" y="2600" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="880" y="2586" width="76" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_0r8xye9_di" bpmnElement="DataOutputAssociation_0r8xye9">
+        <di:waypoint x="527" y="3090" />
+        <di:waypoint x="566" y="3133" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_0tf4e83_di" bpmnElement="DataInputAssociation_0tf4e83">
+        <di:waypoint x="602" y="3150" />
+        <di:waypoint x="790" y="3150" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_0zm5mpy_di" bpmnElement="DataOutputAssociation_0zm5mpy">
+        <di:waypoint x="503" y="3430" />
+        <di:waypoint x="528" y="3465" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0kbgrdk_di" bpmnElement="Flow_0kbgrdk">
+        <di:waypoint x="908" y="1540" />
+        <di:waypoint x="1075" y="1540" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0nn0mwo_di" bpmnElement="Flow_0nn0mwo">
+        <di:waypoint x="1018" y="1650" />
+        <di:waypoint x="1030" y="1650" />
+        <di:waypoint x="1030" y="1540" />
+        <di:waypoint x="1075" y="1540" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1a01ybe_di" bpmnElement="Flow_1a01ybe">
+        <di:waypoint x="1125" y="1540" />
+        <di:waypoint x="1180" y="1540" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0o8fbn8_di" bpmnElement="Flow_0o8fbn8">
+        <di:waypoint x="1645" y="1160" />
+        <di:waypoint x="1785" y="1160" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1678" y="1126" width="74" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1n87o9j_di" bpmnElement="Flow_1n87o9j">
+        <di:waypoint x="1810" y="1185" />
+        <di:waypoint x="1810" y="2179" />
+        <di:waypoint x="1905" y="2179" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0eayzor_di" bpmnElement="Flow_0eayzor">
+        <di:waypoint x="1835" y="1160" />
+        <di:waypoint x="1905" y="1160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0k8y0n7_di" bpmnElement="Flow_0k8y0n7">
+        <di:waypoint x="1930" y="1185" />
+        <di:waypoint x="1930" y="2020" />
+        <di:waypoint x="2120" y="2020" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1935" y="1910" width="90" height="80" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_15uxchp_di" bpmnElement="Flow_15uxchp">
+        <di:waypoint x="1955" y="1160" />
+        <di:waypoint x="2065" y="1160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_1i30psj" bpmnElement="Flow_1jtyyje">
+        <di:waypoint x="625" y="2100" />
+        <di:waypoint x="840" y="2100" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_05ak1qi" bpmnElement="Flow_069g9lm">
+        <di:waypoint x="750" y="2195" />
+        <di:waypoint x="750" y="2120" />
+        <di:waypoint x="840" y="2120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_1a1scx0" bpmnElement="DataInputAssociation_155gh7a">
+        <di:waypoint x="738" y="2295" />
+        <di:waypoint x="844" y="2138" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_15omw6j" bpmnElement="Flow_0k4qmm7">
+        <di:waypoint x="775" y="2220" />
+        <di:waypoint x="840" y="2220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_15fp0nn" bpmnElement="DataInputAssociation_064x3yf">
+        <di:waypoint x="739" y="2311" />
+        <di:waypoint x="844" y="2258" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_1lwgcfo" bpmnElement="Flow_1q4xvis">
+        <di:waypoint x="497" y="2100" />
+        <di:waypoint x="575" y="2100" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="487" y="2046" width="90" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_1d84vv7" bpmnElement="Flow_1m3nrxf">
+        <di:waypoint x="600" y="2125" />
+        <di:waypoint x="600" y="2220" />
+        <di:waypoint x="725" y="2220" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="615" y="2180" width="89" height="80" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_1t0an29_di" bpmnElement="DataOutputAssociation_1t0an29">
+        <di:waypoint x="2220" y="1989" />
+        <di:waypoint x="2302" y="1938" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_17j9oa6_di" bpmnElement="Flow_17j9oa6">
+        <di:waypoint x="1955" y="2179" />
+        <di:waypoint x="2120" y="2179" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1965" y="2130" width="90" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1kmww30_di" bpmnElement="Flow_1kmww30">
+        <di:waypoint x="1930" y="2204" />
+        <di:waypoint x="1930" y="2310" />
+        <di:waypoint x="2120" y="2310" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1930" y="2223" width="79" height="53" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_0nvmwqh_di" bpmnElement="DataOutputAssociation_0nvmwqh">
+        <di:waypoint x="2220" y="2169" />
+        <di:waypoint x="2312" y="2149" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_0e6p0fj_di" bpmnElement="DataOutputAssociation_0e6p0fj">
+        <di:waypoint x="2209" y="2270" />
+        <di:waypoint x="2312" y="2165" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_122ftt6_di" bpmnElement="Flow_122ftt6">
+        <di:waypoint x="2275" y="1160" />
+        <di:waypoint x="2490" y="1160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_049o4ji_di" bpmnElement="DataOutputAssociation_049o4ji">
+        <di:waypoint x="2578" y="1120" />
+        <di:waypoint x="2652" y="1041" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0rnoggt_di" bpmnElement="Flow_0rnoggt">
+        <di:waypoint x="2115" y="1160" />
+        <di:waypoint x="2225" y="1160" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2113" y="1056" width="100" height="119" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1hc7ybv_di" bpmnElement="Flow_1hc7ybv">
+        <di:waypoint x="2090" y="1135" />
+        <di:waypoint x="2090" y="990" />
+        <di:waypoint x="2250" y="990" />
+        <di:waypoint x="2250" y="1135" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2118" y="897" width="89" height="106" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0p74uz3_di" bpmnElement="Flow_0p74uz3">
+        <di:waypoint x="2090" y="1135" />
+        <di:waypoint x="2090" y="840" />
+        <di:waypoint x="2250" y="840" />
+        <di:waypoint x="2250" y="1135" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2109" y="735" width="82" height="119" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0cyntsu_di" bpmnElement="Flow_0cyntsu">
+        <di:waypoint x="2090" y="1135" />
+        <di:waypoint x="2090" y="670" />
+        <di:waypoint x="2250" y="670" />
+        <di:waypoint x="2250" y="1135" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2105" y="565" width="89" height="119" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1611mc0_di" bpmnElement="Flow_1611mc0">
+        <di:waypoint x="2345" y="1268" />
+        <di:waypoint x="2490" y="1268" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0591oer_di" bpmnElement="Flow_0591oer">
+        <di:waypoint x="2250" y="1185" />
+        <di:waypoint x="2250" y="1268" />
+        <di:waypoint x="2295" y="1268" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2258" y="1182.5" width="84" height="53" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_03xmmc0_di" bpmnElement="Flow_03xmmc0">
+        <di:waypoint x="2320" y="1293" />
+        <di:waypoint x="2320" y="1390" />
+        <di:waypoint x="2395" y="1390" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0axjeaz_di" bpmnElement="Flow_0axjeaz">
+        <di:waypoint x="2445" y="1390" />
+        <di:waypoint x="2490" y="1390" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1qdgzbw_di" bpmnElement="Flow_1qdgzbw">
+        <di:waypoint x="2565" y="1489" />
+        <di:waypoint x="2620" y="1489" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0of4jxt_di" bpmnElement="Flow_0of4jxt">
+        <di:waypoint x="2420" y="1415" />
+        <di:waypoint x="2420" y="1489" />
+        <di:waypoint x="2515" y="1489" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1mknxiy_di" bpmnElement="Flow_1mknxiy">
+        <di:waypoint x="2540" y="1514" />
+        <di:waypoint x="2540" y="1610" />
+        <di:waypoint x="2620" y="1610" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_10we670_di" bpmnElement="Flow_10we670">
+        <di:waypoint x="1955" y="2532" />
+        <di:waypoint x="2120" y="2532" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1984" y="2491" width="112" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0487qs7_di" bpmnElement="Flow_0487qs7">
+        <di:waypoint x="1810" y="1185" />
+        <di:waypoint x="1810" y="2532" />
+        <di:waypoint x="1905" y="2532" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_0jgh5ws" bpmnElement="Flow_17u7o1o">
+        <di:waypoint x="1955" y="2695" />
+        <di:waypoint x="2120" y="2695" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1976" y="2655" width="104" height="53" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0lrgczz_di" bpmnElement="Flow_0lrgczz">
+        <di:waypoint x="1810" y="1185" />
+        <di:waypoint x="1810" y="2695" />
+        <di:waypoint x="1905" y="2695" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0wwm6uj_di" bpmnElement="Flow_0wwm6uj">
+        <di:waypoint x="2900" y="1195" />
+        <di:waypoint x="2900" y="1280" />
+        <di:waypoint x="3040" y="1280" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2904" y="1223" width="71" height="53" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1wmdohx_di" bpmnElement="Flow_1wmdohx">
+        <di:waypoint x="3140" y="1280" />
+        <di:waypoint x="3290" y="1280" />
+        <di:waypoint x="3290" y="1195" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0luftwe_di" bpmnElement="Flow_0luftwe">
+        <di:waypoint x="2925" y="1170" />
+        <di:waypoint x="3265" y="1170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1vz1gyg_di" bpmnElement="Flow_1vz1gyg">
+        <di:waypoint x="3560" y="1195" />
+        <di:waypoint x="3560" y="1290" />
+        <di:waypoint x="3720" y="1290" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="3558" y="1210" width="84" height="80" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_160d1k3_di" bpmnElement="Flow_160d1k3">
+        <di:waypoint x="3585" y="1170" />
+        <di:waypoint x="3835" y="1170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_136k5m5_di" bpmnElement="Flow_136k5m5">
+        <di:waypoint x="3820" y="1290" />
+        <di:waypoint x="3860" y="1290" />
+        <di:waypoint x="3860" y="1195" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1oo0l73_di" bpmnElement="Flow_1oo0l73">
+        <di:waypoint x="3885" y="1170" />
+        <di:waypoint x="3945" y="1170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1fvblb9_di" bpmnElement="Flow_1fvblb9">
+        <di:waypoint x="3995" y="1170" />
+        <di:waypoint x="4140" y="1170" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="4005" y="1113" width="90" height="53" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_04avvv4_di" bpmnElement="Flow_04avvv4">
+        <di:waypoint x="4240" y="1170" />
+        <di:waypoint x="4300" y="1170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0mfbgl4_di" bpmnElement="Flow_0mfbgl4">
+        <di:waypoint x="3970" y="1195" />
+        <di:waypoint x="3970" y="1310" />
+        <di:waypoint x="4470" y="1310" />
+        <di:waypoint x="4470" y="1195" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0y16b5b_di" bpmnElement="Flow_0y16b5b">
+        <di:waypoint x="4400" y="1170" />
+        <di:waypoint x="4445" y="1170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Group_1t782x5_di" bpmnElement="Group_1t782x5" bioc:stroke="#205022" bioc:fill="#c8e6c9" color:background-color="#c8e6c9" color:border-color="#205022">
+        <dc:Bounds x="550" y="930" width="840" height="935" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="931" y="906" width="77" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1m4dzsh_di" bpmnElement="TextAnnotation_1m4dzsh">
+        <dc:Bounds x="160" y="1209" width="106" height="57" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1vdkmqo" bpmnElement="TextAnnotation_0vagwt4">
+        <dc:Bounds x="420" y="810" width="108" height="72" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1scnuty_di" bpmnElement="TextAnnotation_1scnuty">
+        <dc:Bounds x="670" y="1430" width="102" height="57" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0zr56t4" bpmnElement="TextAnnotation_1gh4jz1">
+        <dc:Bounds x="670" y="1530" width="108" height="72" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_03ua54w_di" bpmnElement="TextAnnotation_03ua54w">
+        <dc:Bounds x="680" y="1050" width="102" height="72" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0obfogk_di" bpmnElement="TextAnnotation_0obfogk">
+        <dc:Bounds x="312" y="1363" width="106" height="72" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0dhhcdv_di" bpmnElement="TextAnnotation_0dhhcdv">
+        <dc:Bounds x="530" y="1610" width="108" height="86" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1odn5ep_di" bpmnElement="TextAnnotation_1odn5ep">
+        <dc:Bounds x="280" y="1800" width="108" height="57" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1d8ek17_di" bpmnElement="TextAnnotation_1d8ek17">
+        <dc:Bounds x="1120" y="1970" width="102" height="72" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1t49oqj_di" bpmnElement="TextAnnotation_1t49oqj">
+        <dc:Bounds x="720" y="2510" width="102" height="43" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_066pmcf_di" bpmnElement="TextAnnotation_066pmcf">
+        <dc:Bounds x="870" y="2740" width="102" height="72" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Group_103xagx_di" bpmnElement="Group_103xagx">
+        <dc:Bounds x="391" y="2480" width="959" height="400" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1logq38_di" bpmnElement="TextAnnotation_1logq38">
+        <dc:Bounds x="1350" y="2390" width="102" height="72" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Group_1oy21ki_di" bpmnElement="Group_1oy21ki">
+        <dc:Bounds x="390" y="2930" width="960" height="380" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0orc05s_di" bpmnElement="TextAnnotation_0orc05s">
+        <dc:Bounds x="1390" y="2870" width="102" height="72" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1bl98xu" bpmnElement="TextAnnotation_0wv24tl">
+        <dc:Bounds x="620" y="3354" width="102" height="72" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1ic32q3" bpmnElement="TextAnnotation_060gnv3">
+        <dc:Bounds x="150" y="1510" width="109.27528717294193" height="57" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0p83ppq_di" bpmnElement="TextAnnotation_0p83ppq">
+        <dc:Bounds x="1280" y="1410" width="105.09731971920868" height="100" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0s6ag59" bpmnElement="TextAnnotation_1dmjaj7">
+        <dc:Bounds x="969" y="2240" width="102" height="72" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0otimfr" bpmnElement="Group_1sbhmr4">
+        <dc:Bounds x="391" y="2050" width="889" height="360" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0ebqqfz" bpmnElement="TextAnnotation_1gqg8z7">
+        <dc:Bounds x="1320" y="2030" width="102" height="72" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Group_16guk1n_di" bpmnElement="Group_16guk1n">
+        <dc:Bounds x="1520" y="550" width="3170" height="2430" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="3070" y="513" width="69" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Group_1dumhlt_di" bpmnElement="Group_1dumhlt">
+        <dc:Bounds x="1590" y="1045" width="790" height="1345" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Group_0auiu76_di" bpmnElement="Group_0auiu76">
+        <dc:Bounds x="2020" y="870" width="810" height="846" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_045txg9_di" bpmnElement="TextAnnotation_045txg9">
+        <dc:Bounds x="2830" y="780" width="116.25290360046458" height="86" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1q3plap" bpmnElement="TextAnnotation_1eqgtug">
+        <dc:Bounds x="1620" y="940" width="113.2767131242741" height="72" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1ox9ual_di" bpmnElement="TextAnnotation_1ox9ual">
+        <dc:Bounds x="2060" y="1260" width="106.96138211382114" height="57" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0isoqw8_di" bpmnElement="TextAnnotation_0isoqw8">
+        <dc:Bounds x="2220" y="2419" width="104.63850174216027" height="43" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1vxhu02" bpmnElement="TextAnnotation_1ongdev">
+        <dc:Bounds x="2220" y="2582" width="106.96138211382114" height="43" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0tu4ckc_di" bpmnElement="TextAnnotation_0tu4ckc">
+        <dc:Bounds x="2330" y="2640" width="102.31562137049941" height="100" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0724fq0_di" bpmnElement="TextAnnotation_0724fq0">
+        <dc:Bounds x="3160" y="1310" width="104.63850174216027" height="72" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Group_1cts8eb_di" bpmnElement="Group_1cts8eb">
+        <dc:Bounds x="3510" y="1030" width="1020" height="470" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0d29t1n_di" bpmnElement="TextAnnotation_0d29t1n">
+        <dc:Bounds x="3420" y="920" width="104.63850174216027" height="86" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Group_171k5rt_di" bpmnElement="Group_171k5rt">
+        <dc:Bounds x="410" y="80" width="530" height="300" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="637" y="86" width="76" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1h63f8x_di" bpmnElement="TextAnnotation_1h63f8x" bioc:stroke="#831311" bioc:fill="#ffcdd2" color:background-color="#ffcdd2" color:border-color="#831311">
+        <dc:Bounds x="1900" y="970" width="101.26834716017869" height="57" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>
