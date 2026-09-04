@@ -8,8 +8,8 @@ applies. All tool-specific files only point here — never copy a skill's body.
 
 | Skill | When it fires | Gate / output |
 |---|---|---|
-| [`bpmn-conformance`](bpmn-conformance/SKILL.md) | editing any `**/*.bpmn` | `npm run check:conformance` (deterministic) |
-| [`bpmn-acceptance`](bpmn-acceptance/SKILL.md) | preparing a formal acceptance test | `npm run abnahme:protokoll` → pre-filled Protokoll (never stamps the acceptance test) |
+| [`bpmn-conformance`](bpmn-conformance/SKILL.md) | a `.bpmn` under `models/` has changed (human edit) — before any commit or PR touching `models/`; agents verify, they never edit the models | `npm run check:conformance` (deterministic: naming ADR-0004 + bpmnlint + metrics + roundtrip **blocking**; XSD core informational) |
+| [`bpmn-acceptance`](bpmn-acceptance/SKILL.md) | preparing a formal acceptance test | `npm run abnahme:protokoll` → pre-filled Protokoll, exit 1 while any A-check is red (never stamps the acceptance test) |
 | [`clinical-pathway-review`](clinical-pathway-review/SKILL.md) | reviewing a pathway for the SEM/PRA criteria | advisory findings only (LLM-judgment, read-only) |
 | [`model-inventory`](model-inventory/SKILL.md) | mapping what the model set contains | a Model Inventory Matrix (read-only) |
 | [`bpmn-soundness`](bpmn-soundness/SKILL.md) | checking STR-1…4 behavioural soundness | `npm run check:soundness` (advisory; needs the analyzer container) |
@@ -26,10 +26,12 @@ applies. All tool-specific files only point here — never copy a skill's body.
 
 ## Status notes
 
-- **bpmn-soundness** is shipped but **advisory**: its pilot (2026-06-25) found 4/7 models
-  inconclusive (unsupported OR-gateways + intermediate catch events) and the analyzable
-  ones violate on pre-existing defects, so STR-1…4 stay `HUMAN-INPUT-NEEDED` in the
-  `bpmn-acceptance` Protokoll and the CI job is non-blocking until the model remodel. See
+- **bpmn-soundness** is shipped but **advisory**: its pilot (2026-06-25, run over the seven
+  models then in the set; the set is now nine and screening / palliative-care have no
+  recorded run) found 4/7 inconclusive (unsupported OR-gateways + intermediate catch
+  events) and the analyzable ones violated on pre-existing defects, so STR-1…4 stay
+  `HUMAN-INPUT-NEEDED` in the `bpmn-acceptance` Protokoll and the CI job is non-blocking
+  until the model remodel. See
   [`docs/decisions/0003-soundness-tooling.md`](../docs/decisions/0003-soundness-tooling.md).
 
 ## Editing rule

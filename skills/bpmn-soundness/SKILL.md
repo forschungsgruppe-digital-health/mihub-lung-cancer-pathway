@@ -1,6 +1,6 @@
 ---
 name: bpmn-soundness
-description: Run the behavioural soundness check (acceptance-test STR-1..4) on the pathway models via the rust_bpmn_analyzer model checker (pinned Docker image), classifying each model SOUND / VIOLATION / INCONCLUSIVE. Use to gather STR evidence. Advisory — an INCONCLUSIVE (unsupported elements) is never a pass, and the overall acceptance test stays human.
+description: Run the behavioural soundness check (acceptance-test STR-1..4) on the pathway models via the rust_bpmn_analyzer model checker (pinned Docker image), classifying each model SOUND / VIOLATION / INCONCLUSIVE / ERROR. Use to gather STR evidence. Advisory — an INCONCLUSIVE (unsupported elements) or ERROR (no usable verdict) is never a pass, and the overall acceptance test stays human.
 ---
 
 # BPMN soundness (advisory)
@@ -38,13 +38,16 @@ non-blocking via `.github/workflows/soundness.yml` (the analyzer as a service co
 | **SOUND** | all four properties fulfilled | STR-1…4 evidence = OK |
 | **VIOLATION** | a supported model violates a property: OptionToComplete=STR-1, ProperCompletion=STR-2, NoDeadActivities=STR-3; a deadlock/livelock (STR-4) shows as OptionToComplete=✗ | a real STR finding — **report it** (a human modeler fixes the model) |
 | **INCONCLUSIVE** | model uses unsupported elements (`unsupported_elements`: OR-gateways, `intermediateCatchEvent`s) | **human review / remodel — NOT a pass** |
+| **ERROR** (icon `!`) | the analyzer gave no usable verdict: a non-JSON response, a timeout (`timeout (state-space blowup — the webserver runs without POR)` → raise `SOUNDNESS_TIMEOUT_MS`), the analyzer went unreachable mid-run, or the model could not be parsed | counted together with INCONCLUSIVE in the summary; **treat like INCONCLUSIVE — human review, never a pass** |
 
 ## Hard rules
 
-- **Never** treat INCONCLUSIVE as sound, and never flip the `bpmn-acceptance` Protokoll
-  STR rows from `HUMAN-INPUT-NEEDED` to ✓ on an INCONCLUSIVE result.
-- As of the 2026-06-25 pilot, **4 of 7 models are inconclusive** (OR-gateways + catch
-  events) and the 3 analyzable ones violate on existing structural defects — so this is
-  **advisory** until the model remodel. See `docs/decisions/0003-soundness-tooling.md`.
+- **Never** treat INCONCLUSIVE or ERROR as sound, and never flip the `bpmn-acceptance`
+  Protokoll STR rows from `HUMAN-INPUT-NEEDED` to ✓ on an INCONCLUSIVE or ERROR result.
+- As of the 2026-06-25 pilot (run over the seven models then in the set; the set is now
+  nine and screening / palliative-care have no recorded run), **4 of 7 were inconclusive**
+  (OR-gateways + catch events) and the 3 analyzable ones violated on existing structural
+  defects — so this is **advisory** until the model remodel. See
+  `docs/decisions/0003-soundness-tooling.md`.
 - Inter-process (Call Activity composition) soundness is **not** covered by checking the
   files independently — that stays human review.

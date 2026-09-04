@@ -20,7 +20,7 @@ instead.
 All BPMN sources and their paired SVG renders move from the repository root into a single
 **`models/`** directory (flat; `.bpmn` + `.svg` co-located). This declutters the root and
 makes the published artifact a clean, self-contained, archivable unit (relevant for the
-planned Zenodo deposit). `docs/`, `tools/`, `skills/`, `.github/` are unchanged.
+planned Zenodo deposit — active since 2026-06-27). `docs/`, `tools/`, `skills/`, `.github/` are unchanged.
 
 ## Decision 2 — Kebab-case naming convention `lung-cancer-<phase>-pathway`
 
@@ -47,7 +47,9 @@ The `-subpathway` suffix becomes `-pathway`; the overarching model keeps `overar
 The overarching-vs-sub distinction lives in the model index (`models/README.md`) and the
 model content, not the filename. **The LCS rename → `lung-cancer-screening-pathway` should be
 confirmed by the model author** (the intended phase term is "screening"); renaming the
-file does not change the BPMN content.
+file does not change the BPMN content. **Status 2026-09-04:** still unconfirmed by the model
+author — the name is de-facto frozen by the `v0.2.1-rc.1`+ Zenodo deposits (concept DOI
+10.5281/zenodo.20943916).
 
 ## Migration — what this PR updates
 
@@ -73,5 +75,7 @@ are safe to delete.
 ## Consequences
 
 - Do this **before the first Zenodo DOI** (a DOI pins the archived tree); none is minted yet.
+  **Status 2026-09-04:** done in time — the `models/` layout is in every archived release (first
+  deposit `v0.2.1-rc.1`, 2026-06-27).
 - External links to raw root model URLs would break — acceptable now (pre-release, pre-DOI).
 - Future indications (beyond lung cancer) could warrant `models/<indication>/…`; out of scope now.
