@@ -9,7 +9,7 @@ acceptance-test gate in `docs/governance/`; do not duplicate them.
 ## What this repo is
 
 A set of **BPMN 2.0 models of the lung-cancer patient pathway** (one overarching
-pathway + eight sub-pathways: screening, diagnostic, patient-consultation, tumor-board,
+pathway + nine sub-pathways: initial-entry, screening, diagnostic, patient-consultation, tumor-board,
 molecular-tumor-board, treatment, palliative-care (WIP draft), aftercare — the current
 inventory is `models/README.md`), developed in the MiHUB project (TU Dresden /
 Forschungsgruppe Digital Health). The models live under `models/` (naming convention

@@ -27,8 +27,8 @@ applies. All tool-specific files only point here — never copy a skill's body.
 ## Status notes
 
 - **bpmn-soundness** is shipped but **advisory**: its pilot (2026-06-25, run over the seven
-  models then in the set; the set is now nine and screening / palliative-care have no
-  recorded run) found 4/7 inconclusive (unsupported OR-gateways + intermediate catch
+  models then in the set; the set is now ten, and the 2026-09-04 per-model scan recorded a run for every
+  model — see the per-model issues) found 4/7 inconclusive (unsupported OR-gateways + intermediate catch
   events) and the analyzable ones violated on pre-existing defects, so STR-1…4 stay
   `HUMAN-INPUT-NEEDED` in the `bpmn-acceptance` Protokoll and the CI job is non-blocking
   until the model remodel. See

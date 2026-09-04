@@ -72,7 +72,7 @@ sibling code repo); the `package.json` here is unmanaged private tooling metadat
 **`version.txt` is the canonical model version**.
 
 - **One repository-level version** (a single `.` component). The model files (seven when
-  this was written; nine since `v0.3.0-rc.1`) are interdependent decomposed views (Call
+  this was written; nine since `v0.3.0-rc.1`, ten since 2026-09-04) are interdependent decomposed views (Call
   Activities); per-file versions would create cross-reference skew. The multi-component / `linked-versions` mode (used by the
   sibling repo) is kept in reserve for if a sub-pathway ever becomes an independently
   consumed artifact.
@@ -135,7 +135,12 @@ repo of a handful of model files; we choose release-please for reproducibility a
   ([`citation-validate.yml`](../../.github/workflows/citation-validate.yml)) checks that the
   two files stay in sync. The three existing records (10.5281/zenodo.20943917 = `v0.2.1-rc.1`,
   the `v0.2.1-rc.2` record, 10.5281/zenodo.21029417 = `v0.3.0-rc.1`) are edited manually on
-  zenodo.org to resource type *Dataset* and the current abstract (eight sub-pathways).
+  zenodo.org to resource type *Dataset* and the current abstract (nine sub-pathways).
+
+- **Amended 2026-09-04 — version sync.** `CITATION.cff` `version:` carries the
+  `# x-release-please-version` marker and `CITATION.cff` is listed in `extra-files`, so
+  release-please bumps it with every release (no more hand-edited version); `date-released`
+  stays manual and is set in the release-candidate commit together with the `Release-As:` footer.
 
 ## Decision 4 — Release-archive contents *(added 2026-09-04; records commits 87f42bc + 400fcd9 of 2026-06-27)*
 

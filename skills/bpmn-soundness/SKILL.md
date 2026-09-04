@@ -45,7 +45,7 @@ non-blocking via `.github/workflows/soundness.yml` (the analyzer as a service co
 - **Never** treat INCONCLUSIVE or ERROR as sound, and never flip the `bpmn-acceptance`
   Protokoll STR rows from `HUMAN-INPUT-NEEDED` to ✓ on an INCONCLUSIVE or ERROR result.
 - As of the 2026-06-25 pilot (run over the seven models then in the set; the set is now
-  nine and screening / palliative-care have no recorded run), **4 of 7 were inconclusive**
+  ten, and the 2026-09-04 per-model scan recorded a run for every model — see the per-model issues), **4 of 7 were inconclusive**
   (OR-gateways + catch events) and the 3 analyzable ones violated on existing structural
   defects — so this is **advisory** until the model remodel. See
   `docs/decisions/0003-soundness-tooling.md`.

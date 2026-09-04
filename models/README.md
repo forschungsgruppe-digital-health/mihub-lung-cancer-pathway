@@ -8,6 +8,7 @@ in der CI als eigener blockierender Schritt geprüft mit `npm run check:naming`)
 | Modell (`models/…`) | Phase | Beschreibung |
 |---|---|---|
 | `lung-cancer-overarching-pathway` | Übergreifend | übergreifender Pfad; verknüpft alle Teilpfade |
+| `lung-cancer-initial-entry-pathway` | Initialer Einstieg | Einstieg in den Pfad: symptomatische Patient:innen / Zufallsbefund (Rundherd) |
 | `lung-cancer-screening-pathway` | Krebsfrüherkennung | Lung Cancer Screening (LCS) |
 | `lung-cancer-diagnostic-pathway` | Diagnostik | Diagnostik-Teilpfad |
 | `lung-cancer-patient-consultation-pathway` | Patientengespräch | Aufklärung |
