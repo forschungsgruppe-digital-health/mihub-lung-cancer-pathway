@@ -5,7 +5,7 @@ name: Soundness (advisory)
 # INCONCLUSIVE per model and never fails the build. At the 2026-06-25 pilot (7 models then)
 # 4 were INCONCLUSIVE (unsupported OR-gateways + intermediate catch events) and the
 # analyzable ones violated on pre-existing defects — see docs/decisions/0003 and the latest
-# run output for the current 9-model set. Flip to `--strict` (blocking) only after the
+# run output for the current 10-model set. Flip to `--strict` (blocking) only after the
 # model remodel.
 
 on:

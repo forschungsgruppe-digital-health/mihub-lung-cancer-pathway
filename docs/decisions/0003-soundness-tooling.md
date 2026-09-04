@@ -3,7 +3,7 @@
 - Status: accepted; **pilot executed 2026-06-25** — advisory wrapper shipped; a
   *blocking* gate stays deferred until the model remodel (see Pilot results).
   **Status 2026-09-04:** unchanged in substance — the advisory `soundness.yml` job runs over
-  every model discovered by `tools/bpmn-files.mjs` (nine since `v0.3.0-rc.1`; the "seven files"
+  every model discovered by `tools/bpmn-files.mjs` (nine since `v0.3.0-rc.1`, ten since 2026-09-04; the "seven files"
   below are the 2026-06-25 pilot set); the blocking gate remains deferred while 13 OR-gateways
   (treatment 2, aftercare 4, palliative-care 7) and the intermediate catch events keep models
   INCONCLUSIVE — see [`../model-issues/`](../model-issues/README.md).

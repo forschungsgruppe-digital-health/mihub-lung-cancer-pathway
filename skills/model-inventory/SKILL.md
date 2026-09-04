@@ -13,8 +13,8 @@ description: Produce a Markdown inventory matrix of the BPMN pathway models (the
 > Enforced in Claude Code by the `guard-model-files` PreToolUse hook.
 
 Build a first-pass **Feature/Model Inventory Matrix** across every `.bpmn` under
-`models/` (discover with `node tools/bpmn-files.mjs`; currently nine: the overarching
-pathway + eight sub-pathways) so a reviewer can see the whole pathway set at a glance.
+`models/` (discover with `node tools/bpmn-files.mjs`; currently ten: the overarching
+pathway + nine sub-pathways) so a reviewer can see the whole pathway set at a glance.
 Read-only.
 
 ## How

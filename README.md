@@ -133,6 +133,7 @@ Der übergreifende Pfad bildet den vollständigen Patient:innen-Journey von der 
 
 | Datei                                                                                                                                                                   | Beschreibung                            |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| [`models/lung-cancer-initial-entry-pathway.bpmn`](./models/lung-cancer-initial-entry-pathway.bpmn) / [`.svg`](./models/lung-cancer-initial-entry-pathway.svg) | Teilpfad Initialer Einstieg (symptomatische Patient:innen / Zufallsbefund) |
 | [`models/lung-cancer-screening-pathway.bpmn`](./models/lung-cancer-screening-pathway.bpmn) / [`.svg`](./models/lung-cancer-screening-pathway.svg) | Teilpfad Krebsfrüherkennung (Lung Cancer Screening) |
 | [`models/lung-cancer-diagnostic-pathway.bpmn`](./models/lung-cancer-diagnostic-pathway.bpmn) / [`.svg`](./models/lung-cancer-diagnostic-pathway.svg)                                  | Teilpfad Diagnostik                     |
 | [`models/lung-cancer-patient-consultation-pathway.bpmn`](./models/lung-cancer-patient-consultation-pathway.bpmn) / [`.svg`](./models/lung-cancer-patient-consultation-pathway.svg)    | Teilpfad Patientengespräch / Aufklärung |

@@ -11,7 +11,7 @@
 The repository ships seven BPMN 2.0 models (one overarching pathway + six
 sub-pathways) *(count as of 2026-06-25 — the screening pathway was added the same day
 ([ADR-0004](0004-repo-structure-and-model-naming.md)) and palliative-care on 2026-06-29 with
-`v0.3.0-rc.1`; status 2026-09-04: **nine** models, one overarching + eight sub-pathways, see
+`v0.3.0-rc.1`; status 2026-09-04: **ten** models, one overarching + nine sub-pathways (initial-entry added the same day, #77), see
 [`models/README.md`](../../models/README.md))* as `.bpmn` sources plus `.svg` renders, with a strong written
 modelling guideline (`CONVENTIONS.md`) and a proposed acceptance-test instrument (the
 "Abnahmetest", now in `docs/governance/`). It had **no automated checks**. We want a
@@ -44,7 +44,7 @@ engine-execution attributes (below **Common Executable**), so the target class i
 
 This declaration is the anchor SYN-1 checks against. **Known deviation:** four
 `inclusiveGateway`s currently exist (treatment ×2, aftercare ×2) — see Decision 3. *(As of
-2026-06-25; status 2026-09-04: 9 models, 13 OR-gateways — treatment 2, aftercare 4,
+2026-06-25; status 2026-09-04: 10 models, 13 OR-gateways — treatment 2, aftercare 4,
 palliative-care 7 — tracked in [`docs/model-issues/`](../model-issues/README.md).)*
 
 ## Decision 3 — Conformance gate composition, and an intentionally-noisy baseline (advisory in CI)
