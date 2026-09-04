@@ -14,9 +14,12 @@
  *                         descriptor is registered in tools/moddle/descriptors.mjs; `i18n:`
  *                         passes through as generic extension content)
  * Informational layer (reported, never blocking):
- *   - XSD core            BPMN core vs OMG BPMN20.xsd (extensions pass via lax) — currently
- *                         red on some models (cp:qualityIndicator outside extensionElements +
- *                         DI colour attributes), see
+ *   - XSD core            BPMN core vs OMG BPMN20.xsd, validated on the "core view" of each file
+ *                         (tools/xsd-core-view.mjs strips the BPMN4CP cp: elements first — they sit
+ *                         directly under the process BY DESIGN and are validated by the moddle
+ *                         layer; i18n: passes via lax extensionElements). A failure here is a
+ *                         genuine BPMN-core deviation — today only the overarching model's
+ *                         un-namespaced DI colour attributes (informational), see
  *                         docs/model-issues/2026-09-04-xsd-core-extension-placement.md
  *
  * Usage: node tools/check-conformance.mjs [--warn]

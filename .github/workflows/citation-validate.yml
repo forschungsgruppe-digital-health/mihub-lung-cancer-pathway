@@ -2,14 +2,16 @@ name: Validate CITATION.cff
 
 # An invalid CITATION.cff silently aborts the Zenodo publish on release, so we
 # validate it against the Citation File Format schema on any change. Blocking.
+# .zenodo.json (read by Zenodo from the repository at release time; it takes precedence
+# over CITATION.cff) must stay in sync with CITATION.cff — the second step checks that.
 
 on:
   pull_request:
     branches: [main, dev]
-    paths: ["CITATION.cff"]
+    paths: ["CITATION.cff", ".zenodo.json"]
   push:
     branches: [main, dev]
-    paths: ["CITATION.cff"]
+    paths: ["CITATION.cff", ".zenodo.json"]
   workflow_dispatch:
 
 permissions:
@@ -25,3 +27,32 @@ jobs:
 
       - name: Validate CITATION.cff
         uses: dieghernan/cff-validator@54c8e737314b948f25c0e5524a9d8ae3f39b207b # v5
+
+      # Zenodo reads .zenodo.json via the GitHub API at release time and prefers it over
+      # CITATION.cff, so the two must agree: resource type (dataset), authors (ORCIDs +
+      # count) and title. jq ships with the ubuntu runner image.
+      - name: Validate .zenodo.json and its sync with CITATION.cff
+        run: |
+          set -euo pipefail
+          fail() { echo "::error file=.zenodo.json::$1"; exit 1; }
+
+          jq -e . .zenodo.json >/dev/null 2>&1 || fail ".zenodo.json is not valid JSON"
+
+          upload_type="$(jq -r '.upload_type // empty' .zenodo.json)"
+          [ "$upload_type" = "dataset" ] || fail ".zenodo.json upload_type is '$upload_type' — expected 'dataset'"
+          cff_type="$(grep -E '^type:' CITATION.cff | head -n 1 | sed -E 's/^type:[[:space:]]*//; s/[[:space:]]+$//')"
+          [ "$cff_type" = "dataset" ] || fail "CITATION.cff type is '$cff_type' — expected 'dataset' (must match .zenodo.json upload_type)"
+
+          zenodo_orcids="$(jq -r '.creators[].orcid' .zenodo.json | sort)"
+          cff_orcids="$(grep -oE '[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X]' CITATION.cff | sort || true)"
+          [ "$zenodo_orcids" = "$cff_orcids" ] || fail "ORCID mismatch — .zenodo.json: $(echo "$zenodo_orcids" | tr '\n' ' ')| CITATION.cff: $(echo "$cff_orcids" | tr '\n' ' ')"
+
+          zenodo_creators="$(jq -r '.creators | length' .zenodo.json)"
+          cff_authors="$(grep -cE '^[[:space:]]*family-names:' CITATION.cff || true)"
+          [ "$zenodo_creators" = "$cff_authors" ] || fail "creator count mismatch — .zenodo.json has $zenodo_creators creators, CITATION.cff has $cff_authors family-names entries"
+
+          title="$(jq -r '.title // empty' .zenodo.json)"
+          [ -n "$title" ] || fail ".zenodo.json has no title"
+          grep -qF -- "$title" CITATION.cff || fail "title '$title' from .zenodo.json does not appear verbatim in CITATION.cff"
+
+          echo ".zenodo.json OK: dataset, $zenodo_creators creators (ORCIDs match), title matches CITATION.cff"

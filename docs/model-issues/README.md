@@ -30,9 +30,11 @@ and a modeler fixes + re-validates.
   integrated in `v0.3.0-rc.1`: 7 OR-gateways, 2 start / 2 end events, 19 bpmnlint errors, an
   81-element level, `bpmn2:` root prefix; clinical/pragmatic review pending.
 - [2026-09-04 — XSD-core: `cp:` extension placement](2026-09-04-xsd-core-extension-placement.md) —
-  5 of 9 models fail the **informational** OMG BPMN20.xsd layer because `cp:qualityIndicator`
-  is placed outside `bpmn:extensionElements` (plus un-namespaced styling attributes on the
-  `overarching` DI plane); the moddle roundtrip still preserves the content — not blocking.
+  **resolved 2026-09-04 as not a defect (by design)**: `cp:qualityIndicator` is a valid BPMN4CP
+  extension placed directly under the process, and the **informational** XSD-core layer now
+  excludes the BPMN4CP elements before validating (`tools/xsd-core-view.mjs`) — Issue X1 closed
+  without model changes. Issue X2 (un-namespaced styling attributes on the `overarching` DI
+  plane) stays open as a low-priority housekeeping item; not blocking.
 
 ## Labels
 
