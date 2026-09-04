@@ -1,5 +1,12 @@
 # XSD-core findings — `cp:` extension placement (2026-09-04)
 
+> **Status 2026-09-04 — resolved as NOT A DEFECT (by design).** The maintainer confirmed that
+> `cp:qualityIndicator` is a valid BPMN4CP clinical-pathway extension placed directly under the
+> process. The XSD-core layer now excludes BPMN4CP elements before validating
+> (`tools/xsd-core-view.mjs`). Issue X1 is closed without model changes; Issue X2 (un-namespaced
+> DI colour attributes on the overarching model) stays open as a low-priority housekeeping item.
+> The analysis below is kept unchanged as the historical record.
+
 The **standard-core** layer of the conformance gate — `tools/validate-xsd.sh`, which validates each
 model against the OMG `BPMN20.xsd` shipped with bpmn-moddle — currently fails on **5 of the 9
 models**. The layer is **informational by design** (exit 0; see

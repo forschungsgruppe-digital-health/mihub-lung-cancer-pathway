@@ -62,7 +62,7 @@ column below is the local STRICT behaviour:
 | structure | bpmnlint (recommended + correctness, `no-inclusive-gateway`=error), run programmatically so `cp:`/`i18n:` extension content does not drown the signal | **yes** |
 | conventions | `tools/check-model-metrics.mjs` — SYN-5 no-OR (blocking); SYN-2/SYN-4/lanes/prefix (advisory) | **yes** on OR-gateways |
 | extension data | `tools/moddle-roundtrip.mjs` — serialization stability + `cp:`/`i18n:` presence. *Since commit 79cde22 (2026-06-25):* the BPMN4CP `cp:` descriptor `tools/moddle/bpmn4cp.json` (registered in `tools/moddle/descriptors.mjs`) makes the roundtrip lossless; `i18n:` content is passed through | informational when written → **yes** since 79cde22 |
-| standard core | `tools/validate-xsd.sh` — OMG BPMN20.xsd | informational *(status 2026-09-04: fails on 5 of 9 models because `cp:qualityIndicator` sits outside `bpmn:extensionElements` — see [`../model-issues/2026-09-04-xsd-core-extension-placement.md`](../model-issues/2026-09-04-xsd-core-extension-placement.md); exit 0 by design)* |
+| standard core | `tools/validate-xsd.sh` — OMG BPMN20.xsd, on the core view of each file (`tools/xsd-core-view.mjs`) | informational *(status 2026-09-04: BPMN4CP `cp:` elements are excluded from the core view by design (`tools/xsd-core-view.mjs`) — see [`../model-issues/2026-09-04-xsd-core-extension-placement.md`](../model-issues/2026-09-04-xsd-core-extension-placement.md); only the overarching model's DI colour attributes remain (informational); exit 0 by design)* |
 
 **The gate surfaces the real baseline on the current models by design** (and in CI reports it warn-only, without failing the check) — namely:
 99 bpmnlint structural errors (disconnected nodes, implicit start/end, missing

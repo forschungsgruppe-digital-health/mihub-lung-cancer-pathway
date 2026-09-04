@@ -44,7 +44,7 @@ Scope to specific files by appending paths, e.g. `npm run check:metrics -- model
 | Structure | bpmnlint (programmatic) | disconnected nodes, missing start/end, implicit splits, missing labels, **no OR-gateway** | **yes** (any error) |
 | Conventions | `check-model-metrics.mjs` | **SYN-5** no OR (blocking); SYN-2 one start/end, SYN-4 ≤50/level, SEM-1 lane presence, prefix hygiene (advisory) | **yes** on OR-gateways |
 | Extension data | `moddle-roundtrip.mjs` | serialization is idempotent; `cp:` (BPMN4CP) elements preserved losslessly (descriptor registered, `tools/moddle/descriptors.mjs`); `i18n:` passes through | **yes** (data loss or unstable serialization exits 1) |
-| Standard core | xmllint vs BPMN20.xsd | BPMN core matches OMG schema | no (informational) |
+| Standard core | xmllint vs BPMN20.xsd on the *core view* (`xsd-core-view.mjs` excludes the BPMN4CP `cp:` elements first — they are direct children of the process by design) | BPMN core matches the OMG schema; a failure is a genuine core deviation (today only the DI colour attributes on `overarching`) | no (informational) |
 
 > Note: the "Blocking?" column is the LOCAL default (strict). During the release-candidate (0.x.y-rc.N) / pre-remodel phase the CI gate runs ADVISORY (warn-only, `CONFORMANCE_WARN_ONLY: 'true'`): it reports every finding as `::warning::` and exits 0, so it does NOT block PRs. Exception: in CI the naming layer also runs as its own blocking `npm run check:naming` step, so a misnamed or unpaired model fails the PR even while the rest of the gate is warn-only. Hard enforcement of the whole gate is re-enabled (drop `CONFORMANCE_WARN_ONLY`) after the model remodel — see `.github/workflows/ci.yml` and `tools/check-conformance.mjs`.
 
@@ -64,12 +64,15 @@ Scope to specific files by appending paths, e.g. `npm run check:metrics -- model
   every model reports `roundtrip: OK (lossless + stable)`. A failure means an extension
   element the descriptor does not know (new/renamed `cp:` type) or a model that
   re-serializes differently — **report it**; never "fix" it by deleting extension content.
-- **XSD `fails to validate`** → informational; the standard XSD cannot see extension
-  content (it passes via `processContents="lax"`). As of 2026-09-04 a subset of the models
-  is red here because `cp:qualityIndicator` sits outside `extensionElements` and the DI
-  carries colour attributes — tracked in `docs/model-issues/` (2026-09-04, XSD core
-  extension placement). A green XSD does **not** mean the extensions are valid — that is
-  the roundtrip's concern.
+- **XSD `fails to validate`** → informational, but a **genuine BPMN-core deviation**: the
+  layer validates the *core view* of each file (`tools/xsd-core-view.mjs` excludes the BPMN4CP
+  `cp:` elements first — `cp:qualityIndicator` sits directly under the process **by design**,
+  maintainer decision 2026-09-04, and is validated by the roundtrip's moddle descriptor
+  instead; `i18n:` content passes via `processContents="lax"` in `extensionElements`). As of
+  2026-09-04 only `overarching` is red here (un-namespaced DI colour attributes on the plane —
+  housekeeping, `docs/model-issues/` 2026-09-04 Issue X2; Issue X1 is resolved as by design).
+  Reported line numbers refer to the original file (the core view keeps the line count). A
+  green XSD does **not** mean the extensions are valid — that is the roundtrip's concern.
 - **Element references** — the tools print elements as `"Name" (id)` or
   `‹unnamed Type› (id)` (`tools/element-names.mjs`): bpmnlint lines end with
   `→ "Name" (id)`, the metrics gate lists every OR-gateway and every extra start/end event

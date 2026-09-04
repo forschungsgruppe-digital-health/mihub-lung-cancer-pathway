@@ -57,10 +57,13 @@ order — **blocking:** model naming ([ADR-0004](docs/decisions/0004-repo-struct
 no-OR model-metrics check (Abnahmetest SYN-5; SYN-2/SYN-4 advisory) and the moddle
 roundtrip (stable serialization + lossless `cp:` BPMN4CP extension content; `i18n:`
 attributes pass through); **informational:** XSD core (OMG BPMN20.xsd). The XSD layer
-currently reports `cp:qualityIndicator` elements placed directly under process/flow
-elements instead of inside `extensionElements` (plus DI colour attributes on the
-overarching model) on five of the models — recorded in
-[`docs/model-issues/2026-09-04-xsd-core-extension-placement.md`](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/model-issues/2026-09-04-xsd-core-extension-placement.md).
+validates a *core view* of each model (`tools/xsd-core-view.mjs`): the BPMN4CP `cp:`
+elements are excluded first — `cp:qualityIndicator` is a direct child of the process **by
+design** and is validated by the moddle layer; `i18n:` content sits in `extensionElements`
+(lax) — so an XSD failure is a genuine BPMN-core deviation. Today only the overarching
+model's un-namespaced DI colour attributes remain (informational, housekeeping) — see
+[`docs/model-issues/2026-09-04-xsd-core-extension-placement.md`](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/model-issues/2026-09-04-xsd-core-extension-placement.md)
+(resolved: by design).
 Every layer is also runnable on its own (`npm run check:naming`, `lint:bpmn`,
 `check:metrics`, `check:roundtrip`, `check:xsd`). See
 [`skills/bpmn-conformance/SKILL.md`](skills/bpmn-conformance/SKILL.md) for how to read the

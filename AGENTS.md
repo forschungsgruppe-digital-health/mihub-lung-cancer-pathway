@@ -48,7 +48,7 @@ Run `npm ci` once (Node ≥ 18), then `npm run check:conformance`. To register a
 `.bpmn` location, edit `ROOTS` in `tools/bpmn-files.mjs` (the single file-discovery source).
 
 > The CI aggregator currently runs **advisory (warn-only)**: the existing models carry structural
-> defects and four `bpmn:InclusiveGateway`s (OR), so the gate **reports** these as warnings but does **not** fail the check or block PRs (env `CONFORMANCE_WARN_ONLY` in `.github/workflows/ci.yml`; local default stays strict). The naming convention (`npm run check:naming`) is enforced as its own **blocking** CI step. Naming and roundtrip are green on every model: the `cp:` (BPMN4CP) extension content is modelled by the moddle descriptor `tools/moddle/bpmn4cp.json` (registered via `tools/moddle/descriptors.mjs`) and round-trips losslessly; only `i18n:` attributes pass through as unknown attributes. The informational XSD-core layer currently reports `cp:qualityIndicator` elements placed directly under process/flow elements instead of inside `extensionElements` (plus non-schema colour attributes on the overarching model's DI plane) — filed in `docs/model-issues/2026-09-04-xsd-core-extension-placement.md`. Hard enforcement is re-enabled after the remodel. Greening it is tracked work (see `docs/decisions/0001`), and it
+> defects and four `bpmn:InclusiveGateway`s (OR), so the gate **reports** these as warnings but does **not** fail the check or block PRs (env `CONFORMANCE_WARN_ONLY` in `.github/workflows/ci.yml`; local default stays strict). The naming convention (`npm run check:naming`) is enforced as its own **blocking** CI step. Naming and roundtrip are green on every model, the XSD core on all but the overarching model: the `cp:` (BPMN4CP) extension content is modelled by the moddle descriptor `tools/moddle/bpmn4cp.json` (registered via `tools/moddle/descriptors.mjs`) and round-trips losslessly; only `i18n:` attributes pass through as unknown attributes. The `cp:qualityIndicator` elements are direct children of the process **by design** (BPMN4CP clinical-pathway extension; maintainer decision 2026-09-04 — not a defect), so the informational XSD-core layer validates a *core view* with the BPMN4CP elements excluded (`tools/xsd-core-view.mjs`) and a failure there is a genuine BPMN-core deviation — today only the overarching model's un-namespaced DI colour attributes (informational; `docs/model-issues/2026-09-04-xsd-core-extension-placement.md`, Issue X2). Hard enforcement is re-enabled after the remodel. Greening it is tracked work (see `docs/decisions/0001`), and it
 > requires modelling + clinical judgment — agents must not "fix" pathway logic
 > unilaterally.
 
@@ -122,7 +122,10 @@ Claude Code discovers them via `.claude/skills` → `../skills`; Codex/Copilot v
 - **Preserve attribution.** This artifact is CC BY 4.0; keep the licence, attribution,
   and third-party credits (gematik INA, CraNE) intact.
 - Do not change BPMN core structure to carry clinical meaning — clinical context
-  belongs in `<extensionElements>` (e.g. `cp:` BPMN4CP), not the `bpmn:` namespace.
+  belongs in extension namespaces, not the `bpmn:` namespace: BPMN4CP `cp:` elements
+  (quality indicators) are direct children of the process by design and are excluded from
+  the XSD-core layer (`tools/xsd-core-view.mjs`); `i18n:` translations live in
+  `<extensionElements>`.
 
 ## Where to look first
 
