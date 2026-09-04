@@ -2,6 +2,8 @@
 English translation of `abnahme-handout-bpmn-patientenpfad.md` (German is the original/authoritative source).
 Provided for reference; keep both language versions in sync and at the same version.
 Status: draft — not final, likely to change. Change history: docs/governance/CHANGELOG.md.
+Companion document: abnahme-checkliste-bpmn-patientenpfad.en.md (same criteria IDs)
+Version: 0.2 | Language: EN
 -->
 
 # Handout for the Acceptance Test Checklist: BPMN-modelled Patient Pathway

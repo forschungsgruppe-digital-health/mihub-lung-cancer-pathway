@@ -12,9 +12,9 @@
 [![Soundness (advisory)](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions/workflows/soundness.yml/badge.svg?branch=dev)](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions/workflows/soundness.yml?query=branch%3Adev)
 [![Link check](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions/workflows/link-check.yml/badge.svg?branch=dev)](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions/workflows/link-check.yml?query=branch%3Adev)
 
-ℹ️ Die **CI-Konformitätsprüfung** läuft in der Release-Candidate-Phase **beratend (warn-only)**: das Gate **meldet** die bekannten Modellbefunde (Struktur, OR-Gateways) als Warnungen, **blockiert die PRs aber nicht** — die Modellbefunde werden vor der geplanten Ummodellierung bewusst nur **gemeldet** (nicht erzwungen); die harte Durchsetzung wird danach reaktiviert (siehe [`docs/model-issues/`](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/tree/main/docs/model-issues) und [ADR-0001](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/decisions/0001-repo-tooling-and-conformance-gate.md)). Namenskonvention, Roundtrip und XSD-Prüfung sind grün. Live-Status: [GitHub Actions](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions).
+ℹ️ Die **CI-Konformitätsprüfung** läuft in der Release-Candidate-Phase **beratend (warn-only)**: das Gate **meldet** die bekannten Modellbefunde (Struktur, OR-Gateways) als Warnungen, **blockiert die PRs aber nicht** — die Modellbefunde werden vor der geplanten Ummodellierung bewusst nur **gemeldet** (nicht erzwungen); die harte Durchsetzung wird danach reaktiviert (siehe [`docs/model-issues/`](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/tree/main/docs/model-issues) und [ADR-0001](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/decisions/0001-repo-tooling-and-conformance-gate.md)). Namenskonvention und Roundtrip sind auf allen Modellen grün; die Namenskonvention wird als **eigener, blockierender CI-Schritt** erzwungen (`npm run check:naming`). Die (informative) XSD-Kernprüfung meldet derzeit auf 5 von 9 Modellen `cp:`-Elemente außerhalb von `extensionElements` sowie DI-Farbattribute — dokumentiert im [Modellbefund vom 2026-09-04](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/model-issues/2026-09-04-xsd-core-extension-placement.md). Live-Status: [GitHub Actions](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions).
 
-> ⚠️ **Hinweis zur Zweckbestimmung / Haftungsausschluss.** Dieses BPMN-Modell ist ein **Forschungs-, Lehr- und Interoperabilitäts-Referenzartefakt**. Es ist **nicht** für den Einsatz in der unmittelbaren Patient:innenversorgung oder zur klinischen Entscheidungsfindung bestimmt, **nicht klinisch validiert** und stellt **keine medizinische Beratung** dar. Die Autor:innen weisen ihm **keine medizinische Zweckbestimmung** im Sinne der EU-Medizinprodukteverordnung (MDR 2017/745) zu. Jede Nutzung in einem Versorgungskontext erfordert eine eigenständige klinische Validierung und regulatorische Bewertung durch die nutzende Stelle. Es gelten [`DISCLAIMER.md`](./DISCLAIMER.md) und Abschnitt 5 der [`LICENSE`](./LICENSE).
+> ⚠️ **Hinweis zur Zweckbestimmung / Haftungsausschluss.** Dieses BPMN-Modell ist ein **Forschungs-, Lehr- und Interoperabilitäts-Referenzartefakt**. Es ist **nicht** für den Einsatz in der unmittelbaren Patient:innenversorgung oder zur klinischen Entscheidungsfindung bestimmt, **nicht klinisch validiert** und stellt **keine medizinische Beratung** dar. Die Autor:innen weisen ihm **keine medizinische Zweckbestimmung** im Sinne der EU-Medizinprodukteverordnung (MDR 2017/745) zu. Jede Nutzung in einem Versorgungskontext erfordert eine eigenständige klinische Validierung und regulatorische Bewertung durch die nutzende Stelle. Es gelten [`DISCLAIMER.md`](./DISCLAIMER.md) und Abschnitt 5 der [`LICENSE`](./LICENSE). Der Haftungsausschluss ist derzeit ein **Entwurf** und befindet sich in rechtlicher Prüfung (Justiziariat / Datenschutzbeauftragter (DSB) der TU Dresden).
 >
 > _This BPMN model is a research, education and interoperability-reference artifact. It is **not** intended for direct patient care or clinical decision-making, has **not** been clinically validated, and is not medical advice. The authors assign it **no medical intended purpose** under EU MDR 2017/745. See [`DISCLAIMER.md`](./DISCLAIMER.md)._
 
@@ -30,6 +30,8 @@
 | die **Abnahmetest-/Qualitätskriterien** | [`docs/governance/`](./docs/governance/) |
 | die **Konformitätsprüfung** lokal ausführen | [`skills/bpmn-conformance/SKILL.md`](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/skills/bpmn-conformance/SKILL.md) (`npm run check:conformance`) |
 | **Entscheidungen (ADR)** nachlesen | [`docs/decisions/`](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/tree/main/docs/decisions) |
+| **Änderungen / Release-Notes** | [`CHANGELOG.md`](./CHANGELOG.md) |
+| mit **KI-Coding-Agenten** arbeiten (Claude Code, Codex, Copilot, …) | [`AGENTS.md`](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/AGENTS.md) · [`skills/README.md`](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/skills/README.md) |
 | **Zweckbestimmung / Haftung** | [`DISCLAIMER.md`](./DISCLAIMER.md) |
 
 ---
@@ -128,6 +130,7 @@ Der übergreifende Pfad bildet den vollständigen Patient:innen-Journey von der 
 
 | Datei                                                                                                                                                                   | Beschreibung                            |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| [`models/lung-cancer-screening-pathway.bpmn`](./models/lung-cancer-screening-pathway.bpmn) / [`.svg`](./models/lung-cancer-screening-pathway.svg) | Teilpfad Krebsfrüherkennung (Lung Cancer Screening) |
 | [`models/lung-cancer-diagnostic-pathway.bpmn`](./models/lung-cancer-diagnostic-pathway.bpmn) / [`.svg`](./models/lung-cancer-diagnostic-pathway.svg)                                  | Teilpfad Diagnostik                     |
 | [`models/lung-cancer-patient-consultation-pathway.bpmn`](./models/lung-cancer-patient-consultation-pathway.bpmn) / [`.svg`](./models/lung-cancer-patient-consultation-pathway.svg)    | Teilpfad Patientengespräch / Aufklärung |
 | [`models/lung-cancer-tumor-board-pathway.bpmn`](./models/lung-cancer-tumor-board-pathway.bpmn) / [`.svg`](./models/lung-cancer-tumor-board-pathway.svg)                               | Teilpfad Tumorboard                     |
@@ -135,7 +138,6 @@ Der übergreifende Pfad bildet den vollständigen Patient:innen-Journey von der 
 | [`models/lung-cancer-treatment-pathway.bpmn`](./models/lung-cancer-treatment-pathway.bpmn) / [`.svg`](./models/lung-cancer-treatment-pathway.svg)                                     | Teilpfad Behandlung                     |
 | [`models/lung-cancer-palliative-care-pathway.bpmn`](./models/lung-cancer-palliative-care-pathway.bpmn) / [`.svg`](./models/lung-cancer-palliative-care-pathway.svg)                   | Teilpfad Palliativversorgung _(Entwurf / WIP)_ |
 | [`models/lung-cancer-aftercare-pathway.bpmn`](./models/lung-cancer-aftercare-pathway.bpmn) / [`.svg`](./models/lung-cancer-aftercare-pathway.svg)                                     | Teilpfad Nachsorge                      |
-| [`models/lung-cancer-screening-pathway.bpmn`](./models/lung-cancer-screening-pathway.bpmn) / [`.svg`](./models/lung-cancer-screening-pathway.svg) | Teilpfad Krebsfrüherkennung (Lung Cancer Screening) |
 
 ---
 
@@ -174,7 +176,7 @@ Die EU Joint Action [CraNE](https://crane4health.eu/) (_Creation of National Com
 ## Zitieren / Citation
 
 Bitte über den **Concept-DOI** (alle Versionen) zitieren:
-**[`10.5281/zenodo.20943916`](https://doi.org/10.5281/zenodo.20943916)** — er verweist stets auf die neueste archivierte Version. Maschinenlesbare Metadaten in [`CITATION.cff`](./CITATION.cff) (GitHub-Schaltfläche „Cite this repository“). Für die exakte Reproduzierbarkeit einer bestimmten Release den jeweiligen **Versions-DOI** verwenden (z. B. `10.5281/zenodo.20943917` für `v0.2.1-rc.1`). _Cite via the concept DOI (all versions); it always resolves to the latest archived version._
+**[`10.5281/zenodo.20943916`](https://doi.org/10.5281/zenodo.20943916)** — er verweist stets auf die neueste archivierte Version. Maschinenlesbare Metadaten in [`CITATION.cff`](./CITATION.cff) (GitHub-Schaltfläche „Cite this repository“). Für die exakte Reproduzierbarkeit einer bestimmten Release den jeweiligen **Versions-DOI** verwenden (z. B. `10.5281/zenodo.21029417` für `v0.3.0-rc.1`; der Versions-DOI steht auf der jeweiligen [GitHub-Release-Seite](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/releases) bzw. im zugehörigen Zenodo-Record). _Cite via the concept DOI (all versions); it always resolves to the latest archived version._
 
 ## Lizenz
 
@@ -186,7 +188,7 @@ Dieses Repository steht unter der **[Creative Commons Attribution 4.0 Internatio
 
 Bei Weiterverwendung bitte folgende Angabe verwenden:
 
-> _Forschungsgruppe Digital Health (FGDH), Technische Universität Dresden (2026). Lungenkrebspatientenpfad – MiHUB. GitHub: https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway. Lizenz: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)._
+> _Forschungsgruppe Digital Health (FGDH), Technische Universität Dresden (2026). Lungenkrebspatientenpfad – MiHUB (BPMN-Modell). DOI: https://doi.org/10.5281/zenodo.20943916. GitHub: https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway. Lizenz: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)._
 
 ---
 
