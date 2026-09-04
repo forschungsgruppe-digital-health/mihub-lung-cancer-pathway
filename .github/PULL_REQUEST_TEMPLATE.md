@@ -26,7 +26,7 @@ See CONTRIBUTING.md and docs/governance/ for the acceptance-test criteria.
 
 - [ ] **SYN-1** declared conformance class (Analytic) still holds
 - [ ] **SYN-2** one start / named end event(s) per level
-- [ ] **STR-1…4** soundness not regressed (option-to-complete, proper completion, no dead nodes, no deadlock) — *human check until the soundness gate lands*
+- [ ] **STR-1…4** soundness not regressed (option-to-complete, proper completion, no dead nodes, no deadlock) — run `npm run check:soundness` (advisory; INCONCLUSIVE is not a pass) **and** human check
 - [ ] **SEM-1** multidisciplinary roles as lanes (if applicable)
 - [ ] **SEM-6** clinical face validity unaffected, or flagged for expert review
 - [ ] Conventional Commit message, scope = pathway file

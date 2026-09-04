@@ -21,7 +21,7 @@ zielgruppe: "klinische und technische Stakeholder; auch Modellierungsanfänger:i
 
 ## Zitationsvorschlag
 
-> [Nachname, Initiale] ([Jahr]). *Abnahmetest-Checkliste für BPMN-modellierte Patientenpfade* (Version 0.3) [Evaluationsinstrument]. [Einrichtung]. https://doi.org/10.5281/zenodo.20943916.
+> [Nachname, Initiale] ([Jahr]). *Abnahmetest-Checkliste für BPMN-modellierte Patientenpfade* (Version 0.3.1) [Evaluationsinstrument]. [Einrichtung]. https://doi.org/10.5281/zenodo.20943916.
 
 *(Der DOI verweist auf das Repository-Archiv „Lungenkrebspatientenpfad – MiHUB (BPMN-Modell)“, in dem dieses Instrument enthalten ist; ein eigenständiger Instrument-DOI würde eine separate Zenodo-Hinterlegung erfordern.)*
 
@@ -118,7 +118,7 @@ Die Abnahmetest-Logik folgt der Unterscheidung **Verifikation vs. Validierung** 
 
 ## 5. Anwendungs-/Reuse-Hinweis
 
-Das Instrument ist unter CC BY 4.0 frei verwend- und adaptierbar. Bei Anpassung (z. B. andere Indikation) sollten geänderte/ergänzte Items als Abweichung von dieser Version (0.3) gekennzeichnet werden, um Vergleichbarkeit zu wahren.
+Das Instrument ist unter CC BY 4.0 frei verwend- und adaptierbar. Bei Anpassung (z. B. andere Indikation) sollten geänderte/ergänzte Items als Abweichung von dieser Version (0.3.1) gekennzeichnet werden, um Vergleichbarkeit zu wahren.
 
 ## 6. Vorgesehene Evaluation (DSR-Positionierung)
 

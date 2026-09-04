@@ -6,7 +6,7 @@ description: Advisory, read-only review of a lung-cancer BPMN pathway against th
 # Clinical pathway review (advisory)
 
 > **🔒 Model guard — read-only.** Never edit or modify a `.bpmn` model or its `.svg` export.
-> The models are clinically validated (acceptance test **SEM-6** face validity) and change only via a
+> The models are clinically validated (acceptance-test **SEM-6** face validity) and change only via a
 > human modeler + re-validation. Surface findings as candidates and **report** any BPMN-XML
 > problem in [`docs/model-issues/`](../../docs/model-issues/) with a GitHub-issue suggestion
 > ([template](../../.github/ISSUE_TEMPLATE/bpmn-model-issue.md)) — never change the model.

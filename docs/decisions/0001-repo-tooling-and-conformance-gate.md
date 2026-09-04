@@ -9,7 +9,10 @@
 ## Context
 
 The repository ships seven BPMN 2.0 models (one overarching pathway + six
-sub-pathways) as `.bpmn` sources plus `.svg` renders, with a strong written
+sub-pathways) *(count as of 2026-06-25 — the screening pathway was added the same day
+([ADR-0004](0004-repo-structure-and-model-naming.md)) and palliative-care on 2026-06-29 with
+`v0.3.0-rc.1`; status 2026-09-04: **nine** models, one overarching + eight sub-pathways, see
+[`models/README.md`](../../models/README.md))* as `.bpmn` sources plus `.svg` renders, with a strong written
 modelling guideline (`CONVENTIONS.md`) and a proposed acceptance-test instrument (the
 "Abnahmetest", now in `docs/governance/`). It had **no automated checks**. We want a
 reproducible conformance gate that mechanises the *automatable* acceptance-test criteria
@@ -40,11 +43,14 @@ engine-execution attributes (below **Common Executable**), so the target class i
 **excludes OR (`inclusiveGateway`) and `complexGateway`**.
 
 This declaration is the anchor SYN-1 checks against. **Known deviation:** four
-`inclusiveGateway`s currently exist (treatment ×2, aftercare ×2) — see Decision 3.
+`inclusiveGateway`s currently exist (treatment ×2, aftercare ×2) — see Decision 3. *(As of
+2026-06-25; status 2026-09-04: 9 models, 13 OR-gateways — treatment 2, aftercare 4,
+palliative-care 7 — tracked in [`docs/model-issues/`](../model-issues/README.md).)*
 
 ## Decision 3 — Conformance gate composition, and an intentionally-noisy baseline (advisory in CI)
 
-`npm run check:conformance` aggregates four layers and reports all of them. Locally
+`npm run check:conformance` aggregates four layers (five since the naming layer of
+[ADR-0004](0004-repo-structure-and-model-naming.md) was added — table row added 2026-09-04) and reports all of them. Locally
 (STRICT default) it fails on the blocking layers; in CI during the RC/pre-remodel phase
 it runs ADVISORY (warn-only via `CONFORMANCE_WARN_ONLY`) — it reports every finding as
 `::warning::` and exits 0, so it does not fail the check or block PRs. The 'Blocking'
@@ -52,10 +58,11 @@ column below is the local STRICT behaviour:
 
 | Layer | Tool | Blocking (local STRICT) |
 |---|---|---|
+| naming *(row added 2026-09-04)* | `tools/check-naming.mjs` — `lung-cancer-<phase>-pathway.{bpmn,svg}`, paired `.svg` per `.bpmn` ([ADR-0004](0004-repo-structure-and-model-naming.md)); also run as a separate, blocking `npm run check:naming` CI step independent of the warn-only aggregator | **yes** |
 | structure | bpmnlint (recommended + correctness, `no-inclusive-gateway`=error), run programmatically so `cp:`/`i18n:` extension content does not drown the signal | **yes** |
 | conventions | `tools/check-model-metrics.mjs` — SYN-5 no-OR (blocking); SYN-2/SYN-4/lanes/prefix (advisory) | **yes** on OR-gateways |
-| extension data | `tools/moddle-roundtrip.mjs` — serialization stability + `cp:`/`i18n:` presence | informational |
-| standard core | `tools/validate-xsd.sh` — OMG BPMN20.xsd | informational |
+| extension data | `tools/moddle-roundtrip.mjs` — serialization stability + `cp:`/`i18n:` presence. *Since commit 79cde22 (2026-06-25):* the BPMN4CP `cp:` descriptor `tools/moddle/bpmn4cp.json` (registered in `tools/moddle/descriptors.mjs`) makes the roundtrip lossless; `i18n:` content is passed through | informational when written → **yes** since 79cde22 |
+| standard core | `tools/validate-xsd.sh` — OMG BPMN20.xsd | informational *(status 2026-09-04: fails on 5 of 9 models because `cp:qualityIndicator` sits outside `bpmn:extensionElements` — see [`../model-issues/2026-09-04-xsd-core-extension-placement.md`](../model-issues/2026-09-04-xsd-core-extension-placement.md); exit 0 by design)* |
 
 **The gate surfaces the real baseline on the current models by design** (and in CI reports it warn-only, without failing the check) — namely:
 99 bpmnlint structural errors (disconnected nodes, implicit start/end, missing
@@ -70,10 +77,22 @@ modelling and clinical judgment and must not be done by an agent unilaterally.
   (reports findings as warnings) and does not block merges. **Hard enforcement is
   re-enabled after the remodel** by removing `CONFORMANCE_WARN_ONLY` and then making
   the conformance check a required check for `main`/`dev` branch protection.
+  **Status 2026-09-04:** still warn-only (`CONFORMANCE_WARN_ONLY` set in `.github/workflows/ci.yml`);
+  `main` is governed by a ruleset with 0 required approvals and no required status check, by
+  design during the RC phase (see [ADR-0002](0002-versioning-and-release.md), amended open
+  items). The naming layer is enforced separately as a blocking `npm run check:naming` CI step.
 - **Follow-ups (separate PRs):** (a) remodel the four OR-gateways to XOR/AND and fix
-  the structural defects (re-export the `.svg`s); (b) register `cp:` (BPMN4CP) +
-  `i18n:` moddle descriptors so the roundtrip validates the extension data losslessly;
+  the structural defects (re-export the `.svg`s) — *status 2026-09-04: open; the count is now
+  13 (treatment 2, aftercare 4, palliative-care 7), see [`docs/model-issues/`](../model-issues/README.md)*;
+  (b) register `cp:` (BPMN4CP) +
+  `i18n:` moddle descriptors so the roundtrip validates the extension data losslessly —
+  **done 2026-06-25, commit 79cde22** (`tools/moddle/bpmn4cp.json` registered in
+  `tools/moddle/descriptors.mjs`; the roundtrip is lossless and now blocking; `i18n:` is passed
+  through without a descriptor of its own);
   (c) later phases add behavioural soundness (STR-1..4) and the advisory clinical
-  review (see `skills/README.md` "Planned").
+  review (see `skills/README.md` "Planned") — **done:** soundness per
+  [ADR-0003](0003-soundness-tooling.md) (`tools/check-soundness.mjs`, `npm run check:soundness`,
+  advisory CI job `.github/workflows/soundness.yml`, skill `skills/bpmn-soundness`); the advisory
+  clinical review exists as the skill `skills/clinical-pathway-review`.
 - Advisory metrics thresholds (SYN-2 cardinality, SYN-4 ≤50) stay non-blocking until
   the conformance class and decomposition strategy are confirmed against the models.

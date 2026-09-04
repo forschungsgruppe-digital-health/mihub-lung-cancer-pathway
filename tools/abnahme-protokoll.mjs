@@ -5,8 +5,9 @@
  * Runs the automatable (method "A") conformance checks and emits a pre-filled
  * Abnahmetest Protokoll (docs/governance/abnahme-protokoll-bpmn-patientenpfad.md shape):
  *   - the A-rows it can decide are ticked with the tool evidence,
- *   - every review (R) / consensus (K) row, and any A-criterion whose tool is not yet
- *     available (STR-1..4 soundness), is stamped HUMAN-INPUT-NEEDED,
+ *   - every review (R) / consensus (K) row, and the STR-1..4 soundness rows, is stamped
+ *     HUMAN-INPUT-NEEDED — the soundness tool exists (`npm run check:soundness`, advisory,
+ *     ADR-0003) but its verdict is NOT imported here (INCONCLUSIVE is not a pass),
  *   - it reports the automatable part of the Technical gate,
  *   - it NEVER stamps the Clinical/Pragmatic gates or the overall decision — those are
  *     human (see docs/governance/).
@@ -33,7 +34,12 @@ const metrics = run(['tools/check-model-metrics.mjs']);
 const roundtrip = run(['tools/moddle-roundtrip.mjs']);
 
 const commit = git(['rev-parse', '--short', 'HEAD']) || '(unknown)';
-const version = existsSync('version.txt') ? readFileSync('version.txt', 'utf8').trim() : '(unset)';
+// Model version = version.txt (release-please's file — may lag on dev between releases) PLUS the
+// git describe (nearest tag + distance + short SHA, `-dirty` on an unclean tree), so the protocol
+// shows where the checked-out tree really stands. Either part may be missing; degrade gracefully.
+const versionFile = existsSync('version.txt') ? readFileSync('version.txt', 'utf8').trim() : '';
+const describe = git(['describe', '--tags', '--always', '--dirty']);
+const version = `${versionFile || '(unset)'}${describe ? ` (git: ${describe})` : ''}`;
 const date = new Date().toISOString().slice(0, 10);
 
 const yn = (ok) => (ok ? '☑ ✓' : '☐ ✗');
@@ -70,7 +76,7 @@ const md = `# Abnahmetestprotokoll (vorausgefüllt — Tool-Evidenz) — BPMN-Lu
 | SYN-3 | Verb-Objekt-Labels | S | R | ${H} | nicht automatisierbar |
 | SYN-4 | ≤ 50 Symbole / dekomponiert | S | A | ${H} | metrics meldet Überschreitungen als Hinweis — Review |
 | SYN-5 | Gepaarte Verzweigungen, **kein OR** | S | A/R | ${yn(metrics.pass)} | ${metrics.summary || 'metrics'} |
-| STR-1 | Jeder Durchlauf erreicht das Ende | M | A | ${H} | Soundness-Tool noch nicht integriert (Phase-4-Folgearbeit) |
+| STR-1 | Jeder Durchlauf erreicht das Ende | M | A | ${H} | Soundness-Tool vorhanden (\`npm run check:soundness\`, advisory, ADR-0003) — Ergebnis wird nicht automatisch übernommen; INCONCLUSIVE ≠ bestanden |
 | STR-2 | Keine offenen Parallelzweige am Ende | M | A | ${H} | dito |
 | STR-3 | Keine toten/unerreichbaren Aktivitäten | M | A | ${H} | dito (bpmnlint deckt nur Teilhygiene ab) |
 | STR-4 | Kein Deadlock/Livelock | M | A | ${H} | dito |
@@ -101,7 +107,7 @@ const md = `# Abnahmetestprotokoll (vorausgefüllt — Tool-Evidenz) — BPMN-Lu
 
 | Gate | Bedingung | Tool-Teil | Verbleibend |
 |---|---|---|---|
-| Technisch | SYN-1, SYN-2, STR-1…4 (alle Muss) | SYN-5 ${metrics.pass ? '✓' : '✗'}, bpmnlint ${lint.pass ? '✓' : '✗'}, roundtrip ${roundtrip.pass ? '✓' : '✗'} | **STR-1…4 + SYN-2 menschlich/Tool ausstehend** |
+| Technisch | SYN-1, SYN-2, STR-1…4 (alle Muss) | SYN-5 ${metrics.pass ? '✓' : '✗'}, bpmnlint ${lint.pass ? '✓' : '✗'}, roundtrip ${roundtrip.pass ? '✓' : '✗'} | **STR-1…4 (Soundness-Tool advisory — Verdikt manuell übernehmen, INCONCLUSIVE ≠ bestanden) + SYN-2 menschlich ausstehend** |
 | Klinisch | Kinsman-Gate **und** SEM-6 | — | **vollständig menschlich** |
 | Pragmatisch | PRA-1 | — | **menschlich** |
 

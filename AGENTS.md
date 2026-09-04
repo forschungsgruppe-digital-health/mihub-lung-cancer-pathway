@@ -9,11 +9,13 @@ acceptance-test gate in `docs/governance/`; do not duplicate them.
 ## What this repo is
 
 A set of **BPMN 2.0 models of the lung-cancer patient pathway** (one overarching
-pathway + seven sub-pathways: screening, diagnostic, patient-consultation, tumor-board,
-molecular-tumor-board, treatment, aftercare), developed in the MiHUB project (TU Dresden /
+pathway + eight sub-pathways: screening, diagnostic, patient-consultation, tumor-board,
+molecular-tumor-board, treatment, palliative-care (WIP draft), aftercare — the current
+inventory is `models/README.md`), developed in the MiHUB project (TU Dresden /
 Forschungsgruppe Digital Health). The models live under `models/` (naming convention
-`lung-cancer-<phase>-pathway`, ADR-0004); each `.bpmn` source has a paired `.svg` render. The repository is **model-only** and is **published openly under CC BY 4.0**
-(a Zenodo DOI is planned). There is no application here.
+`lung-cancer-<phase>-pathway`, ADR-0004); each `.bpmn` source has a paired `.svg` render. The repository is **model-only**, is **published openly under CC BY 4.0**
+and is archived on Zenodo (concept DOI `10.5281/zenodo.20943916` — see `CITATION.cff`).
+There is no application here.
 
 > ⚠️ **Intended use.** These models are a research / education / interoperability
 > reference artifact. They are **not** clinically validated and **must not** be used
@@ -31,22 +33,22 @@ Forschungsgruppe Digital Health). The models live under `models/` (naming conven
 ## Quality gate — one source, every runner
 
 Every check is a deterministic CLI under `tools/`, wired to an npm script. **The
-decision lives in the tool, never in the model.** A green local run ⇒ a green CI run. (During the RC/pre-remodel phase the CI conformance gate is **advisory/warn-only** and stays green regardless of findings; the local default is strict.)
+decision lives in the tool, never in the model.** A green local run ⇒ a green CI run. (During the RC/pre-remodel phase the CI aggregator is **advisory/warn-only** and stays green regardless of findings, while the naming convention is enforced as its **own blocking CI step**; the local default is strict.)
 
 | Layer | Command | Severity |
 |---|---|---|
+| model naming (ADR-0004: `models/lung-cancer-<phase>-pathway.{bpmn,svg}`, paired) | `npm run check:naming` | **Blocking** |
 | bpmnlint (BPMN structure/correctness, `no-inclusive-gateway`=error) | `npm run lint:bpmn` | **Blocking** |
 | model metrics (Abnahmetest SYN-5 no-OR blocking; SYN-2/4, lanes, prefix advisory) | `npm run check:metrics` | **Blocking** on OR-gateways |
-| moddle roundtrip (serialization stability; `cp:`/`i18n:` extension presence) | `npm run check:roundtrip` | Informational |
+| moddle roundtrip (lossless `cp:` BPMN4CP + stable serialization; `i18n:` passthrough) | `npm run check:roundtrip` | **Blocking** |
 | XSD core (OMG BPMN20.xsd) | `npm run check:xsd` | Informational |
-| **all of the above (full report, blocks on the blocking layers)** | `npm run check:conformance` | **the gate** (CI advisory/warn-only during the RC/pre-remodel phase; local default strict) |
+| **all of the above, in this order (full report, blocks on the blocking layers)** | `npm run check:conformance` | **the gate** (CI: aggregator advisory/warn-only during the RC/pre-remodel phase, naming as its own blocking step; local default strict) |
 
 Run `npm ci` once (Node ≥ 18), then `npm run check:conformance`. To register a new
 `.bpmn` location, edit `ROOTS` in `tools/bpmn-files.mjs` (the single file-discovery source).
 
-> The CI gate currently runs **advisory (warn-only)**: the existing models carry structural
-> defects, four `bpmn:InclusiveGateway`s (OR), and unformalised `cp:`/`i18n:`
-> extension content, so the gate **reports** these as warnings but does **not** fail the check or block PRs (env `CONFORMANCE_WARN_ONLY` in `.github/workflows/ci.yml`; local default stays strict). Hard enforcement is re-enabled after the remodel. Greening it is tracked work (see `docs/decisions/0001`), and it
+> The CI aggregator currently runs **advisory (warn-only)**: the existing models carry structural
+> defects and four `bpmn:InclusiveGateway`s (OR), so the gate **reports** these as warnings but does **not** fail the check or block PRs (env `CONFORMANCE_WARN_ONLY` in `.github/workflows/ci.yml`; local default stays strict). The naming convention (`npm run check:naming`) is enforced as its own **blocking** CI step. Naming and roundtrip are green on every model: the `cp:` (BPMN4CP) extension content is modelled by the moddle descriptor `tools/moddle/bpmn4cp.json` (registered via `tools/moddle/descriptors.mjs`) and round-trips losslessly; only `i18n:` attributes pass through as unknown attributes. The informational XSD-core layer currently reports `cp:qualityIndicator` elements placed directly under process/flow elements instead of inside `extensionElements` (plus non-schema colour attributes on the overarching model's DI plane) — filed in `docs/model-issues/2026-09-04-xsd-core-extension-placement.md`. Hard enforcement is re-enabled after the remodel. Greening it is tracked work (see `docs/decisions/0001`), and it
 > requires modelling + clinical judgment — agents must not "fix" pathway logic
 > unilaterally.
 
@@ -105,8 +107,13 @@ Claude Code discovers them via `.claude/skills` → `../skills`; Codex/Copilot v
   BPMN-XML issue? **Report it** in [`docs/model-issues/`](docs/model-issues/) with a
   ready-to-file GitHub-issue suggestion ([template](.github/ISSUE_TEMPLATE/bpmn-model-issue.md)) —
   never fix it. Enforced for Claude Code by the `guard-model-files` PreToolUse hook
-  (`.claude/hooks/guard-model-files.sh`, wired in `.claude/settings.json`); other tools
-  must honor it. (Humans editing models follow `CONTRIBUTING.md`.)
+  (`.claude/hooks/guard-model-files.sh`, wired in `.claude/settings.json`): it denies
+  Write/Edit of `.bpmn`/`.svg` files, shell writes to them (redirects, `sed -i`, `tee`)
+  and destructive shell operations on model files (`rm`, `cp`, `mv`, `truncate`,
+  `git rm`, `git checkout`/`restore`/`apply`/`stash` targeting models); a plain `git mv`
+  rename (the ADR-0004 naming convention) is the one operation the hook leaves open —
+  the read-only rule above still applies to it. Other tools must honor the same rule.
+  (Humans editing models follow `CONTRIBUTING.md`.)
 - **No real patient data.** Use only synthetic / abstract pathway content. Never
   commit patient data, even realistic-looking.
 - **Not for clinical use.** Do not remove or weaken `DISCLAIMER.md` or the README

@@ -1,7 +1,12 @@
 # 0003 — Behavioural soundness tooling (STR-1…STR-4)
 
 - Status: accepted; **pilot executed 2026-06-25** — advisory wrapper shipped; a
-  *blocking* gate stays deferred until the model remodel (see Pilot results)
+  *blocking* gate stays deferred until the model remodel (see Pilot results).
+  **Status 2026-09-04:** unchanged in substance — the advisory `soundness.yml` job runs over
+  every model discovered by `tools/bpmn-files.mjs` (nine since `v0.3.0-rc.1`; the "seven files"
+  below are the 2026-06-25 pilot set); the blocking gate remains deferred while 13 OR-gateways
+  (treatment 2, aftercare 4, palliative-care 7) and the intermediate catch events keep models
+  INCONCLUSIVE — see [`../model-issues/`](../model-issues/README.md).
 - Date: 2026-06-25
 - Deciders: Forschungsgruppe Digital Health (FGDH), TU Dresden
 - Relates: [`0001-repo-tooling-and-conformance-gate.md`](0001-repo-tooling-and-conformance-gate.md),
@@ -41,7 +46,7 @@ Three load-bearing facts make a *piloted* integration mandatory before we trust 
 3. **Element-support risk.** These models use BPMN4CP `cp:` extensions, message flows,
    boundary events, multiple pools, and (in the overarching pathway) multiple start
    events. The analyzer parses a pragmatic BPMN subset. → a **one-time pilot** must run
-   it over all seven files to confirm nothing trips `unsupported_elements`, and
+   it over all model files (`tools/bpmn-files.mjs`) to confirm nothing trips `unsupported_elements`, and
    **benchmark the 130 KB overarching pathway** (state space can blow up; `--por`
    mitigates).
 

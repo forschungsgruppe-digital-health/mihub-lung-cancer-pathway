@@ -2,6 +2,9 @@
 English translation of `abnahme-protokoll-bpmn-patientenpfad.md` (German is the original/authoritative source).
 Provided for reference; keep both language versions in sync and at the same version.
 Status: draft — not final, likely to change. Change history: docs/governance/CHANGELOG.md.
+Basis (criteria & rationale): abnahme-checkliste-bpmn-patientenpfad.en.md (instrument v0.3.1),
+abnahme-handout-bpmn-patientenpfad.en.md
+Protocol template version: 1.0 | Language: EN (criteria basis: instrument v0.3.1)
 -->
 
 # Acceptance-Test Protocol — BPMN-modelled patient pathway

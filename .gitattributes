@@ -5,8 +5,10 @@
 # artifact — the BPMN models + their SVG images — plus the essential metadata, without the
 # development & tooling scaffolding.
 #
-# KEPT in the archive: models/ (.bpmn + .svg), README.md, LICENSE, CITATION.cff, DISCLAIMER.md,
-# and docs/governance/ (the acceptance-test instrument). Everything listed below is EXCLUDED.
+# KEPT in the archive: models/ (.bpmn + .svg + models/README.md), README.md, CHANGELOG.md
+# (written by release-please on main and back-merged to dev), LICENSE, CITATION.cff,
+# DISCLAIMER.md, and docs/governance/ (the acceptance-test instrument). Everything listed
+# below is EXCLUDED.
 #
 # NOTE: applies to FUTURE releases only — the file must be present in the tagged commit. The
 # already-archived v0.2.1-rc.1 is unaffected. To exclude/keep more, edit the lists below.

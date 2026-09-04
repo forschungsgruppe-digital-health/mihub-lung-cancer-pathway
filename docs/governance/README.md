@@ -28,17 +28,22 @@ English `*.en.md` is a translation kept in sync at the same version (repo langua
 ## What is automated vs. human
 
 The **A (automatable)** criteria are mechanised by this repo's conformance gate —
-`npm run check:conformance` (see [`../../skills/bpmn-conformance/SKILL.md`](../../skills/bpmn-conformance/SKILL.md)
-and [`../decisions/0001-repo-tooling-and-conformance-gate.md`](../decisions/0001-repo-tooling-and-conformance-gate.md)):
+`npm run check:conformance`, five layers: **naming** (blocking, ADR-0004), **bpmnlint**
+(blocking), **model metrics** (SYN-5 blocking; SYN-2/SYN-4 advisory), **moddle roundtrip**
+(blocking), **XSD core** (informational, report-only). See the skill
+[`skills/bpmn-conformance/SKILL.md`](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/skills/bpmn-conformance/SKILL.md)
+and [ADR-0001](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/decisions/0001-repo-tooling-and-conformance-gate.md)
+(absolute links — the skills and ADRs are not part of the release archive):
 
 | Acceptance-test criterion | Covered by | Status |
 |---|---|---|
 | SYN-5 (no OR-gateway) | `check:metrics` (blocking) + bpmnlint `no-inclusive-gateway`=error | automated |
 | SYN-2 (one start/end), SYN-4 (≤ 50/level), lanes (SEM-1 presence), prefix | `check:metrics` (advisory) | automated, advisory |
 | structural correctness (supports SYN-2/STR-3) | `bpmnlint` (blocking) | automated |
-| SYN-1 (conformance class) | declared in [`../decisions/0001`](../decisions/0001-repo-tooling-and-conformance-gate.md); adherence partly via bpmnlint/metrics | partly |
-| STR-1…STR-4 (soundness) | external soundness checker — **planned** (later phase) | not yet |
-| SEM-2…7, PRA-2/3 | advisory `clinical-pathway-review` agent — **planned**; otherwise R | human |
+| SYN-1 (conformance class) | declared in [ADR-0001](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/decisions/0001-repo-tooling-and-conformance-gate.md); adherence partly via bpmnlint/metrics, the moddle roundtrip (`cp:`/`i18n:` extension data, blocking) and the XSD-core check (informational) | partly |
+| filename convention `lung-cancer-<phase>-pathway.{bpmn,svg}` + paired `.svg` (repo hygiene, no acceptance-test criterion) | `check:naming` (blocking; [ADR-0004](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/decisions/0004-repo-structure-and-model-naming.md)) | automated |
+| STR-1…STR-4 (soundness) | `npm run check:soundness` — rust_bpmn_analyzer (Docker image pinned by digest); advisory CI job `soundness.yml`; reports **INCONCLUSIVE** on models with OR-gateways / intermediate catch events | automated, advisory — the Protokoll keeps HUMAN-INPUT-NEEDED ([ADR-0003](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/decisions/0003-soundness-tooling.md)) |
+| SEM-2…7, PRA-2/3 | advisory `clinical-pathway-review` skill (findings only — never a pass/fail); otherwise R | human (evidence prepared by the skill) |
 | SEM-1 completeness, SEM-6 (consensus), PRA-1 (walkthrough), overall decision | **human only** | human |
 
 > A tool or agent may *prepare evidence* (tick the A-rows, attach the gate report) but
@@ -53,7 +58,8 @@ BPMN4CP, BPMN-2.0 conformance, soundness). It is **not yet empirically validated
 the planned evaluation trajectory is described in §6 of the Checkliste. It is licensed
 CC BY 4.0; cite per the Checkliste's citation note when reused.
 
-See also the modelling reference [`../../CONVENTIONS.md`](../../CONVENTIONS.md): its §8.1
+See also the modelling reference [`CONVENTIONS.md`](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/CONVENTIONS.md) (not part of
+the release archive): its §8.1
 review checklist is the **technical-acceptance-test subset** of this instrument (each row is
 annotated with the matching SYN/STR id), and its §8.2 review process maps step 3 → the
 technical gate (SYN/STR) and step 4 → the clinical gate (Kinsman-Gate + SEM-6).

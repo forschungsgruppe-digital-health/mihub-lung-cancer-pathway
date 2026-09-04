@@ -1,11 +1,12 @@
 name: Soundness (advisory)
 
-# Behavioural soundness (Abnahme STR-1..4) via rust_bpmn_analyzer (pinned by digest),
+# Behavioural soundness (acceptance-test STR-1..4) via rust_bpmn_analyzer (pinned by digest),
 # run as a service container. ADVISORY / non-blocking: it reports SOUND / VIOLATION /
-# INCONCLUSIVE per model and never fails the build. As of the 2026-06-25 pilot, 4/7
-# models are INCONCLUSIVE (unsupported OR-gateways + intermediate catch events) and the
-# analyzable ones violate on pre-existing defects — see docs/decisions/0003. Flip to
-# `--strict` (blocking) only after the model remodel.
+# INCONCLUSIVE per model and never fails the build. At the 2026-06-25 pilot (7 models then)
+# 4 were INCONCLUSIVE (unsupported OR-gateways + intermediate catch events) and the
+# analyzable ones violated on pre-existing defects — see docs/decisions/0003 and the latest
+# run output for the current 9-model set. Flip to `--strict` (blocking) only after the
+# model remodel.
 
 on:
   pull_request:

@@ -12,20 +12,25 @@ description: Produce a Markdown inventory matrix of the BPMN pathway models (the
 > ([template](../../.github/ISSUE_TEMPLATE/bpmn-model-issue.md)) — never change the model.
 > Enforced in Claude Code by the `guard-model-files` PreToolUse hook.
 
-Build a first-pass **Feature/Model Inventory Matrix** across the seven `.bpmn` files
-so a reviewer can see the whole pathway set at a glance. Read-only.
+Build a first-pass **Feature/Model Inventory Matrix** across every `.bpmn` under
+`models/` (discover with `node tools/bpmn-files.mjs`; currently nine: the overarching
+pathway + eight sub-pathways) so a reviewer can see the whole pathway set at a glance.
+Read-only.
 
 ## How
 
 Prefer the existing tooling for the mechanical counts, then summarise:
 
 ```bash
-npm run check:metrics      # per-file: levels, start/end events, gateways, lanes, prefix
+npm run check:metrics      # per-file: level count + root prefix; OR-gateways (SYN-5) by label;
+                           # start/end counts ONLY when they deviate from 1/1; >50-element levels (SYN-4);
+                           # "SEM-1 no lanes found" when a file has no lanes
 ```
 
-For deeper structure, parse with bpmn-moddle + the cp: descriptor
-(`tools/moddle/descriptors.mjs`) — e.g. to list `cp:qualityIndicator`s, Call Activities,
-and lanes per model.
+`check:metrics` does **not** print XOR/AND gateway counts, lane names/roles, or Call
+Activity targets. Derive those remaining columns — plus the `cp:qualityIndicator`s — by
+parsing each model with bpmn-moddle + the cp: descriptor (`tools/moddle/descriptors.mjs`),
+not from the metrics output.
 
 ## Output — a Markdown table, one row per model
 
