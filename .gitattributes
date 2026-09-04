@@ -8,7 +8,8 @@
 # KEPT in the archive: models/ (.bpmn + .svg + models/README.md), README.md, CHANGELOG.md
 # (written by release-please on main and back-merged to dev), LICENSE, CITATION.cff,
 # DISCLAIMER.md, and docs/governance/ (the acceptance-test instrument). Everything listed
-# below is EXCLUDED.
+# below is EXCLUDED — including .zenodo.json: Zenodo reads the deposit metadata from the
+# repository via the GitHub API at release time, not from the archive.
 #
 # NOTE: applies to FUTURE releases only — the file must be present in the tagged commit. The
 # already-archived v0.2.1-rc.1 is unaffected. To exclude/keep more, edit the lists below.
@@ -30,6 +31,7 @@
 /.agents/                       export-ignore
 /.gitignore                     export-ignore
 /.gitattributes                 export-ignore
+/.zenodo.json                   export-ignore
 /AGENTS.md                      export-ignore
 /CLAUDE.md                      export-ignore
 

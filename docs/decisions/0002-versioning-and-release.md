@@ -126,6 +126,16 @@ repo of a handful of model files; we choose release-please for reproducibility a
 - **Hybrid, not CalVer:** SemVer is the primary (severity-driven) axis; carry the
   release date in `CHANGELOG.md` and note the reflected guideline edition (S3-LL /
   nNGM, SEM-2) in release notes for temporal/guideline traceability.
+- **Amended 2026-09-04 — resource type.** Zenodo classified the GitHub-integration deposits as
+  *Software* while `CITATION.cff` says `dataset`. Decision: the artifact is a set of process
+  models → **dataset** on both surfaces. [`.zenodo.json`](../../.zenodo.json) (`upload_type`
+  `dataset`; same title/authors/ORCIDs/abstract/keywords/licence as `CITATION.cff`;
+  export-ignored — Zenodo reads it from the repository via the GitHub API at release time, and
+  it takes precedence over `CITATION.cff`) governs every future deposit; CI
+  ([`citation-validate.yml`](../../.github/workflows/citation-validate.yml)) checks that the
+  two files stay in sync. The three existing records (10.5281/zenodo.20943917 = `v0.2.1-rc.1`,
+  the `v0.2.1-rc.2` record, 10.5281/zenodo.21029417 = `v0.3.0-rc.1`) are edited manually on
+  zenodo.org to resource type *Dataset* and the current abstract (eight sub-pathways).
 
 ## Decision 4 — Release-archive contents *(added 2026-09-04; records commits 87f42bc + 400fcd9 of 2026-06-27)*
 
@@ -171,5 +181,6 @@ Consequences:
   GitHub pre-releases and archived on Zenodo *before* the first acceptance test — deliberately,
   to obtain the concept DOI (10.5281/zenodo.20943916) for citation and for the instrument's
   `persistent_id` (version DOIs so far: `v0.2.1-rc.1` → 10.5281/zenodo.20943917, `v0.3.0-rc.1`
-  → 10.5281/zenodo.21029417, resource type "Software"). What still follows, not precedes, the
+  → 10.5281/zenodo.21029417; minted with resource type "Software" — being corrected to
+  *Dataset*, see the Decision 3 amendment). What still follows, not precedes, the
   first "Accepted" is the **stable `1.0.0`** (Decision 1).

@@ -179,7 +179,7 @@ Die EU Joint Action [CraNE](https://crane4health.eu/) (_Creation of National Com
 ## Zitieren / Citation
 
 Bitte über den **Concept-DOI** (alle Versionen) zitieren:
-**[`10.5281/zenodo.20943916`](https://doi.org/10.5281/zenodo.20943916)** — er verweist stets auf die neueste archivierte Version. Maschinenlesbare Metadaten in [`CITATION.cff`](./CITATION.cff) (GitHub-Schaltfläche „Cite this repository“). Für die exakte Reproduzierbarkeit einer bestimmten Release den jeweiligen **Versions-DOI** verwenden (z. B. `10.5281/zenodo.21029417` für `v0.3.0-rc.1`; der Versions-DOI steht auf der jeweiligen [GitHub-Release-Seite](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/releases) bzw. im zugehörigen Zenodo-Record). _Cite via the concept DOI (all versions); it always resolves to the latest archived version._
+**[`10.5281/zenodo.20943916`](https://doi.org/10.5281/zenodo.20943916)** — er verweist stets auf die neueste archivierte Version. Maschinenlesbare Metadaten in [`CITATION.cff`](./CITATION.cff) (GitHub-Schaltfläche „Cite this repository“); die Metadaten des Zenodo-Deposits (Ressourcentyp *Dataset*, Titel, Autor:innen, Abstract) stammen aus [`.zenodo.json`](./.zenodo.json), das mit `CITATION.cff` synchron gehalten wird (CI-geprüft). Für die exakte Reproduzierbarkeit einer bestimmten Release den jeweiligen **Versions-DOI** verwenden (z. B. `10.5281/zenodo.21029417` für `v0.3.0-rc.1`; der Versions-DOI steht auf der jeweiligen [GitHub-Release-Seite](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/releases) bzw. im zugehörigen Zenodo-Record). _Cite via the concept DOI (all versions); it always resolves to the latest archived version._
 
 ## Lizenz
 
