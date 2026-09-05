@@ -34,7 +34,10 @@ npm run check:roundtrip       # serialization stability + cp:/i18n lossless (blo
 npm run check:xsd             # OMG BPMN20.xsd core validation (informational)
 ```
 
-Scope to specific files by appending paths, e.g. `npm run check:metrics -- models/lung-cancer-treatment-pathway.bpmn`.
+Scope to specific files by appending paths, e.g. `npm run check:metrics -- models/lung-cancer-treatment-pathway.bpmn`:
+`lint:bpmn`, `check:metrics`, `check:roundtrip`, `check:xsd` and `check:soundness` accept `.bpmn`
+paths (resolved by `tools/bpmn-files.mjs`); `check:naming` and the `check:conformance` aggregator
+**always** scan all of `models/` — a path argument is not forwarded there.
 
 ## Division of labour (do not conflate)
 
@@ -60,8 +63,12 @@ Scope to specific files by appending paths, e.g. `npm run check:metrics -- model
 - **roundtrip `DATA LOSS: … dropped on parse`, `serialization is NOT idempotent`, or
   `loss warning:`** → blocking (exit 1). The `cp:` (BPMN4CP) descriptor
   `tools/moddle/bpmn4cp.json` is registered via `tools/moddle/descriptors.mjs`, so `cp:`
-  elements survive losslessly and `i18n:` rides along via lax `extensionElements`; today
-  every model reports `roundtrip: OK (lossless + stable)`. A failure means an extension
+  elements survive losslessly and `i18n:` rides along via lax `extensionElements`. Today the
+  run ends with the summary line `roundtrip: OK (lossless + stable)`; per model each file
+  prints `stable=true` with its cp:/i18n element count preserved (`n -> n`), and three files
+  (`diagnostic`, `overarching`, `palliative-care`) show `⚠` for benign "unknown attribute"
+  notices (`cp:selectionBehavior` / `cp:definitionCanonical` / DI colours — preserved
+  verbatim, not data loss). A failure means an extension
   element the descriptor does not know (new/renamed `cp:` type) or a model that
   re-serializes differently — **report it**; never "fix" it by deleting extension content.
 - **XSD `fails to validate`** → informational, but a **genuine BPMN-core deviation**: the
@@ -74,9 +81,12 @@ Scope to specific files by appending paths, e.g. `npm run check:metrics -- model
   Reported line numbers refer to the original file (the core view keeps the line count). A
   green XSD does **not** mean the extensions are valid — that is the roundtrip's concern.
 - **Element references** — the tools print elements as `"Name" (id)` or
-  `‹unnamed Type› (id)` (`tools/element-names.mjs`): bpmnlint lines end with
-  `→ "Name" (id)`, the metrics gate lists every OR-gateway and every extra start/end event
-  by label, and the soundness wrapper maps `problematic_elements` the same way.
+  `‹unnamed Type› (id)` (`tools/element-names.mjs`): each bpmnlint finding line reads
+  `error|warning  <message>  →  "Name" (id)  (rule-id)` — the trailing parenthesised token is
+  the bpmnlint rule id and `→ "Name" (id)` is the element (omitted when the report carries no
+  element id); the metrics gate lists every OR-gateway and every extra start/end event by
+  label, and the soundness wrapper maps `problematic_elements` (VIOLATION) and
+  `unsupported_elements` (INCONCLUSIVE) the same way.
   `‹unnamed …›` usually coincides with a bpmnlint `label-required` finding. Quote these
   references verbatim in `docs/model-issues/` so the human modeler can locate the element.
 

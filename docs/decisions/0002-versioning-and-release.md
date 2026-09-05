@@ -51,8 +51,13 @@ A candidate is cut with a **one-time `Release-As:` commit footer**, never with a
    duplicate-tag (`already_exists`) error**. This happened after `v0.2.0-rc.1`; the key was
    unpinned in commit 609441b and the config has stayed unpinned since.
 
-With `prerelease: true` and no pin, release-please proposes the next candidate (`-rc.2`, …)
-itself once there is a releasable commit. To cut the final `X.Y.Z` once the acceptance test is
+What release-please does without a pin *(verified 2026-09-04 against the release-please source;
+default versioning strategy, `versioning` unset)*: `prerelease: true` only marks the GitHub
+release as a pre-release — it does not drive the version number. The default strategy carries an
+existing pre-release suffix over **unchanged**: on `0.3.0-rc.1` a `feat` proposes `0.4.0-rc.1`
+and a `fix` proposes `0.3.1-rc.1`; a **second candidate for the same version (`-rc.2`) is never
+produced automatically**. The one-time `Release-As: X.Y.Z-rc.N` footer is therefore *required*
+for `rc.2` and later (and harmless otherwise). To cut the final `X.Y.Z` once the acceptance test is
 "Accepted", **remove `prerelease`** (otherwise the stable release is wrongly marked a
 pre-release); if a specific final version is wanted, use a one-time `Release-As: X.Y.Z` footer.
 
@@ -72,8 +77,9 @@ sibling code repo); the `package.json` here is unmanaged private tooling metadat
 **`version.txt` is the canonical model version**.
 
 - **One repository-level version** (a single `.` component). The model files (seven when
-  this was written; nine since `v0.3.0-rc.1`, ten since 2026-09-04) are interdependent decomposed views (Call
-  Activities); per-file versions would create cross-reference skew. The multi-component / `linked-versions` mode (used by the
+  this was written; eight from `v0.2.0-rc.1` (screening), nine since `v0.3.0-rc.1`
+  (palliative-care), ten since 2026-09-04 (initial-entry, #77)) are interdependent decomposed
+  views (Call Activities); per-file versions would create cross-reference skew. The multi-component / `linked-versions` mode (used by the
   sibling repo) is kept in reserve for if a sub-pathway ever becomes an independently
   consumed artifact.
 - **Config:** [`release-please-config.json`](../../release-please-config.json) +
@@ -133,9 +139,12 @@ repo of a handful of model files; we choose release-please for reproducibility a
   export-ignored — Zenodo reads it from the repository via the GitHub API at release time, and
   it takes precedence over `CITATION.cff`) governs every future deposit; CI
   ([`citation-validate.yml`](../../.github/workflows/citation-validate.yml)) checks that the
-  two files stay in sync. The three existing records (10.5281/zenodo.20943917 = `v0.2.1-rc.1`,
-  the `v0.2.1-rc.2` record, 10.5281/zenodo.21029417 = `v0.3.0-rc.1`) are edited manually on
-  zenodo.org to resource type *Dataset* and the current abstract (nine sub-pathways).
+  two files stay in sync. The three existing records — 10.5281/zenodo.20943917 (`v0.2.1-rc.1`),
+  10.5281/zenodo.20945321 (`v0.2.1-rc.2`), 10.5281/zenodo.21029417 (`v0.3.0-rc.1`) — are
+  still resource type *Software* with the original "seven sub-pathways" abstract (status
+  2026-09-04). Editing them on zenodo.org to *Dataset* and to the current abstract (ten models:
+  overarching + nine sub-pathways) is a **manual human action and still OPEN**; `.zenodo.json`
+  governs new deposits only, it does not rewrite minted records.
 
 - **Amended 2026-09-04 — version sync.** `CITATION.cff` `version:` carries the
   `# x-release-please-version` marker and `CITATION.cff` is listed in `extra-files`, so
@@ -155,7 +164,10 @@ is therefore trimmed to the **citable artifact plus its essential metadata**:
   `release-please-config.json`, `.release-please-manifest.json`, `version.txt`, `.bpmnlintrc`,
   `.vscode/`, `.claude/`, `.agents/`, `.gitignore`, `.gitattributes`, `AGENTS.md`, `CLAUDE.md`,
   `CONTRIBUTING.md`, `CONVENTIONS.md`, `CODE_OF_CONDUCT.md`, `docs/decisions/`,
-  `docs/model-issues/`.
+  `docs/model-issues/`; *added 2026-09-04:* `.zenodo.json` (Zenodo reads it through the GitHub
+  API at release time, not from the archive — Decision 3) and the research notes at the docs
+  root, `docs/*.md` (the Synthea/BPMN primer, the dataset-generation plan, the
+  data-sources-for-probabilities note); `docs/governance/` stays in.
 
 Consequences:
 
@@ -164,7 +176,8 @@ Consequences:
   (`https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/<path>`,
   `/tree/main/<dir>` for directories) — a relative link would dangle inside the archive.
 - The trimming applies to releases tagged **after** the `.gitattributes` commit: `v0.2.0-rc.1`
-  and `v0.2.1-rc.1` are untrimmed; `v0.2.1-rc.2` onwards are trimmed.
+  and `v0.2.1-rc.1` are untrimmed; `v0.2.1-rc.2` onwards are trimmed. The 2026-09-04 additions
+  (`.zenodo.json`, `docs/*.md`) take effect from the next tag onwards (`v0.4.0-rc.1`).
 - The archived version is still recoverable from the tag name and `CHANGELOG.md`, even though
   `version.txt` is excluded.
 
@@ -185,7 +198,8 @@ Consequences:
   **Amended 2026-09-04:** superseded in practice. Release **candidates** are published as
   GitHub pre-releases and archived on Zenodo *before* the first acceptance test — deliberately,
   to obtain the concept DOI (10.5281/zenodo.20943916) for citation and for the instrument's
-  `persistent_id` (version DOIs so far: `v0.2.1-rc.1` → 10.5281/zenodo.20943917, `v0.3.0-rc.1`
-  → 10.5281/zenodo.21029417; minted with resource type "Software" — being corrected to
-  *Dataset*, see the Decision 3 amendment). What still follows, not precedes, the
+  `persistent_id` (version DOIs so far: `v0.2.1-rc.1` → 10.5281/zenodo.20943917, `v0.2.1-rc.2`
+  → 10.5281/zenodo.20945321, `v0.3.0-rc.1` → 10.5281/zenodo.21029417; all minted with resource
+  type "Software" — still to be corrected to *Dataset* by hand on zenodo.org, see the Decision 3
+  amendment). What still follows, not precedes, the
   first "Accepted" is the **stable `1.0.0`** (Decision 1).

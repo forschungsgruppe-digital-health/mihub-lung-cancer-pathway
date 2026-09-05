@@ -63,7 +63,7 @@ elements are excluded first — `cp:qualityIndicator` is a direct child of the p
 design** and is validated by the moddle layer; `i18n:` content sits in `extensionElements`
 (lax) — so an XSD failure is a genuine BPMN-core deviation. Today only the overarching
 model's un-namespaced DI colour attributes remain (informational, housekeeping) — see
-[`docs/model-issues/2026-09-04-xsd-core-extension-placement.md`](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/model-issues/2026-09-04-xsd-core-extension-placement.md)
+[`docs/model-issues/2026-09-04-xsd-core-extension-placement.md`](docs/model-issues/2026-09-04-xsd-core-extension-placement.md)
 (resolved: by design).
 Every layer is also runnable on its own (`npm run check:naming`, `lint:bpmn`,
 `check:metrics`, `check:roundtrip`, `check:xsd`). See
@@ -92,10 +92,18 @@ are never a pass ([ADR-0003](docs/decisions/0003-soundness-tooling.md)).
   separate `dev` → `main` PR.
 - **One logical change per PR**; keep diffs reviewable. A human reviews and merges —
   please don't self-merge. The PR template lists the checks to confirm.
-- **After every release** (release-please merges its release PR on `main` and tags it),
-  open a **`main` → `dev` back-merge PR** so that `version.txt`,
-  `.release-please-manifest.json` and `CHANGELOG.md` stay in sync on `dev`. Without it
-  the next feature PR from `dev` re-diverges the release bookkeeping.
+- **Cutting a release candidate** (maintainers): put a one-time footer
+  `Release-As: X.Y.Z-rc.N` (e.g. `Release-As: 0.4.0-rc.1`) on a real, releasable commit in a
+  PR into `dev` and set `date-released` in `CITATION.cff` in the same commit (`version:` is
+  bumped by release-please via the `# x-release-please-version` marker — do not hand-edit
+  it); promote `dev` → `main` by PR. release-please then opens
+  `chore(main): release X.Y.Z-rc.N` on `main`; merging it tags `vX.Y.Z-rc.N`, publishes a
+  GitHub pre-release and triggers the Zenodo deposit (metadata from `.zenodo.json`). Never
+  pin `release-as` in `release-please-config.json` — a pin is sticky and ends in a
+  duplicate-tag failure ([ADR-0002](docs/decisions/0002-versioning-and-release.md)).
+- **After every release:** merge `main` back into `dev` (PR) so that `version.txt`,
+  `.release-please-manifest.json`, `CHANGELOG.md` and `CITATION.cff` stay in sync on `dev`.
+  Without it the next feature PR from `dev` re-diverges the release bookkeeping.
 
 ## Review & acceptance test
 
@@ -116,11 +124,15 @@ edit a model), and a human files the issue from that finding.
 
 ## Language
 
-The repository default language is **German** (README, `CONVENTIONS.md`, the governance
-instrument). **Technical documentation is in English** (ADRs, `AGENTS.md`, this file,
-`docs/model-issues/`). The Abnahmetest governance instrument (`docs/governance/`) is **bilingual**
-(German original + English translation, kept at the same version). New **issue templates are
-always provided in both languages**.
+The repository default language is **German**; technical documentation is in **English**.
+
+- **German:** `README.md`, `CONVENTIONS.md`, `models/README.md`, the Abnahmetest governance
+  instrument (`docs/governance/`, German original).
+- **English:** ADRs (`docs/decisions/`), `AGENTS.md`, `CLAUDE.md`, this file
+  (`CONTRIBUTING.md`), `CODE_OF_CONDUCT.md`, `CITATION.cff`, `docs/model-issues/`, `skills/`.
+- **Bilingual (DE + EN):** `DISCLAIMER.md`, the governance instrument's `.en.md` twins (English
+  translation kept at the same version as the German original), and the issue templates
+  (always provided in both languages).
 
 ## Questions
 

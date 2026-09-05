@@ -8,8 +8,10 @@
 > The analysis below is kept unchanged as the historical record.
 
 The **standard-core** layer of the conformance gate — `tools/validate-xsd.sh`, which validates each
-model against the OMG `BPMN20.xsd` shipped with bpmn-moddle — currently fails on **5 of the 9
-models**. The layer is **informational by design** (exit 0; see
+model against the OMG `BPMN20.xsd` shipped with bpmn-moddle — failed at the time of this analysis
+on **5 of the 9 models** then present (the analysis covered the nine models present at the time;
+the initial-entry model merged later that day in #77 validates clean on the core view — 9 of 10
+pass today). The layer is **informational by design** (exit 0; see
 [`../decisions/0001-repo-tooling-and-conformance-gate.md`](../decisions/0001-repo-tooling-and-conformance-gate.md),
 Decision 3), so the gate stays green. **Reports, not fixes** — a human modeller addresses each via a
 GitHub issue (template `bpmn-model-issue`); no skill or agent may touch a `.bpmn`/`.svg`.
@@ -26,7 +28,10 @@ Reproduce: `npm run check:conformance` (XSD block) or `bash tools/validate-xsd.s
 > *attributes* only when they carry a namespace. Validating against a BPMN4CP-extended schema
 > instead would be a tooling decision, out of scope of this finding.
 >
-> Validating today: `aftercare`, `palliative-care`, `patient-consultation`, `screening`.
+> Validating at the time of the analysis: `aftercare`, `palliative-care`, `patient-consultation`,
+> `screening` (the analysis covered the nine models present at the time; the initial-entry model
+> merged later that day in #77 validates clean on the core view; since the core-view fix in commit
+> 0434ada (#87) only the overarching model still fails — Issue X2 — so 9 of 10 pass today).
 
 > Suggested labels for all: `model`, `conformance`, `housekeeping`. Not blocking. No
 > `needs-clinical-review` — the fix changes the serialisation only, not the clinical meaning.

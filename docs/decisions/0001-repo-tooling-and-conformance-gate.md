@@ -64,10 +64,12 @@ column below is the local STRICT behaviour:
 | extension data | `tools/moddle-roundtrip.mjs` — serialization stability + `cp:`/`i18n:` presence. *Since commit 79cde22 (2026-06-25):* the BPMN4CP `cp:` descriptor `tools/moddle/bpmn4cp.json` (registered in `tools/moddle/descriptors.mjs`) makes the roundtrip lossless; `i18n:` content is passed through | informational when written → **yes** since 79cde22 |
 | standard core | `tools/validate-xsd.sh` — OMG BPMN20.xsd, on the core view of each file (`tools/xsd-core-view.mjs`) | informational *(status 2026-09-04: BPMN4CP `cp:` elements are excluded from the core view by design (`tools/xsd-core-view.mjs`) — see [`../model-issues/2026-09-04-xsd-core-extension-placement.md`](../model-issues/2026-09-04-xsd-core-extension-placement.md); only the overarching model's DI colour attributes remain (informational); exit 0 by design)* |
 
-**The gate surfaces the real baseline on the current models by design** (and in CI reports it warn-only, without failing the check) — namely:
+**The gate surfaces the real baseline on the current models by design** (and in CI reports it warn-only, without failing the check) — at the 2026-06-25 snapshot (7 models), namely:
 99 bpmnlint structural errors (disconnected nodes, implicit start/end, missing
-labels, multiple blank start events), the four OR-gateways, and unformalised
-`cp:`/`i18n:` extension content. We add the gate first (this PR) so the baseline is
+labels, multiple blank start events), four OR-gateways, and not-yet-formalised
+`cp:`/`i18n:` extension content *(status 2026-09-04: 116 errors / 15 warnings over 10 models,
+13 OR-gateways — treatment 2, aftercare 4, palliative-care 7; `cp:` formalised in 79cde22,
+roundtrip lossless — see Consequences)*. We add the gate first (this PR) so the baseline is
 visible and tracked; **greening it is deliberate follow-up work** that needs
 modelling and clinical judgment and must not be done by an agent unilaterally.
 
@@ -90,7 +92,7 @@ modelling and clinical judgment and must not be done by an agent unilaterally.
   `tools/moddle/descriptors.mjs`; the roundtrip is lossless and now blocking; `i18n:` is passed
   through without a descriptor of its own);
   (c) later phases add behavioural soundness (STR-1..4) and the advisory clinical
-  review (see `skills/README.md` "Planned") — **done:** soundness per
+  review (formerly listed as *Planned* in `skills/README.md`) — **done:** soundness per
   [ADR-0003](0003-soundness-tooling.md) (`tools/check-soundness.mjs`, `npm run check:soundness`,
   advisory CI job `.github/workflows/soundness.yml`, skill `skills/bpmn-soundness`); the advisory
   clinical review exists as the skill `skills/clinical-pathway-review`.

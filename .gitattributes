@@ -12,7 +12,8 @@
 # repository via the GitHub API at release time, not from the archive.
 #
 # NOTE: applies to FUTURE releases only — the file must be present in the tagged commit. The
-# already-archived v0.2.1-rc.1 is unaffected. To exclude/keep more, edit the lists below.
+# already-archived v0.2.0-rc.1 and v0.2.1-rc.1 are unaffected (untrimmed); v0.2.1-rc.2 onwards
+# are trimmed. To exclude/keep more, edit the lists below.
 
 # --- development & build tooling ---
 /tools/                         export-ignore
@@ -42,3 +43,7 @@
 # docs/governance/ (the acceptance-test instrument) is KEPT; the process docs are excluded:
 /docs/decisions/                export-ignore
 /docs/model-issues/             export-ignore
+# Research / working notes at the docs ROOT (Synthea primer, dataset-generation plan, data
+# sources for probabilities/timing) are not part of the citable artifact. `*` does not cross
+# `/`, so this matches only docs/<file>.md — docs/governance/ stays KEPT.
+/docs/*.md                      export-ignore

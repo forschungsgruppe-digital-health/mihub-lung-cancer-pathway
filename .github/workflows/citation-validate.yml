@@ -8,10 +8,10 @@ name: Validate CITATION.cff
 on:
   pull_request:
     branches: [main, dev]
-    paths: ["CITATION.cff", ".zenodo.json"]
+    paths: ["CITATION.cff", ".zenodo.json", ".github/workflows/citation-validate.yml"]
   push:
     branches: [main, dev]
-    paths: ["CITATION.cff", ".zenodo.json"]
+    paths: ["CITATION.cff", ".zenodo.json", ".github/workflows/citation-validate.yml"]
   workflow_dispatch:
 
 permissions:
@@ -23,14 +23,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
       - name: Validate CITATION.cff
-        uses: dieghernan/cff-validator@54c8e737314b948f25c0e5524a9d8ae3f39b207b # v5
+        uses: dieghernan/cff-validator@54c8e737314b948f25c0e5524a9d8ae3f39b207b # v5.0.1
 
       # Zenodo reads .zenodo.json via the GitHub API at release time and prefers it over
       # CITATION.cff, so the two must agree: resource type (dataset), authors (ORCIDs +
-      # count) and title. jq ships with the ubuntu runner image.
+      # count), title, licence and keywords. jq ships with the ubuntu runner image.
       - name: Validate .zenodo.json and its sync with CITATION.cff
         run: |
           set -euo pipefail
@@ -55,4 +55,22 @@ jobs:
           [ -n "$title" ] || fail ".zenodo.json has no title"
           grep -qF -- "$title" CITATION.cff || fail "title '$title' from .zenodo.json does not appear verbatim in CITATION.cff"
 
-          echo ".zenodo.json OK: dataset, $zenodo_creators creators (ORCIDs match), title matches CITATION.cff"
+          # Licence: Zenodo spells its ids lower-case (cc-by-4.0), CITATION.cff uses the SPDX id
+          # (CC-BY-4.0) — the same identifier, so compare both lower-cased.
+          zenodo_license="$(jq -r '.license // empty' .zenodo.json | tr '[:upper:]' '[:lower:]')"
+          [ -n "$zenodo_license" ] || fail ".zenodo.json has no license"
+          cff_license="$(grep -E '^license:' CITATION.cff | head -n 1 | sed -E 's/^license:[[:space:]]*//; s/[[:space:]]+#.*$//; s/^"//; s/"[[:space:]]*$//; s/[[:space:]]+$//' | tr '[:upper:]' '[:lower:]' || true)"
+          [ -n "$cff_license" ] || fail "CITATION.cff has no license: entry"
+          [ "$zenodo_license" = "$cff_license" ] || fail "license mismatch — .zenodo.json: '$zenodo_license' | CITATION.cff: '$cff_license' (compared lower-cased)"
+
+          # Keywords: sorted-set equality between .zenodo.json `keywords` and the items of the
+          # CITATION.cff `keywords:` list (surrounding quotes stripped; order is irrelevant).
+          zenodo_keywords="$(jq -r '.keywords[]' .zenodo.json | sort -u)"
+          cff_keywords="$(awk '/^keywords:/ { f = 1; next }
+                               f && /^[ \t]*$/ { next }
+                               f && /^[ \t]+-[ \t]*/ { sub(/^[ \t]+-[ \t]*/, ""); sub(/[ \t]+$/, ""); gsub(/^"|"$/, ""); print; next }
+                               f { exit }' CITATION.cff | sort -u)"
+          [ -n "$cff_keywords" ] || fail "CITATION.cff has no keywords: list"
+          [ "$zenodo_keywords" = "$cff_keywords" ] || fail "keyword mismatch — .zenodo.json: [$(echo "$zenodo_keywords" | paste -sd ',' -)] | CITATION.cff: [$(echo "$cff_keywords" | paste -sd ',' -)]"
+
+          echo ".zenodo.json OK: dataset, $zenodo_creators creators (ORCIDs match); title, license ($zenodo_license) and $(echo "$zenodo_keywords" | wc -l | tr -d ' ') keywords match CITATION.cff"

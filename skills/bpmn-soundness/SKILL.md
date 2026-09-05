@@ -36,9 +36,9 @@ non-blocking via `.github/workflows/soundness.yml` (the analyzer as a service co
 | Result | Meaning | Acceptance-test implication |
 |---|---|---|
 | **SOUND** | all four properties fulfilled | STR-1…4 evidence = OK |
-| **VIOLATION** | a supported model violates a property: OptionToComplete=STR-1, ProperCompletion=STR-2, NoDeadActivities=STR-3; a deadlock/livelock (STR-4) shows as OptionToComplete=✗ | a real STR finding — **report it** (a human modeler fixes the model) |
-| **INCONCLUSIVE** | model uses unsupported elements (`unsupported_elements`: OR-gateways, `intermediateCatchEvent`s) | **human review / remodel — NOT a pass** |
-| **ERROR** (icon `!`) | the analyzer gave no usable verdict: a non-JSON response, a timeout (`timeout (state-space blowup — the webserver runs without POR)` → raise `SOUNDNESS_TIMEOUT_MS`), the analyzer went unreachable mid-run, or the model could not be parsed | counted together with INCONCLUSIVE in the summary; **treat like INCONCLUSIVE — human review, never a pass** |
+| **VIOLATION** | a supported model violates one of the four requested properties: OptionToComplete=STR-1, ProperCompletion=STR-2, NoDeadActivities=STR-3; Safeness (1-safe) is supporting evidence for STR-2/STR-4; a deadlock/livelock (STR-4) shows as OptionToComplete=✗. Each failed property lists its `problematic_elements` as `"Name" (id)` / `‹unnamed Type› (id)` | a real STR finding — **report it** (a human modeler fixes the model) |
+| **INCONCLUSIVE** | model uses elements outside the analyzer's supported subset (`unsupported_elements`): OR-gateways, `intermediateCatchEvent`s **and typed start events** (e.g. the timer start event "Termin für das Patientengespräch" (`Event_0wmvigt`) in `patient-consultation`); the wrapper prints them as `"Name" (id)` / `‹unnamed Type› (id)` — the same format as VIOLATION | **human review / remodel — NOT a pass** |
+| **ERROR** (icon `!`) | the analyzer gave no usable verdict: a non-JSON response, a timeout (`timeout (state-space blowup — the webserver runs without POR)` → raise `SOUNDNESS_TIMEOUT_MS`), the analyzer went unreachable mid-run, or the model could not be parsed. A model the analyzer cannot parse surfaces as `ERROR: analyzer unreachable: fetch failed` — the analyzer drops the connection but stays up; `curl http://localhost:8090/` tells "analyzer down" and "model unparsable" apart | counted together with INCONCLUSIVE in the summary; **treat like INCONCLUSIVE — human review, never a pass** |
 
 ## Hard rules
 
@@ -47,7 +47,11 @@ non-blocking via `.github/workflows/soundness.yml` (the analyzer as a service co
 - As of the 2026-06-25 pilot (run over the seven models then in the set; the set is now
   ten, and the 2026-09-04 per-model scan recorded a run for every model — see the per-model issues), **4 of 7 were inconclusive**
   (OR-gateways + catch events) and the 3 analyzable ones violated on existing structural
-  defects — so this is **advisory** until the model remodel. See
+  defects — so this is **advisory** until the model remodel. Current (2026-09-04, ten models): 5 VIOLATION (screening, diagnostic, tumor-board,
+  molecular-tumor-board, initial-entry) / 5 INCONCLUSIVE (overarching, patient-consultation,
+  treatment, palliative-care, aftercare) / 0 SOUND / 0 ERROR — per-model records in issues
+  #78–#86, #89 (parent
+  [#49](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/issues/49)). See
   `docs/decisions/0003-soundness-tooling.md`.
 - Inter-process (Call Activity composition) soundness is **not** covered by checking the
   files independently — that stays human review.

@@ -1,5 +1,5 @@
 <!--
-Repo-Pfad-Vorschlag: docs/governance/abnahme-handout-bpmn-patientenpfad.md
+Repo-Pfad: docs/governance/abnahme-handout-bpmn-patientenpfad.md
 Begleitdokument: abnahme-checkliste-bpmn-patientenpfad.md (gleiche Kriterien-IDs)
 Version: 0.2 | Sprache: DE
 -->

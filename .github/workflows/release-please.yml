@@ -4,6 +4,9 @@ name: release-please
 # "release PR" and, on its merge, bumps version.txt, updates CHANGELOG.md, tags
 # `v<version>`, and creates the GitHub Release. Versions are derived from
 # Conventional Commit messages (release-type: simple — no language ecosystem).
+# The same release PR also bumps CITATION.cff `version:` (its `# x-release-please-version`
+# marker) and package.json `version` (JSON extra-file) through `extra-files` in
+# release-please-config.json, so the citation metadata never lags the tag.
 #
 # Branching: development happens on `dev`; promotion is a `dev` -> `main` PR; this
 # workflow then manages the `main` side. See docs/decisions/0002-versioning-and-release.md.
@@ -24,7 +27,7 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
-      - uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7 # v5
+      - uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7 # v5.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           config-file: release-please-config.json

@@ -1,5 +1,5 @@
 <!--
-Repo-Pfad-Vorschlag: docs/governance/abnahme-checkliste-bpmn-patientenpfad.md
+Repo-Pfad: docs/governance/abnahme-checkliste-bpmn-patientenpfad.md
 Begleitdokument (Begründung + Beispiele): abnahme-handout-bpmn-patientenpfad.md
 -->
 
