@@ -18,7 +18,8 @@
  *                              needs human judgment — reported, not blocked.
  *   SEM-1 (lanes present)    — REPORT. Lane presence is a pre-check only; completeness
  *                              of the multidisciplinary plan stays human review.
- *   prefix hygiene           — REPORT. Mixed `bpmn:` / `bpmn2:` root prefixes across files.
+ *   prefix hygiene           — REPORT. Mixed `bpmn:` / `bpmn2:` / default-namespace root
+ *                              prefixes across files.
  *
  * The single BLOCKING rule here is SYN-5 (no OR). Everything else is advisory so the
  * gate never fails arbitrarily before the conformance class is declared and the models
@@ -54,7 +55,14 @@ function collectLevels(container, name, acc) {
 }
 
 const byType = (els, type) => els.filter((e) => e.$type === type);
-const rootPrefix = (xml) => (xml.match(/<([A-Za-z0-9]+):definitions[\s>]/) || [, '?'])[1];
+// Root prefix of `<definitions>`: `bpmn`, `bpmn2`, … — or `(default ns)` for an unprefixed
+// root (`<definitions xmlns="…">`, e.g. the screening model); `?` if no root is found.
+const rootPrefix = (xml) => {
+  const m = xml.match(/<(?:([A-Za-z0-9]+):)?definitions[\s>]/);
+  return m ? (m[1] || '(default ns)') : '?';
+};
+// Display form for the report: `<bpmn:>` / `<bpmn2:>` for a prefixed root, `(default ns)` as is.
+const showPrefix = (p) => (p === '(default ns)' ? p : `<${p}:>`);
 
 let orFindings = 0;
 let warnings = 0;
@@ -116,7 +124,7 @@ for (const file of files) {
   if (!anyLanes) fileLines.push('    · SEM-1 no lanes found (multidisciplinary roles not modelled as lanes — review)');
 
   const status = fileOr ? '✖' : fileWarn ? '⚠' : '✓';
-  console.log(`${status} ${file}  (${levels.length} level(s), prefix <${prefixes.get(file)}:>)`);
+  console.log(`${status} ${file}  (${levels.length} level(s), prefix ${showPrefix(prefixes.get(file))})`);
   for (const l of fileLines) console.log(l);
   console.log('');
 
@@ -127,8 +135,8 @@ for (const file of files) {
 // prefix hygiene across the repo (report)
 const distinct = new Set(prefixes.values());
 if (distinct.size > 1) {
-  console.log(`⚠ prefix hygiene: models use mixed root prefixes ${[...distinct].map((p) => `<${p}:>`).join(', ')}:`);
-  for (const [f, p] of prefixes) console.log(`    <${p}:>  ${f}`);
+  console.log(`⚠ prefix hygiene: models use mixed root prefixes ${[...distinct].map(showPrefix).join(', ')}:`);
+  for (const [f, p] of prefixes) console.log(`    ${showPrefix(p).padEnd(12)}  ${f}`);
   console.log('');
 }
 

@@ -46,8 +46,6 @@ if (!files.length) {
   process.exit(0);
 }
 
-const linter = new Linter({ config, resolver: new NodeResolver() });
-
 let errors = 0;
 let warnings = 0;
 
@@ -67,6 +65,13 @@ for (const file of files) {
     continue;
   }
 
+  // A fresh Linter PER FILE, on purpose: bpmnlint caches its rule instances per Linter, and
+  // rule factories keep state across `lint()` calls (e.g. `no-duplicate-sequence-flows`
+  // remembers every source→target pair it has seen), so one shared Linter leaks that state
+  // from file to file. Sibling models reuse element ids (tumor-board / molecular-tumor-board
+  // share 15 ids), which made a shared instance report false duplicate-flow findings in
+  // multi-file runs that no single-file run reproduces.
+  const linter = new Linter({ config, resolver: new NodeResolver() });
   const reports = await linter.lint(rootElement);
   const rules = Object.keys(reports);
   const index = indexById(rootElement); // id → human-readable editor label

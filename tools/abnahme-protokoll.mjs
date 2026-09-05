@@ -14,6 +14,7 @@
  *
  * Usage:  node tools/abnahme-protokoll.mjs            # print to stdout
  *         node tools/abnahme-protokoll.mjs > protokoll.md
+ * Exit: 0 = all automatable A-checks green, 1 = at least one A-check red (the protocol is still printed to stdout).
  */
 import { spawnSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
