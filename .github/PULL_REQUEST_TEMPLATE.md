@@ -35,5 +35,6 @@ See CONTRIBUTING.md and docs/governance/ for the acceptance-test criteria.
 
 - [ ] No real patient data (synthetic / abstract only)
 - [ ] Intended-use / `DISCLAIMER.md` not weakened
+- [ ] AI-assisted changes disclosed (commit trailer `Co-Authored-By: <tool/model>`, see [`AI_USAGE.md`](../AI_USAGE.md)); no AI edits to `.bpmn`/`.svg`
 - [ ] Attribution / licence preserved (CC BY 4.0)
 - [ ] Targeting `dev` (not `main`); not self-merging

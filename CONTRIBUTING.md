@@ -122,6 +122,22 @@ Issue templates are bilingual (DE + EN). For BPMN-XML problems surfaced by a too
 see [`docs/model-issues/`](docs/model-issues/): tools/agents record findings there (they never
 edit a model), and a human files the issue from that finding.
 
+## AI-assisted contributions
+
+This repository uses AI coding agents for tooling, documentation and audits — never for the
+models. The full disclosure (EU AI Act Art. 50, COPE) is [`AI_USAGE.md`](AI_USAGE.md). Rules for
+contributors:
+
+- **Models are human-only.** No AI tool may edit, move or re-export `.bpmn`/`.svg` files; agents
+  report findings (`docs/model-issues/`, GitHub issues) and a human modeller changes the model.
+- **Mark AI-assisted commits** with a trailer naming the tool and model, e.g.
+  `Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>` (Claude Code sets it automatically;
+  other tools use the same trailer with their own name). AI-drafted PRs and issues end with a
+  "🤖 Generated with …" footer.
+- **Tick the disclosure box** in the pull-request template and review AI output before you
+  submit it — the human author of the PR is responsible for its content.
+- **Update `AI_USAGE.md`** when a new tool, model version or AI-assisted artifact class appears.
+
 ## Language
 
 The repository default language is **German**; technical documentation is in **English**.
@@ -130,7 +146,8 @@ The repository default language is **German**; technical documentation is in **E
   instrument (`docs/governance/`, German original).
 - **English:** ADRs (`docs/decisions/`), `AGENTS.md`, `CLAUDE.md`, this file
   (`CONTRIBUTING.md`), `CODE_OF_CONDUCT.md`, `CITATION.cff`, `docs/model-issues/`, `skills/`.
-- **Bilingual (DE + EN):** `DISCLAIMER.md`, the governance instrument's `.en.md` twins (English
+- **Bilingual (DE + EN):** `DISCLAIMER.md`, `AI_USAGE.md` (German binding text with an English
+  summary), the governance instrument's `.en.md` twins (English
   translation kept at the same version as the German original), and the issue templates
   (always provided in both languages).
 

@@ -16,6 +16,10 @@ so a release cut late in the evening may show the previous day there.
 ## [Unreleased]
 
 ### Changed
+- Checklist (DE + EN): authorship set in the front matter and the suggested citation — Susky, M.;
+  Scheel, R.; Schlieter, H. (Forschungsgruppe Digital Health, TU Dresden; ORCIDs as in
+  `CITATION.cff`), taken from the git history and the Zenodo release record (2026-09-05;
+  instrument content and version unchanged).
 - Checklist (DE + EN): the suggested citation and the §5 reuse note said "Version 0.3" while the
   document is v0.3.1 — corrected to 0.3.1 (2026-09-04; instrument content and version unchanged).
 - Handout EN and Protocol EN: the header comments now carry the same version stamps as the German

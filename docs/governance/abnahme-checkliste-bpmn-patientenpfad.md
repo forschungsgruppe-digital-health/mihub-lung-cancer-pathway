@@ -9,9 +9,9 @@ kurztitel: "BPMN-CP-Abnahmetestinstrument"
 version: "0.3.1"
 status: "Vorgeschlagenes Artefakt (DSR) – konzeptionell aus Kerntheorien abgeleitet, noch nicht empirisch validiert"
 sprache: "DE"
-autor: "[Nachname, Initiale]"
-affiliation: "[Einrichtung]"
-orcid: "[ORCID]"
+autor: "Susky, M.; Scheel, R.; Schlieter, H."
+affiliation: "Forschungsgruppe Digital Health, Technische Universität Dresden"
+orcid: "0000-0002-3906-0452; 0009-0001-6054-7812; 0000-0002-6513-9017"
 lizenz: "CC BY 4.0"
 persistent_id: "10.5281/zenodo.20943916 (Concept-DOI des Repository-Archivs)"
 zielgruppe: "klinische und technische Stakeholder; auch Modellierungsanfänger:innen"
@@ -21,7 +21,7 @@ zielgruppe: "klinische und technische Stakeholder; auch Modellierungsanfänger:i
 
 ## Zitationsvorschlag
 
-> [Nachname, Initiale] ([Jahr]). *Abnahmetest-Checkliste für BPMN-modellierte Patientenpfade* (Version 0.3.1) [Evaluationsinstrument]. [Einrichtung]. https://doi.org/10.5281/zenodo.20943916.
+> Susky, M.; Scheel, R.; Schlieter, H. (2026). *Abnahmetest-Checkliste für BPMN-modellierte Patientenpfade* (Version 0.3.1) [Evaluationsinstrument]. Forschungsgruppe Digital Health, Technische Universität Dresden. https://doi.org/10.5281/zenodo.20943916.
 
 *(Der DOI verweist auf das Repository-Archiv „Lungenkrebspatientenpfad – MiHUB (BPMN-Modell)“, in dem dieses Instrument enthalten ist; ein eigenständiger Instrument-DOI würde eine separate Zenodo-Hinterlegung erfordern.)*
 

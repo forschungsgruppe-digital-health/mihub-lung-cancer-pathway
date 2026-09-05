@@ -165,7 +165,7 @@ is therefore trimmed to the **citable artifact plus its essential metadata**:
 
 - **Kept:** `models/` (`.bpmn` + `.svg` + `models/README.md`), `docs/governance/` (the
   acceptance-test instrument incl. its README + CHANGELOG), `README.md`, `LICENSE`,
-  `CITATION.cff`, `DISCLAIMER.md`, `CHANGELOG.md`.
+  `CITATION.cff`, `DISCLAIMER.md`, `CHANGELOG.md`, `AI_USAGE.md` (AI-usage disclosure, added 2026-09-05).
 - **Excluded:** `tools/`, `skills/`, `.github/`, `package.json` + `package-lock.json`,
   `release-please-config.json`, `.release-please-manifest.json`, `version.txt`, `.bpmnlintrc`,
   `.vscode/`, `.claude/`, `.agents/`, `.gitignore`, `.gitattributes`, `AGENTS.md`, `CLAUDE.md`,

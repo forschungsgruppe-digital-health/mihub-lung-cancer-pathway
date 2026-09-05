@@ -26,7 +26,7 @@ There is no application here.
 - **Published artifacts** (= the release archive and therefore the Zenodo deposit, trimmed via
   `.gitattributes` `export-ignore`): the models (`models/*.bpmn` + paired `*.svg`) plus
   `models/README.md`, the acceptance-test instrument in `docs/governance/`, `README.md`,
-  `LICENSE`, `CITATION.cff`, `DISCLAIMER.md` and `CHANGELOG.md` — all CC BY 4.0.
+  `LICENSE`, `CITATION.cff`, `DISCLAIMER.md`, `CHANGELOG.md` and `AI_USAGE.md` — all CC BY 4.0.
   `docs/decisions/`, `docs/model-issues/`, this file, `CONTRIBUTING.md`, `CONVENTIONS.md`,
   `skills/`, `tools/`, `.github/` and the loose `docs/*.md` research notes at the docs root are
   export-ignored (verify with `git archive HEAD | tar -t`).
@@ -122,6 +122,10 @@ Claude Code discovers them via `.claude/skills` → `../skills`; Codex/Copilot v
   (Humans editing models follow `CONTRIBUTING.md`.)
 - **No real patient data.** Use only synthetic / abstract pathway content. Never
   commit patient data, even realistic-looking.
+- **Keep the AI-usage disclosure current.** [`AI_USAGE.md`](AI_USAGE.md) (EU AI Act Art. 50 / COPE)
+  records which artifact classes are AI-assisted and how they are marked. Update it whenever a
+  new tool or model version, a new skill/sub-agent, or a new AI-assisted artifact class appears,
+  and keep the `Co-Authored-By` commit trailer + the PR/issue footer on every AI-assisted change.
 - **Not for clinical use.** Do not remove or weaken `DISCLAIMER.md` or the README
   intended-use banner. Any change to legal/intended-use text needs human sign-off
   (TU Dresden Justiziariat / DPO).

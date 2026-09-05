@@ -5,7 +5,7 @@
 # artifact — the BPMN models + their SVG images — plus the essential metadata, without the
 # development & tooling scaffolding.
 #
-# KEPT in the archive: models/ (.bpmn + .svg + models/README.md), README.md, CHANGELOG.md
+# KEPT in the archive: models/ (.bpmn + .svg + models/README.md), README.md, AI_USAGE.md, CHANGELOG.md
 # (written by release-please on main and back-merged to dev), LICENSE, CITATION.cff,
 # DISCLAIMER.md, and docs/governance/ (the acceptance-test instrument). Everything listed
 # below is EXCLUDED — including .zenodo.json: Zenodo reads the deposit metadata from the

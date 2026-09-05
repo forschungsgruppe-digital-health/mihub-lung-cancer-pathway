@@ -10,9 +10,9 @@ short_title: "BPMN-CP Acceptance-Test Instrument"
 version: "0.3.1"
 status: "Proposed artifact (DSR) – conceptually derived from kernel theories, not yet empirically validated"
 language: "EN"
-author: "[Surname, Initial]"
-affiliation: "[Institution]"
-orcid: "[ORCID]"
+author: "Susky, M.; Scheel, R.; Schlieter, H."
+affiliation: "Forschungsgruppe Digital Health, Technische Universität Dresden"
+orcid: "0000-0002-3906-0452; 0009-0001-6054-7812; 0000-0002-6513-9017"
 license: "CC BY 4.0"
 persistent_id: "10.5281/zenodo.20943916 (concept DOI of the repository archive)"
 audience: "clinical and technical stakeholders; including modeling beginners"
@@ -22,7 +22,7 @@ audience: "clinical and technical stakeholders; including modeling beginners"
 
 ## Suggested citation
 
-> [Surname, Initial] ([Year]). *Acceptance Test Checklist for BPMN-Modelled Patient Pathways* (Version 0.3.1) [evaluation instrument]. [Institution]. https://doi.org/10.5281/zenodo.20943916.
+> Susky, M.; Scheel, R.; Schlieter, H. (2026). *Acceptance Test Checklist for BPMN-Modelled Patient Pathways* (Version 0.3.1) [evaluation instrument]. Forschungsgruppe Digital Health, Technische Universität Dresden. https://doi.org/10.5281/zenodo.20943916.
 
 *(The DOI points to the repository archive "Lungenkrebspatientenpfad – MiHUB (BPMN-Modell)", in which this instrument is included; a standalone instrument DOI would require a separate Zenodo deposit.)*
 
