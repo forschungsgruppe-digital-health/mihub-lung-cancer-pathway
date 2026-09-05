@@ -1,5 +1,43 @@
 # Changelog
 
+## [0.4.0-rc.1](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/compare/v0.3.0-rc.1...v0.4.0-rc.1) (2026-09-05)
+
+
+### Pathway changes
+
+* **citation:** add .zenodo.json (dataset) and a CITATION.cff sync check ([4048b64](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/4048b6487fa38585a6ab59edd931739dc15cc124))
+* **initial-entry:** add traditional initial entry pathway (symptomatic + incidental) ([58d55b9](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/58d55b97058dc890abde5e84e041d80007ee87e8))
+* **models:** initial-entry pathway (symptomatic + incidental) — tenth model ([1b191de](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/1b191def63220699cbed6e7e3c90ca295aba0631))
+* **tools:** stamp the Protokoll with version.txt + git describe; harden the model guard ([62c7867](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/62c78671633b493740fc72288679b9ba44b3899a))
+
+
+### Corrections
+
+* **initial-entry:** Zufallsbefund-Deadlock behoben, CT-Entwarnung + Datenobjekte ergänzt ([87f9172](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/87f917229b8b51269bf05fe25ff8d9f76ee7994a))
+* **tools:** per-file bpmnlint Linter, labelled INCONCLUSIVE elements, default-namespace prefix ([ffd5537](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/ffd55371c5e8b3eaa385b8088933b7c4263a0770))
+* whole-repo verification 2026-09-04 — 24 confirmed + 38 low findings applied ([45240ea](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/45240eab3e11cc60c4d15b767ecb42096954258c))
+* **xsd:** exclude BPMN4CP cp: extension elements from the XSD-core view — placement is by design ([0434ada](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/0434adac2c2864f1d9f2a1336df55c52f61be4d4))
+* **xsd:** treat BPMN4CP cp: elements as by-design; add .zenodo.json (dataset) + CITATION sync check ([34430f5](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/34430f56965baa3127d0751ff39fb519ae4c43cb))
+
+
+### Documentation & governance
+
+* align agent, skill and ADR docs with the tooling as built ([0baac57](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/0baac5728b996ee96da10d81382ce2eb93d5aa21))
+* apply the 2026-09-04 whole-repo verification (24 confirmed + 38 low findings) ([57ae513](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/57ae5132cacb24fb28989530cc2ce48e37d62ce7))
+* **readme:** link companion data-elements repo [HOLD: merge when data-elements is public] ([01337cf](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/01337cf62f0a178a5d34c3385e397278eb84c62a))
+* **readme:** link the companion data-elements repository ([d85f3b4](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/d85f3b41398d34bdf7c9cfa6a7487cce522374f2))
+* refresh counts, DOI references and archive links; file XSD-core findings ([b711dc1](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/b711dc1f1152d2e184bca367d0d5cf2241d8e694))
+* **synthea:** dataset-generation plan, BPMN-to-GMF primer, and data-source catalog ([7e8d928](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/7e8d9283543cfb19b617d4f3dfb1a026ce97c1fc))
+* **synthea:** realign generation docs to models/ layout, read-only-model rules & conformance gate ([e982703](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/e982703b22f3c2cecafc81b9cbe3b99e3d0dbfe2))
+* **synthea:** split BPMN tooling into three extension repos; drop out-of-scope assets ([9fc12ac](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/9fc12ac5522e64a4f829b13881ca6fb6f0be82c1))
+* ten models — add the initial-entry pathway to inventories and counts; sync CITATION.cff version via release-please ([802fc79](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/802fc79f31044a3f50dc2302abbe9f8965afdad1))
+* ten models (initial-entry) in all inventories; CITATION.cff version via release-please extra-files ([6045fd2](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/6045fd223b2fcb1fbd67a604f5e192ce9134bd44))
+
+
+### Tooling & maintenance
+
+* **release:** prepare release candidate 0.4.0-rc.1 (date-released 2026-09-05) ([c2aa563](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/c2aa56372cecadb7b030f8fe2fe7333b5ffee77d))
+
 ## [0.3.0-rc.1](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/compare/v0.2.1-rc.2...v0.3.0-rc.1) (2026-06-29)
 
 
