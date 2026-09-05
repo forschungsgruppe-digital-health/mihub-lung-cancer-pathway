@@ -146,6 +146,12 @@ repo of a handful of model files; we choose release-please for reproducibility a
   overarching + nine sub-pathways) is a **manual human action and still OPEN**; `.zenodo.json`
   governs new deposits only, it does not rewrite minted records.
 
+- **Decision 2026-09-05 — pre-1.0 Zenodo records are left as minted.** The maintainer decided not to
+  edit the two oldest release-candidate records (10.5281/zenodo.20943917 `v0.2.1-rc.1`,
+  10.5281/zenodo.20945321 `v0.2.1-rc.2` — resource type *Software*, "seven sub-pathways"
+  abstract): they are release candidates, superseded under the same concept DOI, and not the
+  citable artifact. From `v0.3.0-rc.1` on every record is *Dataset*; `v0.4.0-rc.1`
+  (10.5281/zenodo.22327274) was minted from `.zenodo.json`. The open item is closed.
 - **Amended 2026-09-04 — version sync.** `CITATION.cff` `version:` carries the
   `# x-release-please-version` marker and `CITATION.cff` is listed in `extra-files`, so
   release-please bumps it with every release (no more hand-edited version); `date-released`
@@ -200,6 +206,6 @@ Consequences:
   to obtain the concept DOI (10.5281/zenodo.20943916) for citation and for the instrument's
   `persistent_id` (version DOIs so far: `v0.2.1-rc.1` → 10.5281/zenodo.20943917, `v0.2.1-rc.2`
   → 10.5281/zenodo.20945321, `v0.3.0-rc.1` → 10.5281/zenodo.21029417; all minted with resource
-  type "Software" — still to be corrected to *Dataset* by hand on zenodo.org, see the Decision 3
+  type "Software" — left as minted by decision of 2026-09-05 (see Decision 3) — no manual edit, see the Decision 3
   amendment). What still follows, not precedes, the
   first "Accepted" is the **stable `1.0.0`** (Decision 1).
