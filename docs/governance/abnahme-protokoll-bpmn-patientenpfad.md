@@ -1,5 +1,5 @@
 <!--
-Repo-Pfad-Vorschlag: docs/governance/abnahme-protokoll-bpmn-patientenpfad.md
+Repo-Pfad: docs/governance/abnahme-protokoll-bpmn-patientenpfad.md
 Grundlage (Kriterien & Begründung): abnahme-checkliste-bpmn-patientenpfad.md (Instrument v0.3.1),
 abnahme-handout-bpmn-patientenpfad.md
 Protokoll-Vorlage Version: 1.0

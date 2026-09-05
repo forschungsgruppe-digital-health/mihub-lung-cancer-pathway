@@ -10,10 +10,10 @@ short_title: "BPMN-CP Acceptance-Test Instrument"
 version: "0.3.1"
 status: "Proposed artifact (DSR) – conceptually derived from kernel theories, not yet empirically validated"
 language: "EN"
-autor: "[Nachname, Initiale]"
-affiliation: "[Einrichtung]"
+author: "[Surname, Initial]"
+affiliation: "[Institution]"
 orcid: "[ORCID]"
-lizenz: "CC BY 4.0"
+license: "CC BY 4.0"
 persistent_id: "10.5281/zenodo.20943916 (concept DOI of the repository archive)"
 audience: "clinical and technical stakeholders; including modeling beginners"
 ---
@@ -22,7 +22,7 @@ audience: "clinical and technical stakeholders; including modeling beginners"
 
 ## Suggested citation
 
-> [Surname, Initial] ([Year]). *Acceptance Test Checklist for BPMN-Modelled Patient Pathways* (Version 0.3) [evaluation instrument]. [Institution]. https://doi.org/10.5281/zenodo.20943916.
+> [Surname, Initial] ([Year]). *Acceptance Test Checklist for BPMN-Modelled Patient Pathways* (Version 0.3.1) [evaluation instrument]. [Institution]. https://doi.org/10.5281/zenodo.20943916.
 
 *(The DOI points to the repository archive "Lungenkrebspatientenpfad – MiHUB (BPMN-Modell)", in which this instrument is included; a standalone instrument DOI would require a separate Zenodo deposit.)*
 
@@ -119,7 +119,7 @@ The acceptance-test logic follows the distinction between **verification vs. val
 
 ## 5. Application/reuse note
 
-The instrument is freely usable and adaptable under CC BY 4.0. When adapting (e.g. another indication), changed/added items should be marked as a deviation from this version (0.3) in order to preserve comparability.
+The instrument is freely usable and adaptable under CC BY 4.0. When adapting (e.g. another indication), changed/added items should be marked as a deviation from this version (0.3.1) in order to preserve comparability.
 
 ## 6. Planned evaluation (DSR positioning)
 

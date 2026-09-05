@@ -12,7 +12,8 @@
  *                    NoDeadActivities=STR-3, Safeness (1-safe, supports STR-2/4);
  *                    a deadlock/livelock (STR-4) surfaces as OptionToComplete=✗
  *   INCONCLUSIVE — the model uses elements outside the analyzer's supported subset
- *                  (`unsupported_elements`); e.g. OR-gateways, intermediateCatchEvents.
+ *                  (`unsupported_elements`); e.g. OR-gateways, intermediate catch events,
+ *                  typed start events (timer/message).
  *                  → human review, never a pass and never a hard block.
  *   ERROR        — the analyzer could not parse the model (malformed; also caught by
  *                  bpmnlint) → reported, non-blocking here.
@@ -61,7 +62,8 @@ async function check(file) {
     try { j = JSON.parse(text); } catch { /* non-JSON */ }
     if (!j) return { kind: 'ERROR', detail: `HTTP ${res.status} non-JSON` };
     if ((j.unsupported_elements || []).length) {
-      return { kind: 'INCONCLUSIVE', detail: [...new Set(j.unsupported_elements)].join(', ') };
+      // Same editor labels as VIOLATION below, so the unsupported element is locatable, not a bare id.
+      return { kind: 'INCONCLUSIVE', detail: [...new Set(j.unsupported_elements)].map((id) => labelForId(id, index)).join(', ') };
     }
     const viol = (j.property_results || []).filter((r) => !r.fulfilled);
     if (viol.length)
@@ -107,7 +109,7 @@ for (const file of files) {
 
 console.log('---------------------------------------------------------------');
 console.log(`soundness: ${violations} violation(s), ${inconclusive} inconclusive/error, ${files.length - violations - inconclusive} sound.`);
-console.log('Note: INCONCLUSIVE = unsupported elements (OR-gateways, intermediate catch events) → human review / remodel, never a pass.');
+console.log('Note: INCONCLUSIVE = unsupported elements (OR-gateways, intermediate catch events, typed start events such as timer/message) → human review / remodel, never a pass.');
 if (STRICT && violations) {
   console.error('soundness: FAIL (--strict) — a supported model violates a soundness property.');
   process.exit(1);

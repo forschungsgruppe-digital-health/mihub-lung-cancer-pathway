@@ -3,18 +3,29 @@
 # Validate the BPMN *core* of each file against the official OMG BPMN 2.0 XSD
 # (Semantic / DI / DC), shipped with bpmn-moddle.
 #
-# SCOPE: structural standard-conformance ONLY. Custom cp:/i18n: data lives in
-# <extensionElements> and is accepted by the schema via processContents="lax" —
-# i.e. a green XSD result does NOT mean the extensions are valid (see
-# tools/moddle-roundtrip.mjs for the extension layer).
+# SCOPE: structural standard-conformance of the BPMN CORE only. The models carry the
+# BPMN4CP clinical-pathway extension (`cp:`, http://www.helict.de/bpmn4cp): its
+# `cp:qualityIndicator` elements are DIRECT children of `bpmn:process` / the flow
+# elements BY DESIGN (maintainer decision 2026-09-04) — valid extension usage, not a
+# model defect. The OMG schema admits foreign elements only inside <extensionElements>,
+# so validating the raw file reports a false finding on every cp:-carrying model.
+# Therefore each file is validated through its CORE VIEW (tools/xsd-core-view.mjs):
+# the BPMN4CP elements are excluded first (line count preserved, so the reported line
+# numbers still point into the original file) and the extension content is validated
+# by the moddle layer instead (tools/moddle-roundtrip.mjs + tools/moddle/bpmn4cp.json).
+# i18n: content sits inside <extensionElements> and is accepted by the schema via
+# processContents="lax". Consequence: a FAILURE here is a genuine BPMN-core deviation —
+# and a green result does NOT mean the extensions are valid (the roundtrip's concern).
 #
 # Default mode is INFORMATIONAL: prints per-file PASS/FAIL and a summary, then
-# exits 0 even on failures (so it never blocks on the standard XSD's known
-# limitations w.r.t. extensions). Pass --strict to fail the run (exit 1) on a
-# schema-invalid core.
+# exits 0 even on failures (the layer reports, it never blocks). Pass --strict to
+# fail the run (exit 1) on a schema-invalid core.
 #
-# Requires: node (to locate the XSD + file list) and xmllint (libxml2).
+# Requires: node (to locate the XSD, the file list and to build the core view) and
+# xmllint (libxml2).
 # Usage: tools/validate-xsd.sh [--strict] [file.bpmn ...]
+# Exit:  0 = all cores schema-valid, or findings in informational mode;
+#        1 = findings with --strict.
 
 set -uo pipefail
 
@@ -67,28 +78,43 @@ if [ "${#FILES[@]}" -eq 0 ]; then
   exit 0
 fi
 
-echo "validate-xsd: validating ${#FILES[@]} file(s) against BPMN20.xsd (core only)…"
+# Scratch directory for the core views (a `.xml` file, never a `.bpmn`); removed on exit.
+# (`mktemp -d` with trailing X's is portable across BSD/macOS and GNU mktemp — a suffixed
+# file template is not.)
+WORK="$(mktemp -d "${TMPDIR:-/tmp}/validate-xsd.XXXXXX")" || exit 1
+trap 'rm -rf "$WORK"' EXIT
+CORE="$WORK/core-view.xml"
+
+echo "validate-xsd: validating ${#FILES[@]} file(s) against BPMN20.xsd (core view — BPMN4CP cp: elements excluded)…"
 echo
 
 FAIL=0
 for f in "${FILES[@]}"; do
-  if out="$(xmllint --noout --schema "$XSD" "$f" 2>&1)"; then
+  # Build the core view; its stderr (usage / unbalanced-markup errors) is the finding.
+  if ! err="$(node "$SCRIPT_DIR/xsd-core-view.mjs" "$f" 2>&1 >"$CORE")"; then
+    echo "✖ $f"
+    echo "$err" | sed 's/^/    /' | head -8
+    FAIL=$((FAIL + 1))
+    continue
+  fi
+  # xmllint reports the temp path; map it back to the original file (line numbers match).
+  if out="$(xmllint --noout --schema "$XSD" "$CORE" 2>&1)"; then
     echo "✓ $f"
   else
     echo "✖ $f"
-    echo "$out" | sed 's/^/    /' | head -8
+    echo "$out" | sed "s|$CORE|$f|g" | sed 's/^/    /' | head -8
     FAIL=$((FAIL + 1))
   fi
 done
 
 echo
 if [ "$FAIL" -gt 0 ]; then
-  echo "validate-xsd: $FAIL file(s) failed the BPMN-core schema."
-  echo "validate-xsd: NOTE — extension content is not validated here (lax); see moddle-roundtrip."
+  echo "validate-xsd: $FAIL file(s) failed the BPMN-core schema (genuine BPMN-core deviations)."
+  echo "validate-xsd: NOTE — BPMN4CP cp: elements are excluded before validating (direct children of the process by design; validated by moddle-roundtrip)."
   if [ "$STRICT" -eq 1 ]; then
     exit 1
   fi
   echo "validate-xsd: informational mode — not failing the run (use --strict to enforce)."
   exit 0
 fi
-echo "validate-xsd: OK (BPMN core is schema-valid)."
+echo "validate-xsd: OK (BPMN core is schema-valid; BPMN4CP cp: elements excluded by design, see moddle-roundtrip)."

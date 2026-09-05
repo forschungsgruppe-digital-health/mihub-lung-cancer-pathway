@@ -1,13 +1,14 @@
 # Modelle / Models
 
 BPMN-2.0-Modelle des Lungenkrebs-Patientenpfads. Namenskonvention:
-`lung-cancer-<phase>-pathway.{bpmn,svg}` (kebab-case; [ADR-0004](../docs/decisions/0004-repo-structure-and-model-naming.md);
-per CI geprüft mit `npm run check:naming`). Jede `.bpmn`-Quelle hat eine zugehörige
+`lung-cancer-<phase>-pathway.{bpmn,svg}` (kebab-case; [ADR-0004](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/decisions/0004-repo-structure-and-model-naming.md);
+in der CI als eigener blockierender Schritt geprüft mit `npm run check:naming`). Jede `.bpmn`-Quelle hat eine zugehörige
 `.svg`-Visualisierung gleichen Namens.
 
 | Modell (`models/…`) | Phase | Beschreibung |
 |---|---|---|
 | `lung-cancer-overarching-pathway` | Übergreifend | übergreifender Pfad; verknüpft alle Teilpfade |
+| `lung-cancer-initial-entry-pathway` | Initialer Einstieg | Einstieg in den Pfad: symptomatische Patient:innen / Zufallsbefund (Rundherd) |
 | `lung-cancer-screening-pathway` | Krebsfrüherkennung | Lung Cancer Screening (LCS) |
 | `lung-cancer-diagnostic-pathway` | Diagnostik | Diagnostik-Teilpfad |
 | `lung-cancer-patient-consultation-pathway` | Patientengespräch | Aufklärung |
@@ -18,7 +19,8 @@ per CI geprüft mit `npm run check:naming`). Jede `.bpmn`-Quelle hat eine zugeh�
 | `lung-cancer-aftercare-pathway` | Nachsorge | Nachsorge-Teilpfad |
 
 > **Abnahmetest / Status:** siehe [`../docs/governance/`](../docs/governance/).
-> **Bekannte Modellprobleme:** [`../docs/model-issues/`](../docs/model-issues/).
+> **Bekannte Modellprobleme:** [`docs/model-issues/`](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/tree/main/docs/model-issues)
+> (nicht Teil des Release-Archivs).
 > **Änderungen** an Modellen erfolgen ausschließlich durch Modellierer:innen (Agenten sind
-> read-only, Abnahmetest SEM-6 Face Validity) — siehe [`../AGENTS.md`](../AGENTS.md) und
-> [`../CONTRIBUTING.md`](../CONTRIBUTING.md).
+> read-only, Abnahmetest SEM-6 Face Validity) — siehe [`AGENTS.md`](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/AGENTS.md) und
+> [`CONTRIBUTING.md`](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/CONTRIBUTING.md).

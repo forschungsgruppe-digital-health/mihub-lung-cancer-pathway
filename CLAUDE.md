@@ -8,4 +8,10 @@
 > same single source. Add Claude-Code-specific notes below if ever needed.
 >
 > Skills live in `skills/` and are exposed to Claude Code via the `.claude/skills`
-> symlink (→ `../skills`): currently `bpmn-conformance`.
+> symlink (→ `../skills`): `bpmn-conformance`, `bpmn-acceptance`, `bpmn-soundness`,
+> `clinical-pathway-review`, `model-inventory` — the catalog (trigger + gate per skill)
+> is `skills/README.md`.
+>
+> The `guard-model-files` PreToolUse hook (`.claude/hooks/guard-model-files.sh`, wired in
+> `.claude/settings.json`) denies any write to a `.bpmn`/`.svg` model — see the hard rules
+> in `AGENTS.md`.

@@ -1,0 +1,34 @@
+{
+  "upload_type": "dataset",
+  "title": "Lungenkrebspatientenpfad – MiHUB (BPMN-Modell)",
+  "description": "<p>BPMN 2.0 models of the overarching lung-cancer patient pathway and nine sub-pathways (initial entry, screening, diagnostics, patient consultation, tumor board, molecular tumor board, treatment, palliative care [draft], aftercare), developed in the MiHUB project (TU Dresden / Forschungsgruppe Digital Health). A research, education and interoperability-reference artifact — not clinically validated and not for use in direct patient care (see DISCLAIMER.md).</p>",
+  "creators": [
+    {
+      "name": "Susky, Marcel",
+      "affiliation": "Forschungsgruppe Digital Health, Technische Universität Dresden",
+      "orcid": "0000-0002-3906-0452"
+    },
+    {
+      "name": "Scheel, Rebecca",
+      "affiliation": "Forschungsgruppe Digital Health, Technische Universität Dresden",
+      "orcid": "0009-0001-6054-7812"
+    },
+    {
+      "name": "Schlieter, Hannes",
+      "affiliation": "Forschungsgruppe Digital Health, Technische Universität Dresden",
+      "orcid": "0000-0002-6513-9017"
+    }
+  ],
+  "license": "cc-by-4.0",
+  "access_right": "open",
+  "keywords": [
+    "BPMN",
+    "clinical pathway",
+    "patient pathway",
+    "lung cancer",
+    "oncology",
+    "MiHUB",
+    "Medical Informatics Initiative"
+  ],
+  "notes": "Research, education and interoperability-reference artifact — not clinically validated, not for use in direct patient care (see DISCLAIMER.md). Concept DOI: 10.5281/zenodo.20943916"
+}

@@ -2,21 +2,32 @@
 /**
  * Aggregating conformance gate — runs every check, prints all output, and fails
  * only if a BLOCKING check failed. Unlike a plain `a && b && c` chain this does
- * not short-circuit, so a single run reports the full picture (structural lint
- * AND the SYN-5 OR-gateway findings AND the informational layers).
+ * not short-circuit, so a single run reports the full picture (naming AND structural
+ * lint AND the SYN-5 OR-gateway findings AND the roundtrip AND the informational layer).
  *
  * Blocking layers (decision lives in the tool, never in the model):
+ *   - naming convention   ADR-0004 (`lung-cancer-<phase>-pathway`, paired .bpmn/.svg);
+ *                         tools/check-naming.mjs
  *   - bpmnlint            structural BPMN 2.0 correctness
  *   - model metrics       Abnahmetest SYN-5 (no OR-gateway); SYN-2/SYN-4 advisory
- * Informational layers (reported, never blocking yet):
- *   - moddle roundtrip    serialization stability + extension-content presence
- *                         (cp:/i18n: are not yet modelled — see follow-up)
- *   - XSD core            BPMN core vs OMG BPMN20.xsd (extensions pass via lax)
+ *   - moddle roundtrip    serialization stability + cp:/i18n lossless (the BPMN4CP `cp:`
+ *                         descriptor is registered in tools/moddle/descriptors.mjs; `i18n:`
+ *                         passes through as generic extension content)
+ * Informational layer (reported, never blocking):
+ *   - XSD core            BPMN core vs OMG BPMN20.xsd, validated on the "core view" of each file
+ *                         (tools/xsd-core-view.mjs strips the BPMN4CP cp: elements first — they sit
+ *                         directly under the process BY DESIGN and are validated by the moddle
+ *                         layer; i18n: passes via lax extensionElements). A failure here is a
+ *                         genuine BPMN-core deviation — today only the overarching model's
+ *                         un-namespaced DI colour attributes (informational), see
+ *                         docs/model-issues/2026-09-04-xsd-core-extension-placement.md
  *
  * Usage: node tools/check-conformance.mjs [--warn]
  *   --warn  (or env CONFORMANCE_WARN_ONLY=1): ADVISORY mode — report blocking findings as
  *           warnings and exit 0. CI uses this during the release-candidate / pre-remodel phase,
  *           since the models are known-red by design (docs/model-issues, docs/decisions/0001).
+ *           NOTE: warn-only downgrades EVERY blocking layer, naming included — which is why
+ *           .github/workflows/ci.yml runs `npm run check:naming` as a separate BLOCKING step.
  *           Default is STRICT (a blocking finding exits 1).
  * Exit:  0 = all blocking checks passed (or warn-only), 1 = a blocking check failed (strict).
  */
@@ -32,7 +43,9 @@ const checks = [
   { name: 'bpmnlint (BPMN structure/correctness)', cmd: process.execPath, args: ['tools/lint-bpmn.mjs'], blocking: true },
   { name: 'model metrics (Abnahmetest SYN-5 blocking; SYN-2/4 advisory)', cmd: process.execPath, args: ['tools/check-model-metrics.mjs'], blocking: true },
   { name: 'moddle roundtrip (cp:/i18n lossless + stable)', cmd: process.execPath, args: ['tools/moddle-roundtrip.mjs'], blocking: true },
-  { name: 'XSD core (OMG BPMN20.xsd)', cmd: 'bash', args: ['tools/validate-xsd.sh'], blocking: false },
+  // `--strict` makes validate-xsd.sh exit 1 on findings (its default swallows them as exit 0), so the
+  // summary can show `warn`; the layer stays non-blocking HERE (blocking: false) — exit code unaffected.
+  { name: 'XSD core (OMG BPMN20.xsd)', cmd: 'bash', args: ['tools/validate-xsd.sh', '--strict'], blocking: false },
 ];
 
 let blockingFailures = 0;

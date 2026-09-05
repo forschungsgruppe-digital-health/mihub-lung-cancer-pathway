@@ -5,7 +5,11 @@
       "release-type": "simple",
       "package-name": "mihub-lung-cancer-pathway",
       "bump-minor-pre-major": true,
-      "prerelease": true
+      "prerelease": true,
+      "extra-files": [
+        "CITATION.cff",
+        { "type": "json", "path": "package.json", "jsonpath": "$.version" }
+      ]
     }
   },
   "include-component-in-tag": false,

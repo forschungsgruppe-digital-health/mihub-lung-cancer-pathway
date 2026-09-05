@@ -1,6 +1,6 @@
 ---
 name: bpmn-conformance
-description: Validate the lung-cancer pathway .bpmn models for BPMN 2.0 structural correctness and the automatable acceptance-test conventions (no OR-gateway, single start/end, size) before a commit or PR. Use whenever you edit any .bpmn file. Runs bpmnlint + the model-metrics gate + serialization roundtrip + XSD core, then explains the results.
+description: Validate the lung-cancer pathway .bpmn models for BPMN 2.0 structural correctness and the automatable acceptance-test conventions (no OR-gateway, single start/end, size) before a commit or PR. Use whenever a .bpmn file has changed (human edit) and before any commit or PR that touches models/ — agents verify, they never edit the models. Runs the naming check (ADR-0004) + bpmnlint + the model-metrics gate + serialization roundtrip (all blocking) + XSD core (informational), then explains the results.
 ---
 
 # BPMN conformance
@@ -21,30 +21,35 @@ The decision is made by deterministic CLI tools, **not** by you. Your job is to
 From the repo root (Node ≥ 18; `npm ci` once):
 
 ```bash
-npm run check:conformance     # bpmnlint + model metrics + roundtrip + XSD (the gate)
+npm run check:conformance     # naming (ADR-0004) + bpmnlint + model metrics + roundtrip + XSD core (the gate)
 ```
 
 Or individually:
 
 ```bash
+npm run check:naming          # ADR-0004: models/ only, lung-cancer-<phase>-pathway.{bpmn,svg}, paired bpmn/svg (blocking)
 npm run lint:bpmn             # structural BPMN 2.0 (bpmnlint recommended + correctness; no-OR = error)
-npm run check:metrics         # acceptance-test SYN-5 (no OR-gateway, blocking) + SYN-2/4, lanes, prefix (advisory)
-npm run check:roundtrip       # serialization stability + cp:/i18n: extension presence (informational)
+npm run check:metrics         # acceptance-test SYN-5 (no OR-gateway, blocking) + SYN-2/4, SEM-1 lanes, prefix (advisory)
+npm run check:roundtrip       # serialization stability + cp:/i18n lossless (blocking)
 npm run check:xsd             # OMG BPMN20.xsd core validation (informational)
 ```
 
-Scope to specific files by appending paths, e.g. `npm run check:metrics -- models/lung-cancer-treatment-pathway.bpmn`.
+Scope to specific files by appending paths, e.g. `npm run check:metrics -- models/lung-cancer-treatment-pathway.bpmn`:
+`lint:bpmn`, `check:metrics`, `check:roundtrip`, `check:xsd` and `check:soundness` accept `.bpmn`
+paths (resolved by `tools/bpmn-files.mjs`); `check:naming` and the `check:conformance` aggregator
+**always** scan all of `models/` — a path argument is not forwarded there.
 
 ## Division of labour (do not conflate)
 
 | Layer | Tool | Checks | Blocking? |
 |---|---|---|---|
+| Naming | `check-naming.mjs` | ADR-0004: models live in `models/` only, named `lung-cancer-<phase>-pathway.{bpmn,svg}`, every `.bpmn` paired with its `.svg` | **yes** |
 | Structure | bpmnlint (programmatic) | disconnected nodes, missing start/end, implicit splits, missing labels, **no OR-gateway** | **yes** (any error) |
-| Conventions | `check-model-metrics.mjs` | **SYN-5** no OR (blocking); SYN-2 one start/end, SYN-4 ≤50/level, lane presence, prefix hygiene (advisory) | **yes** on OR-gateways |
-| Extension data | `moddle-roundtrip.mjs` | serialization is idempotent; `cp:`/`i18n:` content present | no (informational) |
-| Standard core | xmllint vs BPMN20.xsd | BPMN core matches OMG schema | no (informational) |
+| Conventions | `check-model-metrics.mjs` | **SYN-5** no OR (blocking); SYN-2 one start/end, SYN-4 ≤50/level, SEM-1 lane presence, prefix hygiene (advisory) | **yes** on OR-gateways |
+| Extension data | `moddle-roundtrip.mjs` | serialization is idempotent; `cp:` (BPMN4CP) elements preserved losslessly (descriptor registered, `tools/moddle/descriptors.mjs`); `i18n:` passes through | **yes** (data loss or unstable serialization exits 1) |
+| Standard core | xmllint vs BPMN20.xsd on the *core view* (`xsd-core-view.mjs` excludes the BPMN4CP `cp:` elements first — they are direct children of the process by design) | BPMN core matches the OMG schema; a failure is a genuine core deviation (today only the DI colour attributes on `overarching`) | no (informational) |
 
-> Note: the "Blocking?" column is the LOCAL default (strict). During the 0.2.0-rc / pre-remodel phase the CI gate runs ADVISORY (warn-only): it reports every finding as `::warning::` and exits 0, so it does NOT block PRs. Hard enforcement is re-enabled (drop `CONFORMANCE_WARN_ONLY`) after the model remodel — see `.github/workflows/ci.yml` and `tools/check-conformance.mjs`.
+> Note: the "Blocking?" column is the LOCAL default (strict). During the release-candidate (0.x.y-rc.N) / pre-remodel phase the CI gate runs ADVISORY (warn-only, `CONFORMANCE_WARN_ONLY: 'true'`): it reports every finding as `::warning::` and exits 0, so it does NOT block PRs. Exception: in CI the naming layer also runs as its own blocking `npm run check:naming` step, so a misnamed or unpaired model fails the PR even while the rest of the gate is warn-only. Hard enforcement of the whole gate is re-enabled (drop `CONFORMANCE_WARN_ONLY`) after the model remodel — see `.github/workflows/ci.yml` and `tools/check-conformance.mjs`.
 
 ## Interpreting results
 
@@ -55,14 +60,35 @@ Scope to specific files by appending paths, e.g. `npm run check:metrics -- model
   acceptance-test Protokoll — do not edit the model.
 - **metrics ⚠** (SYN-2/SYN-4/lanes/prefix) → advisory; a reviewer adjudicates
   intentional multi-start, orchestration size, etc. Not a build failure.
-- **roundtrip `note: extension content dropped`** → expected today: no `cp:`/`i18n:`
-  moddle descriptor is registered yet, so that clinical content is not validated and
-  would be lost on a moddle re-save. Registering the descriptors is a tracked
-  follow-up; do not "fix" it by deleting the extension content.
-- **XSD `fails to validate`** → informational; the standard XSD cannot see extension
-  content (it passes via `processContents="lax"`), and the `cp:`/colour attributes
-  are expected to fail core validation. A green XSD does **not** mean the extensions
-  are valid — that is the roundtrip's concern.
+- **roundtrip `DATA LOSS: … dropped on parse`, `serialization is NOT idempotent`, or
+  `loss warning:`** → blocking (exit 1). The `cp:` (BPMN4CP) descriptor
+  `tools/moddle/bpmn4cp.json` is registered via `tools/moddle/descriptors.mjs`, so `cp:`
+  elements survive losslessly and `i18n:` rides along via lax `extensionElements`. Today the
+  run ends with the summary line `roundtrip: OK (lossless + stable)`; per model each file
+  prints `stable=true` with its cp:/i18n element count preserved (`n -> n`), and three files
+  (`diagnostic`, `overarching`, `palliative-care`) show `⚠` for benign "unknown attribute"
+  notices (`cp:selectionBehavior` / `cp:definitionCanonical` / DI colours — preserved
+  verbatim, not data loss). A failure means an extension
+  element the descriptor does not know (new/renamed `cp:` type) or a model that
+  re-serializes differently — **report it**; never "fix" it by deleting extension content.
+- **XSD `fails to validate`** → informational, but a **genuine BPMN-core deviation**: the
+  layer validates the *core view* of each file (`tools/xsd-core-view.mjs` excludes the BPMN4CP
+  `cp:` elements first — `cp:qualityIndicator` sits directly under the process **by design**,
+  maintainer decision 2026-09-04, and is validated by the roundtrip's moddle descriptor
+  instead; `i18n:` content passes via `processContents="lax"` in `extensionElements`). As of
+  2026-09-04 only `overarching` is red here (un-namespaced DI colour attributes on the plane —
+  housekeeping, `docs/model-issues/` 2026-09-04 Issue X2; Issue X1 is resolved as by design).
+  Reported line numbers refer to the original file (the core view keeps the line count). A
+  green XSD does **not** mean the extensions are valid — that is the roundtrip's concern.
+- **Element references** — the tools print elements as `"Name" (id)` or
+  `‹unnamed Type› (id)` (`tools/element-names.mjs`): each bpmnlint finding line reads
+  `error|warning  <message>  →  "Name" (id)  (rule-id)` — the trailing parenthesised token is
+  the bpmnlint rule id and `→ "Name" (id)` is the element (omitted when the report carries no
+  element id); the metrics gate lists every OR-gateway and every extra start/end event by
+  label, and the soundness wrapper maps `problematic_elements` (VIOLATION) and
+  `unsupported_elements` (INCONCLUSIVE) the same way.
+  `‹unnamed …›` usually coincides with a bpmnlint `label-required` finding. Quote these
+  references verbatim in `docs/model-issues/` so the human modeler can locate the element.
 
 Never claim "XSD green ⇒ everything valid". State which layers passed and which are
 informational.

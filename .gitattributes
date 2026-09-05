@@ -5,11 +5,15 @@
 # artifact — the BPMN models + their SVG images — plus the essential metadata, without the
 # development & tooling scaffolding.
 #
-# KEPT in the archive: models/ (.bpmn + .svg), README.md, LICENSE, CITATION.cff, DISCLAIMER.md,
-# and docs/governance/ (the acceptance-test instrument). Everything listed below is EXCLUDED.
+# KEPT in the archive: models/ (.bpmn + .svg + models/README.md), README.md, CHANGELOG.md
+# (written by release-please on main and back-merged to dev), LICENSE, CITATION.cff,
+# DISCLAIMER.md, and docs/governance/ (the acceptance-test instrument). Everything listed
+# below is EXCLUDED — including .zenodo.json: Zenodo reads the deposit metadata from the
+# repository via the GitHub API at release time, not from the archive.
 #
 # NOTE: applies to FUTURE releases only — the file must be present in the tagged commit. The
-# already-archived v0.2.1-rc.1 is unaffected. To exclude/keep more, edit the lists below.
+# already-archived v0.2.0-rc.1 and v0.2.1-rc.1 are unaffected (untrimmed); v0.2.1-rc.2 onwards
+# are trimmed. To exclude/keep more, edit the lists below.
 
 # --- development & build tooling ---
 /tools/                         export-ignore
@@ -28,6 +32,7 @@
 /.agents/                       export-ignore
 /.gitignore                     export-ignore
 /.gitattributes                 export-ignore
+/.zenodo.json                   export-ignore
 /AGENTS.md                      export-ignore
 /CLAUDE.md                      export-ignore
 
@@ -38,3 +43,7 @@
 # docs/governance/ (the acceptance-test instrument) is KEPT; the process docs are excluded:
 /docs/decisions/                export-ignore
 /docs/model-issues/             export-ignore
+# Research / working notes at the docs ROOT (Synthea primer, dataset-generation plan, data
+# sources for probabilities/timing) are not part of the citable artifact. `*` does not cross
+# `/`, so this matches only docs/<file>.md — docs/governance/ stays KEPT.
+/docs/*.md                      export-ignore
