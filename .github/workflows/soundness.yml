@@ -8,12 +8,30 @@ name: Soundness (advisory)
 # run output for the current 10-model set. Flip to `--strict` (blocking) only after the
 # model remodel.
 
+# Runs on pushes to main/dev as well as on PRs: the README status badge for this workflow
+# filters on branch=dev, so it needs runs on the branch itself, not only on pull requests.
+# The paths cover the wrapper plus everything it imports or is installed from (bpmn-files,
+# element-names, package.json + the lockfile).
 on:
+  push:
+    branches: [main, dev]
+    paths:
+      - "**/*.bpmn"
+      - "tools/check-soundness.mjs"
+      - "tools/bpmn-files.mjs"
+      - "tools/element-names.mjs"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/soundness.yml"
   pull_request:
     branches: [main, dev]
     paths:
       - "**/*.bpmn"
       - "tools/check-soundness.mjs"
+      - "tools/bpmn-files.mjs"
+      - "tools/element-names.mjs"
+      - "package.json"
+      - "package-lock.json"
       - ".github/workflows/soundness.yml"
   workflow_dispatch:
 
@@ -33,10 +51,10 @@ jobs:
           - 8090:8080
     steps:
       - name: Checkout repository
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
       - name: Setup Node.js
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: 20
           cache: npm

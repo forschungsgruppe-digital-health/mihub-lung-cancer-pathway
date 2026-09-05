@@ -10,11 +10,12 @@ name: CI
 # release-candidate / pre-remodel phase, ALL layers run ADVISORY (warn-only) EXCEPT the
 # naming convention, which a dedicated step enforces hard (ADR-0004 promises CI enforcement).
 #
-# NOTE: the current models are known-red (pre-existing structural defects + four
-# OR-gateways) — see docs/decisions/0001 and docs/model-issues/. During the
-# release-candidate / pre-remodel phase the aggregated gate runs in ADVISORY (warn-only)
-# mode: it REPORTS every finding (as ::warning::) but does NOT fail the check, so it does
-# not block release-candidate / model-refinement PRs. Re-enable enforcement after the
+# NOTE: the current models are known-red (pre-existing structural defects + OR-gateways:
+# 13 as of 2026-09-04 — treatment 2, aftercare 4, palliative-care 7; the live count is what
+# `npm run check:conformance` prints) — see docs/decisions/0001 and docs/model-issues/.
+# During the release-candidate / pre-remodel phase the aggregated gate runs in ADVISORY
+# (warn-only) mode: it REPORTS every finding (as ::warning::) but does NOT fail the check, so
+# it does not block release-candidate / model-refinement PRs. Re-enable enforcement after the
 # remodel by removing CONFORMANCE_WARN_ONLY below (and then add it as a required check).
 
 on:
@@ -32,10 +33,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
       - name: Setup Node.js
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: 20
           cache: npm
