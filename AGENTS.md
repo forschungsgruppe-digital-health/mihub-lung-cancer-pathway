@@ -23,7 +23,13 @@ There is no application here.
 
 ## Artifacts vs. tooling
 
-- **Published artifacts:** the `*.bpmn` + `*.svg` models and the `docs/` (CC BY 4.0).
+- **Published artifacts** (= the release archive and therefore the Zenodo deposit, trimmed via
+  `.gitattributes` `export-ignore`): the models (`models/*.bpmn` + paired `*.svg`) plus
+  `models/README.md`, the acceptance-test instrument in `docs/governance/`, `README.md`,
+  `LICENSE`, `CITATION.cff`, `DISCLAIMER.md` and `CHANGELOG.md` — all CC BY 4.0.
+  `docs/decisions/`, `docs/model-issues/`, this file, `CONTRIBUTING.md`, `CONVENTIONS.md`,
+  `skills/`, `tools/`, `.github/` and the loose `docs/*.md` research notes at the docs root are
+  export-ignored (verify with `git archive HEAD | tar -t`).
 - **Dev/CI tooling:** a `package.json` (devDependencies only, `private`, `type: module`)
   plus `tools/`. `node_modules/` is **git-ignored and never committed** — so the
   toolchain never pollutes the published artifact. Rationale: [`docs/decisions/0001`](docs/decisions/0001-repo-tooling-and-conformance-gate.md).
@@ -48,14 +54,14 @@ Run `npm ci` once (Node ≥ 18), then `npm run check:conformance`. To register a
 `.bpmn` location, edit `ROOTS` in `tools/bpmn-files.mjs` (the single file-discovery source).
 
 > The CI aggregator currently runs **advisory (warn-only)**: the existing models carry structural
-> defects and four `bpmn:InclusiveGateway`s (OR), so the gate **reports** these as warnings but does **not** fail the check or block PRs (env `CONFORMANCE_WARN_ONLY` in `.github/workflows/ci.yml`; local default stays strict). The naming convention (`npm run check:naming`) is enforced as its own **blocking** CI step. Naming and roundtrip are green on every model, the XSD core on all but the overarching model: the `cp:` (BPMN4CP) extension content is modelled by the moddle descriptor `tools/moddle/bpmn4cp.json` (registered via `tools/moddle/descriptors.mjs`) and round-trips losslessly; only `i18n:` attributes pass through as unknown attributes. The `cp:qualityIndicator` elements are direct children of the process **by design** (BPMN4CP clinical-pathway extension; maintainer decision 2026-09-04 — not a defect), so the informational XSD-core layer validates a *core view* with the BPMN4CP elements excluded (`tools/xsd-core-view.mjs`) and a failure there is a genuine BPMN-core deviation — today only the overarching model's un-namespaced DI colour attributes (informational; `docs/model-issues/2026-09-04-xsd-core-extension-placement.md`, Issue X2). Hard enforcement is re-enabled after the remodel. Greening it is tracked work (see `docs/decisions/0001`), and it
+> defects and 13 `bpmn:InclusiveGateway`s (OR — treatment 2, aftercare 4, palliative-care 7; `npm run check:metrics` is the authoritative count), so the gate **reports** these as warnings but does **not** fail the check or block PRs (env `CONFORMANCE_WARN_ONLY` in `.github/workflows/ci.yml`; local default stays strict). The naming convention (`npm run check:naming`) is enforced as its own **blocking** CI step. Naming and roundtrip are green on every model, the XSD core on all but the overarching model: the `cp:` (BPMN4CP) extension content is modelled by the moddle descriptor `tools/moddle/bpmn4cp.json` (registered via `tools/moddle/descriptors.mjs`) and round-trips losslessly; only `i18n:` attributes pass through as unknown attributes. The `cp:qualityIndicator` elements are direct children of the process **by design** (BPMN4CP clinical-pathway extension; maintainer decision 2026-09-04 — not a defect), so the informational XSD-core layer validates a *core view* with the BPMN4CP elements excluded (`tools/xsd-core-view.mjs`) and a failure there is a genuine BPMN-core deviation — today only the overarching model's un-namespaced DI colour attributes (informational; `docs/model-issues/2026-09-04-xsd-core-extension-placement.md`, Issue X2). Hard enforcement is re-enabled after the remodel. Greening it is tracked work (see `docs/decisions/0001`), and it
 > requires modelling + clinical judgment — agents must not "fix" pathway logic
 > unilaterally.
 
 ## Acceptance Test (the human + tool gate)
 
 Formal sign-off of a model uses the **Acceptance Test instrument** in
-[`docs/governance/`](docs/governance/) (Checkliste / Handout / Protokoll, v0.3.1).
+[`docs/governance/`](docs/governance/) — the Checkliste (the instrument, v0.3.1) plus the Handout (v0.2, same criteria IDs) and the Protokoll template (v1.0, criteria basis: instrument v0.3.1).
 Method column: **A** = automatable tool (the gate above), **R** = review, **K** =
 consensus. The automatable criteria (SYN-1/2/4/5, STR-1..4) are tooled; the clinical
 (SEM) and pragmatic (PRA) criteria, the three gates, and the overall decision are
@@ -92,7 +98,7 @@ Claude Code discovers them via `.claude/skills` → `../skills`; Codex/Copilot v
 
 | Skill (open this) | Fires when you… | Gate / output |
 |---|---|---|
-| `skills/bpmn-conformance/SKILL.md` | edit any `**/*.bpmn` | `npm run check:conformance` |
+| `skills/bpmn-conformance/SKILL.md` | see that a `.bpmn` under `models/` has changed (human edit) — before any commit or PR touching `models/`; agents verify, they never edit the models | `npm run check:conformance` |
 | `skills/bpmn-acceptance/SKILL.md` | prepare a formal acceptance test | `npm run abnahme:protokoll` (evidence only; never stamps the acceptance test) |
 | `skills/clinical-pathway-review/SKILL.md` | review SEM/PRA criteria | advisory findings (read-only) |
 | `skills/model-inventory/SKILL.md` | map the model set | Model Inventory Matrix (read-only) |

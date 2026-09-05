@@ -83,7 +83,7 @@ flowchart LR
 - [ ] Decide dataset cohort target (e.g. N patients; stage/histology/biomarker mix; curative vs palliative ratio).
 
 ### Phase 1 — **Step (b): target Synthea module topology** → see §7
-- [ ] Define main module `lung_cancer_mihub` + one submodule per BPMN sub-pathway under [`models/`](../models/) (screening, diagnostic, patient-consultation, tumor-board, molecular-tumor-board, treatment, palliative-care [WIP], aftercare).
+- [ ] Define main module `lung_cancer_mihub` + one submodule per BPMN sub-pathway under [`models/`](../models/) (nine: initial-entry, screening, diagnostic, patient-consultation, tumor-board, molecular-tumor-board, treatment, palliative-care [WIP], aftercare).
 - [ ] Define the shared Person-attribute contract (stage, histology, biomarkers, treatment_intent…).
 - [ ] Review the topology diagram with clinical/AP3 before any JSON.
 
@@ -94,8 +94,8 @@ flowchart LR
 - [ ] Align BPMN element/annotation IDs with data-element IDs (`care_process.trigger`) so codes/MII bindings can be pulled from the data-elements catalog.
 
 ### Phase 3 — GMF-compatibility modelling pass (human modellers) → see §8
-- [ ] Reconcile the **known baseline findings** first ([`docs/model-issues/2026-06-25-baseline.md`](model-issues/2026-06-25-baseline.md)): the **4 OR-gateways** in treatment (2) + aftercare (2) (SYN-5 / R5), the structural + dead-activity defects, the molecular-tumor-board soundness deadlock (STR-1), and decomposing the overarching pathway (5 start events, 140 elements > 50 — SYN-4).
-- [ ] Apply the §8 preconditions to the overarching pathway + its 8 sub-pathways (single entry/exit, typed tasks, named end-states, attribute data objects). Several are already tool-enforced by the conformance gate (`npm run check:conformance`): no-OR (SYN-5), single start/end (SYN-2), labels (SYN-3), size (SYN-4).
+- [ ] Reconcile the **known baseline findings** first ([`docs/model-issues/2026-06-25-baseline.md`](model-issues/2026-06-25-baseline.md)): the **13 OR-gateways** — treatment 2, aftercare 4, palliative-care 7 (SYN-5 / R5; see the 2026-09-04 addendum in the baseline and [`model-issues/2026-06-29-palliative-care.md`](model-issues/2026-06-29-palliative-care.md)), the structural + dead-activity defects, the molecular-tumor-board soundness deadlock (STR-1), and decomposing the overarching pathway (5 start events, 140 elements > 50 — SYN-4).
+- [ ] Apply the §8 preconditions to the overarching pathway + its 9 sub-pathways (single entry/exit, typed tasks, named end-states, attribute data objects). Several are already tool-enforced by the conformance gate (`npm run check:conformance`): no-OR (SYN-5), single start/end (SYN-2), labels (SYN-3), size (SYN-4).
 - [ ] Add the **curative-intent branch** + surveillance/recurrence loop to the [treatment](../models/lung-cancer-treatment-pathway.bpmn) / [aftercare](../models/lung-cancer-aftercare-pathway.bpmn) models (the main clinical extension).
 - [ ] Add entry/risk criteria (age, smoking) via the [screening](../models/lung-cancer-screening-pathway.bpmn) / overarching start for the incidence gate.
 
@@ -157,7 +157,7 @@ flowchart LR
 
 ## 7. Step (b) — Target Synthea module topology (detail)
 
-One main module + one submodule per BPMN sub-pathway (1:1 with [`models/lung-cancer-<phase>-pathway.bpmn`](../models/), naming per [ADR-0004](decisions/0004-repo-structure-and-model-naming.md)), plus a risk/entry submodule (cf. stock `lung_cancer/lung_cancer_probabilities`). Screening and palliative-care now have their own models (the latter WIP).
+One main module + one submodule per BPMN sub-pathway (1:1 with [`models/lung-cancer-<phase>-pathway.bpmn`](../models/), naming per [ADR-0004](decisions/0004-repo-structure-and-model-naming.md)), plus a risk/entry submodule (cf. stock `lung_cancer/lung_cancer_probabilities`). Screening and palliative-care (WIP) have their own models, and since 2026-09-04 so does initial-entry (#77: entry via symptomatic presentation / incidental nodule finding — the BPMN counterpart of the `ENTRY` "symptomatic" branch below; the diagram itself predates it and is not yet updated).
 
 ```mermaid
 flowchart TD
@@ -194,7 +194,7 @@ flowchart TD
 > Apply these **while modelling the BPMN**, so the pathway transpiles cleanly into Synthea GMF. They **extend** `CONVENTIONS.md`; the R-numbers below reference its 7PMG rules. ✅ = your conventions already enforce this.
 
 **Structural**
-- [ ] ✅ **No OR-gateways** (R5, tool-enforced as SYN-5 / bpmnlint `no-inclusive-gateway`). GMF has no inclusive-OR semantics — use **XOR** (→ conditional/distributed transition) and **AND** (→ parallel) only. *(4 OR-gateways still remain in treatment/aftercare — [model-issues Issue 1](model-issues/2026-06-25-baseline.md).)*
+- [ ] ✅ **No OR-gateways** (R5, tool-enforced as SYN-5 / bpmnlint `no-inclusive-gateway`). GMF has no inclusive-OR semantics — use **XOR** (→ conditional/distributed transition) and **AND** (→ parallel) only. *(13 OR-gateways still remain — treatment 2, aftercare 4, palliative-care 7 — [model-issues Issue 1](model-issues/2026-06-25-baseline.md) with its 2026-09-04 addendum, and [palliative-care Issue P1](model-issues/2026-06-29-palliative-care.md).)*
 - [ ] ✅ **One start, explicitly named end-states** (R3). Each (sub)pathway = one Synthea (sub)module with a single `Initial` and named `Terminal`(s); map terminal clinical states to `Terminal` vs `Death`.
 - [ ] ✅ **Structured split/join** (R4). Every split has a matching join; avoid crossing flows and unstructured cycles (except explicit, bounded loops, e.g. surveillance).
 - [ ] ✅ **Decompose by phase into sub-pathways** (R7) → these become Synthea **submodules** (`CallSubmodule`). Keep each ≤ ~30–50 elements (R1).
@@ -217,7 +217,7 @@ flowchart TD
 **Hygiene**
 - [ ] ✅ Verb-object task labels; gateways as questions (R6) — improves auto-generated state names.
 - [ ] Run the **conformance + soundness gate** before transpiling: `npm run check:conformance` (bpmnlint + metrics + XSD) and `npm run check:soundness` — the Abnahmetest gate ([`docs/governance/`](governance/)) enforces SYN-2 (single start/end), SYN-3 (labels), SYN-4 (size), SYN-5 (no-OR) and STR-1..4 (soundness). A model that passes it is largely GMF-ready.
-- [ ] Reconcile the known baseline findings first ([`docs/model-issues/`](model-issues/)) — the 4 OR-gateways, dead activities, the molecular-tumor-board deadlock, and the overarching decomposition. Cleaning them benefits both the clinical model and the transpiler.
+- [ ] Reconcile the known baseline findings first ([`docs/model-issues/`](model-issues/)) — the 13 OR-gateways, dead activities, the molecular-tumor-board deadlock, and the overarching decomposition. Cleaning them benefits both the clinical model and the transpiler.
 
 ---
 

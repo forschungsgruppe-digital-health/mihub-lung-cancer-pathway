@@ -55,5 +55,5 @@ in CI). Elements are cited as `"Label" (id)`; unnamed elements show `‹unnamed 
 
 - **Affected:** the whole model — flagged **unfinished/unstable** by the modeller.
 - **Found:** out of scope for the automatable checks; the clinical (SEM-1…7) and pragmatic (PRA-1…3) criteria and the **SEM-6 face-validity consensus** are pending.
-- **Suggested remodeling:** finish the draft, then run the advisory `clinical-pathway-review` and hold the expert walkthrough before acceptance.
+- **Suggested remodeling:** finish the draft, then run the advisory `clinical-pathway-review` and hold the expert walkthrough (PRA-1) before the acceptance test.
 - **Labels:** `model`, `needs-clinical-review`.

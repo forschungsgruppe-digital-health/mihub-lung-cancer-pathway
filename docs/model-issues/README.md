@@ -36,6 +36,28 @@ and a modeler fixes + re-validates.
   without model changes. Issue X2 (un-namespaced styling attributes on the `overarching` DI
   plane) stays open as a low-priority housekeeping item; not blocking.
 
+## Filed issues (2026-09-04)
+
+The findings above were triaged into **one GitHub issue per model** on 2026-09-04, all children of
+the parent issue
+[#49](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/issues/49).
+Every one of them carries `model`, `conformance` and `needs-clinical-review`; **`soundness` is
+added only where `npm run check:soundness` returned a VIOLATION verdict** on that date — an
+INCONCLUSIVE result is recorded in the issue text only, not as a label.
+
+| Model | Issue | Soundness verdict (2026-09-04) |
+|---|---|---|
+| overarching | [#78](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/issues/78) | INCONCLUSIVE |
+| screening | [#79](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/issues/79) | VIOLATION (`soundness`) |
+| diagnostic | [#80](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/issues/80) | VIOLATION (`soundness`) |
+| patient-consultation | [#81](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/issues/81) | INCONCLUSIVE |
+| tumor-board | [#82](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/issues/82) | VIOLATION (`soundness`) |
+| molecular-tumor-board | [#83](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/issues/83) | VIOLATION (`soundness`) |
+| treatment | [#84](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/issues/84) | INCONCLUSIVE |
+| palliative-care | [#85](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/issues/85) | INCONCLUSIVE |
+| aftercare | [#86](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/issues/86) | INCONCLUSIVE |
+| initial-entry | [#89](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/issues/89) | VIOLATION (`soundness`) |
+
 ## Labels
 
 The GitHub labels referenced by the findings. They were created on 2026-09-04 — before that
@@ -46,6 +68,6 @@ dropped on filing. Every model finding carries `model`; add the others as applic
 |---|---|
 | `model` | the fix requires a change to a `.bpmn` / `.svg` — i.e. every finding in this folder (only a human modeller may change a model). |
 | `conformance` | the finding is reported by the conformance gate (`npm run check:conformance`: naming, bpmnlint, model metrics / SYN criteria, moddle roundtrip, XSD core) — an acceptance-test SYN criterion or BPMN 2.0 schema hygiene. |
-| `soundness` | the finding concerns STR-1…STR-4 (rust_bpmn_analyzer via `npm run check:soundness`), including an **INCONCLUSIVE** result caused by unsupported elements (OR-gateways, intermediate catch events). |
+| `soundness` | the finding is a **VIOLATION** verdict of `npm run check:soundness` (STR-1…STR-4, rust_bpmn_analyzer). An **INCONCLUSIVE** result (unsupported elements — OR-gateways, intermediate catch events) is recorded in the per-model issue text only, not as a label. |
 | `needs-clinical-review` | the remodel changes clinical meaning or needs a modelling decision by domain experts (SEM/PRA criteria; SEM-6 face validity must be re-confirmed). |
 | `housekeeping` | cosmetic / serialization hygiene without semantic impact — namespace prefix, extension placement, non-schema DI attributes. |

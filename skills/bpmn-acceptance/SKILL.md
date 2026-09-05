@@ -32,8 +32,8 @@ It runs exactly the three automatable (method **A**) checks — `lint:bpmn`, `ch
   **STR-1…STR-4** (soundness): `npm run check:soundness` exists (`bpmn-soundness`,
   `docs/decisions/0003`) but runs advisory, and several models come back INCONCLUSIVE or
   ERROR — never a pass — so the Protokoll does not stamp STR rows from it,
-- the **automatable part of the Technical gate**, with the human part (STR rows, SEM-1)
-  called out,
+- the **automatable part of the Technical gate**, with the human part (STR-1…4 and SYN-2 —
+  exactly the "Verbleibend" column of the Protokoll's § 2 gate table) called out,
 - **no** Clinical/Pragmatic gate verdict and **no** overall decision.
 
 The Protokoll is always written **completely** to stdout; the process then exits **1**

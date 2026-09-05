@@ -1,7 +1,8 @@
 # Agent skills — single source, consumed by every tool
 
 This directory is the **single source** for the repository's vendor-neutral
-[Agent Skills](https://docs.github.com/en/copilot/concepts/agents/about-agent-skills):
+[Agent Skills](https://agentskills.io) (the open standard — see also
+[GitHub Copilot's implementation](https://docs.github.com/en/copilot/concepts/agents/about-agent-skills)):
 each `skills/<name>/SKILL.md` carries YAML frontmatter (`name`, `description`) plus
 Markdown instructions. Tools match on the `description` to decide when a skill
 applies. All tool-specific files only point here — never copy a skill's body.
@@ -31,7 +32,11 @@ applies. All tool-specific files only point here — never copy a skill's body.
   model — see the per-model issues) found 4/7 inconclusive (unsupported OR-gateways + intermediate catch
   events) and the analyzable ones violated on pre-existing defects, so STR-1…4 stay
   `HUMAN-INPUT-NEEDED` in the `bpmn-acceptance` Protokoll and the CI job is non-blocking
-  until the model remodel. See
+  until the model remodel. Current (2026-09-04, ten models): 5 VIOLATION (screening, diagnostic, tumor-board,
+  molecular-tumor-board, initial-entry) / 5 INCONCLUSIVE (overarching, patient-consultation,
+  treatment, palliative-care, aftercare) / 0 SOUND / 0 ERROR — per-model records in issues
+  #78–#86, #89 (parent
+  [#49](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/issues/49)). See
   [`docs/decisions/0003-soundness-tooling.md`](../docs/decisions/0003-soundness-tooling.md).
 
 ## Editing rule

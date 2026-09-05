@@ -14,8 +14,9 @@ description: Advisory, read-only review of a lung-cancer BPMN pathway against th
 
 You produce **evidence and questions for the human reviewers**, not verdicts. The
 clinical and pragmatic acceptance-test gates are decided by people (see `docs/governance/`).
-This is the only skill in the repo that is LLM-judgment rather than a deterministic
-tool, so be explicit about uncertainty and cite the element ids / labels you reason from.
+This is the only skill whose findings are LLM judgment on clinical content rather than
+derived from a deterministic tool (model-inventory derives counts and maps, not judgments),
+so be explicit about uncertainty and cite the element ids / labels you reason from.
 
 ## Scope (advisory only)
 
@@ -44,5 +45,8 @@ findings for these acceptance-test criteria:
 - Flag any content that looks like **real patient data** (these models must contain
   only synthetic/abstract content) as a priority finding.
 
-The deterministic A-criteria (SYN/STR) are handled by `bpmn-conformance` and the
-`bpmn-acceptance` Protokoll pre-filler — do not duplicate them here.
+The deterministic A-criteria are handled elsewhere — do not duplicate them here: **SYN** by
+`bpmn-conformance` (`npm run check:conformance`; the `bpmn-acceptance` Protokoll pre-filler
+ticks the A-rows it can decide), **STR-1…4** by `bpmn-soundness` (`npm run check:soundness`,
+advisory — INCONCLUSIVE/ERROR is never a pass, and the pre-filler leaves the STR rows
+`HUMAN-INPUT-NEEDED` for a human to adjudicate).
