@@ -17,13 +17,14 @@
     "check:xsd": "bash tools/validate-xsd.sh",
     "check:conformance": "node tools/check-conformance.mjs",
     "check:soundness": "node tools/check-soundness.mjs",
-    "abnahme:protokoll": "node tools/abnahme-protokoll.mjs"
+    "abnahme:protokoll": "node tools/abnahme-protokoll.mjs",
+    "test": "node --test \"tools/test/**/*.test.mjs\""
   },
   "devDependencies": {
     "bpmn-moddle": "^10.0.0",
     "bpmnlint": "^11.12.1"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=22.12"
   }
 }
