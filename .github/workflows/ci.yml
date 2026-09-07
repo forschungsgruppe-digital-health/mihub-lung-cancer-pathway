@@ -2,7 +2,8 @@ name: CI
 
 # The BPMN conformance gate (naming + bpmnlint + model metrics + roundtrip + XSD core).
 # Runs on PRs into and pushes to dev/main. The decision lives in the tools under
-# tools/ — this workflow just runs `npm run check:naming` and `npm run check:conformance`.
+# tools/ — this workflow just runs the tools' own unit tests (`npm test`, tools/test/),
+# `npm run check:naming` and `npm run check:conformance`.
 #
 # Layers (tools/check-conformance.mjs): the naming convention (ADR-0004), bpmnlint, model
 # metrics (SYN-5) and the moddle roundtrip are BLOCKING — locally the gate runs STRICT by
@@ -38,7 +39,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - name: Install dependencies
@@ -46,6 +47,12 @@ jobs:
 
       - name: Ensure xmllint is available (for XSD core validation)
         run: xmllint --version || (sudo apt-get update && sudo apt-get install -y libxml2-utils)
+
+      # The tools' own unit tests (node:test, no extra dependency) — BLOCKING: a broken gate must
+      # not silently pass the models. Runs after xmllint is present so the conformance-summary test
+      # exercises the same XSD layer as the gate below.
+      - name: Unit tests (tools)
+        run: npm test
 
       # The naming convention (ADR-0004: lung-cancer-<phase>-pathway) is the ONE layer that stays
       # BLOCKING in CI during the RC phase: it is independent of the models' content, so the

@@ -66,12 +66,18 @@ if [ ! -f "$XSD" ]; then
   exit 0
 fi
 
-# Resolve the file list (explicit args, else discovery) via the shared helper.
+# Resolve the file list (explicit args, else discovery) via the shared helper. The helper
+# FAILS CLOSED (exit 2) on a missing / non-.bpmn explicit path — propagate that instead of
+# silently validating nothing.
+if ! LIST="$(node "$SCRIPT_DIR/bpmn-files.mjs" "${FILE_ARGS[@]+"${FILE_ARGS[@]}"}")"; then
+  echo "validate-xsd: invalid file argument (see the message above) — aborting." >&2
+  exit 2
+fi
 # (Plain `while read` loop — portable to bash 3.2 on macOS, which lacks `mapfile`.)
 FILES=()
 while IFS= read -r line; do
   [ -n "$line" ] && FILES+=("$line")
-done < <(node "$SCRIPT_DIR/bpmn-files.mjs" "${FILE_ARGS[@]+"${FILE_ARGS[@]}"}")
+done <<< "$LIST"
 
 if [ "${#FILES[@]}" -eq 0 ]; then
   echo "validate-xsd: no .bpmn files found — nothing to validate."

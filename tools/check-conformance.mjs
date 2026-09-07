@@ -32,6 +32,12 @@
  * Exit:  0 = all blocking checks passed (or warn-only), 1 = a blocking check failed (strict).
  */
 import { spawnSync } from 'node:child_process';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+/** Repository root — the parent of tools/ — so the gate runs identically from any cwd. */
+const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+const tool = (name) => join(REPO_ROOT, 'tools', name);
 
 // Advisory mode for the release-candidate / pre-remodel phase: report blocking findings but exit 0.
 const WARN_ONLY =
@@ -39,13 +45,13 @@ const WARN_ONLY =
   ['1', 'true', 'yes'].includes(String(process.env.CONFORMANCE_WARN_ONLY).toLowerCase());
 
 const checks = [
-  { name: 'model naming convention (ADR-0004: lung-cancer-<phase>-pathway)', cmd: process.execPath, args: ['tools/check-naming.mjs'], blocking: true },
-  { name: 'bpmnlint (BPMN structure/correctness)', cmd: process.execPath, args: ['tools/lint-bpmn.mjs'], blocking: true },
-  { name: 'model metrics (Abnahmetest SYN-5 blocking; SYN-2/4 advisory)', cmd: process.execPath, args: ['tools/check-model-metrics.mjs'], blocking: true },
-  { name: 'moddle roundtrip (cp:/i18n lossless + stable)', cmd: process.execPath, args: ['tools/moddle-roundtrip.mjs'], blocking: true },
+  { name: 'model naming convention (ADR-0004: lung-cancer-<phase>-pathway)', cmd: process.execPath, args: [tool('check-naming.mjs')], blocking: true },
+  { name: 'bpmnlint (BPMN structure/correctness)', cmd: process.execPath, args: [tool('lint-bpmn.mjs')], blocking: true },
+  { name: 'model metrics (Abnahmetest SYN-5 blocking; SYN-2/4 advisory)', cmd: process.execPath, args: [tool('check-model-metrics.mjs')], blocking: true },
+  { name: 'moddle roundtrip (cp:/i18n lossless + stable)', cmd: process.execPath, args: [tool('moddle-roundtrip.mjs')], blocking: true },
   // `--strict` makes validate-xsd.sh exit 1 on findings (its default swallows them as exit 0), so the
   // summary can show `warn`; the layer stays non-blocking HERE (blocking: false) — exit code unaffected.
-  { name: 'XSD core (OMG BPMN20.xsd)', cmd: 'bash', args: ['tools/validate-xsd.sh', '--strict'], blocking: false },
+  { name: 'XSD core (OMG BPMN20.xsd)', cmd: 'bash', args: [tool('validate-xsd.sh'), '--strict'], blocking: false },
 ];
 
 let blockingFailures = 0;
@@ -53,7 +59,7 @@ const summary = [];
 
 for (const c of checks) {
   console.log(`\n=== ${c.name}${c.blocking ? '' : '  [informational]'} ===`);
-  const r = spawnSync(c.cmd, c.args, { stdio: 'inherit' });
+  const r = spawnSync(c.cmd, c.args, { stdio: 'inherit', cwd: REPO_ROOT });
   const failed = (r.status ?? 1) !== 0;
   if (failed && c.blocking) blockingFailures++;
   summary.push(`${failed ? (c.blocking ? 'FAIL' : 'warn') : ' ok '}  ${c.name}`);

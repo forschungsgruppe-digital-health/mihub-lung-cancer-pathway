@@ -1,9 +1,3 @@
-<!--
-English translation of `abnahme-checkliste-bpmn-patientenpfad.md` (German is the original/authoritative source).
-Provided for reference; keep both language versions in sync and at the same version.
-Status: draft — not final, likely to change. Change history: docs/governance/CHANGELOG.md.
--->
-
 ---
 title: "Acceptance Test Checklist for BPMN-Modelled Patient Pathways"
 short_title: "BPMN-CP Acceptance-Test Instrument"
@@ -17,6 +11,11 @@ license: "CC BY 4.0"
 persistent_id: "10.5281/zenodo.20943916 (concept DOI of the repository archive)"
 audience: "clinical and technical stakeholders; including modeling beginners"
 ---
+<!--
+English translation of `abnahme-checkliste-bpmn-patientenpfad.md` (German is the original/authoritative source).
+Provided for reference; keep both language versions in sync and at the same version.
+Status: draft — not final, likely to change. Change history: docs/governance/CHANGELOG.md.
+-->
 
 # Acceptance Test Checklist for BPMN-Modelled Patient Pathways (v0.3.1)
 
@@ -50,7 +49,7 @@ The acceptance-test logic follows the distinction between **verification vs. val
 
 ## 3. The instrument
 
-**Reading aid.** **Must** = knock-out criterion · **Should** = important, document deviation. **Check method:** **A** = automatic (tool) · **R** = visual check in review · **K** = consensus (Konsens). Tick off: `[x]` met · `[ ]` open. For technical terms see Mini glossary (§8).
+**Reading aid.** **Must** = knock-out criterion · **Should** = important, document deviation · **Should\*** = counts toward the Kinsman gate (≥ 3 of 4 of SEM-2…SEM-5). **Check method:** **A** = automatic (tool) · **R** = visual check in review · **K** = consensus (Konsens). Tick off: `[x]` met · `[ ]` open. For technical terms see Mini glossary (§8).
 
 ### A. Understandability & technical correctness — *technical acceptance test*
 

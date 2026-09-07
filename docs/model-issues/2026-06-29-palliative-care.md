@@ -1,5 +1,7 @@
 # Palliative-care sub-pathway — baseline findings (2026-06-29)
 
+> **Addendum 2026-09-04:** soundness was run in the per-model scan — INCONCLUSIVE (OR-gateways), recorded in issue #85.
+
 The palliative-care sub-pathway [`models/lung-cancer-palliative-care-pathway.bpmn`](../../models/lung-cancer-palliative-care-pathway.bpmn)
 was merged as a **WIP / unstable draft** (modeller's note) and integrated in `v0.3.0-rc.1`. The
 conformance gate surfaces the findings below — **reports, not fixes**: a human modeller addresses

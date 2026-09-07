@@ -1,0 +1,14 @@
+# Template chooser shown on "New issue" (GitHub reads it from the default branch).
+# Model defects use the BPMN model issue template; everything else may use a blank issue with
+# the matching label (`question`, `documentation`, `housekeeping`) — see CONTRIBUTING.md.
+blank_issues_enabled: true
+contact_links:
+  - name: "Fragen / questions — GitHub Discussions"
+    url: https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/discussions
+    about: "Offene Fragen zu den Modellen oder zum Repository · Open-ended questions about the models or the repository."
+  - name: "Sicherheitsproblem melden / report a security concern"
+    url: https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/security/policy
+    about: "Bitte NICHT als öffentliches Issue — siehe SECURITY.md · Please do NOT open a public issue — see SECURITY.md."
+  - name: "Datenelemente / data elements — Schwester-Repository"
+    url: https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway-data-elements
+    about: "Die inhaltliche Datenseite des Pfads (welche klinischen Datenelemente) wird dort gepflegt · The data-element side of the pathway lives there."

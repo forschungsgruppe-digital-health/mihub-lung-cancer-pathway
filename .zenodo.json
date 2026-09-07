@@ -14,6 +14,10 @@
       "orcid": "0009-0001-6054-7812"
     },
     {
+      "name": "Fleischer, Nick",
+      "affiliation": "Forschungsgruppe Digital Health, Technische Universität Dresden"
+    },
+    {
       "name": "Schlieter, Hannes",
       "affiliation": "Forschungsgruppe Digital Health, Technische Universität Dresden",
       "orcid": "0000-0002-6513-9017"
@@ -21,6 +25,7 @@
   ],
   "license": "cc-by-4.0",
   "access_right": "open",
+  "language": "deu",
   "keywords": [
     "BPMN",
     "clinical pathway",
@@ -30,5 +35,5 @@
     "MiHUB",
     "Medical Informatics Initiative"
   ],
-  "notes": "Research, education and interoperability-reference artifact — not clinically validated, not for use in direct patient care (see DISCLAIMER.md). Concept DOI: 10.5281/zenodo.20943916"
+  "notes": "Research, education and interoperability-reference artifact — not clinically validated, not for use in direct patient care (see DISCLAIMER.md). Concept DOI: 10.5281/zenodo.20943916. Funded by the German Federal Ministry of Research, Technology and Space (BMFTR), grant 01ZZ2506A (Medical Informatics Initiative / MiHUB)."
 }

@@ -37,7 +37,7 @@ Protocol template version: 1.0 | Language: EN (criteria basis: instrument v0.3.1
 
 ## 1. Check results
 
-**Result codes:** ✓ fulfilled · ✗ not fulfilled · – not applicable (justify). **M** = Must, **S** = Should. **Method:** A = tool, R = review, K = consensus.
+**Result codes:** ✓ fulfilled · ✗ not fulfilled · – not applicable (justify). **M** = Must, **S** = Should, **S\*** = Should, counts toward the Kinsman gate (≥ 3 of 4 of SEM-2…SEM-5). **Method:** A = tool, R = review, K = consensus.
 
 ### A · Technical (understandability & correctness)
 

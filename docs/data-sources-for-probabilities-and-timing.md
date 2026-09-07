@@ -2,14 +2,14 @@
 
 > **Purpose.** The BPMN pathway gives the Synthea module its *structure*, but not the *numbers*. This document is a verified catalog of **where to get realistic data** to set the branch **probabilities** (`distributed_transition`, must sum to 1.0) and **timing** (`Delay`) that the `synthea:` annotation layer carries — see [`synthea-and-bpmn-primer.md`](./synthea-and-bpmn-primer.md) §4 and [`synthea-dataset-generation-plan.md`](./synthea-dataset-generation-plan.md) Phase 5.
 >
-> **Status:** Draft v0.1 (branch `research/synthea-dataset-generation`).
+> **Status:** Draft v0.1 — originated on branch `research/synthea-dataset-generation`; maintained on `dev` since 2026-06-16; export-ignored from the release archive per [ADR-0002](decisions/0002-versioning-and-release.md) Decision 4.
 > **Golden rule:** for *synthetic* data the goal is **plausibility + traceable provenance, not precision**. Every figure below was *read from a source* and is an **illustrative anchor**, not a target — pull the exact value from the cited table when locking a parameter.
 
 ---
 
 ## 1. TL;DR — recommended approach (tiered)
 
-**v1 — ship now, zero data-access friction.** Parameterize from **clinical guidelines + open published registry aggregates**, the way Synthea's own modules are authored (Walonoski et al., 2018 [^walonoski]; the shipped `lung_cancer.json` cites cancer.org / American Lung Association / Cancer Care Ontario in its `remarks`). Swap those US/Ontario citations for the **German evidence stack the sibling `…-data-elements` repo already uses**: S3-Leitlinie Lungenkarzinom v5.01, Onkopedia NSCLC/SCLC, ZfKD "Krebs in Deutschland", CRISP/nNGM for biomarkers, Cancer Council Victoria OCP for timing. Then add a **CI calibration check** (Chen et al., 2019 [^chen] pattern): generate a cohort, tabulate stage mix / histology / modality rates / survival, and assert they match ZfKD + nNGM + OnkoZert benchmarks within tolerance. **No DUA, no ethics, no DIZ extract; fully traceable.**
+**v1 — ship now, zero data-access friction.** Parameterize from **clinical guidelines + open published registry aggregates**, the way Synthea's own modules are authored (Walonoski et al., 2018 [^walonoski]; the shipped `lung_cancer.json` cites cancer.org / American Lung Association / Cancer Care Ontario in its `remarks`). Swap those US/Ontario citations for the **German evidence stack the sibling `…-data-elements` repo already uses**: S3-Leitlinie Lungenkarzinom v5.1 (final, July 2026), Onkopedia NSCLC/SCLC, ZfKD "Krebs in Deutschland", CRISP/nNGM for biomarkers, Cancer Council Victoria OCP for timing. Then add a **CI calibration check** (Chen et al., 2019 [^chen] pattern): generate a cohort, tabulate stage mix / histology / modality rates / survival, and assert they match ZfKD + nNGM + OnkoZert benchmarks within tolerance. **No DUA, no ethics, no DIZ extract; fully traceable.**
 
 **v2 — higher realism, deferred (backlog).** Registry-microdata-derived rule extraction and/or process mining on DIZ event logs — for stage-stratified, time-to-treatment, and recurrence-timing realism. Carries data-access + ethics lead time (~3–4 months); **must not block v1**.
 
@@ -22,14 +22,14 @@ Construct legend: `dist` = `distributed_transition`, `Delay` = timed delay state
 | Parameter | GMF construct | Best **verified** source(s) | Access | DE vs intl · conf. |
 |---|---|---|---|---|
 | Entry / incidence (age, sex) | Guard (age) + dist (sex-conditioned) | ZfKD "Krebs in Deutschland 2021-2023" lung chapter + krebsdaten.de DB; Onkopedia epi | open aggregate | **German** · high |
-| Smoking-attributable branching | complex / Guard on smoking attr | S3-LL v5.01 risk section + Onkopedia (qualitative); CRUK smoking-attributable fraction | open aggregate | DE qualitative; **European proxy** for the % · med |
-| Histology split (NSCLC/SCLC; adeno/squamous) | nested dist | Onkopedia NSCLC/SCLC; ZfKD lung page; S3-LL v5.01 | open aggregate | **German** · high |
-| Stage at diagnosis (UICC I-IV; SCLC LD/ED) | dist (cond. on histology) | Onkopedia; S3-LL v5.01 headline split. Precision → clinical registry (oBDS/§65c) | open (headline); **data-request** (stratified) | DE open; CRUK/SEER proxy for pattern · med |
+| Smoking-attributable branching | complex / Guard on smoking attr | S3-LL v5.1 risk section + Onkopedia (qualitative); CRUK smoking-attributable fraction | open aggregate | DE qualitative; **European proxy** for the % · med |
+| Histology split (NSCLC/SCLC; adeno/squamous) | nested dist | Onkopedia NSCLC/SCLC; ZfKD lung page; S3-LL v5.1 | open aggregate | **German** · high |
+| Stage at diagnosis (UICC I-IV; SCLC LD/ED) | dist (cond. on histology) | Onkopedia; S3-LL v5.1 headline split. Precision → clinical registry (oBDS/§65c) | open (headline); **data-request** (stratified) | DE open; CRUK/SEER proxy for pattern · med |
 | Biomarker prevalence (EGFR/ALK/ROS1/KRAS/BRAF/…; PD-L1 TPS bands) | dist (cond. on adeno) | **German cohorts first:** CRISP registry, nNGM publications; per-gene % from S3-LL/ESMO | open (papers) | **German/European** · med — ⚠ ethnicity-dependent |
-| Treatment-intent (curative/palliative) + modality rates | dist (cond. on stage×histology×biomarker) | S3-LL v5.01 + Onkopedia + ESMO CPGs; **rates** from OnkoZert Qualitätsindikatoren 2025 / DKG Jahresberichte; nNGM 1L split | open aggregate | **German** · med — ⚠ certified-centre selection bias |
+| Treatment-intent (curative/palliative) + modality rates | dist (cond. on stage×histology×biomarker) | S3-LL v5.1 + Onkopedia + ESMO CPGs; **rates** from OnkoZert Qualitätsindikatoren 2025 / DKG Jahresberichte; nNGM 1L split | open aggregate | **German** · med — ⚠ certified-centre selection bias |
 | Time-to-diagnosis / time-to-treatment | Delay (range) | Cancer Council Victoria OCP (best time-to-* source); OnkoZert time-to-treatment indicators | open aggregate | OCP **Australian proxy**; OnkoZert = DE targets · med |
-| Chemo cycle intervals / RT fractionation | Delay (loop / fixed) | S3-LL v5.01 + Onkopedia regimen tables; ESMO + pivotal-trial protocols | open aggregate | DE primary; trial protocols regimen-defining · med |
-| Follow-up / surveillance cadence | Delay loop (decreasing freq.) | S3-LL v5.01 Nachsorge + Onkopedia §8 (NSCLC Tab.12 / SCLC Tab.9); ESMO for advanced | open aggregate | **German** · high — reuse sibling repo `frequency_pattern` |
+| Chemo cycle intervals / RT fractionation | Delay (loop / fixed) | S3-LL v5.1 + Onkopedia regimen tables; ESMO + pivotal-trial protocols | open aggregate | DE primary; trial protocols regimen-defining · med |
+| Follow-up / surveillance cadence | Delay loop (decreasing freq.) | S3-LL v5.1 Nachsorge + Onkopedia §8 (NSCLC Tab.12 / SCLC Tab.9); ESMO for advanced | open aggregate | **German** · high — reuse sibling repo `frequency_pattern` |
 | Survival OS / PFS (by stage/histology/line/biomarker) | Death (range); Delay-to-progression→Delay-to-death | Population OS: ZfKD + GEKID/DKR atlas. Line/biomarker: FLAURA, KEYNOTE-024; SCLC: SEER + Onkopedia | open aggregate | Population **German**; PFS **trial proxy** · med |
 | Recurrence / progression rates & timing | dist (recur/cure) + Delay | **GAP in registries** → ESMO CPG + S3-LL PFS/DFS tables; FLAURA/KEYNOTE-024 | open (trial/guideline) | trial proxy · **low** |
 | Adverse-event / toxicity rates | dist (AE/grade) gated on modality | **GAP in registries** → pivotal-trial safety tables in ESMO + S3-LL; align coding to sibling repo CTCAE/irAE elements | open (trial/guideline) | trial proxy · **low** |
@@ -75,7 +75,7 @@ Construct legend: `dist` = `distributed_transition`, `Delay` = timed delay state
 - **nNGM / CRISP:** German molecularly-tested aNSCLC cohorts — biomarker prevalence + testing rates; key papers open access [^nngm][^crisp].
 
 **Clinical guidelines (probabilities + timing).**
-- **S3-Leitlinie Lungenkarzinom v5.01** (AWMF 020-007OL) — authoritative German stage-specific therapy, prognosis, Nachsorge intervals [^s3].
+- **S3-Leitlinie Lungenkarzinom, Version 5.1 (Juli 2026)** (AWMF 020-007OL; the final version — supersedes the Konsultationsfassung 5.01 of April 2026 that earlier drafts of this note cited) — authoritative German stage-specific therapy, prognosis, Nachsorge intervals [^s3].
 - **Onkopedia** NSCLC (03/2026) & SCLC (09/2025) — epi, stage, therapy algorithms, follow-up tables [^onko_nsclc][^onko_sclc].
 - **ESMO CPGs** — metastatic (oncogene-addicted & non-addicted), early/locally-advanced, SCLC — biomarker prevalence, follow-up cadence [^esmo_nona][^esmo_ona][^esmo_early][^esmo_sclc].
 - **Cancer Council Victoria Optimal Care Pathway** — best single source for time-to-* targets (Australian proxy) [^ocp].
@@ -95,7 +95,7 @@ Construct legend: `dist` = `distributed_transition`, `Delay` = timed delay state
 
 ## 5. Provenance how-to (keep two layers 1:1)
 
-**Layer 1 — BPMN `synthea:` annotation** (the carrier). Per parameterized gateway/`Delay`, record, mirroring the sibling repo's `evidence.guideline_references` schema: the **value** (probabilities summing to 1.0, or a Delay min/max range); a **source array** `{source, version, section/table, recommendation_grade, evidence_level, url, accessedDate}`; a **`germanRelevance`** flag (`german-specific | european-proxy | international-proxy`); a **`confidence`** flag; and an **`illustrative`** boolean for read-from-source anchors. Reuse the sibling repo's exact version strings (e.g. `S3-LL Lungenkarzinom v5.01 (04/2026, AWMF 020-007OL)`) to avoid drift; encode timing with its `frequency_pattern` grammar (e.g. `Q3M-Y1-Y2;Q6M-Y3-Y5;Q12M-PostY5`).
+**Layer 1 — BPMN `synthea:` annotation** (the carrier). Per parameterized gateway/`Delay`, record, mirroring the sibling repo's `evidence.guideline_references` schema: the **value** (probabilities summing to 1.0, or a Delay min/max range); a **source array** `{source, version, section/table, recommendation_grade, evidence_level, url, accessedDate}`; a **`germanRelevance`** flag (`german-specific | european-proxy | international-proxy`); a **`confidence`** flag; and an **`illustrative`** boolean for read-from-source anchors. Reuse the sibling repo's exact version strings to avoid drift — for the final guideline that is `S3-LL Lungenkarzinom v5.1 (07/2026, AWMF 020-007OL)`; note that the sibling repo still carried the Konsultationsfassung string `S3-LL Lungenkarzinom v5.01 (04/2026, AWMF 020-007OL)` on 2026-09-07, so align the two when it moves to 5.1; encode timing with its `frequency_pattern` grammar (e.g. `Q3M-Y1-Y2;Q6M-Y3-Y5;Q12M-PostY5`).
 
 **Layer 2 — GMF `remarks`** (the runtime artifact; ignored by the engine, used for provenance exactly as the shipped module does). On transpilation, emit each Layer-1 annotation as a compact citation line per branch, e.g.:
 > `"Histology split NSCLC 0.85 / SCLC 0.15 — Onkopedia NSCLC 03/2026; ZfKD lung page 2023 (illustrative); german-specific; confidence high"`
@@ -124,7 +124,7 @@ Construct legend: `dist` = `distributed_transition`, `Delay` = timed delay state
 [^appenzeller]: Appenzeller A, et al. Automatic Extraction of Rules for Generating Synthetic Patient Data From Real-World Population Data (oBDS Module Parser; glioblastoma). arXiv:[2512.14721](https://arxiv.org/abs/2512.14721) (2025).
 [^vda]: van der Aalst WMP. *Process Mining: Discovery, Conformance and Enhancement of Business Processes.* Springer.
 [^rojas]: Rojas E, et al. Process mining in healthcare: a literature review. *J Biomed Inform* 2016;61:224–236. doi:[10.1016/j.jbi.2016.04.007](https://doi.org/10.1016/j.jbi.2016.04.007).
-[^s3]: S3-Leitlinie Lungenkarzinom v5.01 (04/2026, AWMF 020-007OL). [Langversion PDF](https://www.leitlinienprogramm-onkologie.de/fileadmin/user_upload/LL_Lungenkarzinom_Langversion_5.01.pdf) · [AWMF register 020-007OL](https://register.awmf.org/de/leitlinien/detail/020-007OL).
+[^s3]: Leitlinienprogramm Onkologie (DKG, DKH, AWMF): S3-Leitlinie Prävention, Diagnostik, Therapie und Nachsorge des Lungenkarzinoms, **Version 5.1, Juli 2026** (AWMF-Registernummer 020-007OL) — final version; supersedes the Konsultationsfassung 5.01 (April 2026). [AWMF register 020-007OL](https://register.awmf.org/de/leitlinien/detail/020-007OL) (Langversion, Kurzversion and Leitlinienreport are linked from the register page).
 [^onko_nsclc]: Onkopedia. Lungenkarzinom, nicht-kleinzellig (NSCLC). <https://www.onkopedia.com/de/onkopedia/guidelines/lungenkarzinom-nicht-kleinzellig-nsclc/@@guideline/html/index.html>.
 [^onko_sclc]: Onkopedia. Lungenkarzinom, kleinzellig (SCLC). <https://www.onkopedia.com/de/onkopedia/guidelines/lungenkarzinom-kleinzellig-sclc/@@guideline/html/index.html>.
 [^esmo_nona]: Hendriks LE, et al. ESMO CPG: non-oncogene-addicted metastatic NSCLC. *Ann Oncol* 2023;34(4):358–376. doi:[10.1016/j.annonc.2022.12.013](https://doi.org/10.1016/j.annonc.2022.12.013).

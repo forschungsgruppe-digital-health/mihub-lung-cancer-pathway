@@ -35,7 +35,7 @@ Protokoll-Vorlage Version: 1.0
 
 ## 1. Prüfergebnisse
 
-**Ergebnis-Codes:** ✓ erfüllt · ✗ nicht erfüllt · – nicht zutreffend (begründen). **M** = Muss, **S** = Soll. **Methode:** A = Tool, R = Review, K = Konsens.
+**Ergebnis-Codes:** ✓ erfüllt · ✗ nicht erfüllt · – nicht zutreffend (begründen). **M** = Muss, **S** = Soll, **S\*** = Soll, zählt zum Kinsman-Gate (≥ 3 von 4 aus SEM-2…SEM-5). **Methode:** A = Tool, R = Review, K = Konsens.
 
 ### A · Technisch (Verständlichkeit & Korrektheit)
 

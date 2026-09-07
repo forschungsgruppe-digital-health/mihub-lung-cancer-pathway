@@ -12,6 +12,14 @@
       ]
     },
     {
+      "name": "ActivityExtension",
+      "extends": ["bpmn:Activity"],
+      "properties": [
+        { "name": "selectionBehavior", "type": "String", "isAttr": true },
+        { "name": "definitionCanonical", "type": "String", "isAttr": true }
+      ]
+    },
+    {
       "name": "QualityIndicator",
       "properties": [
         { "name": "id", "type": "String", "isAttr": true, "isId": true },

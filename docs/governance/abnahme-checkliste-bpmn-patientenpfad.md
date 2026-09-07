@@ -1,8 +1,3 @@
-<!--
-Repo-Pfad: docs/governance/abnahme-checkliste-bpmn-patientenpfad.md
-Begleitdokument (Begründung + Beispiele): abnahme-handout-bpmn-patientenpfad.md
--->
-
 ---
 titel: "Abnahmetest-Checkliste für BPMN-modellierte Patientenpfade"
 kurztitel: "BPMN-CP-Abnahmetestinstrument"
@@ -16,6 +11,10 @@ lizenz: "CC BY 4.0"
 persistent_id: "10.5281/zenodo.20943916 (Concept-DOI des Repository-Archivs)"
 zielgruppe: "klinische und technische Stakeholder; auch Modellierungsanfänger:innen"
 ---
+<!--
+Repo-Pfad: docs/governance/abnahme-checkliste-bpmn-patientenpfad.md
+Begleitdokument (Begründung + Beispiele): abnahme-handout-bpmn-patientenpfad.md
+-->
 
 # Abnahmetest-Checkliste für BPMN-modellierte Patientenpfade (v0.3.1)
 
@@ -49,7 +48,7 @@ Die Abnahmetest-Logik folgt der Unterscheidung **Verifikation vs. Validierung** 
 
 ## 3. Das Instrument
 
-**Lesehilfe.** **Muss** = K.-o.-Kriterium · **Soll** = wichtig, Abweichung dokumentieren. **Prüfmethode:** **A** = automatisch (Tool) · **R** = Sichtprüfung im Review · **K** = Konsens. Hake ab: `[x]` erfüllt · `[ ]` offen. Fachbegriffe siehe Mini-Glossar (§8).
+**Lesehilfe.** **Muss** = K.-o.-Kriterium · **Soll** = wichtig, Abweichung dokumentieren · **Soll\*** = zählt zum Kinsman-Gate (≥ 3 von 4 aus SEM-2…SEM-5). **Prüfmethode:** **A** = automatisch (Tool) · **R** = Sichtprüfung im Review · **K** = Konsens. Hake ab: `[x]` erfüllt · `[ ]` offen. Fachbegriffe siehe Mini-Glossar (§8).
 
 ### A. Verständlichkeit & technische Korrektheit — *technischer Abnahmetest*
 
