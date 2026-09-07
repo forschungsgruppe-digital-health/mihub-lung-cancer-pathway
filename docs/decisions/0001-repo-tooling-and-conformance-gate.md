@@ -4,7 +4,7 @@
 - Date: 2026-06-25
 - Deciders: Forschungsgruppe Digital Health (FGDH), TU Dresden
 - Context: introducing the first automated quality checks to a previously
-  model-only, openly-published (CC BY 4.0) BPMN patient-pathway repository.
+  model-only, openly-published (CC BY 4.0; models CC BY-SA 4.0 since 2026-09-07, ADR-0005) BPMN patient-pathway repository.
 
 ## Context
 

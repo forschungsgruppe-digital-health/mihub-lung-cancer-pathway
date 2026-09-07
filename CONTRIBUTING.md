@@ -182,6 +182,10 @@ contributors:
   submit it — the human author of the PR is responsible for its content.
 - **Update `AI_USAGE.md`** when a new tool, model version or AI-assisted artifact class appears.
 
+## Licensing of contributions
+
+By contributing you agree that your contribution is published under the licence of the artifact class it belongs to (`REUSE.toml`, ADR-0005): changes under `models/` under **CC BY-SA 4.0**, everything else under **CC BY 4.0**. Keep the source attributions in README § "Vorarbeiten und Grundlagen" intact when you touch derived models.
+
 ## Language
 
 The repository default language is **German**; technical documentation is in **English**.

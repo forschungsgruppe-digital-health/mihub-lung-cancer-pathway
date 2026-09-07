@@ -28,6 +28,10 @@ Die Start-/Endereignisse sind bei Modellen mit mehreren Pools auf die Ereignisse
 alle Ereignisse stehen in der jeweiligen `.bpmn`-Datei. **Qualitätsindikatoren** (`cp:qualityIndicator`, BPMN4CP) tragen
 fünf Modelle: übergreifend 22, Behandlung 32, Diagnostik 6, Tumorboard 4, Molekulares Tumorboard 4 — die übrigen fünf keine.
 
+### Lizenz / Licence
+
+Die Modelle und ihre SVG-Renderings stehen unter **[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)** (Weitergabe unter gleichen Bedingungen) — Teile sind aus den CC-BY-SA-4.0-BPMNs der INA-Fachanwender-Journey Onkologie abgeleitet (Herkunft siehe unten; Entscheidung [ADR-0005](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/decisions/0005-licensing-of-derived-models.md)). Das Abnahmetest-Instrument und die Dokumentation bleiben CC BY 4.0.
+
 ### Farblegende / Colour legend
 
 Die Modelle nutzen drei Farbkonventionen, die in den `.bpmn`/`.svg`-Dateien selbst nicht erläutert sind

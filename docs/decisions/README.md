@@ -37,7 +37,7 @@ NNNN` in its header and a new ADR is written; a status change is itself a dated 
 | [0002](0002-versioning-and-release.md) | Versioning and release | accepted | 2026-06-25 | 2026-09-07 (commit-lint correction, Zenodo/authorship, archive lists) | 0001 |
 | [0003](0003-soundness-tooling.md) | Behavioural soundness tooling (STR-1…STR-4) | accepted; pilot executed 2026-06-25, blocking gate deferred | 2026-06-25 | 2026-09-04 | 0001, `../governance/` |
 | [0004](0004-repo-structure-and-model-naming.md) | Repository structure and model naming | accepted (executed in the same PR) | 2026-06-25 | 2026-09-05 (screening name closed) | 0001, 0002 |
-| [0005](0005-licensing-of-derived-models.md) | Licensing of derived models | proposed — pending Justiziariat (freeze on licence files) | 2026-09-07 | — | 0002, 0004 |
+| [0005](0005-licensing-of-derived-models.md) | Licensing of derived models | accepted — maintainer decision 2026-09-07 (models → CC BY-SA 4.0); legal clarifications continue | 2026-09-07 | 2026-09-07 | 0002, 0004 |
 
 Status vocabulary: **proposed** (drafted, not yet decided) · **accepted** · **superseded by NNNN**
 · **deprecated**. "Last amendment" is the date of the newest dated marker inside the file.

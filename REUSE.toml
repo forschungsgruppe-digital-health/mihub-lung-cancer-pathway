@@ -1,0 +1,26 @@
+# REUSE.toml — machine-readable licence map (REUSE Specification 3.3, https://reuse.software).
+# Decision: docs/decisions/0005-licensing-of-derived-models.md (maintainer decision 2026-09-07).
+# Later [[annotations]] tables take precedence over earlier ones for the same path.
+version = 1
+SPDX-PackageName = "mihub-lung-cancer-pathway"
+SPDX-PackageSupplier = "Forschungsgruppe Digital Health, Technische Universität Dresden <digital-health@tu-dresden.de>"
+SPDX-PackageDownloadLocation = "https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway"
+
+# Everything not listed below (documentation, the acceptance-test instrument, tooling, configuration).
+[[annotations]]
+path = ["**"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 Forschungsgruppe Digital Health, Technische Universität Dresden"
+SPDX-License-Identifier = "CC-BY-4.0"
+
+# The BPMN pathway models and their SVG renders — share-alike because parts are derived from
+# CC BY-SA 4.0 material (gematik INA / Interop Council, Fachanwender Journey Onkologie).
+[[annotations]]
+path = ["models/**"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = [
+  "2026 Forschungsgruppe Digital Health, Technische Universität Dresden",
+  "Derived in part from: Interop Council / INA – Interoperabilitäts-Navigator der gematik (2023), Fachanwender Journey Onkologie, CC BY-SA 4.0, https://www.ina.gematik.de/community-hub/vernetzen-mitwirken/arbeitskreise/fachanwender-journey-onkologie",
+  "Derived in part from: CraNE Joint Action WP6 — Patient Pathway Working Group (2024), Lung Cancer Patient Pathway Template for CCCNs (Sub-Task 6.4.2 / D6.4), lead authors Richter, Hickmann, Schlieter (TU Dresden)",
+]
+SPDX-License-Identifier = "CC-BY-SA-4.0"

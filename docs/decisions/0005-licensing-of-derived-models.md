@@ -1,6 +1,6 @@
 # 0005 — Licensing of derived models
 
-- Status: proposed — pending review by the TU Dresden Justiziariat (legal office). Nothing in this record is legal advice; every legal characterisation below is a question put to the Justiziariat, not a conclusion.
+- Status: accepted — maintainer decision 2026-09-07 (Option A executed for `models/`; see "Decision 2026-09-07" below). The Justiziariat review of the open questions (Q1–Q13) continues in parallel; nothing in this record is legal advice.
 - Date: 2026-09-07
 - Deciders: Forschungsgruppe Digital Health (FGDH), TU Dresden — final decision only after the Justiziariat's written opinion; agents draft, humans decide (`AGENTS.md`)
 - Context: an audit of the source terms found that the repository (published CC BY 4.0, archived on Zenodo) contains models derived from gematik INA / Interop Council BPMNs whose published reuse note is attribution PLUS share-alike (linked licence: CC BY-SA 4.0), and that the README's statement that CraNE WP6 deliverables are "typischerweise CC BY 4.0" is unsupported.
@@ -54,7 +54,9 @@ Trade-offs are recorded in the decision brief handed to the Justiziariat (2026-0
 
 ## Decision
 
-All decisions below are **proposed** and take effect only after the Justiziariat's written opinion (Open items, Q1–Q13). Until then the repository's licence declarations are frozen (Decision 4).
+**Decision 2026-09-07 (maintainer, Marcel Susky):** Option A is executed now for the models — `models/` (all ten `.bpmn` + `.svg`) is relicensed to **CC BY-SA 4.0**; `docs/governance/` and the documentation stay CC BY 4.0; the tooling stays CC BY 4.0 for the time being (Q13, MIT deferred). Implemented in the REUSE layout (`REUSE.toml`, `LICENSES/CC-BY-SA-4.0.txt`, `LICENSES/CC-BY-4.0.txt`, root `LICENSE` = CC BY-SA 4.0 legal code), README § Lizenz, `CITATION.cff`, `.zenodo.json`, AGENTS/CONTRIBUTING/PR template/DISCLAIMER references. The freeze of Decision 4 is lifted for these files; the clarification requests of Decision 3 and the open questions remain in force, and the maintainer records the consent of the FGDH rights holders (Susky, Scheel, Fleischer; Schlieter as group lead) with the pull request. The next release carries the new licence to Zenodo; earlier records stay as minted (ADR-0002, Q8).
+
+The decisions below were drafted as proposals on 2026-09-07 and are kept for the record; Decisions 2 and 5 are executed by the decision above.
 
 ### Decision 1 — Correct the source statements now (factual, no legal determination)
 

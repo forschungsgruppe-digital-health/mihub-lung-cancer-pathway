@@ -3,7 +3,7 @@
 > **BPMN-Modell der übergreifenden Lungenkrebs-Patient Journey** (_sog. Patientenpfad_) im Rahmen des Medical Informatics Hub (MiHUB). Der Patientenpfad wird federführend in Arbeitspaket 3 (AP3) entwickelt und bildet die fachliche Grundlage für die Use-Case-Arbeitspakete AP6 (Krebsfrüherkennung), AP7 (Kooperative Krebsversorgung) und AP8 (Nachsorge und Langzeitbegleitung).
 
 [![DOI](https://zenodo.org/badge/1167600846.svg)](https://zenodo.org/badge/latestdoi/1167600846)
-[![Lizenz: CC BY 4.0](https://img.shields.io/badge/Lizenz-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![Lizenz: Modelle CC BY-SA 4.0 · Doku CC BY 4.0](https://img.shields.io/badge/Lizenz-CC%20BY--SA%204.0%20%28Modelle%29%20%7C%20CC%20BY%204.0%20%28Doku%29-lightgrey.svg)](#lizenz)
 [![Projekt: MiHUB](https://img.shields.io/badge/Projekt-MiHUB-blue)](https://mihubx.de/mihub/)
 [![Projekt: MII](https://img.shields.io/badge/Projekt-MII-blue)](https://www.medizininformatik-initiative.de/)
 [![Standard: BPMN 2.0](https://img.shields.io/badge/Standard-BPMN%202.0-orange)](https://www.omg.org/spec/BPMN/2.0/)
@@ -53,7 +53,7 @@ _Stand: 2026-09-07 — aktualisiert mit jedem Release; Live-Quellen sind die Sta
 | **Abnahmetest** | Noch **kein Modell abgenommen** („Accepted“). Die **1.0.0** folgt der ersten formalen Abnahme ([ADR-0002](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/decisions/0002-versioning-and-release.md)); Instrument und Protokoll in [`docs/governance/`](./docs/governance/). |
 | **Modelle** | 10 Modelle. Jedes trägt ein **offenes Konformitäts-Issue** (Kinder von [#49](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/issues/49)); **13 OR-Gateways** sind umzumodellieren (SYN-5); das Palliativ-Modell ist ein **WIP-Entwurf**. Status je Modell: Spalte „Status“ in [`models/README.md`](./models/README.md). |
 | **Tooling** | Konformitäts-Gate (`npm run check:conformance`) **lokal blockierend**, in der CI während der RC-Phase **beratend** (warn-only, siehe Hinweis oben); Soundness-Prüfung beratend ([ADR-0001](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/decisions/0001-repo-tooling-and-conformance-gate.md), [ADR-0003](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/decisions/0003-soundness-tooling.md)). |
-| **Offene Entscheidungen** | Rechtliche Prüfung des [`DISCLAIMER.md`](./DISCLAIMER.md) (Justiziariat / DSB der TU Dresden) läuft; die **Lizenz der abgeleiteten Modelle** (CraNE-/INA-Vorlagen, siehe [Vorarbeiten](#vorarbeiten-und-grundlagen)) ist in Prüfung; die **klinische Validierung** (Kinsman-Gate, SEM-6) steht aus. |
+| **Offene Entscheidungen** | Rechtliche Prüfung des [`DISCLAIMER.md`](./DISCLAIMER.md) (Justiziariat / DSB der TU Dresden) läuft; die Lizenzentscheidung für die abgeleiteten Modelle ist getroffen (CC BY-SA 4.0, ADR-0005) — die Klärungsanfragen an gematik und im CraNE-Konsortium laufen parallel; klinische Validierung ausstehend. |
 | **Nächste Schritte** | Ummodellierung nach [#49](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/issues/49) → Gate in der CI wieder hart schalten → erster formaler Abnahmetest → `1.0.0`. |
 | **Wo nachsehen** | [`models/README.md`](./models/README.md) (Status, Rollen, Quellen je Modell) · [#49](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/issues/49) · [`docs/governance/clinical-sources.md`](./docs/governance/clinical-sources.md) · [GitHub Actions](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions). |
 
@@ -208,17 +208,23 @@ Bitte über den **Concept-DOI** (alle Versionen) zitieren:
 
 ## Lizenz
 
-Dieses Repository steht unter der **[Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)** Lizenz.
+Seit dem 2026-09-07 gilt eine Lizenz **je Artefaktklasse** (Entscheidung [ADR-0005](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/decisions/0005-licensing-of-derived-models.md); maschinenlesbar in [`REUSE.toml`](./REUSE.toml)):
 
-[![CC BY 4.0](https://licensebuttons.net/l/by/4.0/88x31.png)](https://creativecommons.org/licenses/by/4.0/)
+| Artefakt | Lizenz | Grund |
+|---|---|---|
+| **BPMN-Modelle und SVG-Renderings** (`models/`) | **[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)** — [`LICENSE`](./LICENSE) | Teile der Modelle sind aus den BPMNs der INA-Fachanwender-Journey Onkologie (Interop Council) abgeleitet, die unter CC BY-SA 4.0 (Weitergabe unter gleichen Bedingungen) veröffentlicht sind; die Share-Alike-Bedingung wird für den gesamten Modellsatz übernommen. |
+| **Abnahmetest-Instrument** (`docs/governance/`) und **Dokumentation** | **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)** — [`LICENSES/CC-BY-4.0.txt`](./LICENSES/CC-BY-4.0.txt) | Eigenwerke der FGDH ohne Share-Alike-Vorgabe. |
+| **Werkzeuge und CI** (`tools/`, `skills/`, `.github/`) | CC BY 4.0 (unverändert; ein Wechsel auf eine Softwarelizenz ist in Prüfung, ADR-0005 Q13) | Nicht Teil des veröffentlichten Artefakts. |
 
-> **Hinweis (2026-09-07):** Für die aus der INA-Fachanwender-Journey abgeleiteten Modelle wird geprüft, ob die dort verlinkte Lizenz **CC BY-SA 4.0** (Weitergabe unter gleichen Bedingungen) für die Modelle in `models/` zu übernehmen ist; das Abnahmetest-Instrument und die Dokumentation bleiben in jedem Fall CC BY 4.0. Stand und Optionen: [ADR-0005](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/decisions/0005-licensing-of-derived-models.md).
+[![CC BY-SA 4.0](https://licensebuttons.net/l/by-sa/4.0/88x31.png)](https://creativecommons.org/licenses/by-sa/4.0/) [![CC BY 4.0](https://licensebuttons.net/l/by/4.0/88x31.png)](https://creativecommons.org/licenses/by/4.0/)
+
+**Folge für Nachnutzende:** Bearbeitungen der Modelle (z. B. angepasste Pfade, daraus generierte Simulations- oder FHIR-Artefakte) müssen ebenfalls unter CC BY-SA 4.0 (oder einer kompatiblen Lizenz) weitergegeben werden; reine Nutzung, Zitation und Aufnahme in Sammlungen sind davon nicht betroffen. Die Versionen bis `v0.4.0-rc.1` wurden unter CC BY 4.0 archiviert; ab dem nächsten Release trägt das Zenodo-Deposit CC BY-SA 4.0.
 
 ### Attribution
 
 Bei Weiterverwendung bitte folgende Angabe verwenden:
 
-> _Forschungsgruppe Digital Health (FGDH), Technische Universität Dresden (2026). Lungenkrebspatientenpfad – MiHUB (BPMN-Modell). DOI: https://doi.org/10.5281/zenodo.20943916. GitHub: https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway. Lizenz: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)._
+> _Forschungsgruppe Digital Health (FGDH), Technische Universität Dresden (2026). Lungenkrebspatientenpfad – MiHUB (BPMN-Modell). DOI: https://doi.org/10.5281/zenodo.20943916. GitHub: https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway. Lizenz: Modelle CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/), Dokumentation CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)._
 
 ---
 
