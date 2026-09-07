@@ -43,7 +43,7 @@ jobs:
           cff_type="$(grep -E '^type:' CITATION.cff | head -n 1 | sed -E 's/^type:[[:space:]]*//; s/[[:space:]]+$//')"
           [ "$cff_type" = "dataset" ] || fail "CITATION.cff type is '$cff_type' — expected 'dataset' (must match .zenodo.json upload_type)"
 
-          zenodo_orcids="$(jq -r '.creators[].orcid' .zenodo.json | sort)"
+          zenodo_orcids="$(jq -r '.creators[].orcid // empty' .zenodo.json | sort)"
           cff_orcids="$(grep -oE '[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X]' CITATION.cff | sort || true)"
           [ "$zenodo_orcids" = "$cff_orcids" ] || fail "ORCID mismatch — .zenodo.json: $(echo "$zenodo_orcids" | tr '\n' ' ')| CITATION.cff: $(echo "$cff_orcids" | tr '\n' ' ')"
 

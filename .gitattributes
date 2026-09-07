@@ -1,3 +1,12 @@
+# --- line endings ---
+# Normalise line endings to LF for every text file (the models are XML/SVG text; a CRLF
+# checkout would otherwise show every line of a .bpmn as changed and break byte-stable
+# diffs of the models). `text=auto` leaves files git detects as binary untouched.
+* text=auto eol=lf
+*.bpmn text eol=lf
+*.svg text eol=lf
+*.sh text eol=lf
+
 # Controls the contents of the GitHub release source archive — and therefore the Zenodo deposit.
 #
 # GitHub builds the release tarball/zip with `git archive`, which honors `export-ignore`, and
@@ -12,8 +21,9 @@
 # repository via the GitHub API at release time, not from the archive.
 #
 # NOTE: applies to FUTURE releases only — the file must be present in the tagged commit. The
-# already-archived v0.2.0-rc.1 and v0.2.1-rc.1 are unaffected (untrimmed); v0.2.1-rc.2 onwards
-# are trimmed. To exclude/keep more, edit the lists below.
+# already-published GitHub releases v0.2.0-rc.1 and v0.2.1-rc.1 are unaffected (untrimmed; only
+# v0.2.1-rc.1 of the two is on Zenodo); v0.2.1-rc.2 onwards are trimmed. To exclude/keep more,
+# edit the lists below.
 
 # --- development & build tooling ---
 /tools/                         export-ignore
@@ -27,11 +37,14 @@
 /.bpmnlintrc                    export-ignore
 
 # --- editor / agent / repo meta ---
-/.vscode/                       export-ignore
 /.claude/                       export-ignore
 /.agents/                       export-ignore
 /.gitignore                     export-ignore
 /.gitattributes                 export-ignore
+/.editorconfig                  export-ignore
+/.mailmap                       export-ignore
+/.nvmrc                         export-ignore
+/SECURITY.md                    export-ignore
 /.zenodo.json                   export-ignore
 /AGENTS.md                      export-ignore
 /CLAUDE.md                      export-ignore
