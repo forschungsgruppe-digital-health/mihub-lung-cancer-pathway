@@ -38,5 +38,5 @@ This Code of Conduct is adapted from the [Contributor Covenant](https://www.cont
 version 2.1, available at
 https://www.contributor-covenant.org/version/2/1/code_of_conduct.html.
 
-> Note: contributions to this repository are licensed under CC BY 4.0 and require
+> Note: contributions to this repository are licensed under CC BY-SA 4.0 (models) / CC BY 4.0 (documentation) and require
 > attribution to be retained — see [`README.md`](README.md) and [`LICENSE`](LICENSE).

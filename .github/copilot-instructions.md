@@ -7,7 +7,7 @@ source. Do not duplicate content here.
 Essentials:
 
 - **What this is:** BPMN 2.0 models of the lung-cancer patient pathway (model-only,
-  published CC BY 4.0). `.bpmn` = source, `.svg` = derived (re-export on change).
+  published: models CC BY-SA 4.0, docs CC BY 4.0 — ADR-0005). `.bpmn` = source, `.svg` = derived (re-export on change).
 - **Not for clinical use** — see [`DISCLAIMER.md`](../DISCLAIMER.md). Never weaken it.
 - **Quality gate:** `npm run check:conformance` (naming + bpmnlint + model metrics +
   roundtrip blocking; XSD core informational). In CI the aggregator runs advisory during

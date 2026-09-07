@@ -3,7 +3,7 @@
 - Status: accepted
 - Date: 2026-06-25
 - Deciders: Forschungsgruppe Digital Health (FGDH), TU Dresden
-- Context: the repository is published openly (CC BY 4.0) and a Zenodo DOI is planned
+- Context: the repository is published openly (CC BY 4.0; models CC BY-SA 4.0 since 2026-09-07 — ADR-0005) and a Zenodo DOI is planned
   *(status 2026-09-04: the Zenodo integration is active since 2026-06-27 — concept DOI
   10.5281/zenodo.20943916; see Decision 3 and the amended open items below)*.
   It needs a documented, reproducible versioning and release process for a set of
