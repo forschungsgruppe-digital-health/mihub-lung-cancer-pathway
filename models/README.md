@@ -49,6 +49,18 @@ Die Modelle nutzen drei Farbkonventionen, die in den `.bpmn`/`.svg`-Dateien selb
 Vereinzelte weitere Farben (blau `#0000ff` in `treatment` und `overarching`, ein rotes Element in `palliative-care`) sind
 nicht dokumentiert.
 
+### Herkunft / Provenance
+
+Stand 2026-09-07 (Element-ID-Abgleich und Git-Historie, siehe [ADR-0005](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/decisions/0005-licensing-of-derived-models.md)); die Lizenzfrage der abgeleiteten Modelle ist in Prüfung, die Lizenzangaben bleiben bis dahin unverändert.
+
+| Modell | Herkunft |
+|---|---|
+| `palliative-care` | INA-Datei-Kopie (`palliativmedizin.bpmn`, Import 2026-04-28), seither stark erweitert |
+| `molecular-tumor-board` | INA-Datei-Kopie (`molekulares-tumorboard.bpmn`) über den CraNE-Import; Prozess-ID noch identisch |
+| `tumor-board` | INA-Anteile + CraNE-Template |
+| `diagnostic`, `patient-consultation`, `overarching`, `treatment` | CraNE-Template (Sub-Task 6.4.2, FGDH-Autorenschaft) + INA-Elemente auf Label-Ebene (orange markiert) |
+| `initial-entry`, `screening`, `aftercare` | FGDH-Original (S3-Leitlinie / LuKrFrühErkV / Workshops) |
+
 ### Verknüpfung / Linking
 
 Das übergreifende Modell bindet **fünf** Phasen als **Platzhalter-Subprozesse** ein (ohne eigenen Ablauf); jeder trägt ein
