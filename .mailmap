@@ -1,0 +1,23 @@
+# .mailmap — canonical author names/addresses for `git log`, `git shortlog` and `git blame`.
+#
+# The history is public, tagged and archived on Zenodo, so it cannot be rewritten; this file
+# only changes how the existing author entries are DISPLAYED. Rules: map every personal or
+# machine-generated address of a known person to one canonical entry; never invent addresses.
+# Contributors: commit with an address verified on your GitHub account (see CONTRIBUTING.md).
+#
+# Derived from `git log --all --format='%an <%ae>' | sort -u` on 2026-09-07.
+
+# Marcel Susky — canonical: the institutional address present in the history.
+Marcel Susky <marcel.susky@tu-dresden.de> M. Susky <31925243+msusky@users.noreply.github.com>
+
+# Rebecca Scheel — no institutional mailbox appears in the history; canonical = the GitHub
+# noreply address of @resc11 (legacy form, recognised by GitHub). Replace with a verified
+# institutional address if one is preferred. The personal address below also appears under the
+# author name "resc11"; matching by e-mail covers both spellings.
+Rebecca Scheel <resc11@users.noreply.github.com> <rebecca150899@gmail.com>
+Rebecca Scheel <resc11@users.noreply.github.com> <rebeccascheel@Mac.fritz.box>
+Rebecca Scheel <resc11@users.noreply.github.com> <rebeccascheel@MacBook-Pro-von-Rebecca.local>
+
+# Nick Fleischer <nick.fleischer@tu-dresden.de> — institutional already; no mapping needed.
+# Bots (dependabot[bot], github-actions[bot], the GitHub merge committer) are left as they are.
+Rebecca Scheel <resc11@users.noreply.github.com> <rebeccascheel@wisess1.wiwi.TU-Dresden.de>

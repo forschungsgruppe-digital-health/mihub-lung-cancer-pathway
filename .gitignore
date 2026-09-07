@@ -6,3 +6,13 @@ node_modules/
 npm-debug.log*
 *.log
 *.bak
+
+# Editors / OS
+.idea/
+*.swp
+*~
+Thumbs.db
+
+# Local secrets — never committed
+.env
+.env.*

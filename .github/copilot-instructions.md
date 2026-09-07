@@ -20,3 +20,8 @@ Essentials:
   `bpmn-conformance`, `bpmn-acceptance`, `bpmn-soundness`, `clinical-pathway-review`,
   `model-inventory` — catalog in [`skills/README.md`](../skills/README.md).
 - **No real patient data**; synthetic/abstract content only.
+- **AI usage is disclosed** in [`AI_USAGE.md`](../AI_USAGE.md) (EU AI Act Art. 50 / COPE).
+  Every AI-assisted commit carries a `Co-Authored-By: <tool/model> <address>` trailer and every
+  AI-drafted PR or issue ends with a "🤖 Generated with …" footer; keep `AI_USAGE.md` current
+  whenever a new tool, model version or AI-assisted artifact class appears. The models stay
+  human-only — never edit `.bpmn`/`.svg`; report findings to `docs/model-issues/` instead.

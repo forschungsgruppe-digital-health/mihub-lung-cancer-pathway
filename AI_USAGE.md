@@ -3,7 +3,9 @@
 > **English summary.** This repository uses AI coding agents (Anthropic Claude via Claude Code)
 > for **tooling, documentation, translations, audits and issue drafting** — never for the
 > clinical content. The **BPMN pathway models (`models/*.bpmn`, `*.svg`) are authored and
-> changed exclusively by human modellers**; agents are technically prevented from editing them
+> changed by human modellers** (one documented exception: the 2026-03-27 first draft of the
+> screening model was serialised with an AI tool and was then reworked and reviewed twice by
+> human modellers — see § 2); agents are technically prevented from editing them
 > (`.claude/hooks/guard-model-files.sh`) and report findings instead (`docs/model-issues/`,
 > GitHub issues). Every AI-assisted commit carries a machine-readable
 > `Co-Authored-By: Claude … <noreply@anthropic.com>` trailer; every AI-drafted pull request or
@@ -14,7 +16,7 @@
 > practice). The German text below is the binding version.
 
 > **Vorlage gemäß:** EU AI Act, Art. 50 (Verordnung (EU) 2024/1689) · EU Code of Practice on
-> Transparency of AI-Generated Content (Draft, 2026) · COPE: Authorship and AI Tools (2024) ·
+> Transparency of AI-Generated Content (finale Fassung, 10. Juni 2026) · COPE: Authorship and AI Tools (2023) ·
 > ICMJE Recommendations · Linux Kernel AI Policy (2025) · Red Hat OSS AI Policy (2025).
 > Pflichtfelder gemäß Art. 50 EU AI Act sind mit `[EU AI Act §]` markiert, COPE-relevante Felder
 > mit `[COPE]`, empfohlene Felder (Community Standard) mit `[CS]`.
@@ -24,8 +26,9 @@
 > Modellversion, neue Sub-Agenten/Skills, Wechsel der verantwortlichen Person, neue
 > Artefakt-Klasse mit KI-Beteiligung — spätestens jedoch mit dem nächsten Release (siehe
 > Changelog § 9). Agenten, die dieses Repository bearbeiten, sind durch `AGENTS.md`
-> verpflichtet, die Datei mitzuführen. Sie ist Teil des Release-Archivs und damit des
-> Zenodo-Deposits.
+> verpflichtet, die Datei mitzuführen. Sie ist Teil des Release-Archivs — und damit des
+> Zenodo-Deposits — ab dem nächsten Release (v0.4.0-rc.1 enthält sie noch nicht: die Datei
+> wurde erst nach diesem Tag gemergt).
 
 ## 1. Überblick
 
@@ -36,25 +39,25 @@ Entstehung der Artefakte nachvollziehen möchten.
 - **Verantwortliche Person (Human Oversight):** Marcel Susky, Forschungsgruppe Digital Health
   (FGDH), Technische Universität Dresden — `marcel.susky@tu-dresden.de`
 - **Institution:** Forschungsgruppe Digital Health, TU Dresden — `digital-health@tu-dresden.de`
-- **Letzte Aktualisierung:** 2026-09-05
+- **Letzte Aktualisierung:** 2026-09-07
 - **Geltungsbereich:** Repository `mihub-lung-cancer-pathway` — BPMN-2.0-Modelle des
   Lungenkrebs-Patientenpfads (übergreifender Pfad + Teilpfade), das Abnahmetest-Instrument
   (`docs/governance/`), die Konformitäts-/Soundness-Werkzeuge (`tools/`, `.github/`), die
-  Agenten-Skills (`skills/`) und die Repository-Dokumentation. Projekt MiHUB (BMFTR), in
-  Zusammenarbeit mit CAEHR.
+  Agenten-Skills (`skills/`) und die Repository-Dokumentation. Projekt MiHUB (BMFTR).
 
 ## 2. Nutzungsübersicht [EU AI Act §50 Abs. 2 | CS]
 
 | Artefakttyp | KI-Einsatz | Werkzeug / Modell | Scope | Menschliche Überprüfung |
 |---|---|---|---|---|
-| **BPMN-Modelle** (`models/*.bpmn`) und **SVG-Exporte** (`models/*.svg`) | **None** | — | Modellierung ausschließlich durch menschliche Modellierer:innen der FGDH in einem BPMN-Editor (bpmn.io / Camunda Modeler), auf Basis von Leitlinien (S3-Leitlinie Lungenkarzinom), Workshops und klinischer Expertise. Agenten dürfen Modelle **nicht** bearbeiten (harte Regel in `AGENTS.md`, technisch erzwungen durch den `guard-model-files`-Hook). Die sechs KI-attribuierten Commits, die `models/` berühren, sind Verschiebungen/Umbenennungen (ADR-0004), Merges, die den Modellinhalt byte-gleich erhalten, das Einbringen menschlich erstellter Modelldateien oder Änderungen an `models/README.md` — nachprüfbar mit `git log -p -- models/`. | Modellinhalt: Modellierer:innen + klinische Expert:innen (Abnahmetest SEM-6 Face Validity, PRA-1 Walkthrough — nie KI) |
+| **BPMN-Modelle** (`models/*.bpmn`) und **SVG-Exporte** (`models/*.svg`) — neun der zehn Modelle (alle außer dem Screening-Modell, siehe nächste Zeile) | **None** | — | Modellierung ausschließlich durch menschliche Modellierer:innen der FGDH in einem BPMN-Editor (bpmn.io / Camunda Modeler), auf Basis von Leitlinien (S3-Leitlinie Lungenkarzinom), Workshops und klinischer Expertise. Agenten dürfen Modelle **nicht** bearbeiten (harte Regel in `AGENTS.md`, technisch erzwungen durch den `guard-model-files`-Hook). Die sechs KI-attribuierten Commits, die `models/` berühren, sind Verschiebungen/Umbenennungen (ADR-0004), Merges, die den Modellinhalt byte-gleich erhalten, das Einbringen menschlich erstellter Modelldateien oder Änderungen an `models/README.md` — nachprüfbar mit `git log -p -- models/`. | Modellinhalt: Modellierer:innen + klinische Expert:innen (Abnahmetest SEM-6 Face Validity, PRA-1 Walkthrough — nie KI) |
+| **Screening-Modell** (`models/lung-cancer-screening-pathway.bpmn` / `.svg`) | **Assisted** (Erstentwurf) | Anthropic Claude (Exporter-Attribut `exporter="Claude AI"`, `exporterVersion="1.0"`; genaues Produkt/Modell nicht dokumentiert) | Der Erstentwurf vom 2026-03-27 (Commit `6a266b6`, „Adds first draft for screening according to LuKrFrühErkV“, ohne Trailer — vor Einführung der Trailer-Konvention) wurde mit einem KI-Werkzeug serialisiert; das Exporter-Attribut der Datei belegt das. Danach wurde das Modell **zweimal von menschlichen Modellierer:innen überarbeitet und geprüft** (Review-Phase 1 und Workshop 2; Commits von Rebecca Scheel, 2026-06-19 und 2026-06-25): Der heutige Modellinhalt ist das Ergebnis dieser menschlichen Überarbeitung. Das überlebende Exporter-Attribut ist ein Serialisierungs-Artefakt des Erstentwurfs und wird von einem Menschen entfernt (§ 10, Punkt 4) — kein Agent bearbeitet die Datei. | Modellierer:innen (zwei Überarbeitungs-/Review-Runden); klinische Expert:innen wie oben |
 | **Abnahmetest-Instrument, DE-Originale** (`docs/governance/*.md`) | **Assisted** (Formatierung, Terminologie-Umstellung „Abnahme → Abnahmetest“, Versions-/Zitier-Metadaten) | Claude Code | Inhaltliche Kriterien (SYN/STR/SEM/PRA) von den Autor:innen (Susky, Scheel, Schlieter) entwickelt; KI nur für redaktionelle Pflege | Autor:innen / Maintainer |
 | **Abnahmetest-Instrument, EN-Übersetzungen** (`docs/governance/*.en.md`) | **Generated** (Übersetzung) | Claude Code (Opus 4.8) | Vollständige Übersetzung der deutschen Originale (2026-06-25); Struktur, Kriterien-IDs und Zitationen übernommen; DE bleibt maßgeblich | Maintainer (Struktur-/Terminologie-Abgleich DE↔EN) |
 | **Konformitäts- und Soundness-Werkzeuge** (`tools/*.mjs`, `tools/validate-xsd.sh`, `tools/moddle/`, `.bpmnlintrc`) | **Generated** | Claude Code (Opus 4.8, Fable 5.1) | Entwurf und Implementierung der Gate-Schichten (Namenskonvention, bpmnlint, Metriken, Roundtrip, XSD-Kernsicht, Soundness-Wrapper, Protokoll-Vorbefüllung) | Maintainer-Review im PR; deterministische Tests (Exit-Codes, Referenzläufe); CI |
-| **CI-Workflows, Templates, Hook** (`.github/`, `.claude/`, `.gitattributes`, release-please-Konfiguration) | **Generated** | Claude Code | Workflows, PR-/Issue-Templates, Model-Guard-Hook, Release-/Archiv-Konfiguration | Maintainer-Review; CI-Läufe |
+| **CI-Workflows, Templates, Hook, Repo-Meta** (`.github/`, `.claude/`, `.gitattributes`, `.editorconfig`, `.mailmap`, release-please-Konfiguration) | **Generated** | Claude Code | Workflows, PR-/Issue-Templates, Model-Guard-Hook, Release-/Archiv-Konfiguration, Editor-Defaults, Autor:innen-Zuordnung (`.mailmap`, aus der Commit-Historie abgeleitet) | Maintainer-Review; CI-Läufe |
 | **Agenten-Skills und Agenten-Kontext** (`skills/*/SKILL.md`, `AGENTS.md`, `CLAUDE.md`, `.github/copilot-instructions.md`) | **Generated** | Claude Code | Vendor-neutrale Skill-Beschreibungen und Arbeitsregeln für KI-Agenten | Maintainer |
-| **Repository-Dokumentation** (README, CONTRIBUTING, CONVENTIONS-Querverweise, ADRs in `docs/decisions/`, `docs/model-issues/`, Synthea-Notizen) | **Assisted** bis **Generated** | Claude Code | Strukturierung, Formulierung, Konsistenz-Audits (mehrstufig, mit adversarialer Verifikation durch zweite Agenten); Entscheidungen selbst trifft der Maintainer | Maintainer-Review im PR |
-| **Modellbefunde** (`docs/model-issues/*.md`) und **GitHub-Issues zu Modellen** (z. B. #78–#89) | **Generated** (werkzeugbasiert) | Claude Code (Fable 5.1) | Befunde stammen aus den Gate-Werkzeugen; Agenten fassen sie zusammen, ein zweiter Agent verifiziert jede Element-Referenz und Zählung gegen das Werkzeug; Einreichung über das Maintainer-Konto | Maintainer; fachliche Bewertung durch Modellierer:innen |
+| **Repository-Dokumentation** (README, CONTRIBUTING, SECURITY, CONVENTIONS-Querverweise, ADRs in `docs/decisions/`, `docs/model-issues/`, Synthea-Notizen) | **Assisted** bis **Generated** | Claude Code | Strukturierung, Formulierung, Konsistenz-Audits (mehrstufig, mit adversarialer Verifikation durch zweite Agenten); Entscheidungen selbst trifft der Maintainer | Maintainer-Review im PR |
+| **Modellbefunde** (`docs/model-issues/*.md`) und **GitHub-Issues zu Modellen** (#78–#86 und #89; Elternissue #49) | **Generated** (werkzeugbasiert) | Claude Code (Fable 5.1) | Befunde stammen aus den Gate-Werkzeugen; Agenten fassen sie zusammen, ein zweiter Agent verifiziert jede Element-Referenz und Zählung gegen das Werkzeug; Einreichung über das Maintainer-Konto | Maintainer; fachliche Bewertung durch Modellierer:innen |
 | **Zitier-/Archiv-Metadaten** (`CITATION.cff`, `.zenodo.json`) | **Assisted** | Claude Code | Struktur und Synchronisation; Autor:innen, ORCIDs und Reihenfolge vom Maintainer vorgegeben und geprüft | Maintainer; CI-Sync-Check |
 | **Haftungsausschluss** (`DISCLAIMER.md`) | **Assisted** (Entwurf) | Claude Code | Entwurf nach Vorbild der FGDH-Schwesterrepositories; **rechtlich noch nicht freigegeben** (Justiziariat + DSB TU Dresden ausstehend) | Justiziariat / Datenschutzbeauftragte:r |
 | **Diese Datei** (`AI_USAGE.md`) | **Generated** | Claude Code (Fable 5.1) | Nach der Disklosure-Vorlage der FGDH-Schwesterrepositories; Fakten aus der Git-Historie abgeleitet | Maintainer |
@@ -69,12 +72,16 @@ Entstehung der Artefakte nachvollziehen möchten.
 |---|---|---|---|---|
 | **Claude Code** (CLI / IDE-Erweiterung) | Anthropic | `claude-opus-4-8` (1M-Kontext) | 2026-06-16 – 2026-07-03 (40 Commits) | Repository-Chassis: Konformitäts-Gate, Skills, ADRs, Governance-Übersetzungen, Restrukturierung (ADR-0004), Release-Setup, Soundness-Pilot |
 | **Claude Code** | Anthropic | `claude-fable-5` | 2026-07-08 (2 Commits) | Merge-Technik für Modellierer-Branches (Modellbytes erhalten) |
-| **Claude Code** | Anthropic | `claude-fable-5-1` | 2026-09-04 – 2026-09-05 (16 Commits) | Repository-Audit, Doku-/CI-Abgleich, XSD-Kernsicht, Zenodo-Metadaten, Modell-Issues, Release-Candidate 0.4.0-rc.1, diese Disklosure |
+| **Claude Code** | Anthropic | `claude-fable-5-1` | 2026-09-04 – 2026-09-05 (19 Commits) | Repository-Audit, Doku-/CI-Abgleich, XSD-Kernsicht, Zenodo-Metadaten, Modell-Issues, Release-Candidate 0.4.0-rc.1, diese Disklosure |
+| **Anthropic Claude** (Erstentwurf des Screening-Modells) | Anthropic | nicht dokumentiert — nur das Exporter-Attribut `Claude AI` / `exporterVersion="1.0"` in der Datei | 2026-03-27 (1 Commit, `6a266b6`, ohne Trailer — vor Einführung der Trailer-Konvention) | Serialisierung des Erstentwurfs des Screening-Modells; anschließend zweimal menschlich überarbeitet und geprüft (§ 2) |
 | **Repository-eigene Skills** (`skills/`) | auf Claude basierend; vendor-neutral (agentskills.io) | `bpmn-conformance`, `bpmn-acceptance`, `bpmn-soundness`, `clinical-pathway-review`, `model-inventory` | 2026-06 – laufend | Nur lesende Analyse/Berichte; keine Modelländerungen |
 | **Externe Analyse-Werkzeuge ohne KI** | bpmn.io (bpmnlint, bpmn-moddle), libxml2 (xmllint), rust_bpmn_analyzer (Model Checker, per Digest gepinnt) | siehe `package.json`, `tools/` | 2026-06 – laufend | Deterministische Gate-Schichten — die Befunde stammen aus diesen Werkzeugen, nicht aus KI-Urteilen |
 
-> **Nachweis:** 58 von 148 Commits auf `main` (Stand 2026-09-05) tragen einen KI-Trailer
-> (`git log --grep='Co-Authored-By: Claude'`). Die Modellversionen entsprechen den zum
+> **Nachweis:** 61 von 152 Commits auf `dev` (Commit `c0d576e`, Stand 2026-09-07) tragen einen
+> KI-Trailer; auf `main` (v0.4.0-rc.1 zuzüglich Dependabot-Bumps) sind es 54 von 142.
+> Zählregel: `git log --grep='Co-Authored-By: Claude' --oneline | wc -l` gegen
+> `git rev-list --count HEAD`, jeweils **inklusive Merge-Commits**. Die 61 verteilen sich auf
+> Opus 4.8 (40), Fable 5.1 (19) und Fable 5 (2). Die Modellversionen entsprechen den zum
 > Zeitpunkt der Sitzung in Claude Code aktiven Modellen; je Commit ist die tatsächlich
 > verwendete Version im Trailer dokumentiert.
 
@@ -176,8 +183,8 @@ ist nicht vorgesehen; die Zuordnung erfolgt über die Commit-Historie.
 | Grundlage | Bezug in dieser Datei |
 |---|---|
 | [EU AI Act, Art. 50 (VO (EU) 2024/1689)](https://eur-lex.europa.eu/eli/reg/2024/1689/oj) | Transparenz- und Kennzeichnungspflichten (§ 2, § 4, § 5) |
-| EU Code of Practice on Transparency of AI-Generated Content (Draft, 2026) | Dokumentierter Redaktionsworkflow mit identifizierbarer Verantwortung (§ 4) |
-| [COPE: Authorship and AI Tools (2024)](https://publicationethics.org/) | KI ist kein:e Autor:in; Werkzeug- und Versionsangabe (§ 3) |
+| EU Code of Practice on Transparency of AI-Generated Content (finale Fassung, 10. Juni 2026; die Art.-50-Pflichten gelten seit 2. August 2026) | Dokumentierter Redaktionsworkflow mit identifizierbarer Verantwortung (§ 4) |
+| [COPE: Authorship and AI tools — Position Statement (13. Februar 2023)](https://publicationethics.org/guidance/cope-position/authorship-and-ai-tools) | KI ist kein:e Autor:in; Werkzeug- und Versionsangabe (§ 3) |
 | [ICMJE Recommendations](https://www.icmje.org/) | Offenlegung der KI-Nutzung in zugehörigen Publikationen |
 | [Linux Kernel AI Policy (2025)](https://docs.kernel.org/process/coding-assistants.html) | Commit-Trailer-Konvention (§ 5.1) |
 | Red Hat OSS AI Policy (2025) | Menschliche Verantwortung für KI-assistierte Beiträge |
@@ -186,7 +193,8 @@ ist nicht vorgesehen; die Zuordnung erfolgt über die Commit-Historie.
 
 | Datum | Änderung |
 |---|---|
-| 2026-09-05 | Erstfassung nach der FGDH-Disklosure-Vorlage; Fakten aus der Commit-Historie (Trailer, Zeiträume, `models/`-Commits); Verweise in README, CONTRIBUTING, PR-Template und AGENTS.md; Datei in das Release-Archiv aufgenommen. |
+| 2026-09-05 | Erstfassung nach der FGDH-Disklosure-Vorlage; Fakten aus der Commit-Historie (Trailer, Zeiträume, `models/`-Commits); Verweise in README, CONTRIBUTING, PR-Template und AGENTS.md; Datei für das Release-Archiv vorgemerkt (`.gitattributes`; v0.4.0-rc.1 enthält sie noch nicht). |
+| 2026-09-07 | Audit-Korrekturen: Screening-Modell als „Assisted (Erstentwurf)“ ausgewiesen (KI-serialisierter Erstentwurf 2026-03-27, zweimal menschlich überarbeitet; Exporter-Attribut wird von einem Menschen entfernt) — die übrigen neun Modelle bleiben „None“; Nachweiszahlen auf `dev` @ `c0d576e` (61/152) und `main` (54/142) mit Zählregel; Fable-5.1-Commits 16 → 19; Code of Practice als finale Fassung (2026-06-10), COPE-Stellungnahme 2023 mit Direktlink; Issue-Bereich #78–#86, #89 (Elternissue #49); Hinweis, dass v0.4.0-rc.1 die Datei noch nicht enthält; CAEHR-Nennung entfernt; `SECURITY.md`, `.editorconfig`, `.mailmap` als KI-erzeugte Artefakte ergänzt. |
 
 ## 10. Offene Punkte
 
@@ -195,3 +203,4 @@ ist nicht vorgesehen; die Zuordnung erfolgt über die Commit-Historie.
 | 1 | Rechtliche Freigabe von `DISCLAIMER.md` (Justiziariat + DSB TU Dresden) | offen |
 | 2 | Ergänzung dieser Datei, sobald andere Agenten (Codex, Copilot, …) oder neue Modellversionen eingesetzt werden | laufend |
 | 3 | Nennung klinischer Reviewer:innen je Teilpfad nach dem ersten Abnahmetest | offen (mit 1.0.0) |
+| 4 | Entfernen des Exporter-Attributs `exporter="Claude AI"` aus `models/lung-cancer-screening-pathway.bpmn` durch eine:n menschliche:n Modellierer:in (Serialisierungs-Artefakt des Erstentwurfs; Modellinhalt unverändert — siehe § 2) | offen |
