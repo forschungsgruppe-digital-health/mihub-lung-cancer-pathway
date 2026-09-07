@@ -4,7 +4,7 @@
 - Date: YYYY-MM-DD
 - Deciders: Forschungsgruppe Digital Health (FGDH), TU Dresden
 - Context: <one or two sentences — what situation forces a decision>
-- Relates: [`NNNN-<title>.md`](NNNN-<title>.md) (supersedes / builds on / constrains)
+- Relates: [`NNNN-<title>.md`] (supersedes / builds on / constrains)
 
 ## Context
 
