@@ -67,7 +67,7 @@ column below is the local STRICT behaviour:
 **The gate surfaces the real baseline on the current models by design** (and in CI reports it warn-only, without failing the check) — at the 2026-06-25 snapshot (7 models), namely:
 99 bpmnlint structural errors (disconnected nodes, implicit start/end, missing
 labels, multiple blank start events), four OR-gateways, and not-yet-formalised
-`cp:`/`i18n:` extension content *(status 2026-09-04: 116 errors / 15 warnings over 10 models,
+`cp:`/`i18n:` extension content *(status 2026-09-05: 116 errors / 12 warnings over 10 models (per-file Linter since ffd5537),
 13 OR-gateways — treatment 2, aftercare 4, palliative-care 7; `cp:` formalised in 79cde22,
 roundtrip lossless — see Consequences)*. We add the gate first (this PR) so the baseline is
 visible and tracked; **greening it is deliberate follow-up work** that needs

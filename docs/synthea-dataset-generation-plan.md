@@ -1,6 +1,7 @@
 # Synthea Dataset Generation from the BPMN Lung-Cancer Pathway — Execution Plan
 
-> **Status:** Draft v0.1 (working document, engineering plan — not a clinical artifact).
+> **Status:** Draft v0.1 (working document, engineering plan — not a clinical artifact). Originated on branch `research/synthea-dataset-generation`; maintained on `dev` since 2026-06-16; export-ignored from the release archive per [ADR-0002](decisions/0002-versioning-and-release.md) Decision 4.
+> **Companion notes:** [`synthea-and-bpmn-primer.md`](./synthea-and-bpmn-primer.md) (concepts: what Synthea is, how BPMN maps onto GMF) · [`data-sources-for-probabilities-and-timing.md`](./data-sources-for-probabilities-and-timing.md) (where the numbers for Phase 5 come from).
 > **Scope:** How to generate a synthetic lung-cancer FHIR dataset *from* the BPMN4CP pathway models in this repo, conformant to the MII Kerndatensatz (incl. Erweiterungsmodul Onkologie), for consumption by the MiHUB patient portal and other downstream tools.
 > **Audience:** AP3 modellers + medical-informatics engineers.
 > **Why here:** The portal only needs the *resulting dataset*, not the generation tooling. The BPMN pathway is the spec for the Synthea model, so model + generator + dataset belong together (see §2).
@@ -105,7 +106,7 @@ flowchart LR
 - [ ] Round-trip: regenerate on BPMN change; validate output in the Module Builder.
 
 ### Phase 5 — Clinical enrichment (the inputs Synthea needs that BPMN lacks)
-- [ ] Populate **branch probabilities** (sum to 1.0 per gateway) — ground in epidemiology / S3-LL / registry; cite in `remarks`.
+- [ ] Populate **branch probabilities** (sum to 1.0 per gateway) — ground in epidemiology / S3-LL / registry; cite in `remarks`. Source catalogue: [`data-sources-for-probabilities-and-timing.md`](./data-sources-for-probabilities-and-timing.md).
 - [ ] Populate **timing/Delay distributions** (time-to-diagnosis, cycle intervals, surveillance cadence, survival by stage).
 - [ ] Populate **codes** for every clinical task (from data-elements catalog where available).
 - [ ] Add structured oncology data the stock module lacks: ICD-O-3 histology, TNM components, grading, ECOG, molecular variants, response/Verlauf (model at generation time in SNOMED/LOINC; remap later).
@@ -239,7 +240,7 @@ flowchart TD
 
 ## 11. References
 
-**This repo:** [`models/`](../models/) (BPMN sources + [`README`](../models/README.md)) · [`CONVENTIONS.md`](../CONVENTIONS.md) (7PMG modelling rules) · [`AGENTS.md`](../AGENTS.md) (ways of working, read-only models) · [`docs/governance/`](governance/) (Abnahmetest gate) · [`docs/model-issues/`](model-issues/) (known findings) · [`docs/decisions/`](decisions/) (ADRs) · conformance tooling under [`tools/`](../tools/) + [`skills/`](../skills/).
+**This repo:** [`README.md`](../README.md) (project landing page) · [`CONTRIBUTING.md`](../CONTRIBUTING.md) (how to contribute, release-candidate procedure) · [`models/`](../models/) (BPMN sources + [`README`](../models/README.md)) · [`CONVENTIONS.md`](../CONVENTIONS.md) (7PMG modelling rules) · [`AGENTS.md`](../AGENTS.md) (ways of working, read-only models) · [`docs/governance/`](governance/) (Abnahmetest gate) · [`docs/model-issues/`](model-issues/) (known findings) · [`docs/decisions/`](decisions/) (ADRs) · conformance tooling under [`tools/`](../tools/) + [`skills/`](../skills/).
 
 **Synthea & MII:**
 - Synthea GMF: <https://github.com/synthetichealth/synthea/wiki/Generic-Module-Framework> · Flexporter: <https://github.com/synthetichealth/synthea/wiki/Flexporter> · Module Builder: <https://synthetichealth.github.io/module-builder/>

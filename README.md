@@ -37,7 +37,25 @@
 | die **KI-Nutzung** in diesem Repository nachvollziehen (EU AI Act Art. 50) | [`AI_USAGE.md`](./AI_USAGE.md) |
 | mit **KI-Coding-Agenten** arbeiten (Claude Code, Codex, Copilot, …) | [`AGENTS.md`](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/AGENTS.md) · [`skills/README.md`](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/skills/README.md) |
 | **Zweckbestimmung / Haftung** | [`DISCLAIMER.md`](./DISCLAIMER.md) |
+| den **Projektstatus** (Release, Abnahme, Modelle) | [Status & Roadmap](#status--roadmap) |
+| die **klinischen Quellen** je Modell (Leitlinien, Rechtsgrundlagen, Workshops) | [`docs/governance/clinical-sources.md`](./docs/governance/clinical-sources.md) |
 | die **Datenelemente** (Inhaltsseite) erkunden | Schwester-Repo [`…-data-elements`](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway-data-elements) |
+
+---
+
+## Status & Roadmap
+
+_Stand: 2026-09-07 — aktualisiert mit jedem Release; Live-Quellen sind die Status-Spalte in [`models/README.md`](./models/README.md) und das Sammel-Issue [#49](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/issues/49)._
+
+| Bereich | Status |
+| --- | --- |
+| **Release-Phase** | Pre-Releases `0.x-rc.N` unter dem Concept-DOI [`10.5281/zenodo.20943916`](https://doi.org/10.5281/zenodo.20943916); aktuelle Version **v0.4.0-rc.1** (2026-09-05, siehe [`CHANGELOG.md`](./CHANGELOG.md)). |
+| **Abnahmetest** | Noch **kein Modell abgenommen** („Accepted“). Die **1.0.0** folgt der ersten formalen Abnahme ([ADR-0002](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/decisions/0002-versioning-and-release.md)); Instrument und Protokoll in [`docs/governance/`](./docs/governance/). |
+| **Modelle** | 10 Modelle. Jedes trägt ein **offenes Konformitäts-Issue** (Kinder von [#49](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/issues/49)); **13 OR-Gateways** sind umzumodellieren (SYN-5); das Palliativ-Modell ist ein **WIP-Entwurf**. Status je Modell: Spalte „Status“ in [`models/README.md`](./models/README.md). |
+| **Tooling** | Konformitäts-Gate (`npm run check:conformance`) **lokal blockierend**, in der CI während der RC-Phase **beratend** (warn-only, siehe Hinweis oben); Soundness-Prüfung beratend ([ADR-0001](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/decisions/0001-repo-tooling-and-conformance-gate.md), [ADR-0003](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/decisions/0003-soundness-tooling.md)). |
+| **Offene Entscheidungen** | Rechtliche Prüfung des [`DISCLAIMER.md`](./DISCLAIMER.md) (Justiziariat / DSB der TU Dresden) läuft; die **Lizenz der abgeleiteten Modelle** (CraNE-/INA-Vorlagen, siehe [Vorarbeiten](#vorarbeiten-und-grundlagen)) ist in Prüfung; die **klinische Validierung** (Kinsman-Gate, SEM-6) steht aus. |
+| **Nächste Schritte** | Ummodellierung nach [#49](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/issues/49) → Gate in der CI wieder hart schalten → erster formaler Abnahmetest → `1.0.0`. |
+| **Wo nachsehen** | [`models/README.md`](./models/README.md) (Status, Rollen, Quellen je Modell) · [#49](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/issues/49) · [`docs/governance/clinical-sources.md`](./docs/governance/clinical-sources.md) · [GitHub Actions](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions). |
 
 ---
 
@@ -129,7 +147,7 @@ Alle Modelle liegen im Verzeichnis [`models/`](./models/) (Namenskonvention `lun
 | [`models/lung-cancer-overarching-pathway.bpmn`](./models/lung-cancer-overarching-pathway.bpmn) | BPMN-Quelldatei des übergreifenden Lungenkrebspatientenpfads |
 | [`models/lung-cancer-overarching-pathway.svg`](./models/lung-cancer-overarching-pathway.svg) | Visualisierung des übergreifenden Lungenkrebspatientenpfads  |
 
-Der übergreifende Pfad bildet die vollständige Patient:innen-Journey von der Prävention/Früherkennung bis zur Nachsorge ab und verknüpft alle Teilpfade miteinander.
+Der übergreifende Pfad bildet die vollständige Patient Journey von der Prävention/Früherkennung bis zur Nachsorge ab. Fünf Phasen — Staging/Diagnostik, Patientengespräch, Tumorboard, Molekulares Tumorboard und Behandlung — sind darin als **Platzhalter-Subprozesse** mit externen Verweisen (`cp:definitionCanonical` auf den login-pflichtigen Modeler-Workspace `modeler.helict.eu`) eingebunden; die vier übrigen Teilpfade (Initialer Einstieg, Krebsfrüherkennung, Palliativversorgung, Nachsorge) stehen derzeit **eigenständig** neben dem übergreifenden Modell — siehe [`models/README.md`, Abschnitt „Verknüpfung“](./models/README.md#verknüpfung--linking).
 
 ### Teilpfade (Sub-Pathways)
 
@@ -144,6 +162,8 @@ Der übergreifende Pfad bildet die vollständige Patient:innen-Journey von der P
 | [`models/lung-cancer-treatment-pathway.bpmn`](./models/lung-cancer-treatment-pathway.bpmn) / [`.svg`](./models/lung-cancer-treatment-pathway.svg)                                     | Teilpfad Behandlung                     |
 | [`models/lung-cancer-palliative-care-pathway.bpmn`](./models/lung-cancer-palliative-care-pathway.bpmn) / [`.svg`](./models/lung-cancer-palliative-care-pathway.svg)                   | Teilpfad Palliativversorgung _(Entwurf / WIP)_ |
 | [`models/lung-cancer-aftercare-pathway.bpmn`](./models/lung-cancer-aftercare-pathway.bpmn) / [`.svg`](./models/lung-cancer-aftercare-pathway.svg)                                     | Teilpfad Nachsorge                      |
+
+Die **klinischen Quellen je Modell** (Leitlinien, Rechtsgrundlagen, Workshops, abgeleitete Vorlagen; Datum der letzten Prüfung gegen die Quelle) sind in [`docs/governance/clinical-sources.md`](./docs/governance/clinical-sources.md) dokumentiert.
 
 ---
 

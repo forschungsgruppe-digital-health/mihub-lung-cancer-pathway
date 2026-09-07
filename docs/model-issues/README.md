@@ -70,4 +70,4 @@ dropped on filing. Every model finding carries `model`; add the others as applic
 | `conformance` | the finding is reported by the conformance gate (`npm run check:conformance`: naming, bpmnlint, model metrics / SYN criteria, moddle roundtrip, XSD core) — an acceptance-test SYN criterion or BPMN 2.0 schema hygiene. |
 | `soundness` | the finding is a **VIOLATION** verdict of `npm run check:soundness` (STR-1…STR-4, rust_bpmn_analyzer). An **INCONCLUSIVE** result (unsupported elements — OR-gateways, intermediate catch events) is recorded in the per-model issue text only, not as a label. |
 | `needs-clinical-review` | the remodel changes clinical meaning or needs a modelling decision by domain experts (SEM/PRA criteria; SEM-6 face validity must be re-confirmed). |
-| `housekeeping` | cosmetic / serialization hygiene without semantic impact — namespace prefix, extension placement, non-schema DI attributes. |
+| `housekeeping` | repo hygiene — structure, tooling, docs consistency (the GitHub label description) — and model hygiene without semantic impact: namespace prefix, extension placement, non-schema DI attributes. |
