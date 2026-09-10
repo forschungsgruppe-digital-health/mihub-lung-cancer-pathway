@@ -1,6 +1,6 @@
 {
   "name": "mihub-lung-cancer-pathway",
-  "version": "0.4.0-rc.1",
+  "version": "0.5.0-rc.1",
   "private": true,
   "type": "module",
   "description": "Dev/CI tooling for the MiHUB lung-cancer BPMN patient-pathway models. The published artifacts are the .bpmn/.svg models (CC BY-SA 4.0) and docs (CC BY 4.0); this package is NOT published and node_modules is never committed.",
