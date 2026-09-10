@@ -1,5 +1,41 @@
 # Changelog
 
+## [0.5.0-rc.1](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/compare/v0.4.0-rc.1...v0.5.0-rc.1) (2026-09-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* **license:** the BPMN models and their SVG renders (models/) are now licensed CC BY-SA 4.0 instead of CC BY 4.0 — parts are derived from the CC BY-SA 4.0 BPMNs of the gematik INA Fachanwender Journey Onkologie (Interop Council), whose share-alike condition is adopted for the whole model set. Adaptations of the models must be shared under CC BY-SA 4.0 (or a compatible licence). The acceptance-test instrument (docs/governance/) and the documentation stay CC BY 4.0; the tooling stays CC BY 4.0 for now (ADR-0005 Q13).
+
+### Corrections
+
+* 2026-09-05 audit follow-ups — tests, Node 22, Fleischer as author, AI_USAGE, governance, inventories ([2aece7a](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/2aece7a254f76e1ebac93d712edfbe706ee38ac6))
+* **screening:** drop the AI exporter stamp — model reviewed by humans twice ([ac7e9c2](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/ac7e9c23938368f500df48a49b95891242e4c78d))
+* **tools:** fail-closed arguments, repo-root discovery, prefix-aware roundtrip, Protokoll columns; add unit tests ([5547a3a](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/5547a3a932a486f7c2e03761f4cdfba350bd805e))
+
+
+### Documentation & governance
+
+* add AI_USAGE.md (EU AI Act Art. 50 / COPE disclosure) and wire it into README, CONTRIBUTING, PR template, AGENTS.md ([20579e9](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/20579e9746ae4c980439bdedfdd96a4debd6ea1a))
+* **adr-0002:** pre-1.0 Zenodo RC records stay as minted (maintainer decision 2026-09-05) ([1f2a1da](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/1f2a1da2db38aabea0703724ce1aec24e4a84ca6))
+* **adr-0004:** screening model name applies per convention — open item closed ([6924670](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/6924670597ff24feea6ba922fcc3d0923a24ea1f))
+* **adr-0005:** licensing of derived models — proposed ADR, verbatim INA/CraNE terms, provenance ([5bacb75](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/5bacb75a4182ffde9bbe469b468478a0d4bdf804))
+* **adr-0005:** licensing of derived models — proposed ADR, verbatim source terms, provenance ([2e43283](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/2e43283177c2f82bbf6437b6efecaa7c9b3d3230))
+* audit follow-ups — governance, ADRs, clinical sources, model inventory, README status, changelogs ([4ee133e](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/4ee133e6227a3da1d81e34dabd3d30985e5b4bb9))
+* **citation:** add Nick Fleischer as author; AI_USAGE corrections; SECURITY, .editorconfig, .mailmap, issue-template config, contributor guidance ([c352964](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/c352964481cf5a6110bf6150ae96215ca95bcd69))
+* **governance:** set the acceptance-test instrument's authors (Susky, Scheel, Schlieter) ([f1f6d4f](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/f1f6d4fa74fed54ca67e615963ba10336884db6a))
+* instrument authorship, ADR-0004 naming closed, AI_USAGE.md disclosure ([c0d576e](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/c0d576e8dd9c3dc4786cb78e9d3070ecc666c84e))
+* **license:** relicense models/ to CC BY-SA 4.0 (ADR-0005); REUSE layout; Nick Fleischer ORCID ([cff4537](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/cff4537a91a89236fc583e2e9c0a9f66e52f7255))
+* **readme:** quote the INA source terms verbatim (CC BY-SA 4.0 link), correct the CraNE attribution, provenance table ([a369e79](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/a369e797f382d53f797fd764580639da3baf2295))
+* **readme:** quote the INA source terms verbatim (CC BY-SA 4.0 link), correct the CraNE attribution, provenance table ([78a35fc](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/78a35fc2e6f7d687600f86f8fc8498b70391d3c8))
+* **readme:** verbatim INA source terms, corrected CraNE attribution, provenance table (ADR-0005 Decision 1) ([43d3b9b](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/43d3b9b2afd50b80d36fe3c57319f07011529708))
+* **readme:** verbatim INA source terms, corrected CraNE attribution, provenance table (ADR-0005 Decision 1) ([f53b088](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/f53b088e815d324d1572d2a4c98371504cb77eb3))
+
+
+### Tooling & maintenance
+
+* **release:** prepare release candidate 0.5.0-rc.1 ([15b3c46](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/15b3c464efd9cb4ffa3f2057ed451e2cd5d20a10))
+
 ## [0.4.0-rc.1](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/compare/v0.3.0-rc.1...v0.4.0-rc.1) (2026-09-05)
 
 
