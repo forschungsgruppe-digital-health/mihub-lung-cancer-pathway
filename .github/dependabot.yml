@@ -1,6 +1,17 @@
 # Keeps the SHA-pinned GitHub Actions in .github/workflows/ current: Dependabot bumps the
 # commit SHA and rewrites the `# vX.Y.Z` comment behind it (monthly). Only the Actions
 # ecosystem is covered here; the npm devDependencies are intentionally out of scope.
+#
+# BRANCH SCOPE — `dev` only, never `main`:
+#   * `target-branch: dev` makes Dependabot read the workflow files ON `dev` and open its
+#     pull requests AGAINST `dev`; `main` is never scanned and never receives a Dependabot PR.
+#     Every change reaches `main` through the regular `dev` → `main` promotion (ADR-0002).
+#   * GitHub reads THIS FILE from the default branch (`main`), so the line above must exist on
+#     `main` to take effect — keep the two branches in sync (the four Dependabot PRs #94–#97
+#     landed on `main` in September 2026 because the line existed only on `dev`).
+#   * Dependabot *security* updates would ignore `target-branch` and open PRs against the
+#     default branch; they are switched off for this repository (Settings → Code security →
+#     "Dependabot security updates"). Vulnerability alerts stay on — they raise alerts, not PRs.
 version: 2
 updates:
   - package-ecosystem: github-actions
