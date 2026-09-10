@@ -31,8 +31,8 @@ license: CC-BY-SA-4.0  # models/; the acceptance-test instrument and documentati
 doi: "10.5281/zenodo.20943916"  # concept DOI (all versions); resolves to the latest Zenodo release
 repository-code: "https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway"
 url: "https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway"
-version: "0.4.0-rc.1" # x-release-please-version
-date-released: "2026-09-05" # x-release-please-date
+version: "0.5.0-rc.1" # x-release-please-version
+date-released: "2026-09-10" # x-release-please-date
 keywords:
   - BPMN
   - clinical pathway
