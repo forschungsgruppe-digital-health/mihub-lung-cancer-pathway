@@ -15,6 +15,8 @@ so a release cut late in the evening may show the previous day there.
 
 ## [Unreleased]
 
+## Released in v0.5.0-rc.1 (2026-09-10)
+
 ### Changed
 - Checklist (DE + EN) and Protocol template (DE + EN): the reading aid / result-code legend now
   defines the asterisk — `Soll*` / `Should*` (and `S*` in the Protocol tables) = counts toward the

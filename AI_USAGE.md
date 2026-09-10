@@ -27,7 +27,7 @@
 > Artefakt-Klasse mit KI-Beteiligung — spätestens jedoch mit dem nächsten Release (siehe
 > Changelog § 9). Agenten, die dieses Repository bearbeiten, sind durch `AGENTS.md`
 > verpflichtet, die Datei mitzuführen. Sie ist Teil des Release-Archivs — und damit des
-> Zenodo-Deposits — ab dem nächsten Release (v0.4.0-rc.1 enthält sie noch nicht: die Datei
+> Zenodo-Deposits — seit `v0.5.0-rc.1` (2026-09-10) Teil des Release-Archivs und damit des Zenodo-Deposits — `v0.4.0-rc.1` enthielt sie noch nicht: die Datei
 > wurde erst nach diesem Tag gemergt).
 
 ## 1. Überblick
@@ -78,7 +78,7 @@ Entstehung der Artefakte nachvollziehen möchten.
 | **Externe Analyse-Werkzeuge ohne KI** | bpmn.io (bpmnlint, bpmn-moddle), libxml2 (xmllint), rust_bpmn_analyzer (Model Checker, per Digest gepinnt) | siehe `package.json`, `tools/` | 2026-06 – laufend | Deterministische Gate-Schichten — die Befunde stammen aus diesen Werkzeugen, nicht aus KI-Urteilen |
 
 > **Nachweis:** 61 von 152 Commits auf `dev` (Commit `c0d576e`, Stand 2026-09-07) tragen einen
-> KI-Trailer; auf `main` (v0.4.0-rc.1 zuzüglich Dependabot-Bumps) sind es 54 von 142.
+> KI-Trailer; auf `main` waren es zum selben Zeitpunkt 54 von 142; seit `v0.5.0-rc.1` (2026-09-10) tragen beide Zweige denselben Stand.
 > Zählregel: `git log --grep='Co-Authored-By: Claude' --oneline | wc -l` gegen
 > `git rev-list --count HEAD`, jeweils **inklusive Merge-Commits**. Die 61 verteilen sich auf
 > Opus 4.8 (40), Fable 5.1 (19) und Fable 5 (2). Die Modellversionen entsprechen den zum
