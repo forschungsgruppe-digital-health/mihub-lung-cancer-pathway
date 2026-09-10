@@ -26,6 +26,11 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Validate CITATION.cff
+        # The action installs the R packages cffr/jsonvalidate/V8. Building V8 from source
+        # fails on the runner when no CRAN binary matches (seen 2026-09-10, PR #109); the
+        # documented fallback downloads a prebuilt static libv8 instead of compiling it.
+        env:
+          DOWNLOAD_STATIC_LIBV8: 1
         uses: dieghernan/cff-validator@d8f85828214016ce6976e740b6e0504c0fdc4dbb # v5.1.1
 
       # Zenodo reads .zenodo.json via the GitHub API at release time and prefers it over
