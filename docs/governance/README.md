@@ -50,6 +50,43 @@ and [ADR-0001](https://github.com/forschungsgruppe-digital-health/mihub-lung-can
 > **never stamps the overall acceptance test** — that is a human decision recorded in the
 > Protokoll with signatures.
 
+## Durchführung eines Abnahmetests / Running an acceptance test
+
+**DE (maßgeblich).** Ein Abnahmetest wird von der/dem **Maintainer:in** des Repositories einberufen;
+teilnehmen müssen die **Modellierer:innen** des zu prüfenden Modells und die **klinischen
+Fachexpert:innen** (Rollenliste im Protokoll §0 — klinischer Lead, technischer Lead,
+Fachexpert:in, Moderation). Der Ablauf folgt den drei Gates des Instruments in dieser Reihenfolge:
+
+1. **Technisches Gate** (vor dem Termin, Evidenz durch Tool): `npm run abnahme:protokoll`
+   befüllt das Protokoll mit den automatisierbaren A-Kriterien (SYN/STR) vor;
+   `npm run check:soundness` liefert die STR-1…STR-4-Evidenz (advisory — ein INCONCLUSIVE ist
+   kein Bestehen). Offene Muss-Befunde stoppen hier.
+2. **Klinische Konsenssitzung** SEM-1…SEM-7: Kinsman-Gate (SEM-1 und ≥ 3 von 4 aus SEM-2…SEM-5)
+   und Face Validity (SEM-6) im Konsens der Fachexpert:innen; Quellen je Modell siehe die
+   klinische Quelleninventur (Link unten).
+3. **Gemeinsamer Walkthrough** PRA-1…PRA-3 (Klinik- und IT-Seite lesen das Modell gemeinsam).
+
+Die Entscheidung (Angenommen / Angenommen mit Auflagen / Abgelehnt) trifft ausschließlich der
+Mensch im Protokoll. Das unterschriebene Protokoll wird als
+`docs/governance/protokolle/<Datum>-<Modell>.md` (z. B. `2026-10-01-aftercare.md`) im Repository
+abgelegt — *Vorschlag, mit den Maintainer:innen zu bestätigen; der Ordner existiert noch nicht.*
+**Release-Folge:** das erste „Angenommen" löst die stabile Version **`1.0.0`** aus
+([ADR-0002](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/decisions/0002-versioning-and-release.md),
+Decision 1: `prerelease` entfernen, ggf. einmaliger `Release-As:`-Footer).
+
+**EN.** An acceptance test is convened by the repository **maintainer**; the **modellers** of the
+model under test and the **clinical experts** must take part (roles as in Protocol §0). The
+three gates run in this order: (1) **technical gate** before the meeting — `npm run
+abnahme:protokoll` pre-fills the A criteria (SYN/STR), `npm run check:soundness` supplies the
+STR-1…STR-4 evidence (advisory; INCONCLUSIVE is never a pass); open Must findings stop here —
+(2) **clinical consensus session** SEM-1…SEM-7 (Kinsman gate and SEM-6 face validity), (3) **joint
+walkthrough** PRA-1…PRA-3. The decision is human-only and recorded in the Protocol. The signed
+Protocol is stored as `docs/governance/protokolle/<date>-<model>.md` — *a proposal, confirm with
+the maintainers; the folder does not exist yet.* **Release consequence:** the first "Accepted"
+triggers the stable **`1.0.0`** (ADR-0002, Decision 1).
+
+- [clinical-sources.md](clinical-sources.md) — Quellen je Modell (clinical source inventory per model, for SEM-2).
+
 ## Status of the instrument
 
 The Acceptance Test instrument is a **Design-Science-Research artifact**, derived

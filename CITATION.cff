@@ -19,16 +19,20 @@ authors:
     family-names: Scheel
     affiliation: "Forschungsgruppe Digital Health, Technische Universität Dresden"
     orcid: "https://orcid.org/0009-0001-6054-7812"
+  - given-names: Nick
+    family-names: Fleischer
+    affiliation: "Forschungsgruppe Digital Health, Technische Universität Dresden"
+    orcid: "https://orcid.org/0009-0008-8200-4465"
   - given-names: Hannes
     family-names: Schlieter
     affiliation: "Forschungsgruppe Digital Health, Technische Universität Dresden"
     orcid: "https://orcid.org/0000-0002-6513-9017"
-license: CC-BY-4.0
+license: CC-BY-SA-4.0  # models/; the acceptance-test instrument and documentation are CC BY 4.0 (REUSE.toml, ADR-0005)
 doi: "10.5281/zenodo.20943916"  # concept DOI (all versions); resolves to the latest Zenodo release
 repository-code: "https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway"
 url: "https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway"
 version: "0.4.0-rc.1" # x-release-please-version
-date-released: "2026-09-05"
+date-released: "2026-09-05" # x-release-please-date
 keywords:
   - BPMN
   - clinical pathway

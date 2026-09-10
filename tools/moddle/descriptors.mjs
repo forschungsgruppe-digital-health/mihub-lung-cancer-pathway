@@ -5,7 +5,11 @@
  * of dropping it on save.
  *
  *   cp:  BPMN4CP (http://www.helict.de/bpmn4cp) — quality indicators, modelled as a
- *        `bpmn:Process` extension (cp:qualityIndicator / cp:qIDefinition).
+ *        `bpmn:Process` extension (cp:qualityIndicator / cp:qIDefinition), plus the two
+ *        attributes the models carry on sub-processes (cp:selectionBehavior /
+ *        cp:definitionCanonical), modelled as a `bpmn:Activity` extension
+ *        (ActivityExtension) so bpmn-moddle parses them as typed attributes instead of
+ *        reporting lax "unknown attribute" notices.
  *
  * Why NOT an i18n: descriptor (deliberate): the i18n:translation elements live inside
  * standard <bpmn:extensionElements> (including those of the cp:qualityIndicator we
@@ -23,7 +27,7 @@ import { fileURLToPath } from 'node:url';
 const here = dirname(fileURLToPath(import.meta.url));
 const load = (f) => JSON.parse(readFileSync(join(here, f), 'utf8'));
 
-export const bpmn4cp = load('bpmn4cp.json');
+const bpmn4cp = load('bpmn4cp.json');
 
 /** The extensions object to pass to `new BpmnModdle(extensions)`. */
 export const extensions = { cp: bpmn4cp };

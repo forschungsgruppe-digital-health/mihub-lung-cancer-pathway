@@ -3,7 +3,7 @@
 - Status: accepted
 - Date: 2026-06-25
 - Deciders: Forschungsgruppe Digital Health (FGDH), TU Dresden
-- Context: the repository is published openly (CC BY 4.0) and a Zenodo DOI is planned
+- Context: the repository is published openly (CC BY 4.0; models CC BY-SA 4.0 since 2026-09-07 — ADR-0005) and a Zenodo DOI is planned
   *(status 2026-09-04: the Zenodo integration is active since 2026-06-27 — concept DOI
   10.5281/zenodo.20943916; see Decision 3 and the amended open items below)*.
   It needs a documented, reproducible versioning and release process for a set of
@@ -63,8 +63,16 @@ pre-release); if a specific final version is wanted, use a one-time `Release-As:
 
 Bumps are derived from **Conventional Commit** messages scoped by pathway file
 (`feat(treatment)!: …` = breaking; `feat(aftercare): …` = minor; `fix`/`docs` = patch).
-Note: commit-lint enforces the *type*, not the *semantic correctness* of the bump — a
-mislabeled breaking change is possible, so severity remains a review (R) judgment.
+Note *(corrected 2026-09-07 — the sentence originally here claimed that "commit-lint enforces
+the type"; no commit-lint or PR-title lint exists anywhere in this repository)*: **nothing
+enforces the Conventional Commit format mechanically.** Both the *type* and the *semantic
+correctness* of the bump are review (R) items. release-please simply **ignores non-conforming
+commits**: the post-AMED-workshop rewrite of the aftercare sub-pathway (branch
+`refinement/update-aftercare-amed-workshop`, nine modeller commits 2026-03-20 → 2026-07-08,
++1162/−469 lines against the restructure commit 8277cd2, merged byte-exact via the plain merge
+commits 952307f/e835f5e on 2026-07-08) never appeared in any release notes although it ships
+in `v0.4.0-rc.1`; it was added to `CHANGELOG.md` by hand on 2026-09-07. A mislabeled or
+unlabeled change is therefore possible, and severity remains a review (R) judgment.
 
 ## Decision 2 — release-please (`simple`), single repository version
 
@@ -142,10 +150,27 @@ repo of a handful of model files; we choose release-please for reproducibility a
   two files stay in sync. The three existing records — 10.5281/zenodo.20943917 (`v0.2.1-rc.1`),
   10.5281/zenodo.20945321 (`v0.2.1-rc.2`), 10.5281/zenodo.21029417 (`v0.3.0-rc.1`) — are
   still resource type *Software* with the original "seven sub-pathways" abstract (status
-  2026-09-04). Editing them on zenodo.org to *Dataset* and to the current abstract (ten models:
+  2026-09-04). *[Corrected 2026-09-07: that was wrong for `v0.3.0-rc.1` — 10.5281/zenodo.21029417
+  is resource type **Dataset** and lists **four** creators (Susky, Scheel, Fleischer, Schlieter);
+  only the two oldest records are *Software*. See the 2026-09-05 and 2026-09-07 entries below.]* Editing them on zenodo.org to *Dataset* and to the current abstract (ten models:
   overarching + nine sub-pathways) is a **manual human action and still OPEN**; `.zenodo.json`
   governs new deposits only, it does not rewrite minted records.
 
+- **Decision 2026-09-05 — pre-1.0 Zenodo records are left as minted.** The maintainer decided not to
+  edit the two oldest release-candidate records (10.5281/zenodo.20943917 `v0.2.1-rc.1`,
+  10.5281/zenodo.20945321 `v0.2.1-rc.2` — resource type *Software*, "seven sub-pathways"
+  abstract): they are release candidates, superseded under the same concept DOI, and not the
+  citable artifact. From `v0.3.0-rc.1` on every record is *Dataset*; `v0.4.0-rc.1`
+  (10.5281/zenodo.22327274) was minted from `.zenodo.json`. The open item is closed.
+- **Decision 2026-09-07 — authorship rule and Nick Fleischer as author.** Rule: **the authors are
+  the FGDH team members who contributed models or the instrument.** Under that rule Nick Fleischer
+  becomes an author; the order is **Susky, Scheel, Fleischer, Schlieter** (first author Susky,
+  senior author Schlieter). `CITATION.cff` and `.zenodo.json` are updated in the same change set
+  as this amendment; the change reaches Zenodo with the **next release deposit** — it does not
+  rewrite minted records. Status of the existing version records (verified 2026-09-07):
+  10.5281/zenodo.21029417 (`v0.3.0-rc.1`) already lists four creators incl. Fleischer;
+  10.5281/zenodo.22327274 (`v0.4.0-rc.1`) lists three (minted from the then three-author
+  `.zenodo.json`); the two oldest records stay as minted (decision of 2026-09-05).
 - **Amended 2026-09-04 — version sync.** `CITATION.cff` `version:` carries the
   `# x-release-please-version` marker and `CITATION.cff` is listed in `extra-files`, so
   release-please bumps it with every release (no more hand-edited version); `date-released`
@@ -159,15 +184,21 @@ is therefore trimmed to the **citable artifact plus its essential metadata**:
 
 - **Kept:** `models/` (`.bpmn` + `.svg` + `models/README.md`), `docs/governance/` (the
   acceptance-test instrument incl. its README + CHANGELOG), `README.md`, `LICENSE`,
-  `CITATION.cff`, `DISCLAIMER.md`, `CHANGELOG.md`.
+  `CITATION.cff`, `DISCLAIMER.md`, `CHANGELOG.md`, `AI_USAGE.md` (AI-usage disclosure, added
+  2026-09-05 — *not* in the `v0.4.0-rc.1` archive, which was tagged the same morning before the
+  file landed on `main`; it ships from the first tag after `v0.4.0-rc.1`).
 - **Excluded:** `tools/`, `skills/`, `.github/`, `package.json` + `package-lock.json`,
   `release-please-config.json`, `.release-please-manifest.json`, `version.txt`, `.bpmnlintrc`,
-  `.vscode/`, `.claude/`, `.agents/`, `.gitignore`, `.gitattributes`, `AGENTS.md`, `CLAUDE.md`,
+  `.claude/`, `.agents/`, `.gitignore`, `.gitattributes`, `AGENTS.md`, `CLAUDE.md`,
   `CONTRIBUTING.md`, `CONVENTIONS.md`, `CODE_OF_CONDUCT.md`, `docs/decisions/`,
   `docs/model-issues/`; *added 2026-09-04:* `.zenodo.json` (Zenodo reads it through the GitHub
   API at release time, not from the archive — Decision 3) and the research notes at the docs
   root, `docs/*.md` (the Synthea/BPMN primer, the dataset-generation plan, the
-  data-sources-for-probabilities note); `docs/governance/` stays in.
+  data-sources-for-probabilities note); *added 2026-09-07:* the root config and policy files
+  introduced that day — `.editorconfig`, `.mailmap`, `.nvmrc`, `SECURITY.md` — are export-ignored
+  (`.gitattributes` is authoritative for the exact list). `.vscode/` was listed here until
+  2026-09-07 but has never been tracked in this repository, so it was dropped from the list
+  (a stale `export-ignore` line is harmless). `docs/governance/` stays in.
 
 Consequences:
 
@@ -177,7 +208,9 @@ Consequences:
   `/tree/main/<dir>` for directories) — a relative link would dangle inside the archive.
 - The trimming applies to releases tagged **after** the `.gitattributes` commit: `v0.2.0-rc.1`
   and `v0.2.1-rc.1` are untrimmed; `v0.2.1-rc.2` onwards are trimmed. The 2026-09-04 additions
-  (`.zenodo.json`, `docs/*.md`) take effect from the next tag onwards (`v0.4.0-rc.1`).
+  (`.zenodo.json`, `docs/*.md`) take effect from the next tag onwards (`v0.4.0-rc.1`); the
+  2026-09-07 additions (root config files) and the inclusion of `AI_USAGE.md` take effect from the
+  first tag after `v0.4.0-rc.1`.
 - The archived version is still recoverable from the tag name and `CHANGELOG.md`, even though
   `version.txt` is excluded.
 
@@ -200,6 +233,11 @@ Consequences:
   to obtain the concept DOI (10.5281/zenodo.20943916) for citation and for the instrument's
   `persistent_id` (version DOIs so far: `v0.2.1-rc.1` → 10.5281/zenodo.20943917, `v0.2.1-rc.2`
   → 10.5281/zenodo.20945321, `v0.3.0-rc.1` → 10.5281/zenodo.21029417; all minted with resource
-  type "Software" — still to be corrected to *Dataset* by hand on zenodo.org, see the Decision 3
-  amendment). What still follows, not precedes, the
+  type "Software" — left as minted by decision of 2026-09-05 (see Decision 3) — no manual edit, see the Decision 3
+  amendment). *[Amended 2026-09-07 — complete and corrected DOI list: `v0.2.1-rc.1` →
+  10.5281/zenodo.20943917 (Software, as minted), `v0.2.1-rc.2` → 10.5281/zenodo.20945321
+  (Software, as minted), `v0.3.0-rc.1` → 10.5281/zenodo.21029417 (**Dataset**, four creators),
+  `v0.4.0-rc.1` → 10.5281/zenodo.22327274 (**Dataset**, three creators; minted from
+  `.zenodo.json`); concept DOI 10.5281/zenodo.20943916. "All … Software" above was wrong for
+  `v0.3.0-rc.1` — see the Decision 3 corrections.]* What still follows, not precedes, the
   first "Accepted" is the **stable `1.0.0`** (Decision 1).

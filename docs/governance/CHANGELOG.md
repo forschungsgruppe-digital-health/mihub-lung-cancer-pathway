@@ -16,6 +16,25 @@ so a release cut late in the evening may show the previous day there.
 ## [Unreleased]
 
 ### Changed
+- Checklist (DE + EN) and Protocol template (DE + EN): the reading aid / result-code legend now
+  defines the asterisk — `Soll*` / `Should*` (and `S*` in the Protocol tables) = counts toward the
+  Kinsman gate (≥ 3 of 4 of SEM-2…SEM-5), quoting the checklist's own gate rule (2026-09-07;
+  instrument content and version unchanged).
+- Checklist (DE + EN): the YAML front matter now starts at byte 0 and the header comment follows
+  the closing `---` — GitHub only recognises front matter at the very beginning of a file
+  (2026-09-07; content and version unchanged).
+- Folder README: new section "Durchführung eines Abnahmetests / Running an acceptance test" (who
+  convenes, order of the three gates, where the signed Protokoll is stored — a proposal —, the
+  release consequence per ADR-0002) and a link to the clinical source inventory
+  `clinical-sources.md` (2026-09-07).
+- Checklist (DE + EN): authorship set in the front matter and the suggested citation — Susky, M.;
+  Scheel, R.; Schlieter, H. (Forschungsgruppe Digital Health, TU Dresden; ORCIDs as in
+  `CITATION.cff`), taken from the git history and the Zenodo release record (2026-09-05;
+  instrument content and version unchanged).
+
+## Released in v0.4.0-rc.1 (2026-09-05)
+
+### Changed
 - Checklist (DE + EN): the suggested citation and the §5 reuse note said "Version 0.3" while the
   document is v0.3.1 — corrected to 0.3.1 (2026-09-04; instrument content and version unchanged).
 - Handout EN and Protocol EN: the header comments now carry the same version stamps as the German
@@ -27,10 +46,11 @@ so a release cut late in the evening may show the previous day there.
   skill (2026-09-04).
 - Checklist EN: the front-matter keys and placeholders that had stayed German are now English
   (`author: "[Surname, Initial]"`, `affiliation: "[Institution]"`, `license: "CC BY 4.0"`);
-  values are still placeholders, instrument content and version unchanged (2026-09-04).
+  values are still placeholders, instrument content and version unchanged (verified 2026-09-04,
+  applied 2026-09-05).
 - Header comments of the three German originals: the "proposed repo path" line is now the plain
   `Repo-Pfad:` line — the path has been the actual location since the documents moved into
-  `docs/governance/` (2026-09-04).
+  `docs/governance/` (verified 2026-09-04, applied 2026-09-05).
 
 ## Released in v0.2.1-rc.2 (2026-06-27)
 

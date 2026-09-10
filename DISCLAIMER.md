@@ -12,7 +12,7 @@ wording below is a starting point for that review, not a final legal text.
 > from. It is **not legal advice**.
 
 This disclaimer supplements — and does not replace — Section 5 (Disclaimer of
-Warranties and Limitation of Liability) of the [CC BY 4.0 licence](LICENSE) under
+Warranties and Limitation of Liability) of the applicable Creative Commons licence ([CC BY-SA 4.0](LICENSE) for the models, [CC BY 4.0](LICENSES/CC-BY-4.0.txt) for the documentation) under
 which this repository is published.
 
 ---
@@ -50,7 +50,7 @@ purpose assumes the corresponding regulatory responsibility.
 
 The models are provided **"as is" and "as available"**, without warranties of any
 kind (including accuracy, completeness, currency, or fitness for a particular
-purpose), as set out in Section 5 of the [CC BY 4.0 licence](LICENSE).
+purpose), as set out in Section 5 of the applicable Creative Commons licence (see [LICENSE](LICENSE) and [REUSE.toml](REUSE.toml)).
 
 ### 5. Limitation of liability
 
@@ -71,7 +71,7 @@ guidance.
 
 This work reuses and builds on third-party material under their respective terms (see
 the "Vorarbeiten und Grundlagen" and "Lizenz" sections of [`README.md`](README.md)).
-The CC BY 4.0 licence grants **no** trademark or endorsement rights; the names and
+The Creative Commons licences grant **no** trademark or endorsement rights; the names and
 logos of TU Dresden, BMFTR, MiHUB, and other parties may not be used to imply
 endorsement without separate permission.
 
@@ -112,7 +112,7 @@ entsprechende regulatorische Verantwortung.
 
 Die Modelle werden **„wie besehen" und „wie verfügbar"** ohne jegliche Gewährleistung
 (insbesondere Richtigkeit, Vollständigkeit, Aktualität, Eignung für einen bestimmten
-Zweck) bereitgestellt, entsprechend Abschnitt 5 der [CC-BY-4.0-Lizenz](LICENSE).
+Zweck) bereitgestellt, entsprechend Abschnitt 5 der jeweils anwendbaren Creative-Commons-Lizenz (siehe [LICENSE](LICENSE) und [REUSE.toml](REUSE.toml)).
 
 ### 5. Haftungsbeschränkung
 
@@ -133,7 +133,7 @@ bilden möglicherweise nicht den aktuellsten Stand ab.
 
 Diese Arbeit nutzt und baut auf Materialien Dritter zu deren jeweiligen Bedingungen
 auf (siehe Abschnitte „Vorarbeiten und Grundlagen" und „Lizenz" in
-[`README.md`](README.md)). Die CC-BY-4.0-Lizenz gewährt **keine** Marken- oder
+[`README.md`](README.md)). Die Creative-Commons-Lizenzen gewähren **keine** Marken- oder
 Empfehlungsrechte; Namen und Logos der TU Dresden, des BMFTR, von MiHUB und weiterer
 Beteiligter dürfen ohne gesonderte Erlaubnis nicht zur Andeutung einer Befürwortung
 verwendet werden.

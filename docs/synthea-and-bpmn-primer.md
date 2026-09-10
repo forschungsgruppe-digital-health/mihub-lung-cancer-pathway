@@ -2,7 +2,7 @@
 
 > **For newcomers.** This document explains, from the ground up, **(1) what Synthea is and how it works**, **(2) why we consider the BPMN lung-cancer pathway and Synthea *together***, and **(3) how the two models map onto each other** — so that anyone joining the work understands why both belong in one workflow.
 >
-> **Status:** Draft v0.1 (working document on branch `research/synthea-dataset-generation`). Companion to [`synthea-dataset-generation-plan.md`](./synthea-dataset-generation-plan.md), which gives the concrete execution plan.
+> **Status:** Draft v0.1 — working document; originated on branch `research/synthea-dataset-generation`, maintained on `dev` since 2026-06-16, and export-ignored from the release archive per [ADR-0002](decisions/0002-versioning-and-release.md) Decision 4. Companion to [`synthea-dataset-generation-plan.md`](./synthea-dataset-generation-plan.md), which gives the concrete execution plan, and [`data-sources-for-probabilities-and-timing.md`](./data-sources-for-probabilities-and-timing.md), which catalogues where the probabilities and timings come from.
 
 ---
 

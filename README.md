@@ -3,13 +3,14 @@
 > **BPMN-Modell der übergreifenden Lungenkrebs-Patient Journey** (_sog. Patientenpfad_) im Rahmen des Medical Informatics Hub (MiHUB). Der Patientenpfad wird federführend in Arbeitspaket 3 (AP3) entwickelt und bildet die fachliche Grundlage für die Use-Case-Arbeitspakete AP6 (Krebsfrüherkennung), AP7 (Kooperative Krebsversorgung) und AP8 (Nachsorge und Langzeitbegleitung).
 
 [![DOI](https://zenodo.org/badge/1167600846.svg)](https://zenodo.org/badge/latestdoi/1167600846)
-[![Lizenz: CC BY 4.0](https://img.shields.io/badge/Lizenz-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![Lizenz: Modelle CC BY-SA 4.0 · Doku CC BY 4.0](https://img.shields.io/badge/Lizenz-CC%20BY--SA%204.0%20%28Modelle%29%20%7C%20CC%20BY%204.0%20%28Doku%29-lightgrey.svg)](#lizenz)
 [![Projekt: MiHUB](https://img.shields.io/badge/Projekt-MiHUB-blue)](https://mihubx.de/mihub/)
 [![Projekt: MII](https://img.shields.io/badge/Projekt-MII-blue)](https://www.medizininformatik-initiative.de/)
 [![Standard: BPMN 2.0](https://img.shields.io/badge/Standard-BPMN%202.0-orange)](https://www.omg.org/spec/BPMN/2.0/)
 
 [![CI – Conformance Gate](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions/workflows/ci.yml/badge.svg?branch=dev)](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions/workflows/ci.yml?query=branch%3Adev)
 [![Soundness (advisory)](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions/workflows/soundness.yml/badge.svg?branch=dev)](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions/workflows/soundness.yml?query=branch%3Adev)
+[![KI-Nutzung offengelegt](https://img.shields.io/badge/KI--Nutzung-offengelegt-informational)](./AI_USAGE.md)
 [![Link check](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions/workflows/link-check.yml/badge.svg?branch=dev)](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions/workflows/link-check.yml?query=branch%3Adev)
 
 ℹ️ Die **CI-Konformitätsprüfung** läuft in der Release-Candidate-Phase **beratend (warn-only)**: das Gate **meldet** die bekannten Modellbefunde (Struktur, OR-Gateways) als Warnungen, **blockiert die PRs aber nicht** — die Modellbefunde werden vor der geplanten Ummodellierung bewusst nur **gemeldet** (nicht erzwungen); die harte Durchsetzung wird danach reaktiviert (siehe [`docs/model-issues/`](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/tree/main/docs/model-issues) und [ADR-0001](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/decisions/0001-repo-tooling-and-conformance-gate.md)). Namenskonvention und Roundtrip sind auf allen Modellen grün; die (informative) XSD-Kernprüfung ist auf allen Modellen bis auf das übergreifende grün — es trägt vier nicht-standardisierte DI-Farbattribute (siehe [docs/model-issues](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/model-issues/2026-09-04-xsd-core-extension-placement.md)); die BPMN4CP-Erweiterung `cp:` steht per Design direkt unter dem Prozess und wird vor der Kernprüfung ausgeblendet. Die Namenskonvention wird als **eigener, blockierender CI-Schritt** erzwungen (`npm run check:naming`). Live-Status: [GitHub Actions](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions).
@@ -33,9 +34,28 @@
 | die **Konformitätsprüfung** lokal ausführen | [`skills/bpmn-conformance/SKILL.md`](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/skills/bpmn-conformance/SKILL.md) (`npm run check:conformance`) |
 | **Entscheidungen (ADR)** nachlesen | [`docs/decisions/`](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/tree/main/docs/decisions) |
 | **Änderungen / Release-Notes** | [`CHANGELOG.md`](./CHANGELOG.md) |
+| die **KI-Nutzung** in diesem Repository nachvollziehen (EU AI Act Art. 50) | [`AI_USAGE.md`](./AI_USAGE.md) |
 | mit **KI-Coding-Agenten** arbeiten (Claude Code, Codex, Copilot, …) | [`AGENTS.md`](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/AGENTS.md) · [`skills/README.md`](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/skills/README.md) |
 | **Zweckbestimmung / Haftung** | [`DISCLAIMER.md`](./DISCLAIMER.md) |
+| den **Projektstatus** (Release, Abnahme, Modelle) | [Status & Roadmap](#status--roadmap) |
+| die **klinischen Quellen** je Modell (Leitlinien, Rechtsgrundlagen, Workshops) | [`docs/governance/clinical-sources.md`](./docs/governance/clinical-sources.md) |
 | die **Datenelemente** (Inhaltsseite) erkunden | Schwester-Repo [`…-data-elements`](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway-data-elements) |
+
+---
+
+## Status & Roadmap
+
+_Stand: 2026-09-07 — aktualisiert mit jedem Release; Live-Quellen sind die Status-Spalte in [`models/README.md`](./models/README.md) und das Sammel-Issue [#49](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/issues/49)._
+
+| Bereich | Status |
+| --- | --- |
+| **Release-Phase** | Pre-Releases `0.x-rc.N` unter dem Concept-DOI [`10.5281/zenodo.20943916`](https://doi.org/10.5281/zenodo.20943916); aktuelle Version **v0.4.0-rc.1** (2026-09-05, siehe [`CHANGELOG.md`](./CHANGELOG.md)). |
+| **Abnahmetest** | Noch **kein Modell abgenommen** („Accepted“). Die **1.0.0** folgt der ersten formalen Abnahme ([ADR-0002](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/decisions/0002-versioning-and-release.md)); Instrument und Protokoll in [`docs/governance/`](./docs/governance/). |
+| **Modelle** | 10 Modelle. Jedes trägt ein **offenes Konformitäts-Issue** (Kinder von [#49](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/issues/49)); **13 OR-Gateways** sind umzumodellieren (SYN-5); das Palliativ-Modell ist ein **WIP-Entwurf**. Status je Modell: Spalte „Status“ in [`models/README.md`](./models/README.md). |
+| **Tooling** | Konformitäts-Gate (`npm run check:conformance`) **lokal blockierend**, in der CI während der RC-Phase **beratend** (warn-only, siehe Hinweis oben); Soundness-Prüfung beratend ([ADR-0001](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/decisions/0001-repo-tooling-and-conformance-gate.md), [ADR-0003](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/decisions/0003-soundness-tooling.md)). |
+| **Offene Entscheidungen** | Rechtliche Prüfung des [`DISCLAIMER.md`](./DISCLAIMER.md) (Justiziariat / DSB der TU Dresden) läuft; die Lizenzentscheidung für die abgeleiteten Modelle ist getroffen (CC BY-SA 4.0, ADR-0005) — die Klärungsanfragen an gematik und im CraNE-Konsortium laufen parallel; klinische Validierung ausstehend. |
+| **Nächste Schritte** | Ummodellierung nach [#49](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/issues/49) → Gate in der CI wieder hart schalten → erster formaler Abnahmetest → `1.0.0`. |
+| **Wo nachsehen** | [`models/README.md`](./models/README.md) (Status, Rollen, Quellen je Modell) · [#49](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/issues/49) · [`docs/governance/clinical-sources.md`](./docs/governance/clinical-sources.md) · [GitHub Actions](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions). |
 
 ---
 
@@ -127,7 +147,7 @@ Alle Modelle liegen im Verzeichnis [`models/`](./models/) (Namenskonvention `lun
 | [`models/lung-cancer-overarching-pathway.bpmn`](./models/lung-cancer-overarching-pathway.bpmn) | BPMN-Quelldatei des übergreifenden Lungenkrebspatientenpfads |
 | [`models/lung-cancer-overarching-pathway.svg`](./models/lung-cancer-overarching-pathway.svg) | Visualisierung des übergreifenden Lungenkrebspatientenpfads  |
 
-Der übergreifende Pfad bildet die vollständige Patient:innen-Journey von der Prävention/Früherkennung bis zur Nachsorge ab und verknüpft alle Teilpfade miteinander.
+Der übergreifende Pfad bildet die vollständige Patient Journey von der Prävention/Früherkennung bis zur Nachsorge ab. Fünf Phasen — Staging/Diagnostik, Patientengespräch, Tumorboard, Molekulares Tumorboard und Behandlung — sind darin als **Platzhalter-Subprozesse** mit externen Verweisen (`cp:definitionCanonical` auf den login-pflichtigen Modeler-Workspace `modeler.helict.eu`) eingebunden; die vier übrigen Teilpfade (Initialer Einstieg, Krebsfrüherkennung, Palliativversorgung, Nachsorge) stehen derzeit **eigenständig** neben dem übergreifenden Modell — siehe [`models/README.md`, Abschnitt „Verknüpfung“](./models/README.md#verknüpfung--linking).
 
 ### Teilpfade (Sub-Pathways)
 
@@ -142,6 +162,8 @@ Der übergreifende Pfad bildet die vollständige Patient:innen-Journey von der P
 | [`models/lung-cancer-treatment-pathway.bpmn`](./models/lung-cancer-treatment-pathway.bpmn) / [`.svg`](./models/lung-cancer-treatment-pathway.svg)                                     | Teilpfad Behandlung                     |
 | [`models/lung-cancer-palliative-care-pathway.bpmn`](./models/lung-cancer-palliative-care-pathway.bpmn) / [`.svg`](./models/lung-cancer-palliative-care-pathway.svg)                   | Teilpfad Palliativversorgung _(Entwurf / WIP)_ |
 | [`models/lung-cancer-aftercare-pathway.bpmn`](./models/lung-cancer-aftercare-pathway.bpmn) / [`.svg`](./models/lung-cancer-aftercare-pathway.svg)                                     | Teilpfad Nachsorge                      |
+
+Die **klinischen Quellen je Modell** (Leitlinien, Rechtsgrundlagen, Workshops, abgeleitete Vorlagen; Datum der letzten Prüfung gegen die Quelle) sind in [`docs/governance/clinical-sources.md`](./docs/governance/clinical-sources.md) dokumentiert.
 
 ---
 
@@ -165,15 +187,15 @@ Die Modellierung des Patientenpfads baut auf Vorarbeiten aus zwei Initiativen au
 
 ### INA Arbeitskreis Fachanwender Journey Onkologie (gematik)
 
-Der [Arbeitskreis Fachanwender Journey Onkologie](https://www.ina.gematik.de/community-hub/vernetzen-mitwirken/arbeitskreise/fachanwender-journey-onkologie) des Interoperabilitäts-Navigators (INA) der gematik erstellte 2023 einen BPMN-modellierten Überblick über bestehende (Daten-)Schnittstellen entlang der Fachanwender-Journey in der onkologischen Versorgung am Beispiel des Lungenkarzinoms. Die Ergebnisse sind unter **Creative Commons** veröffentlicht und mit Nennung des **Interop Council** weiterzuverwenden.
+Der [Arbeitskreis Fachanwender Journey Onkologie](https://www.ina.gematik.de/community-hub/vernetzen-mitwirken/arbeitskreise/fachanwender-journey-onkologie) des Interoperabilitäts-Navigators (INA) der gematik erstellte 2023 einen BPMN-modellierten Überblick über bestehende (Daten-)Schnittstellen entlang der Fachanwender-Journey in der onkologischen Versorgung am Beispiel des Lungenkarzinoms. Die Quellseite nennt als Nutzungsbedingung wörtlich (Schreibweise wie veröffentlicht): „Creative Commons: Diese BPMNs können mit Namensnennung ("Interop Council") unter den gleichen Bedinungen weitergeben werden.“ — die Worte „Creative Commons“ verlinken dort auf [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) (abgerufen 2026-09-07). Ob und wie diese Share-Alike-Bedingung auf die hieraus abgeleiteten Modelle wirkt, wird derzeit rechtlich geprüft ([ADR-0005](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/decisions/0005-licensing-of-derived-models.md)); bis dahin bleiben die Lizenzangaben dieses Repositorys unverändert.
 
-> **Attribution:** Interop Council / INA – Interoperabilitäts-Navigator der gematik (2023). Fachanwender Journey Onkologie. [https://www.ina.gematik.de/community-hub/vernetzen-mitwirken/arbeitskreise/fachanwender-journey-onkologie](https://www.ina.gematik.de/community-hub/vernetzen-mitwirken/arbeitskreise/fachanwender-journey-onkologie)
+> **Attribution:** Interop Council / INA – Interoperabilitäts-Navigator der gematik (2023). Fachanwender Journey Onkologie. [https://www.ina.gematik.de/community-hub/vernetzen-mitwirken/arbeitskreise/fachanwender-journey-onkologie](https://www.ina.gematik.de/community-hub/vernetzen-mitwirken/arbeitskreise/fachanwender-journey-onkologie) — Nutzungsbedingung laut Quellseite: Namensnennung „Interop Council“, Weitergabe unter gleichen Bedingungen (verlinkt: CC BY-SA 4.0). Verwendete Dateien: BPMN-Teiljourneys (u. a. Palliativmedizin, Molekulares Tumorboard, Tumorkonferenz); Änderungen: Übersetzung, Umstrukturierung, Erweiterung (orange markiert). — Nutzungsbedingung laut Quellseite: Namensnennung „Interop Council“, Weitergabe unter gleichen Bedingungen (verlinkt: CC BY-SA 4.0). Verwendete Dateien: BPMN-Teiljourneys (u. a. Palliativmedizin, Molekulares Tumorboard, Tumorkonferenz); Änderungen: Übersetzung, Umstrukturierung, Erweiterung (orange markiert).
 
 ### CraNE Joint Action – WP6 (Europäische Kommission / EU4Health)
 
-Die EU Joint Action [CraNE](https://crane4health.eu/) (_Creation of National Comprehensive Cancer Centres and EU-Networking_, EU4Health-Programm) entwickelte in [WP6](https://crane4health.eu/wp6-organization-of-comprehensive-high-quality-cancer-care-in-comprehensive-cancer-care-networks-cccns/) Standards und einen Patientenpfad für die Lungenkrebsversorgung in Comprehensive Cancer Care Networks (CCCNs), die als Grundlage für den MiHUB-Patientenpfad dienen. CraNE-Ergebnisse werden im Rahmen des EU4Health-Programms zur offenen Nachnutzung bereitgestellt; EU-geförderte Veröffentlichungen unterliegen den Open-Access-Anforderungen der Europäischen Kommission (typischerweise **CC BY 4.0**).
+Die EU Joint Action [CraNE](https://crane4health.eu/) (_Creation of National Comprehensive Cancer Centres and EU-Networking_, EU4Health-Programm) entwickelte in [WP6](https://crane4health.eu/wp6-organization-of-comprehensive-high-quality-cancer-care-in-comprehensive-cancer-care-networks-cccns/) Standards und einen Patientenpfad für die Lungenkrebsversorgung in Comprehensive Cancer Care Networks (CCCNs), die als Grundlage für den MiHUB-Patientenpfad dienen. Das dabei genutzte Werk ist die von der WP6 Patient Pathway Working Group erarbeitete „Lung Cancer Patient Pathway Template for CCCNs“ (Sub-Task 6.4.2, in Deliverable D6.4, 31.05.2024) — federführend verfasst von Peggy Richter, Emily Hickmann und Hannes Schlieter (Technische Universität Dresden, Forschungsgruppe Digital Health). Die Deliverables tragen keine eigene Lizenzangabe; die Nutzungsbedingungen werden innerhalb der TU Dresden und mit dem CraNE-Konsortium bestätigt ([ADR-0005](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/decisions/0005-licensing-of-derived-models.md)).
 
-> **Attribution:** CraNE Joint Action WP6 (2024). Standard for Lung Cancer Care / Patient Pathway for Lung Cancer Patients. Funded by the European Union (EU4Health Programme). [https://crane4health.eu/wp6-organization-of-comprehensive-high-quality-cancer-care-in-comprehensive-cancer-care-networks-cccns/](https://crane4health.eu/wp6-organization-of-comprehensive-high-quality-cancer-care-in-comprehensive-cancer-care-networks-cccns/)
+> **Attribution:** CraNE Joint Action WP6 — Patient Pathway Working Group (2024). Lung Cancer Patient Pathway Template for CCCNs (Sub-Task 6.4.2) / D6.4 Patient Pathway for Lung Cancer Patients; lead authors Peggy Richter, Emily Hickmann, Hannes Schlieter (TU Dresden). Referenced standard: Standard for Lung Cancer Care (Sub-Task 6.3.1, DKG). Funded by the European Union (EU4Health Programme, GA 101075284). [https://crane4health.eu/wp6-organization-of-comprehensive-high-quality-cancer-care-in-comprehensive-cancer-care-networks-cccns/](https://crane4health.eu/wp6-organization-of-comprehensive-high-quality-cancer-care-in-comprehensive-cancer-care-networks-cccns/)
 >
 > _Funded by the European Union. Views and opinions expressed are those of the author(s) only and do not necessarily reflect those of the European Union or HaDEA. Neither the European Union nor the granting authority can be held responsible for them._
 
@@ -186,15 +208,23 @@ Bitte über den **Concept-DOI** (alle Versionen) zitieren:
 
 ## Lizenz
 
-Dieses Repository steht unter der **[Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)** Lizenz.
+Seit dem 2026-09-07 gilt eine Lizenz **je Artefaktklasse** (Entscheidung [ADR-0005](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/decisions/0005-licensing-of-derived-models.md); maschinenlesbar in [`REUSE.toml`](./REUSE.toml)):
 
-[![CC BY 4.0](https://licensebuttons.net/l/by/4.0/88x31.png)](https://creativecommons.org/licenses/by/4.0/)
+| Artefakt | Lizenz | Grund |
+|---|---|---|
+| **BPMN-Modelle und SVG-Renderings** (`models/`) | **[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)** — [`LICENSE`](./LICENSE) | Teile der Modelle sind aus den BPMNs der INA-Fachanwender-Journey Onkologie (Interop Council) abgeleitet, die unter CC BY-SA 4.0 (Weitergabe unter gleichen Bedingungen) veröffentlicht sind; die Share-Alike-Bedingung wird für den gesamten Modellsatz übernommen. |
+| **Abnahmetest-Instrument** (`docs/governance/`) und **Dokumentation** | **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)** — [`LICENSES/CC-BY-4.0.txt`](./LICENSES/CC-BY-4.0.txt) | Eigenwerke der FGDH ohne Share-Alike-Vorgabe. |
+| **Werkzeuge und CI** (`tools/`, `skills/`, `.github/`) | CC BY 4.0 (unverändert; ein Wechsel auf eine Softwarelizenz ist in Prüfung, ADR-0005 Q13) | Nicht Teil des veröffentlichten Artefakts. |
+
+[![CC BY-SA 4.0](https://licensebuttons.net/l/by-sa/4.0/88x31.png)](https://creativecommons.org/licenses/by-sa/4.0/) [![CC BY 4.0](https://licensebuttons.net/l/by/4.0/88x31.png)](https://creativecommons.org/licenses/by/4.0/)
+
+**Folge für Nachnutzende:** Bearbeitungen der Modelle (z. B. angepasste Pfade, daraus generierte Simulations- oder FHIR-Artefakte) müssen ebenfalls unter CC BY-SA 4.0 (oder einer kompatiblen Lizenz) weitergegeben werden; reine Nutzung, Zitation und Aufnahme in Sammlungen sind davon nicht betroffen. Die Versionen bis `v0.4.0-rc.1` wurden unter CC BY 4.0 archiviert; ab dem nächsten Release trägt das Zenodo-Deposit CC BY-SA 4.0.
 
 ### Attribution
 
 Bei Weiterverwendung bitte folgende Angabe verwenden:
 
-> _Forschungsgruppe Digital Health (FGDH), Technische Universität Dresden (2026). Lungenkrebspatientenpfad – MiHUB (BPMN-Modell). DOI: https://doi.org/10.5281/zenodo.20943916. GitHub: https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway. Lizenz: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)._
+> _Forschungsgruppe Digital Health (FGDH), Technische Universität Dresden (2026). Lungenkrebspatientenpfad – MiHUB (BPMN-Modell). DOI: https://doi.org/10.5281/zenodo.20943916. GitHub: https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway. Lizenz: Modelle CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/), Dokumentation CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)._
 
 ---
 

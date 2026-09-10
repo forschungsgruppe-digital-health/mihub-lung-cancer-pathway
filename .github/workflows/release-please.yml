@@ -5,8 +5,10 @@ name: release-please
 # `v<version>`, and creates the GitHub Release. Versions are derived from
 # Conventional Commit messages (release-type: simple — no language ecosystem).
 # The same release PR also bumps CITATION.cff `version:` (its `# x-release-please-version`
-# marker) and package.json `version` (JSON extra-file) through `extra-files` in
-# release-please-config.json, so the citation metadata never lags the tag.
+# marker) and `date-released:` (its `# x-release-please-date` marker), package.json `version`
+# and both `version` fields of package-lock.json (the root and `packages[""]` — JSON
+# extra-files) through `extra-files` in release-please-config.json, so the citation
+# metadata and the lockfile never lag the tag.
 #
 # Branching: development happens on `dev`; promotion is a `dev` -> `main` PR; this
 # workflow then manages the `main` side. See docs/decisions/0002-versioning-and-release.md.

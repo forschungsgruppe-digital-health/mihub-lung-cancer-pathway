@@ -1,27 +1,26 @@
-<!--
-Repo-Pfad: docs/governance/abnahme-checkliste-bpmn-patientenpfad.md
-Begleitdokument (Begründung + Beispiele): abnahme-handout-bpmn-patientenpfad.md
--->
-
 ---
 titel: "Abnahmetest-Checkliste für BPMN-modellierte Patientenpfade"
 kurztitel: "BPMN-CP-Abnahmetestinstrument"
 version: "0.3.1"
 status: "Vorgeschlagenes Artefakt (DSR) – konzeptionell aus Kerntheorien abgeleitet, noch nicht empirisch validiert"
 sprache: "DE"
-autor: "[Nachname, Initiale]"
-affiliation: "[Einrichtung]"
-orcid: "[ORCID]"
+autor: "Susky, M.; Scheel, R.; Schlieter, H."
+affiliation: "Forschungsgruppe Digital Health, Technische Universität Dresden"
+orcid: "0000-0002-3906-0452; 0009-0001-6054-7812; 0000-0002-6513-9017"
 lizenz: "CC BY 4.0"
 persistent_id: "10.5281/zenodo.20943916 (Concept-DOI des Repository-Archivs)"
 zielgruppe: "klinische und technische Stakeholder; auch Modellierungsanfänger:innen"
 ---
+<!--
+Repo-Pfad: docs/governance/abnahme-checkliste-bpmn-patientenpfad.md
+Begleitdokument (Begründung + Beispiele): abnahme-handout-bpmn-patientenpfad.md
+-->
 
 # Abnahmetest-Checkliste für BPMN-modellierte Patientenpfade (v0.3.1)
 
 ## Zitationsvorschlag
 
-> [Nachname, Initiale] ([Jahr]). *Abnahmetest-Checkliste für BPMN-modellierte Patientenpfade* (Version 0.3.1) [Evaluationsinstrument]. [Einrichtung]. https://doi.org/10.5281/zenodo.20943916.
+> Susky, M.; Scheel, R.; Schlieter, H. (2026). *Abnahmetest-Checkliste für BPMN-modellierte Patientenpfade* (Version 0.3.1) [Evaluationsinstrument]. Forschungsgruppe Digital Health, Technische Universität Dresden. https://doi.org/10.5281/zenodo.20943916.
 
 *(Der DOI verweist auf das Repository-Archiv „Lungenkrebspatientenpfad – MiHUB (BPMN-Modell)“, in dem dieses Instrument enthalten ist; ein eigenständiger Instrument-DOI würde eine separate Zenodo-Hinterlegung erfordern.)*
 
@@ -49,7 +48,7 @@ Die Abnahmetest-Logik folgt der Unterscheidung **Verifikation vs. Validierung** 
 
 ## 3. Das Instrument
 
-**Lesehilfe.** **Muss** = K.-o.-Kriterium · **Soll** = wichtig, Abweichung dokumentieren. **Prüfmethode:** **A** = automatisch (Tool) · **R** = Sichtprüfung im Review · **K** = Konsens. Hake ab: `[x]` erfüllt · `[ ]` offen. Fachbegriffe siehe Mini-Glossar (§8).
+**Lesehilfe.** **Muss** = K.-o.-Kriterium · **Soll** = wichtig, Abweichung dokumentieren · **Soll\*** = zählt zum Kinsman-Gate (≥ 3 von 4 aus SEM-2…SEM-5). **Prüfmethode:** **A** = automatisch (Tool) · **R** = Sichtprüfung im Review · **K** = Konsens. Hake ab: `[x]` erfüllt · `[ ]` offen. Fachbegriffe siehe Mini-Glossar (§8).
 
 ### A. Verständlichkeit & technische Korrektheit — *technischer Abnahmetest*
 

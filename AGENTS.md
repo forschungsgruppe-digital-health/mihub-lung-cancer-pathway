@@ -13,7 +13,7 @@ pathway + nine sub-pathways: initial-entry, screening, diagnostic, patient-consu
 molecular-tumor-board, treatment, palliative-care (WIP draft), aftercare — the current
 inventory is `models/README.md`), developed in the MiHUB project (TU Dresden /
 Forschungsgruppe Digital Health). The models live under `models/` (naming convention
-`lung-cancer-<phase>-pathway`, ADR-0004); each `.bpmn` source has a paired `.svg` render. The repository is **model-only**, is **published openly under CC BY 4.0**
+`lung-cancer-<phase>-pathway`, ADR-0004); each `.bpmn` source has a paired `.svg` render. The repository is **model-only**, is **published openly (models CC BY-SA 4.0, documentation CC BY 4.0 — ADR-0005, `REUSE.toml`)**
 and is archived on Zenodo (concept DOI `10.5281/zenodo.20943916` — see `CITATION.cff`).
 There is no application here.
 
@@ -26,7 +26,7 @@ There is no application here.
 - **Published artifacts** (= the release archive and therefore the Zenodo deposit, trimmed via
   `.gitattributes` `export-ignore`): the models (`models/*.bpmn` + paired `*.svg`) plus
   `models/README.md`, the acceptance-test instrument in `docs/governance/`, `README.md`,
-  `LICENSE`, `CITATION.cff`, `DISCLAIMER.md` and `CHANGELOG.md` — all CC BY 4.0.
+  `LICENSE`, `CITATION.cff`, `DISCLAIMER.md`, `CHANGELOG.md`, `AI_USAGE.md`, `LICENSES/` and `REUSE.toml` — models CC BY-SA 4.0, everything else CC BY 4.0.
   `docs/decisions/`, `docs/model-issues/`, this file, `CONTRIBUTING.md`, `CONVENTIONS.md`,
   `skills/`, `tools/`, `.github/` and the loose `docs/*.md` research notes at the docs root are
   export-ignored (verify with `git archive HEAD | tar -t`).
@@ -122,10 +122,14 @@ Claude Code discovers them via `.claude/skills` → `../skills`; Codex/Copilot v
   (Humans editing models follow `CONTRIBUTING.md`.)
 - **No real patient data.** Use only synthetic / abstract pathway content. Never
   commit patient data, even realistic-looking.
+- **Keep the AI-usage disclosure current.** [`AI_USAGE.md`](AI_USAGE.md) (EU AI Act Art. 50 / COPE)
+  records which artifact classes are AI-assisted and how they are marked. Update it whenever a
+  new tool or model version, a new skill/sub-agent, or a new AI-assisted artifact class appears,
+  and keep the `Co-Authored-By` commit trailer + the PR/issue footer on every AI-assisted change.
 - **Not for clinical use.** Do not remove or weaken `DISCLAIMER.md` or the README
   intended-use banner. Any change to legal/intended-use text needs human sign-off
   (TU Dresden Justiziariat / DPO).
-- **Preserve attribution.** This artifact is CC BY 4.0; keep the licence, attribution,
+- **Preserve attribution.** The models are CC BY-SA 4.0 and the documentation CC BY 4.0 (ADR-0005); keep the licence, attribution,
   and third-party credits (gematik INA, CraNE) intact.
 - Do not change BPMN core structure to carry clinical meaning — clinical context
   belongs in extension namespaces, not the `bpmn:` namespace: BPMN4CP `cp:` elements

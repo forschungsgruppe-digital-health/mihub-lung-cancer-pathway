@@ -10,6 +10,7 @@ See CONTRIBUTING.md and docs/governance/ for the acceptance-test criteria.
 ## Type of change
 
 - [ ] Model change (`.bpmn`) — **`.svg` re-exported and committed**
+- [ ] New / renamed model: `models/README.md` + README table + model counts (`AGENTS.md`, `CITATION.cff`, `.zenodo.json`, `AI_USAGE.md`) updated
 - [ ] Documentation / governance
 - [ ] Tooling / CI
 - [ ] Other:
@@ -35,5 +36,6 @@ See CONTRIBUTING.md and docs/governance/ for the acceptance-test criteria.
 
 - [ ] No real patient data (synthetic / abstract only)
 - [ ] Intended-use / `DISCLAIMER.md` not weakened
-- [ ] Attribution / licence preserved (CC BY 4.0)
+- [ ] AI-assisted changes disclosed (commit trailer `Co-Authored-By: <tool/model>`, see [`AI_USAGE.md`](../AI_USAGE.md)); no AI edits to `.bpmn`/`.svg`
+- [ ] Attribution / licence preserved (models CC BY-SA 4.0, docs CC BY 4.0 — `REUSE.toml`)
 - [ ] Targeting `dev` (not `main`); not self-merging

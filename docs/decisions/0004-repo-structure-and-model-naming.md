@@ -49,7 +49,8 @@ model content, not the filename. **The LCS rename → `lung-cancer-screening-pat
 confirmed by the model author** (the intended phase term is "screening"); renaming the
 file does not change the BPMN content. **Status 2026-09-04:** still unconfirmed by the model
 author — the name is de-facto frozen by the `v0.2.1-rc.1`+ Zenodo deposits (concept DOI
-10.5281/zenodo.20943916).
+10.5281/zenodo.20943916). **Decision 2026-09-05 (maintainer):** the convention name
+`lung-cancer-screening-pathway` applies as is — no further confirmation needed; item closed.
 
 ## Migration — what this PR updates
 

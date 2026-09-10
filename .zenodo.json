@@ -14,13 +14,19 @@
       "orcid": "0009-0001-6054-7812"
     },
     {
+      "name": "Fleischer, Nick",
+      "affiliation": "Forschungsgruppe Digital Health, Technische Universität Dresden",
+      "orcid": "0009-0008-8200-4465"
+    },
+    {
       "name": "Schlieter, Hannes",
       "affiliation": "Forschungsgruppe Digital Health, Technische Universität Dresden",
       "orcid": "0000-0002-6513-9017"
     }
   ],
-  "license": "cc-by-4.0",
+  "license": "cc-by-sa-4.0",
   "access_right": "open",
+  "language": "deu",
   "keywords": [
     "BPMN",
     "clinical pathway",
@@ -30,5 +36,5 @@
     "MiHUB",
     "Medical Informatics Initiative"
   ],
-  "notes": "Research, education and interoperability-reference artifact — not clinically validated, not for use in direct patient care (see DISCLAIMER.md). Concept DOI: 10.5281/zenodo.20943916"
+  "notes": "Research, education and interoperability-reference artifact — not clinically validated, not for use in direct patient care (see DISCLAIMER.md). Concept DOI: 10.5281/zenodo.20943916. Funded by the German Federal Ministry of Research, Technology and Space (BMFTR), grant 01ZZ2506A (Medical Informatics Initiative / MiHUB). Licence: the BPMN models are CC BY-SA 4.0 (derived in part from CC BY-SA 4.0 material of the gematik INA Fachanwender Journey Onkologie); the acceptance-test instrument (docs/governance/) and the documentation are CC BY 4.0 — see REUSE.toml and ADR-0005."
 }

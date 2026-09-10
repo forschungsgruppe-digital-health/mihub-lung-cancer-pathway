@@ -18,9 +18,11 @@
 #          after `;` `&&` `||` `|` `(` `{`, a quote or a newline; optionally via `sudo`):
 #          rm, cp, mv, truncate, rename, unlink, shred, ln, dd, rsync, install, patch;
 #        - `git rm` / `git checkout` / `git restore` / `git apply` / `git stash`.
-#      `git mv` stays ALLOWED — a rename is content-preserving (the ADR-0004 renames were
-#      done by agents). Plain reads (cat, grep, head, xmllint, node tools/*.mjs) and the
-#      non-destructive git verbs (diff, log, show, status, add) are always allowed.
+#      `git mv` is not caught by this hook (content-preserving); AGENTS.md still forbids
+#      agents to rename models on their own — the ADR-0004 renames were done on explicit
+#      maintainer instruction. Plain reads (cat, grep, head, xmllint, node tools/*.mjs) and
+#      the non-destructive git verbs (diff, log, show, status, add) are always allowed.
+#      The extension match is word-bounded, so `.bpmnlintrc` is not mistaken for a model.
 #   Known gaps, inherent to a regex guard: indirect vectors (`xargs rm`, `find -exec`),
 #   globs without the extension (`rm models/*`), path-less `git checkout -- .` / `git stash`,
 #   and scripts that write internally. The authority over the models stays with the human
@@ -49,7 +51,8 @@ fi
 #    real one (Claude Code emits it before tool_input); an absent tool_name is treated as Bash.
 tool_name="$(printf '%s' "$input" | grep -oE '"tool_name"[[:space:]]*:[[:space:]]*"[^"]*"' | head -n 1 | sed -E 's/.*"([^"]*)"$/\1/')"
 if [ -z "$tool_name" ] || [ "$tool_name" = "Bash" ]; then
-  model='\.(bpmn|svg)'
+  # Word-bounded: `.bpmnlintrc` (the linter config) is not a model file.
+  model='\.(bpmn|svg)\b'
   seg='[^;&|]*'
   # Command position: start of the (JSON-encoded) command string or a shell separator / brace /
   # quote / JSON-encoded newline (`\n`), then optional whitespace and an optional `sudo`.
