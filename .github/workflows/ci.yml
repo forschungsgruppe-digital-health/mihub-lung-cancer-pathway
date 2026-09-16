@@ -1,4 +1,4 @@
-name: CI
+name: CI – Konformitätsprüfung (beratend)
 
 # The BPMN conformance gate (naming + bpmnlint + model metrics + roundtrip + XSD core).
 # Runs on PRs into and pushes to dev/main. The decision lives in the tools under
@@ -60,6 +60,12 @@ jobs:
       # downgrade a naming violation to a ::warning:: under CONFORMANCE_WARN_ONLY.
       - name: Model naming convention (ADR-0004) — blocking
         run: npm run check:naming
+
+      # The version the landing page and the citation metadata document must be the version
+      # version.txt carries — a stale README version makes readers cite the wrong release.
+      # BLOCKING and content-independent (like naming), so the known-red models are no excuse.
+      - name: Documented version consistency
+        run: node tools/check-docs-version.mjs
 
       # Blocking layers (local STRICT): naming + bpmnlint + model metrics (SYN-5) + moddle roundtrip.
       # Informational layer: XSD core (reported, never blocks). In CI all of them run advisory during

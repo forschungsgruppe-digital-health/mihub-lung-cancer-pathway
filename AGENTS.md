@@ -106,9 +106,11 @@ Claude Code discovers them via `.claude/skills` → `../skills`; Codex/Copilot v
 
 ## Hard rules (do not violate)
 
-- **🔒 NEVER modify a `.bpmn` model or its `.svg` export.** The models are the
-  clinically-validated artifact (Abnahmetest **SEM-6** face validity); changes are made only
-  by a **human modeler** and re-validated. Agents are **read-only** w.r.t. the models —
+- **🔒 NEVER modify a `.bpmn` model or its `.svg` export.** The `.bpmn` models are the
+  **human-authored source artifact** and are **not clinically validated** (see
+  [`DISCLAIMER.md`](DISCLAIMER.md)). Their clinical content changes only through a **human
+  modeler**, and every change is re-confirmed for face validity in the acceptance test
+  (Abnahmetest **SEM-6**). Agents are **read-only** w.r.t. the models —
   this also forbids renaming, reformatting, `sed -i`, and redirect/`tee` writes. Found a
   BPMN-XML issue? **Report it** in [`docs/model-issues/`](docs/model-issues/) with a
   ready-to-file GitHub-issue suggestion ([template](.github/ISSUE_TEMPLATE/bpmn-model-issue.md)) —
