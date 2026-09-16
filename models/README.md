@@ -11,6 +11,13 @@ Sammel-Issue [#49](https://github.com/forschungsgruppe-digital-health/mihub-lung
 Soundness-Urteil (STR-1…4, beratend); **Quellen** verweist auf die Zeile des Modells in
 [`docs/governance/clinical-sources.md`](../docs/governance/clinical-sources.md).
 
+> **Lesehilfe zur Spalte „Status“:** Die dort genannten Befunde stammen aus der **automatischen Prüfung der Modell-Zeichnung**
+> (Namenskonventionen, Gateway-Typen, Struktur, Erreichbarkeit) und sagen **nichts über die medizinische Richtigkeit** aus — diese
+> entscheidet der **Abnahmetest**, den **bisher kein Modell bestanden hat** (Version 1.0.0 bleibt der ersten „Abnahme“ vorbehalten).
+> „Soundness VIOLATION/INCONCLUSIVE“ heißt: der automatische Modellprüfer fand einen nicht erreichbaren oder nicht terminierenden Pfad
+> bzw. konnte das Modell nicht analysieren — auch das ist eine Aussage über die Modellierung, nicht über die Medizin; die je Modell verlinkten Issues beschreiben jeden Befund auf Deutsch.
+> _"Status" findings are automated checks of the model DRAWING, not of the medicine — medical correctness is decided in the acceptance test („Abnahmetest“), which no model has passed yet._
+
 | Modell (`models/…`) | Phase | Umfang (Start → Ende) | Rollen (Pools/Lanes) | Status | Quellen |
 |---|---|---|---|---|---|
 | `lung-cancer-overarching-pathway` | Übergreifend | Personen mit hohem Risiko für Lungenkrebs / Patient mit Symptomen / Patient mit histologisch gesichertem Lungenkrebs → Ende der Versorgung | Pool „Vorlage Patientenpfad für Lungenkrebs“; Rollen noch nicht modelliert (Lane „TODO: Rollen abbilden“) | Modell vorhanden; Konformitäts-Gate offen ([#78](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/issues/78): 27 blockierende Befunde; Soundness INCONCLUSIVE) | CraNE WP6 / INA (LC-SoS-Referenzen) — [Quellen](../docs/governance/clinical-sources.md) |
@@ -26,7 +33,7 @@ Soundness-Urteil (STR-1…4, beratend); **Quellen** verweist auf die Zeile des M
 
 Die Start-/Endereignisse sind bei Modellen mit mehreren Pools auf die Ereignisse der Patient:innen-Perspektive gekürzt;
 alle Ereignisse stehen in der jeweiligen `.bpmn`-Datei. **Qualitätsindikatoren** (`cp:qualityIndicator`, BPMN4CP) tragen
-fünf Modelle: übergreifend 22, Behandlung 32, Diagnostik 6, Tumorboard 4, Molekulares Tumorboard 4 — die übrigen fünf keine.
+fünf Modelle: übergreifend 11, Behandlung 16, Diagnostik 3, Tumorboard 2, Molekulares Tumorboard 2 (zusammen 34) — die übrigen fünf keine. Gängige BPMN-Editoren verwerfen diese Angaben beim Speichern, siehe den Hinweis im [README](../README.md#verwendung).
 
 ### Lizenz / Licence
 
