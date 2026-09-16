@@ -3,10 +3,12 @@
 # Model guard — PreToolUse hook (Claude Code).
 #
 # Blocks any attempt by a skill/agent to MODIFY a BPMN pathway model (`.bpmn`) or its
-# `.svg` export. The models are the clinically-validated artifact: every change must be
-# made by a human modeler and re-validated for face validity (Abnahmetest SEM-6). Agents are
-# READ-ONLY w.r.t. the models — if a tool/agent finds a problem with the BPMN XML it must
-# REPORT it (docs/model-issues/) and propose a GitHub issue, never edit the model.
+# `.svg` export. The models are the human-authored, review-gated source artifact — NOT
+# clinically validated (see DISCLAIMER.md): their clinical content changes only through a
+# human modeler, and every change is re-confirmed for face validity in the acceptance test
+# (Abnahmetest SEM-6). Agents are READ-ONLY w.r.t. the models — if a tool/agent finds a
+# problem with the BPMN XML it must REPORT it (docs/model-issues/) and propose a GitHub
+# issue, never edit the model.
 #
 # Coverage — PATTERN-BASED (a guardrail against accidental edits, not a sandbox):
 #   1. File-write tools (Write/Edit/MultiEdit/NotebookEdit): denied when the target path
@@ -34,10 +36,11 @@ input="$(cat)"
 
 deny() {
   echo "BLOCKED by the model guard: $1" >&2
-  echo "Agents must NOT modify .bpmn pathway models or their .svg exports — the models are" >&2
-  echo "clinically validated (acceptance-test SEM-6 face validity) and change only via a human" >&2
-  echo "modeler + re-validation. Report the issue in docs/model-issues/ and propose a GitHub" >&2
-  echo "issue (.github/ISSUE_TEMPLATE/bpmn-model-issue.md) instead. See AGENTS.md." >&2
+  echo "Agents must NOT modify .bpmn pathway models or their .svg exports — the models are a" >&2
+  echo "human-authored, review-gated source artifact (not clinically validated; acceptance-test" >&2
+  echo "SEM-6 re-confirms face validity after every change) and change only via a human modeler." >&2
+  echo "Report the issue in docs/model-issues/ and propose a GitHub issue" >&2
+  echo "(.github/ISSUE_TEMPLATE/bpmn-model-issue.md) instead. See AGENTS.md." >&2
   exit 2
 }
 
