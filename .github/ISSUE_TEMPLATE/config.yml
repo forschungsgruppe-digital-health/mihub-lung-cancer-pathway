@@ -1,11 +1,16 @@
 # Template chooser shown on "New issue" (GitHub reads it from the default branch).
-# Model defects use the BPMN model issue template; everything else may use a blank issue with
-# the matching label (`question`, `documentation`, `housekeeping`) — see CONTRIBUTING.md.
+# Inhaltliche/medizinische Hinweise gehen an die Vorlage "Klinische Rückmeldung" (keine
+# technischen Kenntnisse nötig); Modelldefekte mit Werkzeug-Ausgaben an "BPMN model issue".
+# Everything else may use a blank issue with the matching label (`question`, `documentation`,
+# `housekeeping`) — see CONTRIBUTING.md.
 blank_issues_enabled: true
 contact_links:
+  - name: "E-Mail an das Team / e-mail the team — digital-health@tu-dresden.de"
+    url: mailto:digital-health@tu-dresden.de
+    about: "Klinische Rückmeldungen und Fragen gehen auch per E-Mail — ohne GitHub-Konto. Bitte auch per E-Mail keine personenbezogenen Daten oder Gesundheitsdaten einzelner Personen senden. · Clinical feedback and questions can be sent by e-mail, no GitHub account needed. Please do not send personal or health data of individuals by e-mail either."
   - name: "Fragen / questions — GitHub Discussions"
     url: https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/discussions
-    about: "Offene Fragen zu den Modellen oder zum Repository · Open-ended questions about the models or the repository."
+    about: "Offene Fragen zu den Modellen oder zum Repository · Open-ended questions about the models or the repository. Bitte Fälle nur allgemein und anonymisiert beschreiben — keine personenbezogenen Daten oder Gesundheitsdaten einzelner Personen · Describe cases in general, anonymised terms only — no personal or health data of individuals."
   - name: "Sicherheitsproblem melden / report a security concern"
     url: https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/security/policy
     about: "Bitte NICHT als öffentliches Issue — siehe SECURITY.md · Please do NOT open a public issue — see SECURITY.md."
