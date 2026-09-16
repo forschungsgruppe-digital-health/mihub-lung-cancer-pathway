@@ -7,8 +7,10 @@ description: Validate the lung-cancer pathway .bpmn models for BPMN 2.0 structur
 
 > **🔒 Model guard — read-only.** Never edit, reformat, or otherwise modify a `.bpmn`
 > model or its `.svg` export, *not even to fix an issue this skill finds*. The models are
-> clinically validated (acceptance-test **SEM-6** face validity) and change only via a human
-> modeler + re-validation. Found a BPMN-XML problem? **Report it** in
+> the human-authored source artifact and are **not clinically validated** (see
+> [`DISCLAIMER.md`](../../DISCLAIMER.md)); their clinical content changes only via a human
+> modeler, and every change is re-confirmed for face validity in the acceptance test
+> (**SEM-6**). Found a BPMN-XML problem? **Report it** in
 > [`docs/model-issues/`](../../docs/model-issues/) and propose a GitHub issue
 > ([template](../../.github/ISSUE_TEMPLATE/bpmn-model-issue.md)) — do not change the model.
 > Enforced in Claude Code by the `guard-model-files` PreToolUse hook.

@@ -30,19 +30,19 @@ The two artifacts describe the **same lung-cancer journey from two complementary
 | | Our BPMN4CP pathway | A Synthea GMF module |
 |---|---|---|
 | Question it answers | *When* does what happen, by *whom*? (the guideline process) | *What data* does a patient accumulate over time? |
-| Nature | A clinically reviewed process model | An executable population simulator |
+| Nature | A human-authored, guideline-based process model | An executable population simulator |
 | Form | A directed graph of events/tasks/gateways | A directed graph of states/transitions |
 
 Crucially, **both are directed graphs with branching logic**, and process graphs of this kind map cleanly onto formal state/transition execution models — this is a well-established result: BPMN has formal execution semantics and can be mapped to executable models such as Petri nets (Dijkman, Dumas & Ouyang, 2008 [^dijkman2008]). So translating a BPMN pathway into a Synthea state machine is a *structural* transformation, not a leap.
 
 Four concrete reasons to pair them:
 
-1. **One clinically validated source of truth.** The BPMN pathway is built on clinical guidelines, the CraNE EU standard, and empirically grounded modelling guidelines (7PMG; Mendling, Reijers & van der Aalst, 2010 [^mendling2010]). Using it as the *skeleton* of the Synthea module means the synthetic data follows the **same reviewed pathway** — giving provenance and avoiding a second, divergent description of the journey.
+1. **One human-authored, guideline-based source of truth.** The BPMN pathway is built on clinical guidelines, the CraNE EU standard, and empirically grounded modelling guidelines (7PMG; Mendling, Reijers & van der Aalst, 2010 [^mendling2010]) — clinical validation is still **pending**: the models are **not clinically validated** (no model has passed the acceptance test yet; see [`DISCLAIMER.md`](../DISCLAIMER.md)). Using it as the *skeleton* of the Synthea module means the synthetic data follows the **same single pathway model** — giving provenance and avoiding a second, divergent description of the journey.
 2. **Annotations close the gap — three small BPMN extensions.** The tooling that adds machine-readable clinical meaning to the BPMN is split into three focused [bpmn.io](https://bpmn.io) extensions (one per concern), and the [`…-data-elements`](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway-data-elements) repo carries the codes + MII bindings per pathway step. So **annotated BPMN supplies most of what a GMF clinical state needs** — the resource type, the code, and the simulation parameters. See *The three BPMN extensions* below.
 3. **Clinical pathways are routinely modelled in BPMN — and are meant to be made computable.** BPMN is an established notation for clinical pathways (Scheuerlein et al., 2012 [^scheuerlein2012]; BPM+ Health, 2020 [^bpmplus]; BPMN4CP — Braun et al., 2014 [^braun2014], 2016 [^braun2016]), and transforming such pathways into executable artefacts is an active, demonstrated practice (e.g. FHIR2BPMN — Helm et al., 2022 [^helm2022]; comparative analysis of BPMN vs. openEHR Task Planning — Iglesias, Juárez & Campos, 2022 [^iglesias2022]).
 4. **Single source → multiple artefacts.** The same annotated BPMN can feed *both* the Synthea generation module *and* the planned FHIR `PlanDefinition`/Implementation Guide (deliverable D3.2). One model, several computable outputs.
 
-**In one sentence:** the BPMN pathway gives us the *clinically correct skeleton*; Synthea turns it into a *running data generator*; the annotations and data-element codes are the connective tissue.
+**In one sentence:** the BPMN pathway gives us the *guideline-based process skeleton*; Synthea turns it into a *running data generator*; the annotations and data-element codes are the connective tissue.
 
 ### The three BPMN extensions (the annotation layers)
 

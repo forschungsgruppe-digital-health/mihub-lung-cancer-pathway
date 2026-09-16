@@ -5,13 +5,20 @@ title: "[model] "
 labels: ["model", "needs-clinical-review"]
 ---
 
+> ⚠️ **Bitte keine personenbezogenen Daten und keine Gesundheitsdaten einzelner Personen** (auch nicht in Screenshots oder Anhängen) in Issues oder Kommentare schreiben — dieses Repository ist öffentlich. Bitte Fälle nur allgemein und anonymisiert beschreiben. · **Do not post personal or health data of individuals** (including in screenshots or attachments) — this repository is public. Describe cases in general, anonymised terms only.
+
+> Für rein **inhaltliche/medizinische** Hinweise ohne Werkzeug-Ausgaben bitte die Vorlage „Klinische Rückmeldung" verwenden. · For purely clinical feedback use the „Klinische Rückmeldung" template.
+
 <!--
-EN: The .bpmn models are the clinically-validated artifact. Changes are made ONLY by a human
-modeler and re-validated for face validity (acceptance test SEM-6). Skills/agents report to
-docs/model-issues/ and never edit a model. Fill this in from a docs/model-issues/ finding.
-DE: Die .bpmn-Modelle sind das klinisch validierte Artefakt. Änderungen erfolgen NUR durch
-eine:n menschliche:n Modellierer:in und werden auf Face Validity (Abnahmetest SEM-6) erneut
-validiert. Skills/Agenten melden nach docs/model-issues/ und bearbeiten nie ein Modell.
+EN: The .bpmn models are the human-authored source artefact and are NOT clinically validated
+(see DISCLAIMER.md). Their clinical content changes only through a human modeller, and every
+change is re-confirmed for face validity in the acceptance test (SEM-6). Skills/agents report
+to docs/model-issues/ and never edit a model. Fill this in from a docs/model-issues/ finding.
+DE: Die .bpmn-Modelle sind das von Menschen erstellte Quellartefakt und sind NICHT klinisch
+validiert (siehe DISCLAIMER.md). Ihr klinischer Inhalt ändert sich ausschließlich durch
+eine:n menschliche:n Modellierer:in, und jede Änderung wird im Abnahmetest erneut auf Face
+Validity (SEM-6) bestätigt. Skills/Agenten melden nach docs/model-issues/ und bearbeiten nie
+ein Modell. Bitte aus einem Befund in docs/model-issues/ ausfüllen.
 -->
 
 ### Affected model(s) · Betroffene(s) Modell(e)

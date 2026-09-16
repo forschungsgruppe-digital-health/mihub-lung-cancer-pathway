@@ -186,7 +186,7 @@ is therefore trimmed to the **citable artifact plus its essential metadata**:
   acceptance-test instrument incl. its README + CHANGELOG), `README.md`, `LICENSE`,
   `CITATION.cff`, `DISCLAIMER.md`, `CHANGELOG.md`, `AI_USAGE.md` (AI-usage disclosure, added
   2026-09-05 — *not* in the `v0.4.0-rc.1` archive, which was tagged the same morning before the
-  file landed on `main`; it ships from the first tag after `v0.4.0-rc.1`).
+  file landed on `main`; it ships from the first tag after `v0.4.0-rc.1` — done: `v0.5.0-rc.1`, 2026-09-10).
 - **Excluded:** `tools/`, `skills/`, `.github/`, `package.json` + `package-lock.json`,
   `release-please-config.json`, `.release-please-manifest.json`, `version.txt`, `.bpmnlintrc`,
   `.claude/`, `.agents/`, `.gitignore`, `.gitattributes`, `AGENTS.md`, `CLAUDE.md`,
@@ -237,7 +237,7 @@ Consequences:
   amendment). *[Amended 2026-09-07 — complete and corrected DOI list: `v0.2.1-rc.1` →
   10.5281/zenodo.20943917 (Software, as minted), `v0.2.1-rc.2` → 10.5281/zenodo.20945321
   (Software, as minted), `v0.3.0-rc.1` → 10.5281/zenodo.21029417 (**Dataset**, four creators),
-  `v0.4.0-rc.1` → 10.5281/zenodo.22327274 (**Dataset**, three creators; minted from
+  `v0.5.0-rc.1` → 10.5281/zenodo.22696244 (**Dataset**, `cc-by-sa-4.0`, four creators — the first deposit under the licence of ADR-0005), `v0.4.0-rc.1` → 10.5281/zenodo.22327274 (**Dataset**, three creators; minted from
   `.zenodo.json`); concept DOI 10.5281/zenodo.20943916. "All … Software" above was wrong for
   `v0.3.0-rc.1` — see the Decision 3 corrections.]* What still follows, not precedes, the
   first "Accepted" is the **stable `1.0.0`** (Decision 1).

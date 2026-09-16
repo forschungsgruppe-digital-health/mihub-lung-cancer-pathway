@@ -1,15 +1,17 @@
 # Model issues — report, don't fix
 
-The `.bpmn` pathway models are the **clinically-validated artifact**. **No skill or agent
-may modify a model** (`.bpmn` or its `.svg`) — every change is made by a **human modeler**
-and re-validated for face validity (acceptance test **SEM-6**). See `AGENTS.md` (Hard rules) and the
+The `.bpmn` pathway models are the **human-authored source artifact** and are **not
+clinically validated** (see [`DISCLAIMER.md`](../../DISCLAIMER.md)). **No skill or agent
+may modify a model** (`.bpmn` or its `.svg`) — their clinical content changes only through a
+**human modeler**, and every change is re-confirmed for face validity in the acceptance
+test (**SEM-6**). See `AGENTS.md` (Hard rules) and the
 `guard-model-files` PreToolUse hook (`.claude/hooks/guard-model-files.sh`).
 
 When a tool or agent finds a problem with the BPMN XML, it records it **here** as a finding
 plus a **ready-to-file GitHub issue suggestion** — it does **not** touch the model. A human
 then triages, files the issue (template:
 [`.github/ISSUE_TEMPLATE/bpmn-model-issue.md`](../../.github/ISSUE_TEMPLATE/bpmn-model-issue.md)),
-and a modeler fixes + re-validates.
+and a modeler remodels; the change is re-confirmed for face validity (**SEM-6**).
 
 ## Workflow
 

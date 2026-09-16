@@ -8,12 +8,19 @@
 [![Projekt: MII](https://img.shields.io/badge/Projekt-MII-blue)](https://www.medizininformatik-initiative.de/)
 [![Standard: BPMN 2.0](https://img.shields.io/badge/Standard-BPMN%202.0-orange)](https://www.omg.org/spec/BPMN/2.0/)
 
-[![CI – Conformance Gate](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions/workflows/ci.yml/badge.svg?branch=dev)](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions/workflows/ci.yml?query=branch%3Adev)
+[![CI – Konformitätsprüfung (beratend)](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions/workflows/ci.yml/badge.svg?branch=dev)](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions/workflows/ci.yml?query=branch%3Adev)
 [![Soundness (advisory)](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions/workflows/soundness.yml/badge.svg?branch=dev)](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions/workflows/soundness.yml?query=branch%3Adev)
 [![KI-Nutzung offengelegt](https://img.shields.io/badge/KI--Nutzung-offengelegt-informational)](./AI_USAGE.md)
 [![Link check](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions/workflows/link-check.yml/badge.svg?branch=dev)](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions/workflows/link-check.yml?query=branch%3Adev)
 
+> **Was die Abzeichen oben bedeuten:** Sie zeigen den Zustand der **technischen** Prüfungen (Dateinamen, Modellstruktur, Verlinkungen) — sie sagen **nichts** über die medizinische Richtigkeit der Pfade aus und bedeuten **keine** Freigabe für die Versorgung. Der fachliche Reifegrad steht unter [Status & Roadmap](#status--roadmap) und je Modell in [`models/README.md`](./models/README.md).
+
+<details>
+<summary>ℹ️ Technische Details zur Konformitätsprüfung (für Entwickler:innen)</summary>
+
 ℹ️ Die **CI-Konformitätsprüfung** läuft in der Release-Candidate-Phase **beratend (warn-only)**: das Gate **meldet** die bekannten Modellbefunde (Struktur, OR-Gateways) als Warnungen, **blockiert die PRs aber nicht** — die Modellbefunde werden vor der geplanten Ummodellierung bewusst nur **gemeldet** (nicht erzwungen); die harte Durchsetzung wird danach reaktiviert (siehe [`docs/model-issues/`](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/tree/main/docs/model-issues) und [ADR-0001](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/decisions/0001-repo-tooling-and-conformance-gate.md)). Namenskonvention und Roundtrip sind auf allen Modellen grün; die (informative) XSD-Kernprüfung ist auf allen Modellen bis auf das übergreifende grün — es trägt vier nicht-standardisierte DI-Farbattribute (siehe [docs/model-issues](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/model-issues/2026-09-04-xsd-core-extension-placement.md)); die BPMN4CP-Erweiterung `cp:` steht per Design direkt unter dem Prozess und wird vor der Kernprüfung ausgeblendet. Die Namenskonvention wird als **eigener, blockierender CI-Schritt** erzwungen (`npm run check:naming`). Live-Status: [GitHub Actions](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/actions).
+
+</details>
 
 > ⚠️ **Hinweis zur Zweckbestimmung / Haftungsausschluss.** Dieses BPMN-Modell ist ein **Forschungs-, Lehr- und Interoperabilitäts-Referenzartefakt**. Es ist **nicht** für den Einsatz in der unmittelbaren Patient:innenversorgung oder zur klinischen Entscheidungsfindung bestimmt, **nicht klinisch validiert** und stellt **keine medizinische Beratung** dar. Die Autor:innen weisen ihm **keine medizinische Zweckbestimmung** im Sinne der EU-Medizinprodukteverordnung (MDR 2017/745) zu. Jede Nutzung in einem Versorgungskontext erfordert eine eigenständige klinische Validierung und regulatorische Bewertung durch die nutzende Stelle. Es gelten [`DISCLAIMER.md`](./DISCLAIMER.md) und Abschnitt 5 der [`LICENSE`](./LICENSE). Der Haftungsausschluss ist derzeit ein **Entwurf** und befindet sich in rechtlicher Prüfung (Justiziariat / Datenschutzbeauftragter (DSB) der TU Dresden).
 >
@@ -49,7 +56,8 @@ _Stand: 2026-09-07 — aktualisiert mit jedem Release; Live-Quellen sind die Sta
 
 | Bereich | Status |
 | --- | --- |
-| **Release-Phase** | Pre-Releases `0.x-rc.N` unter dem Concept-DOI [`10.5281/zenodo.20943916`](https://doi.org/10.5281/zenodo.20943916); aktuelle Version **v0.4.0-rc.1** (2026-09-05, siehe [`CHANGELOG.md`](./CHANGELOG.md)). |
+| **Release-Phase** | Vorabversionen (_Release Candidates_, Suffix `-rc.N`) unter dem Concept-DOI [`10.5281/zenodo.20943916`](https://doi.org/10.5281/zenodo.20943916). Eine finale Version gibt es noch nicht. |
+| **Aktuelle Version** | **v0.5.0-rc.1** <!-- x-release-please-version --> — Datum, Inhalt und Versions-DOI siehe [Releases](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/releases) bzw. [`CHANGELOG.md`](./CHANGELOG.md). |
 | **Abnahmetest** | Noch **kein Modell abgenommen** („Accepted“). Die **1.0.0** folgt der ersten formalen Abnahme ([ADR-0002](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/decisions/0002-versioning-and-release.md)); Instrument und Protokoll in [`docs/governance/`](./docs/governance/). |
 | **Modelle** | 10 Modelle. Jedes trägt ein **offenes Konformitäts-Issue** (Kinder von [#49](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/issues/49)); **13 OR-Gateways** sind umzumodellieren (SYN-5); das Palliativ-Modell ist ein **WIP-Entwurf**. Status je Modell: Spalte „Status“ in [`models/README.md`](./models/README.md). |
 | **Tooling** | Konformitäts-Gate (`npm run check:conformance`) **lokal blockierend**, in der CI während der RC-Phase **beratend** (warn-only, siehe Hinweis oben); Soundness-Prüfung beratend ([ADR-0001](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/decisions/0001-repo-tooling-and-conformance-gate.md), [ADR-0003](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/docs/decisions/0003-soundness-tooling.md)). |
@@ -140,6 +148,12 @@ Alle Modelle liegen im Verzeichnis [`models/`](./models/) (Namenskonvention `lun
 - **BPMN** (`.bpmn`): Maschinenlesbare BPMN-2.0-Quelldatei, direkt bearbeitbar mit gängigen BPMN-Editoren (s. u.)
 - **SVG** (`.svg`): Skalierbare Vektorgrafik zur menschenlesbaren Visualisierung, darstellbar im Browser oder in Vektorgrafik-Software
 
+> **Hinweis zur Anzeige:** Die SVG-Vorschau auf GitHub skaliert jede Grafik auf maximal 600 px Breite. Die großformatigen Modelle (übergreifender Pfad, Früherkennung) sind darin **nicht lesbar**. Für die volle Auflösung auf der Dateiseite die Schaltfläche **„Download raw file“** (Symbol rechts oben) nutzen oder die Grafik in einem eigenen Browser-Tab öffnen und dort zoomen.
+
+**Beispielansicht — Teilpfad Tumorboard** (klein genug für die Vorschau; die übrigen Modelle wie oben beschrieben öffnen):
+
+[![Teilpfad Tumorboard — BPMN-Diagramm](./models/lung-cancer-tumor-board-pathway.svg)](./models/lung-cancer-tumor-board-pathway.svg)
+
 ### Übergreifender Patientenpfad
 
 | Datei                                                                          | Beschreibung                                                 |
@@ -169,11 +183,17 @@ Die **klinischen Quellen je Modell** (Leitlinien, Rechtsgrundlagen, Workshops, a
 
 ## Verwendung
 
+**So kommen Sie an eine Datei:** Auf der Dateiseite im Browser die Schaltfläche **„Download raw file“** (Symbol rechts oben) anklicken — die Datei wird gespeichert. Ein Klick auf eine `.bpmn`-Datei zeigt auf GitHub nur den XML-Quelltext; das ist normal, das Diagramm entsteht erst im Editor. Die heruntergeladene `.bpmn`-Datei anschließend in [demo.bpmn.io](https://demo.bpmn.io/) **per Drag & Drop in das Browserfenster ziehen** oder im Camunda Modeler über *File → Open* öffnen.
+
 Die BPMN-Modelle (`.bpmn`) können mit folgenden Tools geöffnet, visualisiert und weiterbearbeitet werden:
 
 - **[bpmn.io](https://demo.bpmn.io/)** – Frei verfügbarer, webbasierter BPMN-Editor (keine Installation erforderlich)
 - **[Camunda Modeler](https://camunda.com/download/modeler/)** – Desktop-Anwendung für BPMN 2.0 (kostenlos)
 - **[Eclipse BPMN2 Modeler](https://www.eclipse.org/bpmn2-modeler/)** – Eclipse-Plugin für BPMN
+
+> ⚠️ **Vor dem Bearbeiten in einem Standard-BPMN-Editor lesen.** Fünf Modelle (übergreifend, Behandlung, Diagnostik, Tumorboard, Molekulares Tumorboard) tragen **34 Qualitätsindikatoren** der BPMN4CP-Erweiterung (`cp:`). bpmn.io / demo.bpmn.io und Camunda Modeler kennen diese Erweiterung nicht: Beim Öffnen **und erneuten Speichern werden alle `cp:`-Elemente samt der darin enthaltenen Übersetzungen ohne Fehlermeldung verworfen** — im Diagramm ist davon nichts zu sehen (nachgewiesen mit `bpmn-moddle` 10, der Bibliothek hinter beiden Editoren). Reine Ansicht ist unbedenklich. Wer die Indikatoren erhalten will, bearbeitet im [Pathway Modeler](https://modeler.helict.eu) oder prüft die Datei vor der Veröffentlichung mit `npm run check:conformance` (der Roundtrip-Schritt meldet den Verlust).
+
+> `cp:` kennzeichnet Zusatzangaben aus **BPMN4CP**, einer an der TU Dresden entwickelten Erweiterung des BPMN-2.0-Standards für klinische Behandlungspfade — hier vor allem die Qualitätsindikatoren (Zähler/Nenner) und Verweise auf die Ursprungsmodelle im externen Pathway Modeler. Sie stehen in der Datei, gehören aber nicht zum BPMN-Standard und werden deshalb nicht von jedem Werkzeug verstanden.
 
 Die kanonische Werkzeugempfehlung (Einsatzzweck und Hinweise je Werkzeug) steht in [`CONVENTIONS.md`, § 9 „Empfohlene Werkzeuge“](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/blob/main/CONVENTIONS.md#9-empfohlene-werkzeuge).
 
@@ -249,4 +269,6 @@ Fakultät Wirtschaftswissenschaften\
 Forschungsgruppe Digital Health\
 01062 Dresden
 
-Für Fragen und Beiträge bitte ein [GitHub Issue](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/issues) erstellen.
+**Rückmeldungen sind willkommen — auch ohne GitHub-Konto.** Für inhaltliche und klinische Hinweise genügt eine E-Mail an [digital-health@tu-dresden.de](mailto:digital-health@tu-dresden.de). Wer ein GitHub-Konto hat, nutzt bitte die Vorlage **„Klinische Rückmeldung“** unter [Issues](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/issues/new/choose); technische Befunde gehören in die Vorlage „BPMN model issue“.
+
+> ⚠️ **Bitte keine personenbezogenen Daten und keine Gesundheitsdaten einzelner Personen** (auch nicht in Screenshots oder Anhängen) übermitteln — dieses Repository ist öffentlich. Fälle bitte nur allgemein und anonymisiert beschreiben.
