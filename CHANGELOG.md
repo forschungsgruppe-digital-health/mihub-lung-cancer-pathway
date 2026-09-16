@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.6.0-rc.1](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/compare/v0.5.0-rc.1...v0.6.0-rc.1) (2026-09-16)
+
+
+### Pathway changes
+
+* **feedback:** plain-language clinical feedback route and a no-health-data notice ([4fae07e](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/4fae07e89341954bc4eabb47371c02a7b9edc4f8))
+
+
+### Documentation & governance
+
+* make the quality signals readable for non-technical visitors ([d778595](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/d7785951bf9176fd8142b703c1083adee445437e))
+* models are the human-authored source artefact, not a clinically validated one ([421b07c](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/421b07c9c541653a57f355cc484d0e1327379e60))
+* **readme:** version that cannot go stale, viewable diagrams, usable instructions ([1da5895](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/1da5895fff95791451623c621604fe68b794aa3f))
+* record v0.5.0-rc.1 and its Zenodo deposit ([08a6731](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/08a67316b32d7a9280ecafffbe5516e47cc427d0))
+* record v0.5.0-rc.1 and its Zenodo deposit (10.5281/zenodo.22696244) ([30ded29](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/30ded291f37bf818768266d030151025808d73ad))
+
 ## [0.5.0-rc.1](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/compare/v0.4.0-rc.1...v0.5.0-rc.1) (2026-09-10)
 
 
