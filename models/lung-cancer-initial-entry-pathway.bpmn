@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
   <bpmn2:collaboration id="Collaboration_1gq917d">
-    <bpmn2:participant id="Participant_0dx5hyc" name="Patient:in" processRef="Process_1">
-      <bpmn2:extensionElements>
-        <i18n:translation lang="en">Patient:in</i18n:translation>
-      </bpmn2:extensionElements>
-    </bpmn2:participant>
     <bpmn2:participant id="Participant_18lf0ly" name="Überweisende / Allgemeinmedizin / Pulmologie/ Niedergelassene" processRef="Process_0decs29">
       <bpmn2:extensionElements>
         <i18n:translation lang="en">Überweisende / Allgemeinmedizin / Pulmologie/ Niedergelassene</i18n:translation>
@@ -16,21 +11,11 @@
         <i18n:translation lang="en">Radiologie</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:participant>
-    <bpmn2:messageFlow id="Flow_0m3avm4" name="Überweisung" sourceRef="Activity_0wyhje1" targetRef="Event_19xgx92">
+    <bpmn2:participant id="Participant_0dx5hyc" name="Patient:in wp" processRef="Process_1">
       <bpmn2:extensionElements>
-        <i18n:translation lang="en">Überweisung</i18n:translation>
+        <i18n:translation lang="en">Patient:in wp</i18n:translation>
       </bpmn2:extensionElements>
-    </bpmn2:messageFlow>
-    <bpmn2:messageFlow id="Flow_1rxgz6r" name="Anfrage zum Termin" sourceRef="Activity_0sa0zjr" targetRef="Event_06p0i5e">
-      <bpmn2:extensionElements>
-        <i18n:translation lang="en">Anfrage zum Termin</i18n:translation>
-      </bpmn2:extensionElements>
-    </bpmn2:messageFlow>
-    <bpmn2:messageFlow id="Flow_1qniwzl" name="Überweisung" sourceRef="Activity_1ttprm0" targetRef="Event_0m6ynjc">
-      <bpmn2:extensionElements>
-        <i18n:translation lang="en">Überweisung</i18n:translation>
-      </bpmn2:extensionElements>
-    </bpmn2:messageFlow>
+    </bpmn2:participant>
     <bpmn2:messageFlow id="Flow_0zi9fwz" name="Rückmeldung unauffällig" sourceRef="Activity_1vxu103" targetRef="Event_18dhto9">
       <bpmn2:extensionElements>
         <i18n:translation lang="en">Rückmeldung unauffällig</i18n:translation>
@@ -61,11 +46,6 @@
         <i18n:translation lang="en">Zufallsbefund</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:messageFlow>
-    <bpmn2:messageFlow id="Flow_16a0sf9" name="Rückmeldung" sourceRef="Activity_05vaiqf" targetRef="Event_0ymh30y">
-      <bpmn2:extensionElements>
-        <i18n:translation lang="en">Rückmeldung</i18n:translation>
-      </bpmn2:extensionElements>
-    </bpmn2:messageFlow>
     <bpmn2:messageFlow id="Flow_15fylb7" name="Rückmeldung unauffällig" sourceRef="Activity_0f6eqtv" targetRef="Event_18dhto9">
       <bpmn2:extensionElements>
         <i18n:translation lang="en">Rückmeldung unauffällig</i18n:translation>
@@ -74,6 +54,26 @@
     <bpmn2:messageFlow id="Flow_0tde74y" name="Überweisung,/ Befund" sourceRef="Activity_1ty95ns" targetRef="Event_0asx17v">
       <bpmn2:extensionElements>
         <i18n:translation lang="en">Überweisung,/ Befund</i18n:translation>
+      </bpmn2:extensionElements>
+    </bpmn2:messageFlow>
+    <bpmn2:messageFlow id="Flow_16a0sf9" name="Rückmeldung" sourceRef="Activity_05vaiqf" targetRef="Event_0ymh30y">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="en">Rückmeldung</i18n:translation>
+      </bpmn2:extensionElements>
+    </bpmn2:messageFlow>
+    <bpmn2:messageFlow id="Flow_1rxgz6r" name="Anfrage zum Termin" sourceRef="Activity_0sa0zjr" targetRef="Event_06p0i5e">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="en">Anfrage zum Termin</i18n:translation>
+      </bpmn2:extensionElements>
+    </bpmn2:messageFlow>
+    <bpmn2:messageFlow id="Flow_0m3avm4" name="Überweisung" sourceRef="Activity_0wyhje1" targetRef="Event_19xgx92">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="en">Überweisung</i18n:translation>
+      </bpmn2:extensionElements>
+    </bpmn2:messageFlow>
+    <bpmn2:messageFlow id="Flow_1qniwzl" name="Überweisung" sourceRef="Activity_1ttprm0" targetRef="Event_0m6ynjc">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="en">Überweisung</i18n:translation>
       </bpmn2:extensionElements>
     </bpmn2:messageFlow>
     <bpmn2:messageFlow id="Flow_01uwpgj" name="Zufallsbefund" sourceRef="Activity_176a627" targetRef="Event_05d77mb">
@@ -166,119 +166,6 @@
     </bpmn2:textAnnotation>
     <bpmn2:association id="Association_030a4p0" associationDirection="None" sourceRef="Event_19xgx92" targetRef="TextAnnotation_08z8gi4" />
   </bpmn2:collaboration>
-  <bpmn2:process id="Process_1" isExecutable="false">
-    <bpmn2:sequenceFlow id="Flow_0jgxdrh" sourceRef="Gateway_1cs9nvr" targetRef="Activity_1j86qnm" />
-    <bpmn2:sequenceFlow id="Flow_0vnqq8z" sourceRef="Event_064dlw4" targetRef="Gateway_1cs9nvr" />
-    <bpmn2:sequenceFlow id="Flow_0i81i2i" sourceRef="Event_1lj2wra" targetRef="Activity_176a627" />
-    <bpmn2:sequenceFlow id="Flow_0f5rckp" sourceRef="Event_19xgx92" targetRef="Activity_1ttprm0" />
-    <bpmn2:sequenceFlow id="Flow_0gebppq" sourceRef="Activity_0sa0zjr" targetRef="Event_19xgx92" />
-    <bpmn2:sequenceFlow id="Flow_0aqfowy" sourceRef="Gateway_1cs9nvr" targetRef="Activity_0sa0zjr" />
-    <bpmn2:sequenceFlow id="Flow_0yq6m1h" sourceRef="Activity_176a627" targetRef="Gateway_1f49pmz" />
-    <bpmn2:sequenceFlow id="Flow_14vcvak" sourceRef="Activity_1ttprm0" targetRef="Gateway_1f49pmz" />
-    <bpmn2:sequenceFlow id="Flow_1m8b62m" sourceRef="Event_0ymh30y" targetRef="Event_1xji28j" />
-    <bpmn2:sequenceFlow id="Flow_0f0jht6" sourceRef="Event_0asx17v" targetRef="Event_13vosun">
-      <bpmn2:extensionElements>
-        <i18n:translation lang="en" />
-      </bpmn2:extensionElements>
-    </bpmn2:sequenceFlow>
-    <bpmn2:sequenceFlow id="Flow_1byxitn" sourceRef="Gateway_11xnbu6" targetRef="Event_0ymh30y" />
-    <bpmn2:sequenceFlow id="Flow_10l2s4x" sourceRef="Gateway_11xnbu6" targetRef="Event_0asx17v" />
-    <bpmn2:sequenceFlow id="Flow_1hqfrzj" sourceRef="Gateway_1f49pmz" targetRef="Gateway_11xnbu6" />
-    <bpmn2:exclusiveGateway id="Gateway_1cs9nvr">
-      <bpmn2:incoming>Flow_0vnqq8z</bpmn2:incoming>
-      <bpmn2:outgoing>Flow_0aqfowy</bpmn2:outgoing>
-      <bpmn2:outgoing>Flow_0jgxdrh</bpmn2:outgoing>
-    </bpmn2:exclusiveGateway>
-    <bpmn2:startEvent id="Event_064dlw4" name="Symptome bemerkt">
-      <bpmn2:extensionElements>
-        <i18n:translation lang="en">Symptome bemerkt</i18n:translation>
-      </bpmn2:extensionElements>
-      <bpmn2:outgoing>Flow_0vnqq8z</bpmn2:outgoing>
-    </bpmn2:startEvent>
-    <bpmn2:startEvent id="Event_1lj2wra" name="Zufallsbefund erhalten">
-      <bpmn2:extensionElements>
-        <i18n:translation lang="en">Zufallsbefund erhalten</i18n:translation>
-      </bpmn2:extensionElements>
-      <bpmn2:outgoing>Flow_0i81i2i</bpmn2:outgoing>
-      <bpmn2:messageEventDefinition id="MessageEventDefinition_152xf7w" />
-    </bpmn2:startEvent>
-    <bpmn2:task id="Activity_176a627" name="Zufallsbefund beim Hausarzt vorstellen">
-      <bpmn2:extensionElements>
-        <i18n:translation lang="en">Zufallsbefund beim Hausarzt vorstellen</i18n:translation>
-      </bpmn2:extensionElements>
-      <bpmn2:incoming>Flow_0i81i2i</bpmn2:incoming>
-      <bpmn2:outgoing>Flow_0yq6m1h</bpmn2:outgoing>
-    </bpmn2:task>
-    <bpmn2:task id="Activity_1ttprm0" name="Überweisung in der Radiologie vorlegen">
-      <bpmn2:extensionElements>
-        <i18n:translation lang="en">Überweisung in der Radiologie vorlegen</i18n:translation>
-      </bpmn2:extensionElements>
-      <bpmn2:incoming>Flow_0f5rckp</bpmn2:incoming>
-      <bpmn2:outgoing>Flow_14vcvak</bpmn2:outgoing>
-    </bpmn2:task>
-    <bpmn2:intermediateCatchEvent id="Event_19xgx92" name="Überweisung erhalten">
-      <bpmn2:extensionElements>
-        <i18n:translation lang="en">Überweisung erhalten</i18n:translation>
-      </bpmn2:extensionElements>
-      <bpmn2:incoming>Flow_0gebppq</bpmn2:incoming>
-      <bpmn2:outgoing>Flow_0f5rckp</bpmn2:outgoing>
-      <bpmn2:messageEventDefinition id="MessageEventDefinition_1tsf8vo" />
-    </bpmn2:intermediateCatchEvent>
-    <bpmn2:task id="Activity_0sa0zjr" name="Hausärztliche Praxis kontaktieren">
-      <bpmn2:extensionElements>
-        <i18n:translation lang="en">Hausärztliche Praxis kontaktieren</i18n:translation>
-      </bpmn2:extensionElements>
-      <bpmn2:incoming>Flow_0aqfowy</bpmn2:incoming>
-      <bpmn2:outgoing>Flow_0gebppq</bpmn2:outgoing>
-    </bpmn2:task>
-    <bpmn2:exclusiveGateway id="Gateway_1f49pmz">
-      <bpmn2:incoming>Flow_14vcvak</bpmn2:incoming>
-      <bpmn2:incoming>Flow_0yq6m1h</bpmn2:incoming>
-      <bpmn2:outgoing>Flow_1hqfrzj</bpmn2:outgoing>
-    </bpmn2:exclusiveGateway>
-    <bpmn2:intermediateCatchEvent id="Event_0ymh30y" name="Rückmeldung erhalten">
-      <bpmn2:extensionElements>
-        <i18n:translation lang="en">Rückmeldung erhalten</i18n:translation>
-      </bpmn2:extensionElements>
-      <bpmn2:incoming>Flow_1byxitn</bpmn2:incoming>
-      <bpmn2:outgoing>Flow_1m8b62m</bpmn2:outgoing>
-      <bpmn2:messageEventDefinition id="MessageEventDefinition_1r9v5pa" />
-    </bpmn2:intermediateCatchEvent>
-    <bpmn2:endEvent id="Event_1xji28j" name="Abklärung abgeschlossen">
-      <bpmn2:extensionElements>
-        <i18n:translation lang="en">Abklärung abgeschlossen</i18n:translation>
-      </bpmn2:extensionElements>
-      <bpmn2:incoming>Flow_1m8b62m</bpmn2:incoming>
-    </bpmn2:endEvent>
-    <bpmn2:endEvent id="Event_13vosun" name="Ins klinische Setting / Lungenzentrum verwiesen">
-      <bpmn2:extensionElements>
-        <i18n:translation lang="en">Ins klinische Setting / Lungenzentrum verwiesen</i18n:translation>
-      </bpmn2:extensionElements>
-      <bpmn2:incoming>Flow_0f0jht6</bpmn2:incoming>
-      <bpmn2:incoming>Flow_0tnz5y9</bpmn2:incoming>
-    </bpmn2:endEvent>
-    <bpmn2:intermediateCatchEvent id="Event_0asx17v" name="Überweisung/ Empfehlung erhalten">
-      <bpmn2:extensionElements>
-        <i18n:translation lang="en">Überweisung/ Empfehlung erhalten</i18n:translation>
-      </bpmn2:extensionElements>
-      <bpmn2:incoming>Flow_10l2s4x</bpmn2:incoming>
-      <bpmn2:outgoing>Flow_0f0jht6</bpmn2:outgoing>
-      <bpmn2:messageEventDefinition id="MessageEventDefinition_17zqhz5" />
-    </bpmn2:intermediateCatchEvent>
-    <bpmn2:eventBasedGateway id="Gateway_11xnbu6" name="">
-      <bpmn2:incoming>Flow_1hqfrzj</bpmn2:incoming>
-      <bpmn2:outgoing>Flow_10l2s4x</bpmn2:outgoing>
-      <bpmn2:outgoing>Flow_1byxitn</bpmn2:outgoing>
-    </bpmn2:eventBasedGateway>
-    <bpmn2:sequenceFlow id="Flow_0tnz5y9" sourceRef="Activity_1j86qnm" targetRef="Event_13vosun" />
-    <bpmn2:task id="Activity_1j86qnm" name="Notaufnahme aufsuchen">
-      <bpmn2:extensionElements>
-        <i18n:translation lang="en">Notaufnahme aufsuchen</i18n:translation>
-      </bpmn2:extensionElements>
-      <bpmn2:incoming>Flow_0jgxdrh</bpmn2:incoming>
-      <bpmn2:outgoing>Flow_0tnz5y9</bpmn2:outgoing>
-    </bpmn2:task>
-  </bpmn2:process>
   <bpmn2:process id="Process_0decs29">
     <bpmn2:sequenceFlow id="Flow_0ij0ein" sourceRef="Activity_0wyhje1" targetRef="Gateway_0anjn4t" />
     <bpmn2:sequenceFlow id="Flow_0fqmc8w" sourceRef="Event_05d77mb" targetRef="Activity_1ty9itk" />
@@ -759,14 +646,136 @@ Thorax + Oberbauch (EK 6.4)</i18n:translation>
     </bpmn2:endEvent>
     <bpmn2:association id="Association_0j7uxcd" associationDirection="None" sourceRef="TextAnnotation_1uhqyxk" targetRef="Gateway_0zozacf" />
   </bpmn2:process>
+  <bpmn2:process id="Process_1" isExecutable="false">
+    <bpmn2:task id="Activity_1j86qnm" name="Notaufnahme aufsuchen">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="en">Notaufnahme aufsuchen</i18n:translation>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_0jgxdrh</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_0tnz5y9</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:eventBasedGateway id="Gateway_11xnbu6" name="">
+      <bpmn2:incoming>Flow_1hqfrzj</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_10l2s4x</bpmn2:outgoing>
+      <bpmn2:outgoing>Flow_1byxitn</bpmn2:outgoing>
+    </bpmn2:eventBasedGateway>
+    <bpmn2:intermediateCatchEvent id="Event_0asx17v" name="Überweisung/ Empfehlung erhalten">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="en">Überweisung/ Empfehlung erhalten</i18n:translation>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_10l2s4x</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_12cuwjc</bpmn2:outgoing>
+      <bpmn2:messageEventDefinition id="MessageEventDefinition_17zqhz5" />
+    </bpmn2:intermediateCatchEvent>
+    <bpmn2:sequenceFlow id="Flow_10l2s4x" sourceRef="Gateway_11xnbu6" targetRef="Event_0asx17v" />
+    <bpmn2:endEvent id="Event_13vosun" name="Ins klinische Setting / Lungenzentrum verwiesen">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="en">Ins klinische Setting / Lungenzentrum verwiesen</i18n:translation>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_13u6q8t</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="Flow_0tnz5y9" sourceRef="Activity_1j86qnm" targetRef="Gateway_1x9wq0a" />
+    <bpmn2:endEvent id="Event_1xji28j" name="Abklärung abgeschlossen">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="en">Abklärung abgeschlossen</i18n:translation>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_1m8b62m</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:intermediateCatchEvent id="Event_0ymh30y" name="Rückmeldung erhalten">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="en">Rückmeldung erhalten</i18n:translation>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_1byxitn</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_1m8b62m</bpmn2:outgoing>
+      <bpmn2:messageEventDefinition id="MessageEventDefinition_1r9v5pa" />
+    </bpmn2:intermediateCatchEvent>
+    <bpmn2:sequenceFlow id="Flow_1m8b62m" sourceRef="Event_0ymh30y" targetRef="Event_1xji28j" />
+    <bpmn2:sequenceFlow id="Flow_1byxitn" sourceRef="Gateway_11xnbu6" targetRef="Event_0ymh30y" />
+    <bpmn2:exclusiveGateway id="Gateway_1f49pmz">
+      <bpmn2:incoming>Flow_14vcvak</bpmn2:incoming>
+      <bpmn2:incoming>Flow_0yq6m1h</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_1hqfrzj</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="Flow_1hqfrzj" sourceRef="Gateway_1f49pmz" targetRef="Gateway_11xnbu6" />
+    <bpmn2:intermediateCatchEvent id="Event_19xgx92" name="Überweisung erhalten">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="en">Überweisung erhalten</i18n:translation>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_0gebppq</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_0f5rckp</bpmn2:outgoing>
+      <bpmn2:messageEventDefinition id="MessageEventDefinition_1tsf8vo" />
+    </bpmn2:intermediateCatchEvent>
+    <bpmn2:sequenceFlow id="Flow_0gebppq" sourceRef="Activity_0sa0zjr" targetRef="Event_19xgx92" />
+    <bpmn2:task id="Activity_1ttprm0" name="Überweisung in der Radiologie vorlegen">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="en">Überweisung in der Radiologie vorlegen</i18n:translation>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_0f5rckp</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_14vcvak</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="Flow_14vcvak" sourceRef="Activity_1ttprm0" targetRef="Gateway_1f49pmz" />
+    <bpmn2:sequenceFlow id="Flow_0f5rckp" sourceRef="Event_19xgx92" targetRef="Activity_1ttprm0" />
+    <bpmn2:task id="Activity_176a627" name="Zufallsbefund beim Hausarzt vorstellen">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="en">Zufallsbefund beim Hausarzt vorstellen</i18n:translation>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_0i81i2i</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_0yq6m1h</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="Flow_0yq6m1h" sourceRef="Activity_176a627" targetRef="Gateway_1f49pmz" />
+    <bpmn2:startEvent id="Event_1lj2wra" name="Zufallsbefund erhalten">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="en">Zufallsbefund erhalten</i18n:translation>
+      </bpmn2:extensionElements>
+      <bpmn2:outgoing>Flow_0i81i2i</bpmn2:outgoing>
+      <bpmn2:messageEventDefinition id="MessageEventDefinition_152xf7w" />
+    </bpmn2:startEvent>
+    <bpmn2:sequenceFlow id="Flow_0i81i2i" sourceRef="Event_1lj2wra" targetRef="Activity_176a627" />
+    <bpmn2:sequenceFlow id="Flow_0aqfowy" name="nein" sourceRef="Gateway_1cs9nvr" targetRef="Activity_0sa0zjr">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="en">nein</i18n:translation>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="Flow_0jgxdrh" name="ja" sourceRef="Gateway_1cs9nvr" targetRef="Activity_1j86qnm">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="en">ja</i18n:translation>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="Flow_0vnqq8z" sourceRef="Event_064dlw4" targetRef="Gateway_1cs9nvr" />
+    <bpmn2:sequenceFlow id="Flow_12cuwjc" sourceRef="Event_0asx17v" targetRef="Gateway_1x9wq0a" />
+    <bpmn2:sequenceFlow id="Flow_13u6q8t" sourceRef="Gateway_1x9wq0a" targetRef="Event_13vosun" />
+    <bpmn2:exclusiveGateway id="Gateway_1x9wq0a">
+      <bpmn2:incoming>Flow_12cuwjc</bpmn2:incoming>
+      <bpmn2:incoming>Flow_0tnz5y9</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_13u6q8t</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:task id="Activity_0sa0zjr" name="Hausärztliche Praxis kontaktieren">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="en">Hausärztliche Praxis kontaktieren</i18n:translation>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_0aqfowy</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_0gebppq</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:exclusiveGateway id="Gateway_1cs9nvr" name="Notfall / akute Beschwerden?">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="en">Notfall / akute Beschwerden?</i18n:translation>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_0vnqq8z</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_0aqfowy</bpmn2:outgoing>
+      <bpmn2:outgoing>Flow_0jgxdrh</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:startEvent id="Event_064dlw4" name="Symptome bemerkt">
+      <bpmn2:extensionElements>
+        <i18n:translation lang="en">Symptome bemerkt</i18n:translation>
+      </bpmn2:extensionElements>
+      <bpmn2:outgoing>Flow_0vnqq8z</bpmn2:outgoing>
+    </bpmn2:startEvent>
+  </bpmn2:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1gq917d">
       <bpmndi:BPMNShape id="Participant_0dx5hyc_di" bpmnElement="Participant_0dx5hyc" isHorizontal="true">
         <dc:Bounds x="40" y="20" width="4430" height="400" />
         <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Gateway_1cs9nvr_di" bpmnElement="Gateway_1cs9nvr" isMarkerVisible="true">
-        <dc:Bounds x="210" y="185" width="50" height="50" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_064dlw4_di" bpmnElement="Event_064dlw4">
         <dc:Bounds x="124" y="192" width="36" height="36" />
@@ -832,14 +841,26 @@ Thorax + Oberbauch (EK 6.4)</i18n:translation>
         <dc:Bounds x="540" y="50" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1x9wq0a_di" bpmnElement="Gateway_1x9wq0a" isMarkerVisible="true">
+        <dc:Bounds x="3945" y="145" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1cs9nvr_di" bpmnElement="Gateway_1cs9nvr" isMarkerVisible="true">
+        <dc:Bounds x="257" y="185" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="193" y="160" width="73" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0jgxdrh_di" bpmnElement="Flow_0jgxdrh">
-        <di:waypoint x="235" y="185" />
-        <di:waypoint x="235" y="90" />
+        <di:waypoint x="282" y="185" />
+        <di:waypoint x="282" y="90" />
         <di:waypoint x="540" y="90" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="293" y="134.5" width="9" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0vnqq8z_di" bpmnElement="Flow_0vnqq8z">
         <di:waypoint x="160" y="210" />
-        <di:waypoint x="210" y="210" />
+        <di:waypoint x="257" y="210" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0i81i2i_di" bpmnElement="Flow_0i81i2i">
         <di:waypoint x="160" y="310" />
@@ -854,8 +875,11 @@ Thorax + Oberbauch (EK 6.4)</i18n:translation>
         <di:waypoint x="1044" y="210" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0aqfowy_di" bpmnElement="Flow_0aqfowy">
-        <di:waypoint x="260" y="210" />
+        <di:waypoint x="307" y="210" />
         <di:waypoint x="540" y="210" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="413" y="192" width="21" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0yq6m1h_di" bpmnElement="Flow_0yq6m1h">
         <di:waypoint x="332" y="310" />
@@ -869,10 +893,6 @@ Thorax + Oberbauch (EK 6.4)</i18n:translation>
       <bpmndi:BPMNEdge id="Flow_1m8b62m_di" bpmnElement="Flow_1m8b62m">
         <di:waypoint x="3988" y="270" />
         <di:waypoint x="4332" y="270" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0f0jht6_di" bpmnElement="Flow_0f0jht6">
-        <di:waypoint x="3828" y="170" />
-        <di:waypoint x="4332" y="170" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1byxitn_di" bpmnElement="Flow_1byxitn">
         <di:waypoint x="3570" y="235" />
@@ -890,8 +910,16 @@ Thorax + Oberbauch (EK 6.4)</i18n:translation>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0tnz5y9_di" bpmnElement="Flow_0tnz5y9">
         <di:waypoint x="640" y="90" />
-        <di:waypoint x="4350" y="90" />
-        <di:waypoint x="4350" y="152" />
+        <di:waypoint x="3970" y="90" />
+        <di:waypoint x="3970" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_12cuwjc_di" bpmnElement="Flow_12cuwjc">
+        <di:waypoint x="3828" y="170" />
+        <di:waypoint x="3945" y="170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_13u6q8t_di" bpmnElement="Flow_13u6q8t">
+        <di:waypoint x="3995" y="170" />
+        <di:waypoint x="4332" y="170" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Participant_18lf0ly_di" bpmnElement="Participant_18lf0ly" isHorizontal="true">
         <dc:Bounds x="40" y="460" width="4430" height="430" />
