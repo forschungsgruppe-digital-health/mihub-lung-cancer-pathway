@@ -232,17 +232,17 @@ Funktionen: Detektion und Volumetrie von Lungenrundherden, Berechnung der Volume
     <association id="Association_05nu60k" sourceRef="Activity_1npn3bx" targetRef="TextAnnotation_0wytj9r" />
     <textAnnotation id="TextAnnotation_1c8xere">
       <extensionElements>
-        <i18n:translation target="@text" lang="en">an erstberatenende Praxis</i18n:translation>
+        <i18n:translation target="@text" lang="en">von Radiologie an erstberatenende Praxis (also Akteur, der diese Aktivität ausführt z.B. Hausarzt )</i18n:translation>
       </extensionElements>
-      <text>an erstberatenende Praxis</text>
+      <text>von Radiologie an erstberatenende Praxis (also Akteur, der diese Aktivität ausführt z.B. Hausarzt )</text>
     </textAnnotation>
     <association id="Association_053ffvy" associationDirection="None" sourceRef="Activity_1w6kqds" targetRef="TextAnnotation_1c8xere" />
     <association id="Association_0r9rdfo" associationDirection="None" sourceRef="Activity_00yhsqy" targetRef="TextAnnotation_0m5wzfu" />
     <textAnnotation id="TextAnnotation_1x077z9">
       <extensionElements>
-        <i18n:translation target="@text" lang="en">ggf. Befund besprechen (je nach Einwilligung), Maßnahmen unverzüglich starten, Befundpaket übermitteln</i18n:translation>
+        <i18n:translation target="@text" lang="en">Befund besprechen, Maßnahmen unverzüglich starten, Befundpaket übermitteln</i18n:translation>
       </extensionElements>
-      <text>ggf. Befund besprechen (je nach Einwilligung), Maßnahmen unverzüglich starten, Befundpaket übermitteln</text>
+      <text>Befund besprechen, Maßnahmen unverzüglich starten, Befundpaket übermitteln</text>
     </textAnnotation>
     <association id="Association_0fm7d8j" associationDirection="None" sourceRef="Activity_0es6xoa" targetRef="TextAnnotation_1x077z9" />
     <textAnnotation id="TextAnnotation_00yhwvh">
@@ -254,11 +254,18 @@ Funktionen: Detektion und Volumetrie von Lungenrundherden, Berechnung der Volume
     <association id="Association_07mzsui" associationDirection="None" sourceRef="Event_0nesy5q" targetRef="TextAnnotation_00yhwvh" />
     <textAnnotation id="TextAnnotation_166tknw">
       <extensionElements>
-        <i18n:translation target="@text" lang="en">je nach Einwillung an HA oder nur an Patient:in</i18n:translation>
+        <i18n:translation target="@text" lang="en">je nach Einwillung auch an HA,  bei abklärungsbedürftigem Befund muss ein Beratungsgespräch durch den Erstbefunder stattfinden</i18n:translation>
       </extensionElements>
-      <text>je nach Einwillung an HA oder nur an Patient:in</text>
+      <text>je nach Einwillung auch an HA,  bei abklärungsbedürftigem Befund muss ein Beratungsgespräch durch den Erstbefunder stattfinden</text>
     </textAnnotation>
     <association id="Association_1yt5wi0" associationDirection="None" sourceRef="Activity_12ef5s1" targetRef="TextAnnotation_166tknw" />
+    <textAnnotation id="TextAnnotation_15896z6">
+      <extensionElements>
+        <i18n:translation target="@text" lang="en">Die gemeinsame Konferenz ist nur abrechenbar, wenn Erst- und Zweitbefundung divergent sind. In Praxis bespricht man trotzdem auch diese ganz kurz.</i18n:translation>
+      </extensionElements>
+      <text>Die gemeinsame Konferenz ist nur abrechenbar, wenn Erst- und Zweitbefundung divergent sind. In Praxis bespricht man trotzdem auch diese ganz kurz.</text>
+    </textAnnotation>
+    <association id="Association_00ngtag" associationDirection="None" sourceRef="Activity_10riunt" targetRef="TextAnnotation_15896z6" />
   </collaboration>
   <process id="Process_0zf2amb" name="Versicherte Person" isExecutable="false">
     <laneSet id="LaneSet_0mk8eqk" />
@@ -1690,6 +1697,10 @@ PDF</i18n:translation>
         <omgdi:waypoint x="5780" y="3760" />
         <omgdi:waypoint x="5780" y="4242" />
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_00ngtag_di" bpmnElement="Association_00ngtag">
+        <omgdi:waypoint x="5634" y="3720" />
+        <omgdi:waypoint x="5695" y="3681" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="BPMNShape_1vkktn5" bpmnElement="TextAnnotation_0wytj9r" bioc:stroke="#000000" color:border-color="#000000">
         <omgdc:Bounds x="1470" y="2663" width="420" height="100" />
         <bpmndi:BPMNLabel />
@@ -1751,11 +1762,11 @@ PDF</i18n:translation>
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_1c8xere_di" bpmnElement="TextAnnotation_1c8xere">
-        <omgdc:Bounds x="1450" y="2530" width="120" height="43" />
+        <omgdc:Bounds x="1450" y="2530" width="120" height="100" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_1x077z9_di" bpmnElement="TextAnnotation_1x077z9">
-        <omgdc:Bounds x="6070" y="4550" width="200" height="72" />
+        <omgdc:Bounds x="6070" y="4550" width="200" height="57" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_00yhwvh_di" bpmnElement="TextAnnotation_00yhwvh">
@@ -1763,7 +1774,7 @@ PDF</i18n:translation>
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_166tknw_di" bpmnElement="TextAnnotation_166tknw">
-        <omgdc:Bounds x="7030" y="3530" width="100" height="72" />
+        <omgdc:Bounds x="7030" y="3530" width="220" height="72" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="DataInputAssociation_1e5bp1d_di" bpmnElement="DataInputAssociation_1e5bp1d">
@@ -1951,6 +1962,10 @@ PDF</i18n:translation>
         <omgdi:waypoint x="6968" y="3466" />
         <omgdi:waypoint x="7053" y="3530" />
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_15896z6_di" bpmnElement="TextAnnotation_15896z6">
+        <omgdc:Bounds x="5695" y="3630" width="285" height="72" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </definitions>
