@@ -37,6 +37,9 @@ and a modeler remodels; the change is re-confirmed for face validity (**SEM-6**)
   excludes the BPMN4CP elements before validating (`tools/xsd-core-view.mjs`) — Issue X1 closed
   without model changes. Issue X2 (un-namespaced styling attributes on the `overarching` DI
   plane) stays open as a low-priority housekeeping item; not blocking.
+  **Korrektur 2026-09-16:** X1 ist wieder offen — die Schließung „nicht defekt (by design)" beruhte auf einer
+  unbelegten Prämisse; die BPMN4CP-Publikationen definieren keine Serialisierung, und Standard-Editoren verwerfen
+  den Inhalt beim Speichern (gemessen). Siehe den Statusblock im Befunddokument.
 
 ## Filed issues (2026-09-04)
 
