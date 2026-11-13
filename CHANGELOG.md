@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.6.1-rc.1](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/compare/v0.6.0-rc.1...v0.6.1-rc.1) (2026-11-12)
+
+
+### Corrections
+
+* **screening:** Annotationen zu Befundübermittlung und Konferenz präzisiert ([df094f5](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/df094f5c2df94684e1c2d6bb2ac1c66c4a8c216e))
+* **screening:** Annotationen zu Befundübermittlung und Konferenz präzisiert ([c0a2200](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/c0a2200730a06a71b983039e901bdda70523d70a))
+* **screening:** finale Überarbeitung (Feedback RW) ([d2b2327](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/d2b232742db418ff2ef5257d64049b1ae76a443a))
+* **screening:** finale Überarbeitung (Feedback RW) ([6ea546a](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/6ea546a78d1a995b66aea9c3f761047f1c26f373))
+
+
+### Documentation & governance
+
+* **model-issues:** correct the XSD placement note — 'by design' was an unsupported premise ([4e8f494](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/4e8f49416df085a5a6ed120365d2c0778b9c1d3b))
+* **model-issues:** correct the XSD placement note — the 'by design' premise was unsupported ([f75b48e](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/f75b48eb0062aca653117cec77e1fc5828d3e6ab))
+
 ## [0.6.0-rc.1](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/compare/v0.5.0-rc.1...v0.6.0-rc.1) (2026-09-16)
 
 
