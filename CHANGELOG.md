@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.6.3-rc.1](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/compare/v0.6.2-rc.1...v0.6.3-rc.1) (2026-11-16)
+
+
+### Corrections
+
+* **initial-entry:** Notfallzweig, Patientenwunsch und Befundgespräche ergänzt ([84f8e85](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/84f8e8543697b8d2ed63691d03ee047e5a05b60b))
+* **initial-entry:** Notfallzweig, Patientenwunsch und Befundgespräche ergänzt ([12c2743](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/12c2743ff6324567cc78d7b5dbb5670c87ab979c))
+
 ## [0.6.2-rc.1](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/compare/v0.6.1-rc.1...v0.6.2-rc.1) (2026-11-16)
 
 
