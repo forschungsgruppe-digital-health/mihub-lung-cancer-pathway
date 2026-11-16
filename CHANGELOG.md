@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.6.2-rc.1](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/compare/v0.6.1-rc.1...v0.6.2-rc.1) (2026-11-16)
+
+
+### Corrections
+
+* **screening:** Teilnahmeentscheidung und berufliche Exposition ergänzt ([29dcfd7](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/29dcfd7ae065c528f3126fa5867a208c72e5a879))
+* **screening:** Teilnahmeentscheidung und berufliche Exposition ergänzt ([100364e](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/commit/100364e146f4f3299f6341419df4be1a45cd1ef7))
+
 ## [0.6.1-rc.1](https://github.com/forschungsgruppe-digital-health/mihub-lung-cancer-pathway/compare/v0.6.0-rc.1...v0.6.1-rc.1) (2026-11-12)
 
 
